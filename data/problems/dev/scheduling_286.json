@@ -1,0 +1,469 @@
+{
+  "problem_id": "scheduling_286",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Refactor",
+    "Planning",
+    "Meeting",
+    "QA",
+    "Sync",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Planning has duration 2. Also, Docs has duration 1. Also, Sync has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 2 slots between Docs and Refactor. Also, Planning must start at time slot 1. Also, Sync must start between time slots 5 and 7.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            5,
+            7
+          ],
+          "nl": "Sync must start between time slots 5 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            5,
+            7
+          ],
+          "nl": "Sync must start between time slots 5 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 1 slots between Sync and Refactor. Also, Meeting and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            5,
+            7
+          ],
+          "nl": "Sync must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 0 slots between Planning and Sync. Also, There must be at least 1 slots between Planning and Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            5,
+            7
+          ],
+          "nl": "Sync must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 9,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "dev"
+}

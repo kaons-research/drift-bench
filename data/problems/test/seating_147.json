@@ -1,0 +1,309 @@
+{
+  "problem_id": "seating_147",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Olivia",
+    "Bob",
+    "Karen",
+    "Alice",
+    "Sam",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Alice sits immediately left of Bob.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 5,
+        "Bob": 6,
+        "Karen": 3,
+        "Alice": 1,
+        "Sam": 2,
+        "Eve": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Alice must sit at position 5. Also, Olivia cannot sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            5
+          ],
+          "nl": "Alice must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia cannot sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            5
+          ],
+          "nl": "Alice must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia cannot sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 2,
+        "Bob": 4,
+        "Karen": 1,
+        "Alice": 5,
+        "Sam": 6,
+        "Eve": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Karen and Alice must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Alice",
+            2
+          ],
+          "nl": "Karen and Alice must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            5
+          ],
+          "nl": "Alice must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia cannot sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Alice",
+            2
+          ],
+          "nl": "Karen and Alice must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 3,
+        "Bob": 4,
+        "Karen": 2,
+        "Alice": 5,
+        "Sam": 1,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Olivia and Sam must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Sam",
+            1
+          ],
+          "nl": "Olivia and Sam must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            5
+          ],
+          "nl": "Alice must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia cannot sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Alice",
+            2
+          ],
+          "nl": "Karen and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Sam",
+            1
+          ],
+          "nl": "Olivia and Sam must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 3,
+        "Bob": 4,
+        "Karen": 2,
+        "Alice": 5,
+        "Sam": 1,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sam cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Olivia"
+          ],
+          "nl": "Sam cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            5
+          ],
+          "nl": "Alice must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia cannot sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Alice",
+            2
+          ],
+          "nl": "Karen and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Sam",
+            1
+          ],
+          "nl": "Olivia and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Olivia"
+          ],
+          "nl": "Sam cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 1,
+        "Bob": 4,
+        "Karen": 2,
+        "Alice": 5,
+        "Sam": 3,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

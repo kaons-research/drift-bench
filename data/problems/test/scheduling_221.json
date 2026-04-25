@@ -1,0 +1,992 @@
+{
+  "problem_id": "scheduling_221",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Testing",
+    "Docs",
+    "Meeting",
+    "Refactor",
+    "Sync",
+    "QA",
+    "Design"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Refactor must start between time slots 6 and 8. Also, There must be at least 1 slots between Testing and Refactor. Also, Docs must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            8
+          ],
+          "nl": "Refactor must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            8
+          ],
+          "nl": "Refactor must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA must happen before Design. Also, There must be at least 1 slots between Docs and Design.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            8
+          ],
+          "nl": "Refactor must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 2 slots between Meeting and Design. Also, Docs must start between time slots 5 and 5. Also, Testing has duration 2.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            5
+          ],
+          "nl": "Docs must start between time slots 5 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            8
+          ],
+          "nl": "Refactor must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            5
+          ],
+          "nl": "Docs must start between time slots 5 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 10,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "QA has duration 1. Also, Sync must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            8
+          ],
+          "nl": "Refactor must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            5
+          ],
+          "nl": "Docs must start between time slots 5 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 10,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 0 slots between Refactor and Sync. Also, Docs has duration 1.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            8
+          ],
+          "nl": "Refactor must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            5
+          ],
+          "nl": "Docs must start between time slots 5 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 8,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Design must start between time slots 7 and 8. Also, Meeting must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            8
+          ],
+          "nl": "Refactor must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            5
+          ],
+          "nl": "Docs must start between time slots 5 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 8,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "There must be at least 0 slots between Design and QA.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            8
+          ],
+          "nl": "Refactor must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            5
+          ],
+          "nl": "Docs must start between time slots 5 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and QA"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

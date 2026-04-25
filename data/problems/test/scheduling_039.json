@@ -1,0 +1,1196 @@
+{
+  "problem_id": "scheduling_039",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Refactor",
+    "Deploy",
+    "Planning",
+    "Docs",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 0 slots between Planning and Refactor. Also, Review has duration 3. Also, Docs has duration 2.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 1,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 2 slots between Review and Deploy. Also, Planning and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 4,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Planning must happen before Docs. Also, There must be at least 2 slots between Deploy and Planning.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 2
+        },
+        "Review": {
+          "start": 7,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 2
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning must start between time slots 2 and 7. Also, Deploy and Review cannot be simultaneous. Also, Refactor must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            7
+          ],
+          "nl": "Planning must start between time slots 2 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            7
+          ],
+          "nl": "Planning must start between time slots 2 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 2
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Deploy must happen before Docs. Also, Refactor and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            7
+          ],
+          "nl": "Planning must start between time slots 2 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 2
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Refactor must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            7
+          ],
+          "nl": "Planning must start between time slots 2 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 2
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "There must be at least 2 slots between Docs and Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            7
+          ],
+          "nl": "Planning must start between time slots 2 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 2
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Planning must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Refactor"
+          ],
+          "nl": "Planning and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            7
+          ],
+          "nl": "Planning must start between time slots 2 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 2
+        },
+        "Review": {
+          "start": 7,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

@@ -1,0 +1,914 @@
+{
+  "problem_id": "seating_006",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Frank",
+    "Jack",
+    "Ruby",
+    "Alice",
+    "Noah",
+    "Bob"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Frank sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Jack": 5,
+        "Ruby": 4,
+        "Alice": 3,
+        "Noah": 1,
+        "Bob": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Ruby and Noah must sit on the same side of the table. Also, Ruby and Alice must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Jack": 4,
+        "Ruby": 2,
+        "Alice": 3,
+        "Noah": 1,
+        "Bob": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Bob must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Jack": 1,
+        "Ruby": 4,
+        "Alice": 6,
+        "Noah": 5,
+        "Bob": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Alice and Bob must sit on opposite sides of the table. Also, Bob and Jack must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob and Jack must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob and Jack must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Jack": 1,
+        "Ruby": 4,
+        "Alice": 6,
+        "Noah": 5,
+        "Bob": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Frank cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Jack": 1,
+        "Ruby": 5,
+        "Alice": 4,
+        "Noah": 6,
+        "Bob": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Alice must sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice must sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice must sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Jack": 1,
+        "Ruby": 6,
+        "Alice": 5,
+        "Noah": 4,
+        "Bob": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Alice and Frank must sit on opposite sides of the table. Also, Alice cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice must sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Jack": 1,
+        "Ruby": 5,
+        "Alice": 4,
+        "Noah": 6,
+        "Bob": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Ruby and Bob must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Bob",
+            1
+          ],
+          "nl": "Ruby and Bob must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice must sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Bob",
+            1
+          ],
+          "nl": "Ruby and Bob must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Jack": 1,
+        "Ruby": 5,
+        "Alice": 4,
+        "Noah": 6,
+        "Bob": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Ruby and Jack must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Jack",
+            1
+          ],
+          "nl": "Ruby and Jack must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice must sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Bob",
+            1
+          ],
+          "nl": "Ruby and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Jack",
+            1
+          ],
+          "nl": "Ruby and Jack must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Jack": 1,
+        "Ruby": 5,
+        "Alice": 4,
+        "Noah": 6,
+        "Bob": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Ruby and Frank must sit on opposite sides of the table. Also, Jack and Alice must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Ruby",
+            "Frank"
+          ],
+          "nl": "Ruby and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack and Alice must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Noah"
+          ],
+          "nl": "Ruby and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            3
+          ],
+          "nl": "Bob must sit at position 3"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice must sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Bob",
+            1
+          ],
+          "nl": "Ruby and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Jack",
+            1
+          ],
+          "nl": "Ruby and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Ruby",
+            "Frank"
+          ],
+          "nl": "Ruby and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack and Alice must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Jack": 1,
+        "Ruby": 5,
+        "Alice": 6,
+        "Noah": 4,
+        "Bob": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

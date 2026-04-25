@@ -1,0 +1,584 @@
+{
+  "problem_id": "seating_002",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Peter",
+    "Mia",
+    "Olivia",
+    "Eve",
+    "Ivy",
+    "Charlie",
+    "Diana",
+    "Liam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Diana and Ivy must have at least 2 seats between them. Also, Eve must sit at position 3. Also, Liam and Peter must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 4,
+        "Mia": 2,
+        "Olivia": 7,
+        "Eve": 3,
+        "Ivy": 5,
+        "Charlie": 6,
+        "Diana": 8,
+        "Liam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Olivia cannot sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia cannot sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia cannot sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 4,
+        "Mia": 6,
+        "Olivia": 5,
+        "Eve": 3,
+        "Ivy": 2,
+        "Charlie": 8,
+        "Diana": 7,
+        "Liam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia sits immediately left of Eve. Also, Liam sits immediately left of Ivy. Also, Peter must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            2
+          ],
+          "nl": "Peter must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia cannot sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            2
+          ],
+          "nl": "Peter must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 2,
+        "Mia": 4,
+        "Olivia": 5,
+        "Eve": 3,
+        "Ivy": 6,
+        "Charlie": 8,
+        "Diana": 1,
+        "Liam": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Mia cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia cannot sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            2
+          ],
+          "nl": "Peter must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 2,
+        "Mia": 4,
+        "Olivia": 5,
+        "Eve": 3,
+        "Ivy": 6,
+        "Charlie": 8,
+        "Diana": 1,
+        "Liam": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Olivia cannot sit next to Charlie. Also, Liam and Mia must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            2
+          ],
+          "nl": "Liam and Mia must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia cannot sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            2
+          ],
+          "nl": "Peter must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            2
+          ],
+          "nl": "Liam and Mia must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 2,
+        "Mia": 4,
+        "Olivia": 5,
+        "Eve": 3,
+        "Ivy": 6,
+        "Charlie": 8,
+        "Diana": 1,
+        "Liam": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Peter and Ivy must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Ivy",
+            1
+          ],
+          "nl": "Peter and Ivy must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia cannot sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            2
+          ],
+          "nl": "Peter must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            2
+          ],
+          "nl": "Liam and Mia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Ivy",
+            1
+          ],
+          "nl": "Peter and Ivy must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 2,
+        "Mia": 4,
+        "Olivia": 5,
+        "Eve": 3,
+        "Ivy": 6,
+        "Charlie": 8,
+        "Diana": 1,
+        "Liam": 7
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

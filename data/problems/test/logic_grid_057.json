@@ -1,0 +1,504 @@
+{
+  "problem_id": "logic_grid_057",
+  "domain": "logic_grid",
+  "num_entities": 4,
+  "entities": [
+    "Avery",
+    "Hayden",
+    "Finley",
+    "Jordan"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Finley is assigned Green in category color.",
+      "new_constraints": [
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "color",
+            "Green"
+          ],
+          "nl": "Finley is assigned Green in category color"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "color",
+            "Green"
+          ],
+          "nl": "Finley is assigned Green in category color"
+        }
+      ],
+      "gold_solution": {
+        "Avery": {
+          "color": "Red",
+          "pet": "Fish",
+          "profession": "Doctor"
+        },
+        "Hayden": {
+          "color": "Yellow",
+          "pet": "Cat",
+          "profession": "Chef"
+        },
+        "Finley": {
+          "color": "Green",
+          "pet": "Dog",
+          "profession": "Teacher"
+        },
+        "Jordan": {
+          "color": "Blue",
+          "pet": "Bird",
+          "profession": "Artist"
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jordan is not assigned Green in category color. Also, Hayden's pet value comes before Finley's pet value.",
+      "new_constraints": [
+        {
+          "type": "not_assign",
+          "args": [
+            "Jordan",
+            "color",
+            "Green"
+          ],
+          "nl": "Jordan is not assigned Green in category color"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Finley",
+            "pet"
+          ],
+          "nl": "Hayden's pet value comes before Finley's pet value"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "color",
+            "Green"
+          ],
+          "nl": "Finley is assigned Green in category color"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Jordan",
+            "color",
+            "Green"
+          ],
+          "nl": "Jordan is not assigned Green in category color"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Finley",
+            "pet"
+          ],
+          "nl": "Hayden's pet value comes before Finley's pet value"
+        }
+      ],
+      "gold_solution": {
+        "Avery": {
+          "color": "Blue",
+          "pet": "Cat",
+          "profession": "Doctor"
+        },
+        "Hayden": {
+          "color": "Red",
+          "pet": "Dog",
+          "profession": "Chef"
+        },
+        "Finley": {
+          "color": "Green",
+          "pet": "Fish",
+          "profession": "Teacher"
+        },
+        "Jordan": {
+          "color": "Yellow",
+          "pet": "Bird",
+          "profession": "Artist"
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Avery's profession value comes before Finley's profession value. Also, Finley is not assigned Red in category color.",
+      "new_constraints": [
+        {
+          "type": "ordered",
+          "args": [
+            "Avery",
+            "Finley",
+            "profession"
+          ],
+          "nl": "Avery's profession value comes before Finley's profession value"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Finley",
+            "color",
+            "Red"
+          ],
+          "nl": "Finley is not assigned Red in category color"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "color",
+            "Green"
+          ],
+          "nl": "Finley is assigned Green in category color"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Jordan",
+            "color",
+            "Green"
+          ],
+          "nl": "Jordan is not assigned Green in category color"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Finley",
+            "pet"
+          ],
+          "nl": "Hayden's pet value comes before Finley's pet value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Avery",
+            "Finley",
+            "profession"
+          ],
+          "nl": "Avery's profession value comes before Finley's profession value"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Finley",
+            "color",
+            "Red"
+          ],
+          "nl": "Finley is not assigned Red in category color"
+        }
+      ],
+      "gold_solution": {
+        "Avery": {
+          "color": "Blue",
+          "pet": "Bird",
+          "profession": "Artist"
+        },
+        "Hayden": {
+          "color": "Yellow",
+          "pet": "Cat",
+          "profession": "Doctor"
+        },
+        "Finley": {
+          "color": "Green",
+          "pet": "Dog",
+          "profession": "Teacher"
+        },
+        "Jordan": {
+          "color": "Red",
+          "pet": "Fish",
+          "profession": "Chef"
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Jordan has a different profession than Finley. Also, Finley is assigned Teacher in category profession. Also, Avery is not assigned Bird in category pet.",
+      "new_constraints": [
+        {
+          "type": "different",
+          "args": [
+            "Jordan",
+            "Finley",
+            "profession"
+          ],
+          "nl": "Jordan has a different profession than Finley"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "profession",
+            "Teacher"
+          ],
+          "nl": "Finley is assigned Teacher in category profession"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Avery",
+            "pet",
+            "Bird"
+          ],
+          "nl": "Avery is not assigned Bird in category pet"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "color",
+            "Green"
+          ],
+          "nl": "Finley is assigned Green in category color"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Jordan",
+            "color",
+            "Green"
+          ],
+          "nl": "Jordan is not assigned Green in category color"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Finley",
+            "pet"
+          ],
+          "nl": "Hayden's pet value comes before Finley's pet value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Avery",
+            "Finley",
+            "profession"
+          ],
+          "nl": "Avery's profession value comes before Finley's profession value"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Finley",
+            "color",
+            "Red"
+          ],
+          "nl": "Finley is not assigned Red in category color"
+        },
+        {
+          "type": "different",
+          "args": [
+            "Jordan",
+            "Finley",
+            "profession"
+          ],
+          "nl": "Jordan has a different profession than Finley"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "profession",
+            "Teacher"
+          ],
+          "nl": "Finley is assigned Teacher in category profession"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Avery",
+            "pet",
+            "Bird"
+          ],
+          "nl": "Avery is not assigned Bird in category pet"
+        }
+      ],
+      "gold_solution": {
+        "Avery": {
+          "color": "Red",
+          "pet": "Dog",
+          "profession": "Doctor"
+        },
+        "Hayden": {
+          "color": "Blue",
+          "pet": "Cat",
+          "profession": "Artist"
+        },
+        "Finley": {
+          "color": "Green",
+          "pet": "Bird",
+          "profession": "Teacher"
+        },
+        "Jordan": {
+          "color": "Yellow",
+          "pet": "Fish",
+          "profession": "Chef"
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Jordan is assigned Red in category color.",
+      "new_constraints": [
+        {
+          "type": "assign",
+          "args": [
+            "Jordan",
+            "color",
+            "Red"
+          ],
+          "nl": "Jordan is assigned Red in category color"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "color",
+            "Green"
+          ],
+          "nl": "Finley is assigned Green in category color"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Jordan",
+            "color",
+            "Green"
+          ],
+          "nl": "Jordan is not assigned Green in category color"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Finley",
+            "pet"
+          ],
+          "nl": "Hayden's pet value comes before Finley's pet value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Avery",
+            "Finley",
+            "profession"
+          ],
+          "nl": "Avery's profession value comes before Finley's profession value"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Finley",
+            "color",
+            "Red"
+          ],
+          "nl": "Finley is not assigned Red in category color"
+        },
+        {
+          "type": "different",
+          "args": [
+            "Jordan",
+            "Finley",
+            "profession"
+          ],
+          "nl": "Jordan has a different profession than Finley"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Finley",
+            "profession",
+            "Teacher"
+          ],
+          "nl": "Finley is assigned Teacher in category profession"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Avery",
+            "pet",
+            "Bird"
+          ],
+          "nl": "Avery is not assigned Bird in category pet"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Jordan",
+            "color",
+            "Red"
+          ],
+          "nl": "Jordan is assigned Red in category color"
+        }
+      ],
+      "gold_solution": {
+        "Avery": {
+          "color": "Blue",
+          "pet": "Dog",
+          "profession": "Doctor"
+        },
+        "Hayden": {
+          "color": "Yellow",
+          "pet": "Bird",
+          "profession": "Artist"
+        },
+        "Finley": {
+          "color": "Green",
+          "pet": "Fish",
+          "profession": "Teacher"
+        },
+        "Jordan": {
+          "color": "Red",
+          "pet": "Cat",
+          "profession": "Chef"
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "categories": {
+    "color": [
+      "Red",
+      "Blue",
+      "Green",
+      "Yellow"
+    ],
+    "pet": [
+      "Cat",
+      "Dog",
+      "Bird",
+      "Fish"
+    ],
+    "profession": [
+      "Doctor",
+      "Artist",
+      "Teacher",
+      "Chef"
+    ]
+  },
+  "split": "test"
+}

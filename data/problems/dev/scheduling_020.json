@@ -1,0 +1,852 @@
+{
+  "problem_id": "scheduling_020",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Planning",
+    "QA",
+    "Design",
+    "Deploy",
+    "Meeting",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "QA must happen before Design. Also, Design must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing must happen before QA. Also, Testing has duration 1.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Planning must start at time slot 9.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Deploy must start between time slots 5 and 8. Also, Meeting and QA cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            5,
+            8
+          ],
+          "nl": "Deploy must start between time slots 5 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            5,
+            8
+          ],
+          "nl": "Deploy must start between time slots 5 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Testing must happen before Meeting.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing must happen before Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            5,
+            8
+          ],
+          "nl": "Deploy must start between time slots 5 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing must happen before Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Deploy must start between time slots 7 and 8. Also, Meeting must start at time slot 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            7,
+            8
+          ],
+          "nl": "Deploy must start between time slots 7 and 8"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            5,
+            8
+          ],
+          "nl": "Deploy must start between time slots 5 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            7,
+            8
+          ],
+          "nl": "Deploy must start between time slots 7 and 8"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "There must be at least 1 slots between QA and Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA must happen before Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            5,
+            8
+          ],
+          "nl": "Deploy must start between time slots 5 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            7,
+            8
+          ],
+          "nl": "Deploy must start between time slots 7 and 8"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "dev"
+}

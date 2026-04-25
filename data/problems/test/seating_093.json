@@ -1,0 +1,766 @@
+{
+  "problem_id": "seating_093",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Frank",
+    "Charlie",
+    "Sam",
+    "Henry",
+    "Noah",
+    "Jack",
+    "Tina"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Henry cannot sit next to Noah. Also, Jack must sit next to Noah. Also, Tina cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Charlie": 1,
+        "Sam": 2,
+        "Henry": 7,
+        "Noah": 4,
+        "Jack": 3,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank must sit at position 5. Also, Charlie must sit next to Sam. Also, Charlie must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            5
+          ],
+          "nl": "Frank must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            5
+          ],
+          "nl": "Frank must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Charlie": 3,
+        "Sam": 2,
+        "Henry": 4,
+        "Noah": 7,
+        "Jack": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Jack cannot sit next to Frank. Also, Henry sits immediately left of Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            5
+          ],
+          "nl": "Frank must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Charlie": 3,
+        "Sam": 2,
+        "Henry": 4,
+        "Noah": 6,
+        "Jack": 7,
+        "Tina": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Frank and Charlie must have at least 1 seats between them. Also, Sam cannot sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Charlie",
+            1
+          ],
+          "nl": "Frank and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            5
+          ],
+          "nl": "Frank must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Charlie",
+            1
+          ],
+          "nl": "Frank and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Charlie": 3,
+        "Sam": 2,
+        "Henry": 4,
+        "Noah": 1,
+        "Jack": 7,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sam and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Frank",
+            1
+          ],
+          "nl": "Sam and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            5
+          ],
+          "nl": "Frank must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Charlie",
+            1
+          ],
+          "nl": "Frank and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Frank",
+            1
+          ],
+          "nl": "Sam and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Charlie": 3,
+        "Sam": 2,
+        "Henry": 4,
+        "Noah": 6,
+        "Jack": 7,
+        "Tina": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Noah and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            1
+          ],
+          "nl": "Noah and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            5
+          ],
+          "nl": "Frank must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Charlie",
+            1
+          ],
+          "nl": "Frank and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Frank",
+            1
+          ],
+          "nl": "Sam and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            1
+          ],
+          "nl": "Noah and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Charlie": 3,
+        "Sam": 2,
+        "Henry": 4,
+        "Noah": 1,
+        "Jack": 7,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Charlie and Tina must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Tina",
+            1
+          ],
+          "nl": "Charlie and Tina must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            5
+          ],
+          "nl": "Frank must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Charlie",
+            1
+          ],
+          "nl": "Frank and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Frank",
+            1
+          ],
+          "nl": "Sam and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            1
+          ],
+          "nl": "Noah and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Tina",
+            1
+          ],
+          "nl": "Charlie and Tina must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Charlie": 3,
+        "Sam": 2,
+        "Henry": 4,
+        "Noah": 1,
+        "Jack": 7,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

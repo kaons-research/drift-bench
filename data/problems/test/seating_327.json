@@ -1,0 +1,473 @@
+{
+  "problem_id": "seating_327",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Henry",
+    "Olivia",
+    "Tina",
+    "Ivy",
+    "Karen",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Henry and Eve must sit on opposite sides of the table. Also, Tina must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 1,
+        "Olivia": 4,
+        "Tina": 5,
+        "Ivy": 2,
+        "Karen": 3,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Olivia and Henry must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Henry"
+          ],
+          "nl": "Olivia and Henry must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Henry"
+          ],
+          "nl": "Olivia and Henry must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 6,
+        "Olivia": 3,
+        "Tina": 5,
+        "Ivy": 2,
+        "Karen": 4,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry and Ivy must sit on opposite sides of the table. Also, Ivy sits immediately left of Eve.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Ivy"
+          ],
+          "nl": "Henry and Ivy must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy sits immediately left of Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Henry"
+          ],
+          "nl": "Olivia and Henry must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Ivy"
+          ],
+          "nl": "Henry and Ivy must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy sits immediately left of Eve"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 6,
+        "Olivia": 3,
+        "Tina": 5,
+        "Ivy": 2,
+        "Karen": 4,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Ivy cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Tina"
+          ],
+          "nl": "Ivy cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Henry"
+          ],
+          "nl": "Olivia and Henry must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Ivy"
+          ],
+          "nl": "Henry and Ivy must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Tina"
+          ],
+          "nl": "Ivy cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Olivia": 1,
+        "Tina": 5,
+        "Ivy": 3,
+        "Karen": 6,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Eve and Olivia must sit on the same side of the table. Also, Henry must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Henry"
+          ],
+          "nl": "Olivia and Henry must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Ivy"
+          ],
+          "nl": "Henry and Ivy must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Tina"
+          ],
+          "nl": "Ivy cannot sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Olivia": 3,
+        "Tina": 5,
+        "Ivy": 2,
+        "Karen": 6,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Karen and Eve must have at least 1 seats between them. Also, Karen sits immediately left of Ivy.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Eve",
+            1
+          ],
+          "nl": "Karen and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Ivy"
+          ],
+          "nl": "Karen sits immediately left of Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Henry"
+          ],
+          "nl": "Olivia and Henry must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Ivy"
+          ],
+          "nl": "Henry and Ivy must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Tina"
+          ],
+          "nl": "Ivy cannot sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Eve",
+            1
+          ],
+          "nl": "Karen and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Ivy"
+          ],
+          "nl": "Karen sits immediately left of Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 6,
+        "Olivia": 1,
+        "Tina": 5,
+        "Ivy": 3,
+        "Karen": 4,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

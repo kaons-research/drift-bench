@@ -1,0 +1,1113 @@
+{
+  "problem_id": "seating_106",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Frank",
+    "Mia",
+    "Peter",
+    "Diana",
+    "Ivy",
+    "Jack"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Ivy must sit next to Peter. Also, Frank cannot sit next to Diana. Also, Peter and Mia must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Mia": 5,
+        "Peter": 1,
+        "Diana": 4,
+        "Ivy": 6,
+        "Jack": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Mia must sit at position 2. Also, Mia sits immediately left of Jack. Also, Frank must sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 4,
+        "Diana": 3,
+        "Ivy": 5,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Frank must sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 5,
+        "Diana": 3,
+        "Ivy": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Mia and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Frank",
+            1
+          ],
+          "nl": "Mia and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Frank",
+            1
+          ],
+          "nl": "Mia and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 5,
+        "Diana": 3,
+        "Ivy": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Mia cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Frank",
+            1
+          ],
+          "nl": "Mia and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 5,
+        "Diana": 3,
+        "Ivy": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Jack and Ivy must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            1
+          ],
+          "nl": "Jack and Ivy must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Frank",
+            1
+          ],
+          "nl": "Mia and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            1
+          ],
+          "nl": "Jack and Ivy must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 5,
+        "Diana": 3,
+        "Ivy": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Frank cannot sit next to Ivy. Also, Frank must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Ivy"
+          ],
+          "nl": "Frank cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Frank",
+            1
+          ],
+          "nl": "Mia and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            1
+          ],
+          "nl": "Jack and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Ivy"
+          ],
+          "nl": "Frank cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 5,
+        "Diana": 3,
+        "Ivy": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Ivy cannot sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy cannot sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Frank",
+            1
+          ],
+          "nl": "Mia and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            1
+          ],
+          "nl": "Jack and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Ivy"
+          ],
+          "nl": "Frank cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy cannot sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 5,
+        "Diana": 3,
+        "Ivy": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Ivy and Jack must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Jack",
+            2
+          ],
+          "nl": "Ivy and Jack must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Frank",
+            1
+          ],
+          "nl": "Mia and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            1
+          ],
+          "nl": "Jack and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Ivy"
+          ],
+          "nl": "Frank cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy cannot sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Jack",
+            2
+          ],
+          "nl": "Ivy and Jack must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 5,
+        "Diana": 3,
+        "Ivy": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Jack and Diana must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Diana",
+            1
+          ],
+          "nl": "Jack and Diana must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Mia",
+            1
+          ],
+          "nl": "Peter and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Jack"
+          ],
+          "nl": "Frank must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Frank",
+            1
+          ],
+          "nl": "Mia and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            1
+          ],
+          "nl": "Jack and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Ivy"
+          ],
+          "nl": "Frank cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy cannot sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Jack",
+            2
+          ],
+          "nl": "Ivy and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Diana",
+            1
+          ],
+          "nl": "Jack and Diana must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Mia": 2,
+        "Peter": 5,
+        "Diana": 3,
+        "Ivy": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

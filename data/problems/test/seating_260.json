@@ -1,0 +1,396 @@
+{
+  "problem_id": "seating_260",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Peter",
+    "Alice",
+    "Grace",
+    "Mia",
+    "Noah",
+    "Ruby",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Grace and Mia must have at least 1 seats between them. Also, Peter and Ruby must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            1
+          ],
+          "nl": "Grace and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Ruby",
+            1
+          ],
+          "nl": "Peter and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            1
+          ],
+          "nl": "Grace and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Ruby",
+            1
+          ],
+          "nl": "Peter and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Alice": 4,
+        "Grace": 6,
+        "Mia": 1,
+        "Noah": 5,
+        "Ruby": 7,
+        "Olivia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Olivia sits immediately left of Grace.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            1
+          ],
+          "nl": "Grace and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Ruby",
+            1
+          ],
+          "nl": "Peter and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 5,
+        "Alice": 7,
+        "Grace": 2,
+        "Mia": 6,
+        "Noah": 4,
+        "Ruby": 1,
+        "Olivia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Ruby cannot sit next to Olivia. Also, Grace and Peter must have at least 1 seats between them. Also, Grace sits immediately left of Alice.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Peter",
+            1
+          ],
+          "nl": "Grace and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace sits immediately left of Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            1
+          ],
+          "nl": "Grace and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Ruby",
+            1
+          ],
+          "nl": "Peter and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Peter",
+            1
+          ],
+          "nl": "Grace and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace sits immediately left of Alice"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 1,
+        "Alice": 5,
+        "Grace": 6,
+        "Mia": 2,
+        "Noah": 4,
+        "Ruby": 3,
+        "Olivia": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Ruby must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            1
+          ],
+          "nl": "Grace and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Ruby",
+            1
+          ],
+          "nl": "Peter and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Peter",
+            1
+          ],
+          "nl": "Grace and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 1,
+        "Alice": 5,
+        "Grace": 6,
+        "Mia": 3,
+        "Noah": 2,
+        "Ruby": 4,
+        "Olivia": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Ruby must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            1
+          ],
+          "nl": "Grace and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Ruby",
+            1
+          ],
+          "nl": "Peter and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Peter",
+            1
+          ],
+          "nl": "Grace and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Alice"
+          ],
+          "nl": "Ruby must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 1,
+        "Alice": 4,
+        "Grace": 5,
+        "Mia": 7,
+        "Noah": 2,
+        "Ruby": 3,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,228 @@
+{
+  "problem_id": "seating_123",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Quinn",
+    "Jack",
+    "Charlie",
+    "Ruby",
+    "Sam",
+    "Karen"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 2,
+        "Jack": 4,
+        "Charlie": 6,
+        "Ruby": 1,
+        "Sam": 5,
+        "Karen": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Charlie and Karen must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Karen",
+            1
+          ],
+          "nl": "Charlie and Karen must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Karen",
+            1
+          ],
+          "nl": "Charlie and Karen must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 3,
+        "Jack": 2,
+        "Charlie": 4,
+        "Ruby": 6,
+        "Sam": 5,
+        "Karen": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie and Jack must have at least 1 seats between them. Also, Ruby must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            1
+          ],
+          "nl": "Ruby must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Karen",
+            1
+          ],
+          "nl": "Charlie and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            1
+          ],
+          "nl": "Ruby must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 3,
+        "Jack": 6,
+        "Charlie": 2,
+        "Ruby": 1,
+        "Sam": 5,
+        "Karen": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Ruby must sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Karen"
+          ],
+          "nl": "Ruby must sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Karen",
+            1
+          ],
+          "nl": "Charlie and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            1
+          ],
+          "nl": "Ruby must sit at position 1"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Karen"
+          ],
+          "nl": "Ruby must sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 3,
+        "Jack": 4,
+        "Charlie": 2,
+        "Ruby": 1,
+        "Sam": 5,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

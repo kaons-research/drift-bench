@@ -1,0 +1,524 @@
+{
+  "problem_id": "seating_098",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Karen",
+    "Charlie",
+    "Quinn",
+    "Peter",
+    "Olivia",
+    "Jack",
+    "Liam",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia and Jack must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia and Jack must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia and Jack must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 5,
+        "Charlie": 1,
+        "Quinn": 2,
+        "Peter": 3,
+        "Olivia": 4,
+        "Jack": 6,
+        "Liam": 8,
+        "Eve": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Karen must sit at position 8.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            8
+          ],
+          "nl": "Karen must sit at position 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            8
+          ],
+          "nl": "Karen must sit at position 8"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Charlie": 7,
+        "Quinn": 6,
+        "Peter": 3,
+        "Olivia": 5,
+        "Jack": 2,
+        "Liam": 1,
+        "Eve": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Karen cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            8
+          ],
+          "nl": "Karen must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Charlie": 1,
+        "Quinn": 2,
+        "Peter": 3,
+        "Olivia": 4,
+        "Jack": 5,
+        "Liam": 7,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve and Olivia must sit on opposite sides of the table. Also, Olivia cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Quinn"
+          ],
+          "nl": "Olivia cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            8
+          ],
+          "nl": "Karen must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen cannot sit next to Quinn"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Quinn"
+          ],
+          "nl": "Olivia cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Charlie": 6,
+        "Quinn": 5,
+        "Peter": 3,
+        "Olivia": 7,
+        "Jack": 2,
+        "Liam": 1,
+        "Eve": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Peter must sit at position 4. Also, Charlie and Quinn must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            8
+          ],
+          "nl": "Karen must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen cannot sit next to Quinn"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Quinn"
+          ],
+          "nl": "Olivia cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Charlie": 6,
+        "Quinn": 2,
+        "Peter": 4,
+        "Olivia": 5,
+        "Jack": 1,
+        "Liam": 7,
+        "Eve": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Peter and Olivia must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter and Olivia must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            8
+          ],
+          "nl": "Karen must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen cannot sit next to Quinn"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Quinn"
+          ],
+          "nl": "Olivia cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter and Olivia must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Charlie": 7,
+        "Quinn": 3,
+        "Peter": 4,
+        "Olivia": 1,
+        "Jack": 5,
+        "Liam": 2,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Quinn sits immediately left of Peter. Also, Liam and Olivia must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn sits immediately left of Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Olivia"
+          ],
+          "nl": "Liam and Olivia must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            8
+          ],
+          "nl": "Karen must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen cannot sit next to Quinn"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Quinn"
+          ],
+          "nl": "Olivia cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn sits immediately left of Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Olivia"
+          ],
+          "nl": "Liam and Olivia must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Charlie": 1,
+        "Quinn": 5,
+        "Peter": 4,
+        "Olivia": 3,
+        "Jack": 7,
+        "Liam": 2,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

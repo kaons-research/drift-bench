@@ -1,0 +1,494 @@
+{
+  "problem_id": "scheduling_105",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "QA",
+    "Sync",
+    "Review",
+    "Testing",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sync has duration 1. Also, There must be at least 0 slots between Sync and Planning.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Planning"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sync must start at time slot 3. Also, Sync and Review cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync and Review cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync and Review cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "QA must start between time slots 2 and 5.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            5
+          ],
+          "nl": "QA must start between time slots 2 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            5
+          ],
+          "nl": "QA must start between time slots 2 and 5"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "QA has duration 2. Also, Planning has duration 3. Also, Review has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            5
+          ],
+          "nl": "QA must start between time slots 2 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 2,
+          "duration": 2
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning must happen before Testing. Also, QA must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            5
+          ],
+          "nl": "QA must start between time slots 2 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 2,
+          "duration": 2
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

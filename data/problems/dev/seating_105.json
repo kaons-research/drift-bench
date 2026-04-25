@@ -1,0 +1,608 @@
+{
+  "problem_id": "seating_105",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Eve",
+    "Diana",
+    "Ruby",
+    "Quinn",
+    "Liam",
+    "Grace",
+    "Peter"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Ruby and Peter must have at least 1 seats between them. Also, Diana cannot sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Peter",
+            1
+          ],
+          "nl": "Ruby and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Peter",
+            1
+          ],
+          "nl": "Ruby and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 2,
+        "Diana": 1,
+        "Ruby": 7,
+        "Quinn": 5,
+        "Liam": 4,
+        "Grace": 6,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Diana must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Peter",
+            1
+          ],
+          "nl": "Ruby and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 5,
+        "Diana": 4,
+        "Ruby": 3,
+        "Quinn": 2,
+        "Liam": 6,
+        "Grace": 7,
+        "Peter": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Quinn and Eve must have at least 1 seats between them. Also, Eve must sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Eve",
+            1
+          ],
+          "nl": "Quinn and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Grace"
+          ],
+          "nl": "Eve must sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Peter",
+            1
+          ],
+          "nl": "Ruby and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Eve",
+            1
+          ],
+          "nl": "Quinn and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Grace"
+          ],
+          "nl": "Eve must sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 2,
+        "Diana": 4,
+        "Ruby": 5,
+        "Quinn": 6,
+        "Liam": 1,
+        "Grace": 3,
+        "Peter": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Peter",
+            1
+          ],
+          "nl": "Ruby and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Eve",
+            1
+          ],
+          "nl": "Quinn and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Grace"
+          ],
+          "nl": "Eve must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 5,
+        "Diana": 4,
+        "Ruby": 1,
+        "Quinn": 7,
+        "Liam": 2,
+        "Grace": 6,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Peter must sit next to Grace. Also, Eve cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Peter",
+            1
+          ],
+          "nl": "Ruby and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Eve",
+            1
+          ],
+          "nl": "Quinn and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Grace"
+          ],
+          "nl": "Eve must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 3,
+        "Diana": 4,
+        "Ruby": 6,
+        "Quinn": 5,
+        "Liam": 7,
+        "Grace": 2,
+        "Peter": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Eve cannot sit next to Diana. Also, Peter must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve cannot sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            3
+          ],
+          "nl": "Peter must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Peter",
+            1
+          ],
+          "nl": "Ruby and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Eve",
+            1
+          ],
+          "nl": "Quinn and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Grace"
+          ],
+          "nl": "Eve must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve cannot sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            3
+          ],
+          "nl": "Peter must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 1,
+        "Diana": 4,
+        "Ruby": 6,
+        "Quinn": 5,
+        "Liam": 7,
+        "Grace": 2,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Eve and Peter must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            1
+          ],
+          "nl": "Eve and Peter must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Peter",
+            1
+          ],
+          "nl": "Ruby and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Eve",
+            1
+          ],
+          "nl": "Quinn and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Grace"
+          ],
+          "nl": "Eve must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve cannot sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            3
+          ],
+          "nl": "Peter must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            1
+          ],
+          "nl": "Eve and Peter must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 1,
+        "Diana": 4,
+        "Ruby": 6,
+        "Quinn": 5,
+        "Liam": 7,
+        "Grace": 2,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

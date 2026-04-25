@@ -1,0 +1,1044 @@
+{
+  "problem_id": "scheduling_046",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Sync",
+    "Meeting",
+    "Planning",
+    "Deploy",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 2 slots between Deploy and Planning. Also, Planning must happen before Docs. Also, Meeting and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 0 slots between Planning and Meeting. Also, Planning must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 2 slots between Sync and Deploy. Also, Sync and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Meeting must start at time slot 4. Also, Docs must start between time slots 1 and 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            3
+          ],
+          "nl": "Docs must start between time slots 1 and 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            3
+          ],
+          "nl": "Docs must start between time slots 1 and 3"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync has duration 1. Also, Sync and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            3
+          ],
+          "nl": "Docs must start between time slots 1 and 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Docs and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            3
+          ],
+          "nl": "Docs must start between time slots 1 and 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Meeting has duration 3. Also, Meeting must start between time slots 4 and 5.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            4,
+            5
+          ],
+          "nl": "Meeting must start between time slots 4 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            3
+          ],
+          "nl": "Docs must start between time slots 1 and 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            4,
+            5
+          ],
+          "nl": "Meeting must start between time slots 4 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "There must be at least 2 slots between Sync and Docs. Also, Meeting and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            3
+          ],
+          "nl": "Docs must start between time slots 1 and 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            4,
+            5
+          ],
+          "nl": "Meeting must start between time slots 4 and 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

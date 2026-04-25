@@ -1,0 +1,1588 @@
+{
+  "problem_id": "scheduling_067",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Docs",
+    "Review",
+    "Sync",
+    "Meeting",
+    "Refactor",
+    "Planning",
+    "QA"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sync must start at time slot 3. Also, Refactor must start at time slot 8.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review and QA cannot be simultaneous. Also, Planning must happen before QA. Also, Docs must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Docs must start at time slot 1. Also, Docs and QA cannot be simultaneous. Also, Meeting must start at time slot 7.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sync has duration 3. Also, There must be at least 0 slots between Refactor and Planning.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Planning"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Docs and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Planning"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Planning and Docs cannot be simultaneous. Also, QA must start at time slot 6.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Planning"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Meeting has duration 1. Also, There must be at least 0 slots between Planning and Refactor.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Planning"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Review must start between time slots 2 and 7. Also, QA has duration 3.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Planning"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "There must be at least 1 slots between Review and Meeting. Also, There must be at least 1 slots between Meeting and Docs.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Docs",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Planning"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Docs",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Docs"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Sync must start between time slots 3 and 7. Also, There must be at least 2 slots between Planning and Refactor. Also, Planning and Review cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            7
+          ],
+          "nl": "Sync must start between time slots 3 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            8
+          ],
+          "nl": "Refactor must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Planning"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Docs",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            7
+          ],
+          "nl": "Sync must start between time slots 3 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

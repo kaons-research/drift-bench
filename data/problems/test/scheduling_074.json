@@ -1,0 +1,1292 @@
+{
+  "problem_id": "scheduling_074",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Testing",
+    "Review",
+    "Design",
+    "Docs",
+    "QA",
+    "Meeting",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Planning and Design cannot be simultaneous. Also, Docs must start at time slot 7. Also, Review must start between time slots 1 and 6.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA and Review cannot be simultaneous. Also, QA must happen before Docs. Also, There must be at least 2 slots between Design and Planning.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Planning"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "QA must start between time slots 3 and 3. Also, Review and Testing cannot be simultaneous. Also, Meeting must start at time slot 2.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            3
+          ],
+          "nl": "QA must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            3
+          ],
+          "nl": "QA must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Design and QA cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            3
+          ],
+          "nl": "QA must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "QA has duration 1. Also, There must be at least 2 slots between QA and Review. Also, Testing must start at time slot 8.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            8
+          ],
+          "nl": "Testing must start at time slot 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            3
+          ],
+          "nl": "QA must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            8
+          ],
+          "nl": "Testing must start at time slot 8"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Design must happen before Testing. Also, Planning must start at time slot 6. Also, Testing must start between time slots 7 and 8.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            7,
+            8
+          ],
+          "nl": "Testing must start between time slots 7 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            3
+          ],
+          "nl": "QA must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            8
+          ],
+          "nl": "Testing must start at time slot 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            7,
+            8
+          ],
+          "nl": "Testing must start between time slots 7 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Docs has duration 1. Also, Review must happen before Testing. Also, Planning and Meeting cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            3
+          ],
+          "nl": "QA must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            8
+          ],
+          "nl": "Testing must start at time slot 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            7,
+            8
+          ],
+          "nl": "Testing must start between time slots 7 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Review and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            6
+          ],
+          "nl": "Review must start between time slots 1 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            3
+          ],
+          "nl": "QA must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            8
+          ],
+          "nl": "Testing must start at time slot 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            7,
+            8
+          ],
+          "nl": "Testing must start between time slots 7 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

@@ -1,0 +1,550 @@
+{
+  "problem_id": "seating_047",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Charlie",
+    "Sam",
+    "Diana",
+    "Karen",
+    "Ivy",
+    "Bob",
+    "Jack",
+    "Mia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 3,
+        "Sam": 5,
+        "Diana": 8,
+        "Karen": 4,
+        "Ivy": 1,
+        "Bob": 2,
+        "Jack": 7,
+        "Mia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack must sit at position 6. Also, Jack cannot sit next to Karen. Also, Mia must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            3
+          ],
+          "nl": "Mia must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            3
+          ],
+          "nl": "Mia must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 2,
+        "Sam": 5,
+        "Diana": 4,
+        "Karen": 8,
+        "Ivy": 7,
+        "Bob": 1,
+        "Jack": 6,
+        "Mia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana and Ivy must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            3
+          ],
+          "nl": "Mia must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 1,
+        "Sam": 5,
+        "Diana": 7,
+        "Karen": 8,
+        "Ivy": 2,
+        "Bob": 4,
+        "Jack": 6,
+        "Mia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Ivy sits immediately left of Bob.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy sits immediately left of Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            3
+          ],
+          "nl": "Mia must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy sits immediately left of Bob"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 7,
+        "Sam": 5,
+        "Diana": 4,
+        "Karen": 2,
+        "Ivy": 1,
+        "Bob": 8,
+        "Jack": 6,
+        "Mia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Karen cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Charlie"
+          ],
+          "nl": "Karen cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            3
+          ],
+          "nl": "Mia must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Charlie"
+          ],
+          "nl": "Karen cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 8,
+        "Sam": 5,
+        "Diana": 7,
+        "Karen": 4,
+        "Ivy": 2,
+        "Bob": 1,
+        "Jack": 6,
+        "Mia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Ivy must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            2
+          ],
+          "nl": "Ivy must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            3
+          ],
+          "nl": "Mia must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Charlie"
+          ],
+          "nl": "Karen cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            2
+          ],
+          "nl": "Ivy must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 8,
+        "Sam": 5,
+        "Diana": 7,
+        "Karen": 4,
+        "Ivy": 2,
+        "Bob": 1,
+        "Jack": 6,
+        "Mia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Karen cannot sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Diana"
+          ],
+          "nl": "Karen cannot sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            3
+          ],
+          "nl": "Mia must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ivy",
+            2
+          ],
+          "nl": "Diana and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Charlie"
+          ],
+          "nl": "Karen cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            2
+          ],
+          "nl": "Ivy must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Diana"
+          ],
+          "nl": "Karen cannot sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 8,
+        "Sam": 5,
+        "Diana": 7,
+        "Karen": 4,
+        "Ivy": 2,
+        "Bob": 1,
+        "Jack": 6,
+        "Mia": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,453 @@
+{
+  "problem_id": "seating_180",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Mia",
+    "Charlie",
+    "Ivy",
+    "Sam",
+    "Quinn",
+    "Karen",
+    "Noah",
+    "Ruby"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam must sit next to Noah. Also, Ivy must sit at position 5. Also, Quinn cannot sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Noah"
+          ],
+          "nl": "Sam must sit next to Noah"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            5
+          ],
+          "nl": "Ivy must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn cannot sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Noah"
+          ],
+          "nl": "Sam must sit next to Noah"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            5
+          ],
+          "nl": "Ivy must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn cannot sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 4,
+        "Charlie": 2,
+        "Ivy": 5,
+        "Sam": 8,
+        "Quinn": 6,
+        "Karen": 7,
+        "Noah": 1,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Ivy sits immediately left of Quinn. Also, Quinn cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Noah"
+          ],
+          "nl": "Sam must sit next to Noah"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            5
+          ],
+          "nl": "Ivy must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn cannot sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 6,
+        "Charlie": 2,
+        "Ivy": 5,
+        "Sam": 8,
+        "Quinn": 4,
+        "Karen": 7,
+        "Noah": 1,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Quinn cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Noah"
+          ],
+          "nl": "Sam must sit next to Noah"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            5
+          ],
+          "nl": "Ivy must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn cannot sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 7,
+        "Charlie": 3,
+        "Ivy": 5,
+        "Sam": 2,
+        "Quinn": 4,
+        "Karen": 8,
+        "Noah": 1,
+        "Ruby": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sam and Charlie must have at least 2 seats between them. Also, Ruby cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Charlie",
+            2
+          ],
+          "nl": "Sam and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Noah"
+          ],
+          "nl": "Sam must sit next to Noah"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            5
+          ],
+          "nl": "Ivy must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn cannot sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Charlie",
+            2
+          ],
+          "nl": "Sam and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 6,
+        "Charlie": 7,
+        "Ivy": 5,
+        "Sam": 2,
+        "Quinn": 4,
+        "Karen": 1,
+        "Noah": 3,
+        "Ruby": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Karen cannot sit next to Noah. Also, Karen must sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Noah"
+          ],
+          "nl": "Karen cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Charlie"
+          ],
+          "nl": "Karen must sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Noah"
+          ],
+          "nl": "Sam must sit next to Noah"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            5
+          ],
+          "nl": "Ivy must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn cannot sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Charlie",
+            2
+          ],
+          "nl": "Sam and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby cannot sit next to Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Noah"
+          ],
+          "nl": "Karen cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Charlie"
+          ],
+          "nl": "Karen must sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 8,
+        "Charlie": 2,
+        "Ivy": 5,
+        "Sam": 7,
+        "Quinn": 4,
+        "Karen": 1,
+        "Noah": 6,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

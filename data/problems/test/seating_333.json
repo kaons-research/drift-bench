@@ -1,0 +1,324 @@
+{
+  "problem_id": "seating_333",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Olivia",
+    "Noah",
+    "Bob",
+    "Sam",
+    "Tina",
+    "Diana",
+    "Henry",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob cannot sit next to Olivia. Also, Diana and Sam must have at least 3 seats between them. Also, Sam and Henry must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            3
+          ],
+          "nl": "Diana and Sam must have at least 3 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Henry",
+            1
+          ],
+          "nl": "Sam and Henry must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            3
+          ],
+          "nl": "Diana and Sam must have at least 3 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Henry",
+            1
+          ],
+          "nl": "Sam and Henry must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 5,
+        "Noah": 4,
+        "Bob": 3,
+        "Sam": 6,
+        "Tina": 7,
+        "Diana": 2,
+        "Henry": 8,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Olivia must sit at position 7.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            7
+          ],
+          "nl": "Olivia must sit at position 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            3
+          ],
+          "nl": "Diana and Sam must have at least 3 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Henry",
+            1
+          ],
+          "nl": "Sam and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            7
+          ],
+          "nl": "Olivia must sit at position 7"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 7,
+        "Noah": 5,
+        "Bob": 1,
+        "Sam": 4,
+        "Tina": 3,
+        "Diana": 8,
+        "Henry": 6,
+        "Charlie": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry and Diana must have at least 1 seats between them. Also, Tina must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Diana",
+            1
+          ],
+          "nl": "Henry and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            3
+          ],
+          "nl": "Diana and Sam must have at least 3 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Henry",
+            1
+          ],
+          "nl": "Sam and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            7
+          ],
+          "nl": "Olivia must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Diana",
+            1
+          ],
+          "nl": "Henry and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 7,
+        "Noah": 4,
+        "Bob": 3,
+        "Sam": 6,
+        "Tina": 5,
+        "Diana": 2,
+        "Henry": 8,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Charlie must sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            3
+          ],
+          "nl": "Diana and Sam must have at least 3 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Henry",
+            1
+          ],
+          "nl": "Sam and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            7
+          ],
+          "nl": "Olivia must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Diana",
+            1
+          ],
+          "nl": "Henry and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 7,
+        "Noah": 4,
+        "Bob": 3,
+        "Sam": 2,
+        "Tina": 5,
+        "Diana": 6,
+        "Henry": 8,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

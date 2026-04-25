@@ -1,0 +1,830 @@
+{
+  "problem_id": "seating_204",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Ivy",
+    "Mia",
+    "Henry",
+    "Olivia",
+    "Frank",
+    "Bob",
+    "Grace",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia must sit next to Mia. Also, Bob cannot sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Frank"
+          ],
+          "nl": "Bob cannot sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Frank"
+          ],
+          "nl": "Bob cannot sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Mia": 8,
+        "Henry": 6,
+        "Olivia": 1,
+        "Frank": 7,
+        "Bob": 5,
+        "Grace": 2,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Ivy must sit next to Mia. Also, Bob and Henry must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Mia"
+          ],
+          "nl": "Ivy must sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Henry",
+            3
+          ],
+          "nl": "Bob and Henry must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Frank"
+          ],
+          "nl": "Bob cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Mia"
+          ],
+          "nl": "Ivy must sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Henry",
+            3
+          ],
+          "nl": "Bob and Henry must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 7,
+        "Mia": 8,
+        "Henry": 2,
+        "Olivia": 1,
+        "Frank": 4,
+        "Bob": 6,
+        "Grace": 3,
+        "Charlie": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Grace cannot sit next to Olivia. Also, Olivia must sit next to Bob. Also, Grace and Mia must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            2
+          ],
+          "nl": "Grace and Mia must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Frank"
+          ],
+          "nl": "Bob cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Mia"
+          ],
+          "nl": "Ivy must sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Henry",
+            3
+          ],
+          "nl": "Bob and Henry must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            2
+          ],
+          "nl": "Grace and Mia must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 5,
+        "Mia": 6,
+        "Henry": 4,
+        "Olivia": 7,
+        "Frank": 3,
+        "Bob": 8,
+        "Grace": 1,
+        "Charlie": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Henry must sit at position 4. Also, Ivy cannot sit next to Grace. Also, Ivy must sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Grace"
+          ],
+          "nl": "Ivy cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Henry"
+          ],
+          "nl": "Ivy must sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Frank"
+          ],
+          "nl": "Bob cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Mia"
+          ],
+          "nl": "Ivy must sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Henry",
+            3
+          ],
+          "nl": "Bob and Henry must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            2
+          ],
+          "nl": "Grace and Mia must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Grace"
+          ],
+          "nl": "Ivy cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Henry"
+          ],
+          "nl": "Ivy must sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 5,
+        "Mia": 6,
+        "Henry": 4,
+        "Olivia": 7,
+        "Frank": 3,
+        "Bob": 8,
+        "Grace": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Ivy cannot sit next to Bob. Also, Henry and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy cannot sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Frank"
+          ],
+          "nl": "Bob cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Mia"
+          ],
+          "nl": "Ivy must sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Henry",
+            3
+          ],
+          "nl": "Bob and Henry must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            2
+          ],
+          "nl": "Grace and Mia must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Grace"
+          ],
+          "nl": "Ivy cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Henry"
+          ],
+          "nl": "Ivy must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy cannot sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Mia": 2,
+        "Henry": 4,
+        "Olivia": 1,
+        "Frank": 6,
+        "Bob": 8,
+        "Grace": 5,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Olivia and Ivy must have at least 1 seats between them. Also, Olivia sits immediately left of Bob. Also, Bob sits immediately left of Grace.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ivy",
+            1
+          ],
+          "nl": "Olivia and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia sits immediately left of Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Grace"
+          ],
+          "nl": "Bob sits immediately left of Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Frank"
+          ],
+          "nl": "Bob cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Mia"
+          ],
+          "nl": "Ivy must sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Henry",
+            3
+          ],
+          "nl": "Bob and Henry must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            2
+          ],
+          "nl": "Grace and Mia must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Grace"
+          ],
+          "nl": "Ivy cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Henry"
+          ],
+          "nl": "Ivy must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy cannot sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ivy",
+            1
+          ],
+          "nl": "Olivia and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia sits immediately left of Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Grace"
+          ],
+          "nl": "Bob sits immediately left of Grace"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Mia": 2,
+        "Henry": 4,
+        "Olivia": 1,
+        "Frank": 6,
+        "Bob": 8,
+        "Grace": 7,
+        "Charlie": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Frank and Mia must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Mia",
+            3
+          ],
+          "nl": "Frank and Mia must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Frank"
+          ],
+          "nl": "Bob cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Mia"
+          ],
+          "nl": "Ivy must sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Henry",
+            3
+          ],
+          "nl": "Bob and Henry must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Mia",
+            2
+          ],
+          "nl": "Grace and Mia must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Grace"
+          ],
+          "nl": "Ivy cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Henry"
+          ],
+          "nl": "Ivy must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy cannot sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ivy",
+            1
+          ],
+          "nl": "Olivia and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia sits immediately left of Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Grace"
+          ],
+          "nl": "Bob sits immediately left of Grace"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Mia",
+            3
+          ],
+          "nl": "Frank and Mia must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Mia": 2,
+        "Henry": 4,
+        "Olivia": 1,
+        "Frank": 6,
+        "Bob": 8,
+        "Grace": 7,
+        "Charlie": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,1172 @@
+{
+  "problem_id": "scheduling_259",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Review",
+    "Planning",
+    "Testing",
+    "Deploy",
+    "Docs",
+    "QA",
+    "Design"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing must happen before Docs. Also, Planning must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA has duration 3. Also, Deploy must start at time slot 11.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 11,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing must start at time slot 6.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 11,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing must start between time slots 2 and 10. Also, QA and Testing cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            10
+          ],
+          "nl": "Testing must start between time slots 2 and 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Testing"
+          ],
+          "nl": "QA and Testing cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            10
+          ],
+          "nl": "Testing must start between time slots 2 and 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Testing"
+          ],
+          "nl": "QA and Testing cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 11,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Docs must happen before QA. Also, Review has duration 2. Also, Review must start between time slots 4 and 7.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            7
+          ],
+          "nl": "Review must start between time slots 4 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            10
+          ],
+          "nl": "Testing must start between time slots 2 and 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Testing"
+          ],
+          "nl": "QA and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            7
+          ],
+          "nl": "Review must start between time slots 4 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 11,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Review and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            10
+          ],
+          "nl": "Testing must start between time slots 2 and 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Testing"
+          ],
+          "nl": "QA and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            7
+          ],
+          "nl": "Review must start between time slots 4 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 11,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Design and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            10
+          ],
+          "nl": "Testing must start between time slots 2 and 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Testing"
+          ],
+          "nl": "QA and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            7
+          ],
+          "nl": "Review must start between time slots 4 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 11,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Planning must start at time slot 3. Also, There must be at least 1 slots between Design and Deploy. Also, Testing and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            10
+          ],
+          "nl": "Testing must start between time slots 2 and 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Testing"
+          ],
+          "nl": "QA and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            7
+          ],
+          "nl": "Review must start between time slots 4 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 11,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "There must be at least 2 slots between Docs and Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            11
+          ],
+          "nl": "Deploy must start at time slot 11"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            10
+          ],
+          "nl": "Testing must start between time slots 2 and 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Testing"
+          ],
+          "nl": "QA and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            7
+          ],
+          "nl": "Review must start between time slots 4 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 11,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 11,
+  "max_duration": 3,
+  "split": "dev"
+}

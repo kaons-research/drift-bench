@@ -1,0 +1,703 @@
+{
+  "problem_id": "seating_167",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Eve",
+    "Ruby",
+    "Alice",
+    "Charlie",
+    "Sam",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Ruby must sit at position 3. Also, Sam must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 2,
+        "Ruby": 3,
+        "Alice": 1,
+        "Charlie": 4,
+        "Sam": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Eve and Alice must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Alice",
+            2
+          ],
+          "nl": "Eve and Alice must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Alice",
+            2
+          ],
+          "nl": "Eve and Alice must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 1,
+        "Ruby": 3,
+        "Alice": 4,
+        "Charlie": 6,
+        "Sam": 5,
+        "Olivia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie and Olivia must have at least 2 seats between them. Also, Sam cannot sit next to Eve.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Olivia",
+            2
+          ],
+          "nl": "Charlie and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Alice",
+            2
+          ],
+          "nl": "Eve and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Olivia",
+            2
+          ],
+          "nl": "Charlie and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 4,
+        "Ruby": 3,
+        "Alice": 1,
+        "Charlie": 5,
+        "Sam": 6,
+        "Olivia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Olivia must sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Alice",
+            2
+          ],
+          "nl": "Eve and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Olivia",
+            2
+          ],
+          "nl": "Charlie and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 2,
+        "Ruby": 3,
+        "Alice": 5,
+        "Charlie": 4,
+        "Sam": 6,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Alice cannot sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice cannot sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Alice",
+            2
+          ],
+          "nl": "Eve and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Olivia",
+            2
+          ],
+          "nl": "Charlie and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice cannot sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 4,
+        "Ruby": 3,
+        "Alice": 1,
+        "Charlie": 2,
+        "Sam": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Charlie cannot sit next to Olivia. Also, Sam and Ruby must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Olivia"
+          ],
+          "nl": "Charlie cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Ruby",
+            2
+          ],
+          "nl": "Sam and Ruby must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Alice",
+            2
+          ],
+          "nl": "Eve and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Olivia",
+            2
+          ],
+          "nl": "Charlie and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Olivia"
+          ],
+          "nl": "Charlie cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Ruby",
+            2
+          ],
+          "nl": "Sam and Ruby must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 4,
+        "Ruby": 3,
+        "Alice": 1,
+        "Charlie": 2,
+        "Sam": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Alice and Ruby must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Alice",
+            2
+          ],
+          "nl": "Eve and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Olivia",
+            2
+          ],
+          "nl": "Charlie and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Olivia"
+          ],
+          "nl": "Charlie cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Ruby",
+            2
+          ],
+          "nl": "Sam and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 2,
+        "Ruby": 3,
+        "Alice": 5,
+        "Charlie": 4,
+        "Sam": 6,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Charlie cannot sit next to Sam. Also, Eve sits immediately left of Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Ruby"
+          ],
+          "nl": "Eve sits immediately left of Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Alice",
+            2
+          ],
+          "nl": "Eve and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Olivia",
+            2
+          ],
+          "nl": "Charlie and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Ruby"
+          ],
+          "nl": "Alice cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Olivia"
+          ],
+          "nl": "Charlie cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Ruby",
+            2
+          ],
+          "nl": "Sam and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Ruby"
+          ],
+          "nl": "Eve sits immediately left of Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 4,
+        "Ruby": 3,
+        "Alice": 1,
+        "Charlie": 2,
+        "Sam": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

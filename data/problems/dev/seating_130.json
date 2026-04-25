@@ -1,0 +1,862 @@
+{
+  "problem_id": "seating_130",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Karen",
+    "Diana",
+    "Peter",
+    "Sam",
+    "Frank",
+    "Charlie",
+    "Olivia",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam cannot sit next to Frank. Also, Peter sits immediately left of Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 7,
+        "Diana": 8,
+        "Peter": 1,
+        "Sam": 5,
+        "Frank": 3,
+        "Charlie": 4,
+        "Olivia": 6,
+        "Henry": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Diana": 5,
+        "Peter": 6,
+        "Sam": 1,
+        "Frank": 3,
+        "Charlie": 2,
+        "Olivia": 7,
+        "Henry": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Olivia must sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia must sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia must sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 6,
+        "Diana": 8,
+        "Peter": 1,
+        "Sam": 5,
+        "Frank": 3,
+        "Charlie": 4,
+        "Olivia": 7,
+        "Henry": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Charlie must sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Frank"
+          ],
+          "nl": "Charlie must sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Frank"
+          ],
+          "nl": "Charlie must sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Diana": 8,
+        "Peter": 1,
+        "Sam": 5,
+        "Frank": 3,
+        "Charlie": 2,
+        "Olivia": 7,
+        "Henry": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Olivia cannot sit next to Sam. Also, Peter cannot sit next to Frank. Also, Olivia must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter cannot sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            4
+          ],
+          "nl": "Olivia must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Frank"
+          ],
+          "nl": "Charlie must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter cannot sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            4
+          ],
+          "nl": "Olivia must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 1,
+        "Diana": 5,
+        "Peter": 6,
+        "Sam": 7,
+        "Frank": 3,
+        "Charlie": 2,
+        "Olivia": 4,
+        "Henry": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Sam sits immediately left of Karen. Also, Charlie cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Frank"
+          ],
+          "nl": "Charlie must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter cannot sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            4
+          ],
+          "nl": "Olivia must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Diana": 5,
+        "Peter": 6,
+        "Sam": 1,
+        "Frank": 3,
+        "Charlie": 2,
+        "Olivia": 4,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Charlie must sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie must sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Frank"
+          ],
+          "nl": "Charlie must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter cannot sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            4
+          ],
+          "nl": "Olivia must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie must sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 7,
+        "Diana": 5,
+        "Peter": 6,
+        "Sam": 8,
+        "Frank": 3,
+        "Charlie": 2,
+        "Olivia": 4,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Karen must sit next to Peter. Also, Frank cannot sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Peter"
+          ],
+          "nl": "Karen must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank cannot sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Frank"
+          ],
+          "nl": "Charlie must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter cannot sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            4
+          ],
+          "nl": "Olivia must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie must sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Peter"
+          ],
+          "nl": "Karen must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank cannot sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 7,
+        "Diana": 5,
+        "Peter": 6,
+        "Sam": 8,
+        "Frank": 3,
+        "Charlie": 2,
+        "Olivia": 4,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Charlie cannot sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie cannot sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Frank"
+          ],
+          "nl": "Sam cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Diana"
+          ],
+          "nl": "Peter sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Diana"
+          ],
+          "nl": "Olivia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Frank"
+          ],
+          "nl": "Charlie must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter cannot sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            4
+          ],
+          "nl": "Olivia must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie must sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Peter"
+          ],
+          "nl": "Karen must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie cannot sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 7,
+        "Diana": 5,
+        "Peter": 6,
+        "Sam": 8,
+        "Frank": 3,
+        "Charlie": 2,
+        "Olivia": 4,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

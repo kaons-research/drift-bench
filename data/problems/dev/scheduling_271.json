@@ -1,0 +1,892 @@
+{
+  "problem_id": "scheduling_271",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Docs",
+    "Review",
+    "Sync",
+    "Testing",
+    "Design",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing has duration 3. Also, Testing must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Testing must start between time slots 2 and 5. Also, Testing must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            5
+          ],
+          "nl": "Testing must start between time slots 2 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            5
+          ],
+          "nl": "Testing must start between time slots 2 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 3
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Planning must start between time slots 6 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            8
+          ],
+          "nl": "Planning must start between time slots 6 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            5
+          ],
+          "nl": "Testing must start between time slots 2 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            8
+          ],
+          "nl": "Planning must start between time slots 6 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 3
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 0 slots between Planning and Review.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            5
+          ],
+          "nl": "Testing must start between time slots 2 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            8
+          ],
+          "nl": "Planning must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Review"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 3
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Review must start between time slots 2 and 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            5
+          ],
+          "nl": "Testing must start between time slots 2 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            8
+          ],
+          "nl": "Planning must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 3
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Sync must start at time slot 3. Also, Sync has duration 1.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            5
+          ],
+          "nl": "Testing must start between time slots 2 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            8
+          ],
+          "nl": "Planning must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 3
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Design must start between time slots 2 and 7. Also, Design must start between time slots 1 and 5.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            2,
+            7
+          ],
+          "nl": "Design must start between time slots 2 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            5
+          ],
+          "nl": "Design must start between time slots 1 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            5
+          ],
+          "nl": "Testing must start between time slots 2 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            8
+          ],
+          "nl": "Planning must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            2,
+            7
+          ],
+          "nl": "Design must start between time slots 2 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            5
+          ],
+          "nl": "Design must start between time slots 1 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 3
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Design and Sync cannot be simultaneous. Also, There must be at least 0 slots between Docs and Review.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Sync"
+          ],
+          "nl": "Design and Sync cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            5
+          ],
+          "nl": "Testing must start between time slots 2 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            8
+          ],
+          "nl": "Planning must start between time slots 6 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            7
+          ],
+          "nl": "Review must start between time slots 2 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            2,
+            7
+          ],
+          "nl": "Design must start between time slots 2 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            5
+          ],
+          "nl": "Design must start between time slots 1 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Sync"
+          ],
+          "nl": "Design and Sync cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Review"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 3
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "dev"
+}

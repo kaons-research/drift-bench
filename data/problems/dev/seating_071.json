@@ -1,0 +1,250 @@
+{
+  "problem_id": "seating_071",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Jack",
+    "Olivia",
+    "Peter",
+    "Diana",
+    "Liam",
+    "Tina",
+    "Bob"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob must sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 7,
+        "Olivia": 3,
+        "Peter": 4,
+        "Diana": 6,
+        "Liam": 5,
+        "Tina": 2,
+        "Bob": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Peter must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 1,
+        "Olivia": 2,
+        "Peter": 5,
+        "Diana": 6,
+        "Liam": 3,
+        "Tina": 4,
+        "Bob": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Olivia sits immediately left of Bob. Also, Olivia must sit next to Tina. Also, Bob must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia sits immediately left of Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            5
+          ],
+          "nl": "Bob must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia sits immediately left of Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            5
+          ],
+          "nl": "Bob must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Olivia": 6,
+        "Peter": 1,
+        "Diana": 3,
+        "Liam": 2,
+        "Tina": 7,
+        "Bob": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Peter cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia sits immediately left of Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            5
+          ],
+          "nl": "Bob must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Olivia": 6,
+        "Peter": 1,
+        "Diana": 2,
+        "Liam": 3,
+        "Tina": 7,
+        "Bob": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

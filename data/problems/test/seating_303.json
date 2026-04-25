@@ -1,0 +1,999 @@
+{
+  "problem_id": "seating_303",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Henry",
+    "Diana",
+    "Karen",
+    "Quinn",
+    "Alice",
+    "Liam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Henry must sit at position 4. Also, Liam cannot sit next to Quinn. Also, Karen sits immediately left of Henry.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 1,
+        "Karen": 5,
+        "Quinn": 2,
+        "Alice": 3,
+        "Liam": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Karen and Quinn must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 2,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 1,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry and Alice must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 1,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 2,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Diana cannot sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Henry"
+          ],
+          "nl": "Diana cannot sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Henry"
+          ],
+          "nl": "Diana cannot sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 2,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 1,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Quinn must sit next to Diana. Also, Diana and Alice must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana and Alice must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Henry"
+          ],
+          "nl": "Diana cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana and Alice must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 1,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 2,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Diana must sit at position 1. Also, Karen and Liam must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            1
+          ],
+          "nl": "Diana must sit at position 1"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Liam"
+          ],
+          "nl": "Karen and Liam must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Henry"
+          ],
+          "nl": "Diana cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            1
+          ],
+          "nl": "Diana must sit at position 1"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Liam"
+          ],
+          "nl": "Karen and Liam must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 1,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 2,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Diana cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Henry"
+          ],
+          "nl": "Diana cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            1
+          ],
+          "nl": "Diana must sit at position 1"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Liam"
+          ],
+          "nl": "Karen and Liam must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 1,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 2,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Diana sits immediately left of Quinn.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Henry"
+          ],
+          "nl": "Diana cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            1
+          ],
+          "nl": "Diana must sit at position 1"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Liam"
+          ],
+          "nl": "Karen and Liam must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 1,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 2,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Karen and Liam must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Liam",
+            1
+          ],
+          "nl": "Karen and Liam must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Henry"
+          ],
+          "nl": "Diana cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            1
+          ],
+          "nl": "Diana must sit at position 1"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Liam"
+          ],
+          "nl": "Karen and Liam must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Liam",
+            1
+          ],
+          "nl": "Karen and Liam must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 1,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 2,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Diana must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Henry"
+          ],
+          "nl": "Karen sits immediately left of Henry"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Quinn"
+          ],
+          "nl": "Karen and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Alice",
+            1
+          ],
+          "nl": "Henry and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Henry"
+          ],
+          "nl": "Diana cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            1
+          ],
+          "nl": "Diana must sit at position 1"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Liam"
+          ],
+          "nl": "Karen and Liam must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Liam",
+            1
+          ],
+          "nl": "Karen and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Alice"
+          ],
+          "nl": "Diana must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Diana": 1,
+        "Karen": 5,
+        "Quinn": 6,
+        "Alice": 2,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

@@ -1,0 +1,478 @@
+{
+  "problem_id": "seating_323",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Sam",
+    "Frank",
+    "Peter",
+    "Karen",
+    "Tina",
+    "Noah",
+    "Diana"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Peter must sit next to Sam. Also, Sam cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 6,
+        "Frank": 7,
+        "Peter": 5,
+        "Karen": 3,
+        "Tina": 4,
+        "Noah": 1,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah sits immediately left of Sam. Also, Tina and Karen must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah sits immediately left of Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Karen",
+            1
+          ],
+          "nl": "Tina and Karen must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah sits immediately left of Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Karen",
+            1
+          ],
+          "nl": "Tina and Karen must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 4,
+        "Frank": 1,
+        "Peter": 3,
+        "Karen": 2,
+        "Tina": 6,
+        "Noah": 5,
+        "Diana": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Karen must sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Diana"
+          ],
+          "nl": "Karen must sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah sits immediately left of Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Karen",
+            1
+          ],
+          "nl": "Tina and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Diana"
+          ],
+          "nl": "Karen must sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 4,
+        "Frank": 6,
+        "Peter": 3,
+        "Karen": 7,
+        "Tina": 2,
+        "Noah": 5,
+        "Diana": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Frank must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah sits immediately left of Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Karen",
+            1
+          ],
+          "nl": "Tina and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Diana"
+          ],
+          "nl": "Karen must sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 3,
+        "Frank": 6,
+        "Peter": 2,
+        "Karen": 1,
+        "Tina": 5,
+        "Noah": 4,
+        "Diana": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Peter sits immediately left of Tina. Also, Diana cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter sits immediately left of Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Tina"
+          ],
+          "nl": "Diana cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah sits immediately left of Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Karen",
+            1
+          ],
+          "nl": "Tina and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Diana"
+          ],
+          "nl": "Karen must sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter sits immediately left of Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Tina"
+          ],
+          "nl": "Diana cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 2,
+        "Frank": 6,
+        "Peter": 1,
+        "Karen": 5,
+        "Tina": 7,
+        "Noah": 3,
+        "Diana": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Diana and Peter must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Peter",
+            2
+          ],
+          "nl": "Diana and Peter must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter must sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah sits immediately left of Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Karen",
+            1
+          ],
+          "nl": "Tina and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Diana"
+          ],
+          "nl": "Karen must sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter sits immediately left of Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Tina"
+          ],
+          "nl": "Diana cannot sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Peter",
+            2
+          ],
+          "nl": "Diana and Peter must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 2,
+        "Frank": 6,
+        "Peter": 1,
+        "Karen": 5,
+        "Tina": 7,
+        "Noah": 3,
+        "Diana": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

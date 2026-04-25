@@ -1,0 +1,442 @@
+{
+  "problem_id": "seating_131",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Mia",
+    "Grace",
+    "Diana",
+    "Alice",
+    "Karen",
+    "Peter",
+    "Quinn",
+    "Frank"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Alice and Karen must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Karen",
+            3
+          ],
+          "nl": "Alice and Karen must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Karen",
+            3
+          ],
+          "nl": "Alice and Karen must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 5,
+        "Grace": 7,
+        "Diana": 2,
+        "Alice": 8,
+        "Karen": 4,
+        "Peter": 3,
+        "Quinn": 6,
+        "Frank": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Diana must sit at position 7.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            7
+          ],
+          "nl": "Diana must sit at position 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Karen",
+            3
+          ],
+          "nl": "Alice and Karen must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            7
+          ],
+          "nl": "Diana must sit at position 7"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 3,
+        "Grace": 5,
+        "Diana": 7,
+        "Alice": 2,
+        "Karen": 6,
+        "Peter": 1,
+        "Quinn": 8,
+        "Frank": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia cannot sit next to Frank. Also, Quinn sits immediately left of Karen. Also, Diana sits immediately left of Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Karen",
+            3
+          ],
+          "nl": "Alice and Karen must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            7
+          ],
+          "nl": "Diana must sit at position 7"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 2,
+        "Grace": 3,
+        "Diana": 7,
+        "Alice": 1,
+        "Karen": 5,
+        "Peter": 8,
+        "Quinn": 6,
+        "Frank": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Peter and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Frank",
+            1
+          ],
+          "nl": "Peter and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Karen",
+            3
+          ],
+          "nl": "Alice and Karen must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            7
+          ],
+          "nl": "Diana must sit at position 7"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Frank",
+            1
+          ],
+          "nl": "Peter and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 2,
+        "Grace": 3,
+        "Diana": 7,
+        "Alice": 1,
+        "Karen": 5,
+        "Peter": 8,
+        "Quinn": 6,
+        "Frank": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Grace must sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Frank"
+          ],
+          "nl": "Grace must sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Karen",
+            3
+          ],
+          "nl": "Alice and Karen must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            7
+          ],
+          "nl": "Diana must sit at position 7"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Frank",
+            1
+          ],
+          "nl": "Peter and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Frank"
+          ],
+          "nl": "Grace must sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 4,
+        "Grace": 3,
+        "Diana": 7,
+        "Alice": 1,
+        "Karen": 5,
+        "Peter": 8,
+        "Quinn": 6,
+        "Frank": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Diana and Grace must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Grace",
+            1
+          ],
+          "nl": "Diana and Grace must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Karen",
+            3
+          ],
+          "nl": "Alice and Karen must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            7
+          ],
+          "nl": "Diana must sit at position 7"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia cannot sit next to Frank"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Karen"
+          ],
+          "nl": "Quinn sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Quinn"
+          ],
+          "nl": "Diana sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Frank",
+            1
+          ],
+          "nl": "Peter and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Frank"
+          ],
+          "nl": "Grace must sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Grace",
+            1
+          ],
+          "nl": "Diana and Grace must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 2,
+        "Grace": 3,
+        "Diana": 7,
+        "Alice": 1,
+        "Karen": 5,
+        "Peter": 8,
+        "Quinn": 6,
+        "Frank": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

@@ -1,0 +1,655 @@
+{
+  "problem_id": "scheduling_158",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Design",
+    "QA",
+    "Refactor",
+    "Review",
+    "Testing",
+    "Meeting",
+    "Sync"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Meeting must happen before Design. Also, QA has duration 3.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 3
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Design has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 2,
+          "duration": 2
+        },
+        "QA": {
+          "start": 1,
+          "duration": 3
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 1 slots between Testing and Design. Also, There must be at least 2 slots between Review and QA.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 3,
+          "duration": 2
+        },
+        "QA": {
+          "start": 4,
+          "duration": 3
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sync must start at time slot 1. Also, Testing must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 2,
+          "duration": 2
+        },
+        "QA": {
+          "start": 4,
+          "duration": 3
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync must happen before Refactor. Also, Review must start at time slot 4. Also, Design must happen before Testing.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            4
+          ],
+          "nl": "Review must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            4
+          ],
+          "nl": "Review must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 2,
+          "duration": 2
+        },
+        "QA": {
+          "start": 7,
+          "duration": 3
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Testing must start at time slot 7.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            4
+          ],
+          "nl": "Review must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 2,
+          "duration": 2
+        },
+        "QA": {
+          "start": 7,
+          "duration": 3
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 11,
+  "max_duration": 3,
+  "split": "dev"
+}

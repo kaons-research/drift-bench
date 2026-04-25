@@ -1,0 +1,436 @@
+{
+  "problem_id": "seating_179",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Peter",
+    "Ivy",
+    "Grace",
+    "Eve",
+    "Quinn",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Grace sits immediately left of Peter.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace sits immediately left of Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace sits immediately left of Peter"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Ivy": 2,
+        "Grace": 4,
+        "Eve": 1,
+        "Quinn": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Grace cannot sit next to Quinn. Also, Olivia must sit next to Grace. Also, Eve sits immediately left of Ivy.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Ivy"
+          ],
+          "nl": "Eve sits immediately left of Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace sits immediately left of Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Ivy"
+          ],
+          "nl": "Eve sits immediately left of Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 6,
+        "Ivy": 4,
+        "Grace": 1,
+        "Eve": 5,
+        "Quinn": 3,
+        "Olivia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Olivia cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace sits immediately left of Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Ivy"
+          ],
+          "nl": "Eve sits immediately left of Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Ivy": 1,
+        "Grace": 4,
+        "Eve": 2,
+        "Quinn": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            2
+          ],
+          "nl": "Eve must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace sits immediately left of Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Ivy"
+          ],
+          "nl": "Eve sits immediately left of Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            2
+          ],
+          "nl": "Eve must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Ivy": 1,
+        "Grace": 4,
+        "Eve": 2,
+        "Quinn": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Quinn and Grace must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Grace",
+            1
+          ],
+          "nl": "Quinn and Grace must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace sits immediately left of Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Ivy"
+          ],
+          "nl": "Eve sits immediately left of Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            2
+          ],
+          "nl": "Eve must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Grace",
+            1
+          ],
+          "nl": "Quinn and Grace must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Ivy": 1,
+        "Grace": 4,
+        "Eve": 2,
+        "Quinn": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Grace and Ivy must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Ivy",
+            1
+          ],
+          "nl": "Grace and Ivy must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace sits immediately left of Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Ivy"
+          ],
+          "nl": "Eve sits immediately left of Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            2
+          ],
+          "nl": "Eve must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Grace",
+            1
+          ],
+          "nl": "Quinn and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Ivy",
+            1
+          ],
+          "nl": "Grace and Ivy must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Ivy": 1,
+        "Grace": 4,
+        "Eve": 2,
+        "Quinn": 6,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

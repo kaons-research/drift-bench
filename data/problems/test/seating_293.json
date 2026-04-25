@@ -1,0 +1,584 @@
+{
+  "problem_id": "seating_293",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Ivy",
+    "Noah",
+    "Bob",
+    "Henry",
+    "Karen",
+    "Sam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Karen and Henry must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Henry",
+            1
+          ],
+          "nl": "Karen and Henry must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Henry",
+            1
+          ],
+          "nl": "Karen and Henry must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Noah": 5,
+        "Bob": 4,
+        "Henry": 2,
+        "Karen": 6,
+        "Sam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Karen must sit at position 6. Also, Henry cannot sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Bob"
+          ],
+          "nl": "Henry cannot sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Henry",
+            1
+          ],
+          "nl": "Karen and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Bob"
+          ],
+          "nl": "Henry cannot sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Noah": 5,
+        "Bob": 2,
+        "Henry": 4,
+        "Karen": 6,
+        "Sam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Henry",
+            1
+          ],
+          "nl": "Karen and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Bob"
+          ],
+          "nl": "Henry cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 5,
+        "Noah": 3,
+        "Bob": 4,
+        "Henry": 2,
+        "Karen": 6,
+        "Sam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah must sit next to Henry. Also, Bob sits immediately left of Sam. Also, Noah must sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah must sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Henry",
+            1
+          ],
+          "nl": "Karen and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Bob"
+          ],
+          "nl": "Henry cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah must sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 1,
+        "Noah": 2,
+        "Bob": 5,
+        "Henry": 3,
+        "Karen": 6,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Karen sits immediately left of Bob.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen sits immediately left of Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Henry",
+            1
+          ],
+          "nl": "Karen and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Bob"
+          ],
+          "nl": "Henry cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah must sit next to Ivy"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen sits immediately left of Bob"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 1,
+        "Noah": 2,
+        "Bob": 5,
+        "Henry": 3,
+        "Karen": 6,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Noah cannot sit next to Sam. Also, Sam cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Henry",
+            1
+          ],
+          "nl": "Karen and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Bob"
+          ],
+          "nl": "Henry cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah must sit next to Ivy"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 1,
+        "Noah": 2,
+        "Bob": 5,
+        "Henry": 3,
+        "Karen": 6,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Henry cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Ivy"
+          ],
+          "nl": "Henry cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Henry",
+            1
+          ],
+          "nl": "Karen and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Bob"
+          ],
+          "nl": "Henry cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah must sit next to Ivy"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Karen"
+          ],
+          "nl": "Sam cannot sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Ivy"
+          ],
+          "nl": "Henry cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 1,
+        "Noah": 2,
+        "Bob": 5,
+        "Henry": 3,
+        "Karen": 6,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

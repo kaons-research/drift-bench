@@ -1,0 +1,309 @@
+{
+  "problem_id": "seating_283",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Liam",
+    "Ruby",
+    "Olivia",
+    "Quinn",
+    "Grace",
+    "Henry",
+    "Jack",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia and Ruby must sit on opposite sides of the table. Also, Liam sits immediately left of Grace.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Grace"
+          ],
+          "nl": "Liam sits immediately left of Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Grace"
+          ],
+          "nl": "Liam sits immediately left of Grace"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 6,
+        "Ruby": 4,
+        "Olivia": 8,
+        "Quinn": 7,
+        "Grace": 5,
+        "Henry": 3,
+        "Jack": 1,
+        "Charlie": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Quinn and Charlie must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Charlie",
+            1
+          ],
+          "nl": "Quinn and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Grace"
+          ],
+          "nl": "Liam sits immediately left of Grace"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Charlie",
+            1
+          ],
+          "nl": "Quinn and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Ruby": 1,
+        "Olivia": 5,
+        "Quinn": 7,
+        "Grace": 3,
+        "Henry": 8,
+        "Jack": 6,
+        "Charlie": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Quinn must sit next to Liam. Also, Grace sits immediately left of Olivia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Liam"
+          ],
+          "nl": "Quinn must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Grace"
+          ],
+          "nl": "Liam sits immediately left of Grace"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Charlie",
+            1
+          ],
+          "nl": "Quinn and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Liam"
+          ],
+          "nl": "Quinn must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 7,
+        "Ruby": 4,
+        "Olivia": 5,
+        "Quinn": 8,
+        "Grace": 6,
+        "Henry": 3,
+        "Jack": 1,
+        "Charlie": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Quinn and Grace must have at least 1 seats between them. Also, Charlie cannot sit next to Henry. Also, Charlie must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Grace",
+            1
+          ],
+          "nl": "Quinn and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Grace"
+          ],
+          "nl": "Liam sits immediately left of Grace"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Charlie",
+            1
+          ],
+          "nl": "Quinn and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Liam"
+          ],
+          "nl": "Quinn must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Grace",
+            1
+          ],
+          "nl": "Quinn and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 8,
+        "Ruby": 3,
+        "Olivia": 6,
+        "Quinn": 1,
+        "Grace": 7,
+        "Henry": 2,
+        "Jack": 5,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

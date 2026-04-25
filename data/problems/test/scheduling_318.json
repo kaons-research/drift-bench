@@ -1,0 +1,768 @@
+{
+  "problem_id": "scheduling_318",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Deploy",
+    "Design",
+    "Meeting",
+    "Refactor",
+    "Testing",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing must happen before Refactor. Also, Design must start between time slots 3 and 8.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            8
+          ],
+          "nl": "Design must start between time slots 3 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            8
+          ],
+          "nl": "Design must start between time slots 3 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 2 slots between Design and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            8
+          ],
+          "nl": "Design must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Refactor has duration 3. Also, Design must start between time slots 5 and 6. Also, Refactor must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            5,
+            6
+          ],
+          "nl": "Design must start between time slots 5 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            8
+          ],
+          "nl": "Design must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            5,
+            6
+          ],
+          "nl": "Design must start between time slots 5 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 5,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing must start at time slot 2.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing must start at time slot 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            8
+          ],
+          "nl": "Design must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            5,
+            6
+          ],
+          "nl": "Design must start between time slots 5 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing must start at time slot 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Refactor must start between time slots 2 and 4.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            4
+          ],
+          "nl": "Refactor must start between time slots 2 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            8
+          ],
+          "nl": "Design must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            5,
+            6
+          ],
+          "nl": "Design must start between time slots 5 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            4
+          ],
+          "nl": "Refactor must start between time slots 2 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Testing and Deploy cannot be simultaneous. Also, Deploy and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            8
+          ],
+          "nl": "Design must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            5,
+            6
+          ],
+          "nl": "Design must start between time slots 5 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            4
+          ],
+          "nl": "Refactor must start between time slots 2 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Review must happen before Meeting. Also, Deploy has duration 3.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Meeting"
+          ],
+          "nl": "Review must happen before Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            8
+          ],
+          "nl": "Design must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            5,
+            6
+          ],
+          "nl": "Design must start between time slots 5 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            4
+          ],
+          "nl": "Refactor must start between time slots 2 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Meeting"
+          ],
+          "nl": "Review must happen before Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 6,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

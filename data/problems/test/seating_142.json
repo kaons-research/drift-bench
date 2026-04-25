@@ -1,0 +1,264 @@
+{
+  "problem_id": "seating_142",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Diana",
+    "Olivia",
+    "Ruby",
+    "Bob",
+    "Charlie",
+    "Quinn"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Ruby cannot sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Bob"
+          ],
+          "nl": "Ruby cannot sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Bob"
+          ],
+          "nl": "Ruby cannot sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 3,
+        "Olivia": 6,
+        "Ruby": 4,
+        "Bob": 1,
+        "Charlie": 5,
+        "Quinn": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Diana cannot sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana cannot sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Bob"
+          ],
+          "nl": "Ruby cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana cannot sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 2,
+        "Olivia": 5,
+        "Ruby": 1,
+        "Bob": 4,
+        "Charlie": 6,
+        "Quinn": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie must sit next to Bob. Also, Bob and Diana must have at least 1 seats between them. Also, Olivia sits immediately left of Ruby.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Diana",
+            1
+          ],
+          "nl": "Bob and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia sits immediately left of Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Bob"
+          ],
+          "nl": "Ruby cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Diana",
+            1
+          ],
+          "nl": "Bob and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia sits immediately left of Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Olivia": 4,
+        "Ruby": 3,
+        "Bob": 1,
+        "Charlie": 6,
+        "Quinn": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Quinn must sit next to Diana. Also, Olivia must sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia must sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Bob"
+          ],
+          "nl": "Ruby cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Diana",
+            1
+          ],
+          "nl": "Bob and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia sits immediately left of Ruby"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia must sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 1,
+        "Olivia": 3,
+        "Ruby": 2,
+        "Bob": 4,
+        "Charlie": 5,
+        "Quinn": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

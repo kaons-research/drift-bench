@@ -1,0 +1,562 @@
+{
+  "problem_id": "scheduling_116",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Meeting",
+    "Planning",
+    "Review",
+    "Design",
+    "Sync",
+    "Deploy",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Meeting must start between time slots 2 and 6. Also, Planning must start between time slots 7 and 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            7
+          ],
+          "nl": "Planning must start between time slots 7 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            7
+          ],
+          "nl": "Planning must start between time slots 7 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sync has duration 1. Also, Meeting has duration 2. Also, Design must start at time slot 10.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            10
+          ],
+          "nl": "Design must start at time slot 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            7
+          ],
+          "nl": "Planning must start between time slots 7 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            10
+          ],
+          "nl": "Design must start at time slot 10"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 10,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Meeting must happen before Sync.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            7
+          ],
+          "nl": "Planning must start between time slots 7 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            10
+          ],
+          "nl": "Design must start at time slot 10"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 10,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 1 slots between Design and Meeting. Also, There must be at least 1 slots between Design and Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            7
+          ],
+          "nl": "Planning must start between time slots 7 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            10
+          ],
+          "nl": "Design must start at time slot 10"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 10,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning and Review cannot be simultaneous. Also, Sync must start between time slots 2 and 8.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            8
+          ],
+          "nl": "Sync must start between time slots 2 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            7
+          ],
+          "nl": "Planning must start between time slots 7 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            10
+          ],
+          "nl": "Design must start at time slot 10"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            8
+          ],
+          "nl": "Sync must start between time slots 2 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 10,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

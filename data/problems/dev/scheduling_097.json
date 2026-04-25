@@ -1,0 +1,834 @@
+{
+  "problem_id": "scheduling_097",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Design",
+    "Planning",
+    "Meeting",
+    "Docs",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 0 slots between Meeting and Design. Also, Testing must start at time slot 6.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Planning must start between time slots 3 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            8
+          ],
+          "nl": "Planning must start between time slots 3 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            8
+          ],
+          "nl": "Planning must start between time slots 3 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Meeting and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            8
+          ],
+          "nl": "Planning must start between time slots 3 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing must start between time slots 6 and 7. Also, Docs must start between time slots 6 and 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            6,
+            7
+          ],
+          "nl": "Testing must start between time slots 6 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            6,
+            7
+          ],
+          "nl": "Docs must start between time slots 6 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            8
+          ],
+          "nl": "Planning must start between time slots 3 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            6,
+            7
+          ],
+          "nl": "Testing must start between time slots 6 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            6,
+            7
+          ],
+          "nl": "Docs must start between time slots 6 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            8
+          ],
+          "nl": "Planning must start between time slots 3 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            6,
+            7
+          ],
+          "nl": "Testing must start between time slots 6 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            6,
+            7
+          ],
+          "nl": "Docs must start between time slots 6 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Meeting must happen before Docs. Also, Design must start at time slot 3. Also, There must be at least 2 slots between Meeting and Testing.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            8
+          ],
+          "nl": "Planning must start between time slots 3 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            6,
+            7
+          ],
+          "nl": "Testing must start between time slots 6 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            6,
+            7
+          ],
+          "nl": "Docs must start between time slots 6 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Docs and Meeting cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs and Meeting cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            8
+          ],
+          "nl": "Planning must start between time slots 3 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            6,
+            7
+          ],
+          "nl": "Testing must start between time slots 6 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            6,
+            7
+          ],
+          "nl": "Docs must start between time slots 6 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs and Meeting cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Planning must start at time slot 4.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            4
+          ],
+          "nl": "Planning must start at time slot 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            8
+          ],
+          "nl": "Planning must start between time slots 3 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Design"
+          ],
+          "nl": "Meeting and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            6,
+            7
+          ],
+          "nl": "Testing must start between time slots 6 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            6,
+            7
+          ],
+          "nl": "Docs must start between time slots 6 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            4
+          ],
+          "nl": "Planning must start at time slot 4"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "dev"
+}

@@ -1,0 +1,320 @@
+{
+  "problem_id": "seating_194",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Ruby",
+    "Tina",
+    "Quinn",
+    "Alice",
+    "Peter",
+    "Sam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Tina must sit next to Peter. Also, Quinn sits immediately left of Sam. Also, Ruby and Tina must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn sits immediately left of Sam"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby and Tina must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn sits immediately left of Sam"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby and Tina must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 1,
+        "Tina": 2,
+        "Quinn": 5,
+        "Alice": 6,
+        "Peter": 3,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sam cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Tina"
+          ],
+          "nl": "Sam cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn sits immediately left of Sam"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby and Tina must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Tina"
+          ],
+          "nl": "Sam cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 3,
+        "Tina": 2,
+        "Quinn": 6,
+        "Alice": 4,
+        "Peter": 1,
+        "Sam": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Alice must sit next to Quinn. Also, Alice and Peter must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice must sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Peter",
+            1
+          ],
+          "nl": "Alice and Peter must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn sits immediately left of Sam"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby and Tina must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Tina"
+          ],
+          "nl": "Sam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice must sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Peter",
+            1
+          ],
+          "nl": "Alice and Peter must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 3,
+        "Tina": 1,
+        "Quinn": 5,
+        "Alice": 6,
+        "Peter": 2,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sam and Ruby must sit on opposite sides of the table. Also, Tina sits immediately left of Alice.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Sam",
+            "Ruby"
+          ],
+          "nl": "Sam and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Alice"
+          ],
+          "nl": "Tina sits immediately left of Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn sits immediately left of Sam"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby and Tina must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Tina"
+          ],
+          "nl": "Sam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice must sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Peter",
+            1
+          ],
+          "nl": "Alice and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Sam",
+            "Ruby"
+          ],
+          "nl": "Sam and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Alice"
+          ],
+          "nl": "Tina sits immediately left of Alice"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 3,
+        "Tina": 1,
+        "Quinn": 5,
+        "Alice": 6,
+        "Peter": 2,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

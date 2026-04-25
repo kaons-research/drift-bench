@@ -1,0 +1,501 @@
+{
+  "problem_id": "seating_054",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Karen",
+    "Grace",
+    "Peter",
+    "Olivia",
+    "Tina",
+    "Noah"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia must sit at position 3. Also, Karen cannot sit next to Olivia. Also, Olivia must sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            3
+          ],
+          "nl": "Olivia must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            3
+          ],
+          "nl": "Olivia must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 6,
+        "Grace": 2,
+        "Peter": 5,
+        "Olivia": 3,
+        "Tina": 1,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah cannot sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Grace"
+          ],
+          "nl": "Noah cannot sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            3
+          ],
+          "nl": "Olivia must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Grace"
+          ],
+          "nl": "Noah cannot sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 1,
+        "Grace": 4,
+        "Peter": 5,
+        "Olivia": 3,
+        "Tina": 6,
+        "Noah": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Grace sits immediately left of Karen.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace sits immediately left of Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            3
+          ],
+          "nl": "Olivia must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Grace"
+          ],
+          "nl": "Noah cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace sits immediately left of Karen"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 1,
+        "Grace": 2,
+        "Peter": 6,
+        "Olivia": 3,
+        "Tina": 5,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Peter and Karen must have at least 1 seats between them. Also, Grace cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Karen",
+            1
+          ],
+          "nl": "Peter and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            3
+          ],
+          "nl": "Olivia must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Grace"
+          ],
+          "nl": "Noah cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace sits immediately left of Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Karen",
+            1
+          ],
+          "nl": "Peter and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 1,
+        "Grace": 2,
+        "Peter": 5,
+        "Olivia": 3,
+        "Tina": 6,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Tina cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            3
+          ],
+          "nl": "Olivia must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Grace"
+          ],
+          "nl": "Noah cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace sits immediately left of Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Karen",
+            1
+          ],
+          "nl": "Peter and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 1,
+        "Grace": 2,
+        "Peter": 5,
+        "Olivia": 3,
+        "Tina": 6,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Peter and Grace must have at least 1 seats between them. Also, Tina sits immediately left of Noah.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Grace",
+            1
+          ],
+          "nl": "Peter and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina sits immediately left of Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            3
+          ],
+          "nl": "Olivia must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Grace"
+          ],
+          "nl": "Noah cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace sits immediately left of Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Karen",
+            1
+          ],
+          "nl": "Peter and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Grace",
+            1
+          ],
+          "nl": "Peter and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina sits immediately left of Noah"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 1,
+        "Grace": 2,
+        "Peter": 4,
+        "Olivia": 3,
+        "Tina": 6,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

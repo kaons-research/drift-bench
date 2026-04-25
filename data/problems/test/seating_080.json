@@ -1,0 +1,326 @@
+{
+  "problem_id": "seating_080",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Ruby",
+    "Grace",
+    "Frank",
+    "Mia",
+    "Henry",
+    "Eve",
+    "Quinn"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Mia must sit at position 2. Also, Eve and Grace must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Grace",
+            1
+          ],
+          "nl": "Eve and Grace must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Grace",
+            1
+          ],
+          "nl": "Eve and Grace must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 4,
+        "Grace": 3,
+        "Frank": 5,
+        "Mia": 2,
+        "Henry": 6,
+        "Eve": 7,
+        "Quinn": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Quinn must sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Grace",
+            1
+          ],
+          "nl": "Eve and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 4,
+        "Grace": 1,
+        "Frank": 3,
+        "Mia": 2,
+        "Henry": 6,
+        "Eve": 5,
+        "Quinn": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia and Quinn must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Quinn",
+            1
+          ],
+          "nl": "Mia and Quinn must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Grace",
+            1
+          ],
+          "nl": "Eve and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Quinn",
+            1
+          ],
+          "nl": "Mia and Quinn must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 4,
+        "Grace": 3,
+        "Frank": 5,
+        "Mia": 2,
+        "Henry": 7,
+        "Eve": 1,
+        "Quinn": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Frank must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Grace",
+            1
+          ],
+          "nl": "Eve and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Quinn",
+            1
+          ],
+          "nl": "Mia and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 3,
+        "Grace": 7,
+        "Frank": 1,
+        "Mia": 2,
+        "Henry": 5,
+        "Eve": 4,
+        "Quinn": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Ruby cannot sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Frank"
+          ],
+          "nl": "Ruby cannot sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Grace",
+            1
+          ],
+          "nl": "Eve and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Quinn",
+            1
+          ],
+          "nl": "Mia and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Frank"
+          ],
+          "nl": "Ruby cannot sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Ruby": 4,
+        "Grace": 3,
+        "Frank": 1,
+        "Mia": 2,
+        "Henry": 5,
+        "Eve": 7,
+        "Quinn": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

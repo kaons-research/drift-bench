@@ -1,0 +1,338 @@
+{
+  "problem_id": "scheduling_206",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Sync",
+    "Meeting",
+    "Refactor",
+    "Design",
+    "Docs",
+    "Testing",
+    "QA"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "QA and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Testing must start at time slot 4.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            4
+          ],
+          "nl": "Testing must start at time slot 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            4
+          ],
+          "nl": "Testing must start at time slot 4"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "QA and Docs cannot be simultaneous. Also, Sync must start between time slots 6 and 7. Also, Refactor has duration 2.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA and Docs cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            7
+          ],
+          "nl": "Sync must start between time slots 6 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            4
+          ],
+          "nl": "Testing must start at time slot 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA and Docs cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            7
+          ],
+          "nl": "Sync must start between time slots 6 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "QA must start at time slot 10.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            10
+          ],
+          "nl": "QA must start at time slot 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            4
+          ],
+          "nl": "Testing must start at time slot 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA and Docs cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            7
+          ],
+          "nl": "Sync must start between time slots 6 and 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            10
+          ],
+          "nl": "QA must start at time slot 10"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

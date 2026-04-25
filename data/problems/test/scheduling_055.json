@@ -1,0 +1,1143 @@
+{
+  "problem_id": "scheduling_055",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Refactor",
+    "Deploy",
+    "Meeting",
+    "Sync",
+    "QA",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Meeting must start at time slot 6. Also, QA must start at time slot 7. Also, Meeting must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 2 slots between Deploy and QA. Also, There must be at least 2 slots between Review and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Review and Deploy cannot be simultaneous. Also, Sync must start between time slots 3 and 9. Also, QA must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            9
+          ],
+          "nl": "Sync must start between time slots 3 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            9
+          ],
+          "nl": "Sync must start between time slots 3 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "QA must happen before Sync. Also, There must be at least 0 slots between Deploy and Meeting. Also, There must be at least 0 slots between Meeting and QA.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA must happen before Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            9
+          ],
+          "nl": "Sync must start between time slots 3 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA must happen before Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and QA"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync must happen before Deploy. Also, Review must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            9
+          ],
+          "nl": "Sync must start between time slots 3 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA must happen before Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Sync and QA cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync and QA cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            9
+          ],
+          "nl": "Sync must start between time slots 3 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA must happen before Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review must happen before Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync and QA cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Meeting must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            9
+          ],
+          "nl": "Sync must start between time slots 3 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA must happen before Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review must happen before Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "There must be at least 2 slots between Review and Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            7
+          ],
+          "nl": "QA must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            3,
+            9
+          ],
+          "nl": "Sync must start between time slots 3 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA must happen before Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review must happen before Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting must happen before Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

@@ -1,0 +1,1053 @@
+{
+  "problem_id": "scheduling_037",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Sync",
+    "Planning",
+    "Meeting",
+    "Deploy",
+    "Refactor"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sync must start at time slot 5. Also, Planning has duration 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Planning must start between time slots 3 and 5. Also, Deploy must start between time slots 1 and 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Deploy must happen before Planning. Also, Refactor has duration 2.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 1 slots between Deploy and Planning. Also, Sync has duration 2.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Meeting must start between time slots 3 and 3.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            3
+          ],
+          "nl": "Meeting must start between time slots 3 and 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            3
+          ],
+          "nl": "Meeting must start between time slots 3 and 3"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Sync and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            3
+          ],
+          "nl": "Meeting must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Deploy must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            3
+          ],
+          "nl": "Meeting must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Refactor must happen before Sync. Also, Refactor and Deploy cannot be simultaneous. Also, Deploy and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor must happen before Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            5
+          ],
+          "nl": "Planning must start between time slots 3 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            7
+          ],
+          "nl": "Deploy must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            3
+          ],
+          "nl": "Meeting must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor must happen before Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

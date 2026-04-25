@@ -1,0 +1,406 @@
+{
+  "problem_id": "scheduling_076",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Docs",
+    "Planning",
+    "Testing",
+    "Meeting",
+    "Sync",
+    "Review",
+    "Deploy"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Docs must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Planning must start at time slot 3. Also, Sync must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Review has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Docs has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            3
+          ],
+          "nl": "Planning must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "dev"
+}

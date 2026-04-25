@@ -1,0 +1,901 @@
+{
+  "problem_id": "seating_250",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Tina",
+    "Diana",
+    "Eve",
+    "Olivia",
+    "Liam",
+    "Jack"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia must sit at position 6. Also, Eve must sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 4,
+        "Diana": 1,
+        "Eve": 2,
+        "Olivia": 6,
+        "Liam": 3,
+        "Jack": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack and Tina must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 5,
+        "Diana": 2,
+        "Eve": 1,
+        "Olivia": 6,
+        "Liam": 4,
+        "Jack": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana and Jack must sit on the same side of the table. Also, Jack must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 5,
+        "Diana": 2,
+        "Eve": 3,
+        "Olivia": 6,
+        "Liam": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Jack and Eve must sit on the same side of the table. Also, Tina and Jack must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Eve"
+          ],
+          "nl": "Jack and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Jack",
+            1
+          ],
+          "nl": "Tina and Jack must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack must sit next to Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Eve"
+          ],
+          "nl": "Jack and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Jack",
+            1
+          ],
+          "nl": "Tina and Jack must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 5,
+        "Diana": 3,
+        "Eve": 2,
+        "Olivia": 6,
+        "Liam": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Eve sits immediately left of Diana.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve sits immediately left of Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack must sit next to Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Eve"
+          ],
+          "nl": "Jack and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Jack",
+            1
+          ],
+          "nl": "Tina and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve sits immediately left of Diana"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 4,
+        "Diana": 2,
+        "Eve": 3,
+        "Olivia": 6,
+        "Liam": 5,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Eve must sit at position 3. Also, Diana cannot sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack must sit next to Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Eve"
+          ],
+          "nl": "Jack and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Jack",
+            1
+          ],
+          "nl": "Tina and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 5,
+        "Diana": 2,
+        "Eve": 3,
+        "Olivia": 6,
+        "Liam": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Tina and Eve must have at least 1 seats between them. Also, Jack cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Eve",
+            1
+          ],
+          "nl": "Tina and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack must sit next to Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Eve"
+          ],
+          "nl": "Jack and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Jack",
+            1
+          ],
+          "nl": "Tina and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Eve",
+            1
+          ],
+          "nl": "Tina and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 5,
+        "Diana": 2,
+        "Eve": 3,
+        "Olivia": 6,
+        "Liam": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Liam must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack must sit next to Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Eve"
+          ],
+          "nl": "Jack and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Jack",
+            1
+          ],
+          "nl": "Tina and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Eve",
+            1
+          ],
+          "nl": "Tina and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 5,
+        "Diana": 2,
+        "Eve": 3,
+        "Olivia": 6,
+        "Liam": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Liam and Eve must sit on opposite sides of the table. Also, Tina and Eve must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Tina",
+            "Eve"
+          ],
+          "nl": "Tina and Eve must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve must sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack must sit next to Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Eve"
+          ],
+          "nl": "Jack and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Jack",
+            1
+          ],
+          "nl": "Tina and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Eve",
+            1
+          ],
+          "nl": "Tina and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Tina",
+            "Eve"
+          ],
+          "nl": "Tina and Eve must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 5,
+        "Diana": 2,
+        "Eve": 3,
+        "Olivia": 6,
+        "Liam": 4,
+        "Jack": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

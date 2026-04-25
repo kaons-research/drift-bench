@@ -1,0 +1,357 @@
+{
+  "problem_id": "seating_305",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Noah",
+    "Henry",
+    "Frank",
+    "Peter",
+    "Grace",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Henry must sit next to Grace. Also, Grace must sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace must sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace must sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 2,
+        "Henry": 4,
+        "Frank": 5,
+        "Peter": 1,
+        "Grace": 3,
+        "Charlie": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Peter sits immediately left of Frank. Also, Frank must sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace must sit next to Noah"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Henry": 4,
+        "Frank": 1,
+        "Peter": 2,
+        "Grace": 5,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Frank and Henry must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            2
+          ],
+          "nl": "Frank and Henry must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace must sit next to Noah"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            2
+          ],
+          "nl": "Frank and Henry must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Henry": 4,
+        "Frank": 1,
+        "Peter": 2,
+        "Grace": 5,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Grace and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Frank",
+            1
+          ],
+          "nl": "Grace and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace must sit next to Noah"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            2
+          ],
+          "nl": "Frank and Henry must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Frank",
+            1
+          ],
+          "nl": "Grace and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Henry": 4,
+        "Frank": 1,
+        "Peter": 2,
+        "Grace": 5,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Charlie must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace must sit next to Noah"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Frank"
+          ],
+          "nl": "Peter sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            2
+          ],
+          "nl": "Frank and Henry must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Frank",
+            1
+          ],
+          "nl": "Grace and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 1,
+        "Henry": 5,
+        "Frank": 2,
+        "Peter": 3,
+        "Grace": 6,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

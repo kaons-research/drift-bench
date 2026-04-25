@@ -1,0 +1,1100 @@
+{
+  "problem_id": "scheduling_230",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Deploy",
+    "Review",
+    "Meeting",
+    "Testing",
+    "Refactor",
+    "Planning",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 2 slots between Refactor and Review. Also, Deploy must start between time slots 1 and 3.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Planning must start at time slot 9. Also, Deploy must start between time slots 1 and 2.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing and Review cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Docs must start between time slots 3 and 10.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            10
+          ],
+          "nl": "Docs must start between time slots 3 and 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            10
+          ],
+          "nl": "Docs must start between time slots 3 and 10"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 1 slots between Deploy and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            10
+          ],
+          "nl": "Docs must start between time slots 3 and 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Meeting and Testing cannot be simultaneous. Also, There must be at least 1 slots between Planning and Testing.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting and Testing cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            10
+          ],
+          "nl": "Docs must start between time slots 3 and 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting and Testing cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 2
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Deploy must happen before Docs. Also, Meeting has duration 3.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            10
+          ],
+          "nl": "Docs must start between time slots 3 and 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting and Testing cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Docs must start between time slots 4 and 6. Also, Refactor has duration 3.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            4,
+            6
+          ],
+          "nl": "Docs must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            10
+          ],
+          "nl": "Docs must start between time slots 3 and 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting and Testing cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            4,
+            6
+          ],
+          "nl": "Docs must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Docs and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            3
+          ],
+          "nl": "Deploy must start between time slots 1 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            9
+          ],
+          "nl": "Planning must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            2
+          ],
+          "nl": "Deploy must start between time slots 1 and 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            10
+          ],
+          "nl": "Docs must start between time slots 3 and 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting and Testing cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            4,
+            6
+          ],
+          "nl": "Docs must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

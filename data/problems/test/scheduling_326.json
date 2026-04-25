@@ -1,0 +1,517 @@
+{
+  "problem_id": "scheduling_326",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Meeting",
+    "Design",
+    "Sync",
+    "Review",
+    "QA",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Meeting must start between time slots 2 and 5.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            5
+          ],
+          "nl": "Meeting must start between time slots 2 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            5
+          ],
+          "nl": "Meeting must start between time slots 2 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Meeting must start between time slots 2 and 6. Also, Planning must happen before QA.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            5
+          ],
+          "nl": "Meeting must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "QA has duration 3. Also, There must be at least 0 slots between Design and Review. Also, Design must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            5
+          ],
+          "nl": "Meeting must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 0 slots between QA and Planning. Also, Review must start at time slot 1.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            5
+          ],
+          "nl": "Meeting must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "QA and Sync cannot be simultaneous. Also, There must be at least 1 slots between QA and Design.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            5
+          ],
+          "nl": "Meeting must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            2,
+            6
+          ],
+          "nl": "Meeting must start between time slots 2 and 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Design"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

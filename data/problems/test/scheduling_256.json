@@ -1,0 +1,303 @@
+{
+  "problem_id": "scheduling_256",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Meeting",
+    "Deploy",
+    "Review",
+    "Sync",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Deploy must start between time slots 7 and 8. Also, Testing must start between time slots 4 and 9.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            7,
+            8
+          ],
+          "nl": "Deploy must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            9
+          ],
+          "nl": "Testing must start between time slots 4 and 9"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            7,
+            8
+          ],
+          "nl": "Deploy must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            9
+          ],
+          "nl": "Testing must start between time slots 4 and 9"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Deploy must happen before Meeting.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            7,
+            8
+          ],
+          "nl": "Deploy must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            9
+          ],
+          "nl": "Testing must start between time slots 4 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 9,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Review must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            7,
+            8
+          ],
+          "nl": "Deploy must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            9
+          ],
+          "nl": "Testing must start between time slots 4 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 9,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sync must happen before Testing.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            7,
+            8
+          ],
+          "nl": "Deploy must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            9
+          ],
+          "nl": "Testing must start between time slots 4 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 9,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

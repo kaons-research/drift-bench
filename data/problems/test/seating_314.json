@@ -1,0 +1,951 @@
+{
+  "problem_id": "seating_314",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Mia",
+    "Karen",
+    "Noah",
+    "Frank",
+    "Ruby",
+    "Alice",
+    "Olivia",
+    "Ivy"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Karen must sit next to Olivia. Also, Mia and Ivy must have at least 3 seats between them. Also, Mia cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 4,
+        "Karen": 3,
+        "Noah": 7,
+        "Frank": 6,
+        "Ruby": 1,
+        "Alice": 5,
+        "Olivia": 2,
+        "Ivy": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Ivy cannot sit next to Ruby. Also, Olivia cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Ruby"
+          ],
+          "nl": "Ivy cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Ruby"
+          ],
+          "nl": "Ivy cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 4,
+        "Karen": 3,
+        "Noah": 1,
+        "Frank": 5,
+        "Ruby": 6,
+        "Alice": 7,
+        "Olivia": 2,
+        "Ivy": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Ivy and Alice must sit on the same side of the table. Also, Noah cannot sit next to Mia. Also, Frank and Mia must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Alice"
+          ],
+          "nl": "Ivy and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah cannot sit next to Mia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank and Mia must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Ruby"
+          ],
+          "nl": "Ivy cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Alice"
+          ],
+          "nl": "Ivy and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah cannot sit next to Mia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank and Mia must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 2,
+        "Karen": 4,
+        "Noah": 8,
+        "Frank": 7,
+        "Ruby": 1,
+        "Alice": 5,
+        "Olivia": 3,
+        "Ivy": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah and Karen must sit on the same side of the table. Also, Ivy cannot sit next to Frank. Also, Olivia and Karen must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Ruby"
+          ],
+          "nl": "Ivy cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Alice"
+          ],
+          "nl": "Ivy and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah cannot sit next to Mia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank and Mia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 4,
+        "Karen": 3,
+        "Noah": 1,
+        "Frank": 6,
+        "Ruby": 5,
+        "Alice": 7,
+        "Olivia": 2,
+        "Ivy": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Ruby must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            2
+          ],
+          "nl": "Ruby must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Ruby"
+          ],
+          "nl": "Ivy cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Alice"
+          ],
+          "nl": "Ivy and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah cannot sit next to Mia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank and Mia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            2
+          ],
+          "nl": "Ruby must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 8,
+        "Karen": 7,
+        "Noah": 5,
+        "Frank": 1,
+        "Ruby": 2,
+        "Alice": 3,
+        "Olivia": 6,
+        "Ivy": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Frank and Karen must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank and Karen must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Ruby"
+          ],
+          "nl": "Ivy cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Alice"
+          ],
+          "nl": "Ivy and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah cannot sit next to Mia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank and Mia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            2
+          ],
+          "nl": "Ruby must sit at position 2"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank and Karen must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 8,
+        "Karen": 6,
+        "Noah": 5,
+        "Frank": 1,
+        "Ruby": 2,
+        "Alice": 3,
+        "Olivia": 7,
+        "Ivy": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Mia and Noah must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Noah",
+            2
+          ],
+          "nl": "Mia and Noah must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Ruby"
+          ],
+          "nl": "Ivy cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Alice"
+          ],
+          "nl": "Ivy and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah cannot sit next to Mia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank and Mia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            2
+          ],
+          "nl": "Ruby must sit at position 2"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank and Karen must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Noah",
+            2
+          ],
+          "nl": "Mia and Noah must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 8,
+        "Karen": 7,
+        "Noah": 5,
+        "Frank": 1,
+        "Ruby": 2,
+        "Alice": 3,
+        "Olivia": 6,
+        "Ivy": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Ivy must sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy must sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ivy",
+            3
+          ],
+          "nl": "Mia and Ivy must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia cannot sit next to Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Ruby"
+          ],
+          "nl": "Ivy cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Alice"
+          ],
+          "nl": "Ivy and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah cannot sit next to Mia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank and Mia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            2
+          ],
+          "nl": "Ruby must sit at position 2"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank and Karen must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Noah",
+            2
+          ],
+          "nl": "Mia and Noah must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy must sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 8,
+        "Karen": 6,
+        "Noah": 5,
+        "Frank": 1,
+        "Ruby": 2,
+        "Alice": 3,
+        "Olivia": 7,
+        "Ivy": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

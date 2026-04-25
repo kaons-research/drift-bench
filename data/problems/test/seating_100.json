@@ -1,0 +1,213 @@
+{
+  "problem_id": "seating_100",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Olivia",
+    "Eve",
+    "Grace",
+    "Alice",
+    "Diana",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia must sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 6,
+        "Eve": 4,
+        "Grace": 1,
+        "Alice": 5,
+        "Diana": 3,
+        "Henry": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Eve cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Eve": 2,
+        "Grace": 3,
+        "Alice": 1,
+        "Diana": 5,
+        "Henry": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Alice must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            1
+          ],
+          "nl": "Alice must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            1
+          ],
+          "nl": "Alice must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 6,
+        "Eve": 4,
+        "Grace": 5,
+        "Alice": 1,
+        "Diana": 2,
+        "Henry": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Henry must sit at position 4. Also, Henry must sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            1
+          ],
+          "nl": "Alice must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 5,
+        "Eve": 2,
+        "Grace": 6,
+        "Alice": 1,
+        "Diana": 3,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

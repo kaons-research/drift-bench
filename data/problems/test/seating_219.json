@@ -1,0 +1,651 @@
+{
+  "problem_id": "seating_219",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Diana",
+    "Sam",
+    "Tina",
+    "Bob",
+    "Alice",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Eve must sit next to Bob. Also, Eve cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Sam": 1,
+        "Tina": 6,
+        "Bob": 4,
+        "Alice": 2,
+        "Eve": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Tina must sit at position 4. Also, Alice and Sam must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Sam",
+            2
+          ],
+          "nl": "Alice and Sam must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Sam",
+            2
+          ],
+          "nl": "Alice and Sam must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 3,
+        "Sam": 5,
+        "Tina": 4,
+        "Bob": 6,
+        "Alice": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana must sit at position 5. Also, Bob cannot sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            5
+          ],
+          "nl": "Diana must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Alice"
+          ],
+          "nl": "Bob cannot sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Sam",
+            2
+          ],
+          "nl": "Alice and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            5
+          ],
+          "nl": "Diana must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Alice"
+          ],
+          "nl": "Bob cannot sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Sam": 3,
+        "Tina": 4,
+        "Bob": 2,
+        "Alice": 6,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sam must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            3
+          ],
+          "nl": "Sam must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Sam",
+            2
+          ],
+          "nl": "Alice and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            5
+          ],
+          "nl": "Diana must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Alice"
+          ],
+          "nl": "Bob cannot sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            3
+          ],
+          "nl": "Sam must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Sam": 3,
+        "Tina": 4,
+        "Bob": 2,
+        "Alice": 6,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Tina and Alice must have at least 1 seats between them. Also, Diana and Bob must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Alice",
+            1
+          ],
+          "nl": "Tina and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Bob",
+            1
+          ],
+          "nl": "Diana and Bob must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Sam",
+            2
+          ],
+          "nl": "Alice and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            5
+          ],
+          "nl": "Diana must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Alice"
+          ],
+          "nl": "Bob cannot sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            3
+          ],
+          "nl": "Sam must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Alice",
+            1
+          ],
+          "nl": "Tina and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Bob",
+            1
+          ],
+          "nl": "Diana and Bob must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Sam": 3,
+        "Tina": 4,
+        "Bob": 2,
+        "Alice": 6,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Sam cannot sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Diana"
+          ],
+          "nl": "Sam cannot sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Sam",
+            2
+          ],
+          "nl": "Alice and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            5
+          ],
+          "nl": "Diana must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Alice"
+          ],
+          "nl": "Bob cannot sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            3
+          ],
+          "nl": "Sam must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Alice",
+            1
+          ],
+          "nl": "Tina and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Bob",
+            1
+          ],
+          "nl": "Diana and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Diana"
+          ],
+          "nl": "Sam cannot sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Sam": 3,
+        "Tina": 4,
+        "Bob": 2,
+        "Alice": 6,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Bob and Alice must have at least 1 seats between them. Also, Eve and Diana must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Alice",
+            1
+          ],
+          "nl": "Bob and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Diana",
+            1
+          ],
+          "nl": "Eve and Diana must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Sam",
+            2
+          ],
+          "nl": "Alice and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            5
+          ],
+          "nl": "Diana must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Alice"
+          ],
+          "nl": "Bob cannot sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            3
+          ],
+          "nl": "Sam must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Alice",
+            1
+          ],
+          "nl": "Tina and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Bob",
+            1
+          ],
+          "nl": "Diana and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Diana"
+          ],
+          "nl": "Sam cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Alice",
+            1
+          ],
+          "nl": "Bob and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Diana",
+            1
+          ],
+          "nl": "Eve and Diana must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Sam": 3,
+        "Tina": 4,
+        "Bob": 2,
+        "Alice": 6,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

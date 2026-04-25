@@ -1,0 +1,268 @@
+{
+  "problem_id": "seating_230",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Alice",
+    "Charlie",
+    "Bob",
+    "Liam",
+    "Quinn",
+    "Mia",
+    "Olivia",
+    "Ivy"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Mia must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 8,
+        "Charlie": 3,
+        "Bob": 7,
+        "Liam": 4,
+        "Quinn": 6,
+        "Mia": 1,
+        "Olivia": 2,
+        "Ivy": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Alice cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 4,
+        "Charlie": 2,
+        "Bob": 1,
+        "Liam": 7,
+        "Quinn": 3,
+        "Mia": 6,
+        "Olivia": 5,
+        "Ivy": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Alice must sit at position 1. Also, Liam and Mia must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            1
+          ],
+          "nl": "Alice must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            3
+          ],
+          "nl": "Liam and Mia must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            1
+          ],
+          "nl": "Alice must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            3
+          ],
+          "nl": "Liam and Mia must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Charlie": 5,
+        "Bob": 4,
+        "Liam": 6,
+        "Quinn": 8,
+        "Mia": 2,
+        "Olivia": 3,
+        "Ivy": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam cannot sit next to Quinn. Also, Liam sits immediately left of Ivy. Also, Alice and Charlie must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam sits immediately left of Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Charlie",
+            1
+          ],
+          "nl": "Alice and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice cannot sit next to Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            1
+          ],
+          "nl": "Alice must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            3
+          ],
+          "nl": "Liam and Mia must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam sits immediately left of Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Charlie",
+            1
+          ],
+          "nl": "Alice and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Charlie": 5,
+        "Bob": 2,
+        "Liam": 8,
+        "Quinn": 6,
+        "Mia": 4,
+        "Olivia": 3,
+        "Ivy": 7
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

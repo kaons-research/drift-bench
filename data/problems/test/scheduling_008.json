@@ -1,0 +1,921 @@
+{
+  "problem_id": "scheduling_008",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Meeting",
+    "Design",
+    "QA",
+    "Sync",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Design must start at time slot 3. Also, Sync must happen before Meeting.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Docs must happen before Design. Also, There must be at least 1 slots between Meeting and Design. Also, QA must start between time slots 2 and 3.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            3
+          ],
+          "nl": "QA must start between time slots 2 and 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            3
+          ],
+          "nl": "QA must start between time slots 2 and 3"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Meeting must start at time slot 7.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            3
+          ],
+          "nl": "QA must start between time slots 2 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 1 slots between Sync and Design. Also, There must be at least 0 slots between Meeting and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            3
+          ],
+          "nl": "QA must start between time slots 2 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync must start at time slot 5.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            3
+          ],
+          "nl": "QA must start between time slots 2 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 0 slots between Meeting and Docs.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            3
+          ],
+          "nl": "QA must start between time slots 2 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Docs"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Docs and Sync cannot be simultaneous. Also, Docs has duration 2.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            3
+          ],
+          "nl": "QA must start between time slots 2 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "QA has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            3
+          ],
+          "nl": "QA must start between time slots 2 and 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 3
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

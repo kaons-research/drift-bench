@@ -1,0 +1,941 @@
+{
+  "problem_id": "seating_257",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Jack",
+    "Frank",
+    "Quinn",
+    "Olivia",
+    "Sam",
+    "Eve",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Frank must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Frank": 6,
+        "Quinn": 2,
+        "Olivia": 7,
+        "Sam": 3,
+        "Eve": 4,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sam and Olivia must have at least 2 seats between them. Also, Henry and Jack must have at least 2 seats between them. Also, Henry cannot sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 7,
+        "Frank": 6,
+        "Quinn": 3,
+        "Olivia": 5,
+        "Sam": 1,
+        "Eve": 2,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Quinn sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Frank": 6,
+        "Quinn": 3,
+        "Olivia": 4,
+        "Sam": 7,
+        "Eve": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve must sit at position 1. Also, Frank and Quinn must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Quinn",
+            2
+          ],
+          "nl": "Frank and Quinn must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Quinn",
+            2
+          ],
+          "nl": "Frank and Quinn must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Frank": 6,
+        "Quinn": 3,
+        "Olivia": 7,
+        "Sam": 4,
+        "Eve": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Eve cannot sit next to Frank. Also, Quinn must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Quinn",
+            2
+          ],
+          "nl": "Frank and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Frank": 6,
+        "Quinn": 3,
+        "Olivia": 4,
+        "Sam": 7,
+        "Eve": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Jack must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            2
+          ],
+          "nl": "Jack must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Quinn",
+            2
+          ],
+          "nl": "Frank and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn must sit next to Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            2
+          ],
+          "nl": "Jack must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Frank": 6,
+        "Quinn": 3,
+        "Olivia": 4,
+        "Sam": 7,
+        "Eve": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Quinn must sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn must sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Quinn",
+            2
+          ],
+          "nl": "Frank and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn must sit next to Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            2
+          ],
+          "nl": "Jack must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn must sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Frank": 6,
+        "Quinn": 3,
+        "Olivia": 4,
+        "Sam": 7,
+        "Eve": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Henry must sit next to Frank. Also, Quinn and Sam must have at least 2 seats between them. Also, Eve and Olivia must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Frank"
+          ],
+          "nl": "Henry must sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Sam",
+            2
+          ],
+          "nl": "Quinn and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Olivia",
+            2
+          ],
+          "nl": "Eve and Olivia must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Quinn",
+            2
+          ],
+          "nl": "Frank and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn must sit next to Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            2
+          ],
+          "nl": "Jack must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Frank"
+          ],
+          "nl": "Henry must sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Sam",
+            2
+          ],
+          "nl": "Quinn and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Olivia",
+            2
+          ],
+          "nl": "Eve and Olivia must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Frank": 6,
+        "Quinn": 3,
+        "Olivia": 4,
+        "Sam": 7,
+        "Eve": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Quinn and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Frank",
+            1
+          ],
+          "nl": "Quinn and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            2
+          ],
+          "nl": "Sam and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Jack",
+            2
+          ],
+          "nl": "Henry and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Jack"
+          ],
+          "nl": "Henry cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Quinn",
+            2
+          ],
+          "nl": "Frank and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn must sit next to Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            2
+          ],
+          "nl": "Jack must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn must sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Frank"
+          ],
+          "nl": "Henry must sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Sam",
+            2
+          ],
+          "nl": "Quinn and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Olivia",
+            2
+          ],
+          "nl": "Eve and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Frank",
+            1
+          ],
+          "nl": "Quinn and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Frank": 6,
+        "Quinn": 3,
+        "Olivia": 4,
+        "Sam": 7,
+        "Eve": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

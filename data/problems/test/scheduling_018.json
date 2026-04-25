@@ -1,0 +1,562 @@
+{
+  "problem_id": "scheduling_018",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Docs",
+    "QA",
+    "Testing",
+    "Sync",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 0 slots between Docs and Planning.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sync must happen before QA. Also, Planning and Docs cannot be simultaneous. Also, Sync must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Planning has duration 2. Also, Docs must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "QA has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Docs and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

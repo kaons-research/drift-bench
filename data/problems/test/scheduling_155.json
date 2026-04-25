@@ -1,0 +1,623 @@
+{
+  "problem_id": "scheduling_155",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Docs",
+    "Meeting",
+    "Planning",
+    "Review",
+    "Refactor",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing must start at time slot 9. Also, Testing must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            9
+          ],
+          "nl": "Testing must start at time slot 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            9
+          ],
+          "nl": "Testing must start at time slot 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Docs and Planning cannot be simultaneous. Also, Review and Refactor cannot be simultaneous. Also, Planning and Review cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            9
+          ],
+          "nl": "Testing must start at time slot 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Docs has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            9
+          ],
+          "nl": "Testing must start at time slot 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Review must start between time slots 4 and 10.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            10
+          ],
+          "nl": "Review must start between time slots 4 and 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            9
+          ],
+          "nl": "Testing must start at time slot 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            10
+          ],
+          "nl": "Review must start between time slots 4 and 10"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 2,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Testing must start between time slots 5 and 10.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            10
+          ],
+          "nl": "Testing must start between time slots 5 and 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            9
+          ],
+          "nl": "Testing must start at time slot 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            10
+          ],
+          "nl": "Review must start between time slots 4 and 10"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            10
+          ],
+          "nl": "Testing must start between time slots 5 and 10"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 9,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Meeting must start between time slots 8 and 10. Also, Refactor must start between time slots 7 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            8,
+            10
+          ],
+          "nl": "Meeting must start between time slots 8 and 10"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            7,
+            8
+          ],
+          "nl": "Refactor must start between time slots 7 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            9
+          ],
+          "nl": "Testing must start at time slot 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs and Planning cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Refactor"
+          ],
+          "nl": "Review and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            10
+          ],
+          "nl": "Review must start between time slots 4 and 10"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            10
+          ],
+          "nl": "Testing must start between time slots 5 and 10"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            8,
+            10
+          ],
+          "nl": "Meeting must start between time slots 8 and 10"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            7,
+            8
+          ],
+          "nl": "Refactor must start between time slots 7 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 2,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

@@ -1,0 +1,732 @@
+{
+  "problem_id": "scheduling_144",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Deploy",
+    "Design",
+    "Planning",
+    "QA",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 2 slots between QA and Design. Also, There must be at least 2 slots between Deploy and Design. Also, Design must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 0 slots between Deploy and Planning. Also, Design must happen before QA.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Planning and Design cannot be simultaneous. Also, Planning and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Planning must start between time slots 4 and 7. Also, Planning must start between time slots 1 and 6.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            7
+          ],
+          "nl": "Planning must start between time slots 4 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            1,
+            6
+          ],
+          "nl": "Planning must start between time slots 1 and 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            7
+          ],
+          "nl": "Planning must start between time slots 4 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            1,
+            6
+          ],
+          "nl": "Planning must start between time slots 1 and 6"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 0 slots between Design and QA. Also, Review has duration 2. Also, QA and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            7
+          ],
+          "nl": "Planning must start between time slots 4 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            1,
+            6
+          ],
+          "nl": "Planning must start between time slots 1 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 1 slots between Design and Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            7
+          ],
+          "nl": "Planning must start between time slots 4 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            1,
+            6
+          ],
+          "nl": "Planning must start between time slots 1 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Design"
+          ],
+          "nl": "QA and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

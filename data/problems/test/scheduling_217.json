@@ -1,0 +1,1295 @@
+{
+  "problem_id": "scheduling_217",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Planning",
+    "Design",
+    "Meeting",
+    "Sync",
+    "Deploy",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Planning and Deploy cannot be simultaneous. Also, Testing must start between time slots 4 and 5. Also, Meeting has duration 1.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Testing and Meeting cannot be simultaneous. Also, There must be at least 2 slots between Testing and Deploy.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 1 slots between Planning and Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Planning has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning must start at time slot 2. Also, Testing must start between time slots 5 and 5. Also, Design and Testing cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            5
+          ],
+          "nl": "Testing must start between time slots 5 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design and Testing cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            5
+          ],
+          "nl": "Testing must start between time slots 5 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design and Testing cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Design must start at time slot 6. Also, There must be at least 1 slots between Deploy and Sync. Also, Sync must start at time slot 7.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            6
+          ],
+          "nl": "Design must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            5
+          ],
+          "nl": "Testing must start between time slots 5 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            6
+          ],
+          "nl": "Design must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 6,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Design has duration 3. Also, There must be at least 2 slots between Planning and Testing. Also, Testing and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            5
+          ],
+          "nl": "Testing must start between time slots 5 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            6
+          ],
+          "nl": "Design must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 6,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Planning and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            5
+          ],
+          "nl": "Testing must start between time slots 5 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            6
+          ],
+          "nl": "Design must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 6,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Meeting must start at time slot 1. Also, Meeting must happen before Sync.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            5
+          ],
+          "nl": "Testing must start between time slots 4 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning must start at time slot 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            5,
+            5
+          ],
+          "nl": "Testing must start between time slots 5 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            6
+          ],
+          "nl": "Design must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 6,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

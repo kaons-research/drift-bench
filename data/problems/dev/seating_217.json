@@ -1,0 +1,1149 @@
+{
+  "problem_id": "seating_217",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Quinn",
+    "Tina",
+    "Noah",
+    "Ruby",
+    "Henry",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Henry must sit next to Charlie. Also, Noah cannot sit next to Henry. Also, Henry must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 6,
+        "Tina": 3,
+        "Noah": 4,
+        "Ruby": 5,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Charlie and Ruby must sit on the same side of the table. Also, Charlie sits immediately left of Noah. Also, Ruby and Charlie must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 5,
+        "Tina": 4,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Tina cannot sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Tina": 5,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Henry and Tina must sit on opposite sides of the table. Also, Quinn must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Tina"
+          ],
+          "nl": "Henry and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Tina"
+          ],
+          "nl": "Henry and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Tina": 5,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Tina and Noah must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina and Noah must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Tina"
+          ],
+          "nl": "Henry and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn must sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina and Noah must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Tina": 5,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Charlie cannot sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie cannot sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Tina"
+          ],
+          "nl": "Henry and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn must sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie cannot sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Tina": 5,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Noah cannot sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah cannot sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Tina"
+          ],
+          "nl": "Henry and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn must sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah cannot sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Tina": 5,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Noah must sit at position 6. Also, Charlie and Tina must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie and Tina must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Tina"
+          ],
+          "nl": "Henry and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn must sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah cannot sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie and Tina must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Tina": 5,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Quinn cannot sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn cannot sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Tina"
+          ],
+          "nl": "Henry and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn must sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah cannot sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn cannot sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Tina": 5,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Quinn must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            4
+          ],
+          "nl": "Quinn must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Henry"
+          ],
+          "nl": "Noah cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie and Ruby must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie sits immediately left of Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Charlie",
+            1
+          ],
+          "nl": "Ruby and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina cannot sit next to Ruby"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Henry",
+            "Tina"
+          ],
+          "nl": "Henry and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn must sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Ruby"
+          ],
+          "nl": "Charlie cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah cannot sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            4
+          ],
+          "nl": "Quinn must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Tina": 5,
+        "Noah": 6,
+        "Ruby": 3,
+        "Henry": 2,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "dev"
+}

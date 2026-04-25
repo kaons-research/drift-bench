@@ -1,0 +1,640 @@
+{
+  "problem_id": "scheduling_266",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Refactor",
+    "QA",
+    "Testing",
+    "Review",
+    "Sync",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Planning and Testing cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning and Testing cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning and Testing cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Testing must start between time slots 2 and 4.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            4
+          ],
+          "nl": "Testing must start between time slots 2 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning and Testing cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            4
+          ],
+          "nl": "Testing must start between time slots 2 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "QA must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning and Testing cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            4
+          ],
+          "nl": "Testing must start between time slots 2 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sync has duration 3. Also, Testing must start between time slots 3 and 8.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning and Testing cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            4
+          ],
+          "nl": "Testing must start between time slots 2 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Refactor has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning and Testing cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            4
+          ],
+          "nl": "Testing must start between time slots 2 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "QA and Sync cannot be simultaneous. Also, Sync must start between time slots 5 and 5.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            5,
+            5
+          ],
+          "nl": "Sync must start between time slots 5 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning and Testing cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            4
+          ],
+          "nl": "Testing must start between time slots 2 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            5,
+            5
+          ],
+          "nl": "Sync must start between time slots 5 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Refactor and Planning cannot be simultaneous. Also, There must be at least 2 slots between Planning and Testing.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Testing"
+          ],
+          "nl": "Planning and Testing cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            2,
+            4
+          ],
+          "nl": "Testing must start between time slots 2 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            5,
+            5
+          ],
+          "nl": "Sync must start between time slots 5 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

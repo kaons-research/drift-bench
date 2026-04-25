@@ -1,0 +1,1128 @@
+{
+  "problem_id": "scheduling_120",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Sync",
+    "Refactor",
+    "Meeting",
+    "Review",
+    "Design",
+    "QA"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Review has duration 2. Also, Refactor and Meeting cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA and Review cannot be simultaneous. Also, There must be at least 0 slots between Design and Review. Also, Refactor must start at time slot 1.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor must start at time slot 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor must start at time slot 1"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 1 slots between Meeting and QA. Also, Review must happen before Sync. Also, Meeting must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 2
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Design must start at time slot 3. Also, Refactor has duration 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 6,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Meeting must start at time slot 4. Also, QA has duration 3. Also, There must be at least 0 slots between QA and Meeting.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 2
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "QA and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 2
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Sync and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 2
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Design must happen before Meeting. Also, There must be at least 2 slots between Meeting and Sync.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Meeting"
+          ],
+          "nl": "Design must happen before Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting must happen before Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Meeting"
+          ],
+          "nl": "Design must happen before Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 2
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "dev"
+}

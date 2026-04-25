@@ -1,0 +1,330 @@
+{
+  "problem_id": "scheduling_323",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Meeting",
+    "QA",
+    "Deploy",
+    "Testing",
+    "Design",
+    "Planning",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 0 slots between Testing and Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 1 slots between Docs and Design. Also, Docs and QA cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing must start between time slots 8 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            8,
+            8
+          ],
+          "nl": "Testing must start between time slots 8 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Docs and Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            8,
+            8
+          ],
+          "nl": "Testing must start between time slots 8 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 8,
+          "duration": 1
+        },
+        "Design": {
+          "start": 9,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 11,
+  "max_duration": 3,
+  "split": "test"
+}

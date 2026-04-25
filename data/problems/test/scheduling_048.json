@@ -1,0 +1,354 @@
+{
+  "problem_id": "scheduling_048",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Deploy",
+    "Docs",
+    "Meeting",
+    "Sync",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Planning must start at time slot 4. Also, Meeting must start at time slot 7.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            4
+          ],
+          "nl": "Planning must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            4
+          ],
+          "nl": "Planning must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Docs must happen before Meeting. Also, Planning has duration 2.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            4
+          ],
+          "nl": "Planning must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sync must start at time slot 1. Also, There must be at least 2 slots between Sync and Deploy.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            4
+          ],
+          "nl": "Planning must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy must start between time slots 1 and 4.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            4
+          ],
+          "nl": "Planning must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            2
+          ],
+          "nl": "Planning has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Deploy"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

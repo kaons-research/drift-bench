@@ -1,0 +1,723 @@
+{
+  "problem_id": "seating_337",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Jack",
+    "Sam",
+    "Liam",
+    "Diana",
+    "Tina",
+    "Quinn",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 1,
+        "Sam": 6,
+        "Liam": 4,
+        "Diana": 3,
+        "Tina": 2,
+        "Quinn": 5,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Liam cannot sit next to Tina. Also, Henry must sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Sam": 6,
+        "Liam": 3,
+        "Diana": 2,
+        "Tina": 5,
+        "Quinn": 7,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sam sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Sam": 6,
+        "Liam": 4,
+        "Diana": 1,
+        "Tina": 2,
+        "Quinn": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Henry must sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry must sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry must sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Sam": 6,
+        "Liam": 4,
+        "Diana": 1,
+        "Tina": 2,
+        "Quinn": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Jack must sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack must sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack must sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Sam": 6,
+        "Liam": 4,
+        "Diana": 1,
+        "Tina": 2,
+        "Quinn": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Liam must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack must sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Sam": 6,
+        "Liam": 4,
+        "Diana": 1,
+        "Tina": 2,
+        "Quinn": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Liam cannot sit next to Henry. Also, Tina and Sam must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Henry"
+          ],
+          "nl": "Liam cannot sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Sam",
+            1
+          ],
+          "nl": "Tina and Sam must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack must sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Henry"
+          ],
+          "nl": "Liam cannot sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Sam",
+            1
+          ],
+          "nl": "Tina and Sam must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Sam": 6,
+        "Liam": 4,
+        "Diana": 1,
+        "Tina": 2,
+        "Quinn": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Diana and Jack must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Jack",
+            1
+          ],
+          "nl": "Diana and Jack must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack must sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Henry"
+          ],
+          "nl": "Liam cannot sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Sam",
+            1
+          ],
+          "nl": "Tina and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Jack",
+            1
+          ],
+          "nl": "Diana and Jack must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Sam": 6,
+        "Liam": 4,
+        "Diana": 1,
+        "Tina": 2,
+        "Quinn": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Diana must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Tina"
+          ],
+          "nl": "Diana must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Diana"
+          ],
+          "nl": "Henry must sit next to Diana"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack must sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Henry"
+          ],
+          "nl": "Liam cannot sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Sam",
+            1
+          ],
+          "nl": "Tina and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Jack",
+            1
+          ],
+          "nl": "Diana and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Tina"
+          ],
+          "nl": "Diana must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Sam": 6,
+        "Liam": 4,
+        "Diana": 1,
+        "Tina": 2,
+        "Quinn": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

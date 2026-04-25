@@ -1,0 +1,919 @@
+{
+  "problem_id": "seating_311",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Sam",
+    "Peter",
+    "Charlie",
+    "Alice",
+    "Diana",
+    "Bob"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Alice and Bob must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Peter": 3,
+        "Charlie": 5,
+        "Alice": 2,
+        "Diana": 4,
+        "Bob": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Bob and Sam must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 5,
+        "Peter": 1,
+        "Charlie": 3,
+        "Alice": 4,
+        "Diana": 6,
+        "Bob": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie sits immediately left of Alice. Also, Sam must sit next to Alice. Also, Diana and Peter must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Peter": 6,
+        "Charlie": 3,
+        "Alice": 2,
+        "Diana": 5,
+        "Bob": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Alice and Sam must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice and Sam must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice and Sam must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 4,
+        "Peter": 3,
+        "Charlie": 6,
+        "Alice": 5,
+        "Diana": 2,
+        "Bob": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Diana and Sam must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Sam"
+          ],
+          "nl": "Diana and Sam must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Sam"
+          ],
+          "nl": "Diana and Sam must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 4,
+        "Peter": 3,
+        "Charlie": 6,
+        "Alice": 5,
+        "Diana": 2,
+        "Bob": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Charlie and Alice must sit on the same side of the table. Also, Diana and Sam must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            1
+          ],
+          "nl": "Diana and Sam must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Sam"
+          ],
+          "nl": "Diana and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            1
+          ],
+          "nl": "Diana and Sam must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Peter": 6,
+        "Charlie": 3,
+        "Alice": 2,
+        "Diana": 5,
+        "Bob": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Sam must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            1
+          ],
+          "nl": "Sam must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Sam"
+          ],
+          "nl": "Diana and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            1
+          ],
+          "nl": "Diana and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            1
+          ],
+          "nl": "Sam must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Peter": 6,
+        "Charlie": 3,
+        "Alice": 2,
+        "Diana": 5,
+        "Bob": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Sam and Charlie must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Charlie",
+            1
+          ],
+          "nl": "Sam and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Sam"
+          ],
+          "nl": "Diana and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            1
+          ],
+          "nl": "Diana and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            1
+          ],
+          "nl": "Sam must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Charlie",
+            1
+          ],
+          "nl": "Sam and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Peter": 6,
+        "Charlie": 3,
+        "Alice": 2,
+        "Diana": 5,
+        "Bob": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Alice must sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice must sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Sam"
+          ],
+          "nl": "Diana and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            1
+          ],
+          "nl": "Diana and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            1
+          ],
+          "nl": "Sam must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Charlie",
+            1
+          ],
+          "nl": "Sam and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice must sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Peter": 6,
+        "Charlie": 3,
+        "Alice": 2,
+        "Diana": 5,
+        "Bob": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Bob sits immediately left of Charlie.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Charlie"
+          ],
+          "nl": "Bob sits immediately left of Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Sam",
+            2
+          ],
+          "nl": "Bob and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Alice"
+          ],
+          "nl": "Sam must sit next to Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Diana",
+            "Peter"
+          ],
+          "nl": "Diana and Peter must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Sam"
+          ],
+          "nl": "Diana and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Sam",
+            1
+          ],
+          "nl": "Diana and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            1
+          ],
+          "nl": "Sam must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Charlie",
+            1
+          ],
+          "nl": "Sam and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice must sit next to Charlie"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Charlie"
+          ],
+          "nl": "Bob sits immediately left of Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Peter": 6,
+        "Charlie": 3,
+        "Alice": 2,
+        "Diana": 5,
+        "Bob": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

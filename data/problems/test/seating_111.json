@@ -1,0 +1,425 @@
+{
+  "problem_id": "seating_111",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Olivia",
+    "Ruby",
+    "Charlie",
+    "Tina",
+    "Alice",
+    "Diana"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia must sit next to Alice. Also, Olivia cannot sit next to Tina. Also, Ruby must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 3,
+        "Ruby": 4,
+        "Charlie": 1,
+        "Tina": 5,
+        "Alice": 2,
+        "Diana": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Diana and Charlie must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Charlie",
+            1
+          ],
+          "nl": "Diana and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Charlie",
+            1
+          ],
+          "nl": "Diana and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Ruby": 6,
+        "Charlie": 2,
+        "Tina": 1,
+        "Alice": 3,
+        "Diana": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Alice sits immediately left of Diana. Also, Tina must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Diana"
+          ],
+          "nl": "Alice sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            1
+          ],
+          "nl": "Tina must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Charlie",
+            1
+          ],
+          "nl": "Diana and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Diana"
+          ],
+          "nl": "Alice sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            1
+          ],
+          "nl": "Tina must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 5,
+        "Ruby": 2,
+        "Charlie": 6,
+        "Tina": 1,
+        "Alice": 4,
+        "Diana": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Charlie and Diana must have at least 2 seats between them. Also, Olivia and Ruby must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Diana",
+            2
+          ],
+          "nl": "Charlie and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ruby",
+            2
+          ],
+          "nl": "Olivia and Ruby must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Charlie",
+            1
+          ],
+          "nl": "Diana and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Diana"
+          ],
+          "nl": "Alice sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            1
+          ],
+          "nl": "Tina must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Diana",
+            2
+          ],
+          "nl": "Charlie and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ruby",
+            2
+          ],
+          "nl": "Olivia and Ruby must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 5,
+        "Ruby": 2,
+        "Charlie": 6,
+        "Tina": 1,
+        "Alice": 4,
+        "Diana": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Tina cannot sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Diana"
+          ],
+          "nl": "Tina cannot sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Tina"
+          ],
+          "nl": "Ruby must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Charlie",
+            1
+          ],
+          "nl": "Diana and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Diana"
+          ],
+          "nl": "Alice sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            1
+          ],
+          "nl": "Tina must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Diana",
+            2
+          ],
+          "nl": "Charlie and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ruby",
+            2
+          ],
+          "nl": "Olivia and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Diana"
+          ],
+          "nl": "Tina cannot sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 5,
+        "Ruby": 2,
+        "Charlie": 6,
+        "Tina": 1,
+        "Alice": 4,
+        "Diana": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

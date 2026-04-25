@@ -1,0 +1,401 @@
+{
+  "problem_id": "logic_grid_205",
+  "domain": "logic_grid",
+  "num_entities": 4,
+  "entities": [
+    "Drew",
+    "Blake",
+    "Emery",
+    "Hayden"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Hayden's color value comes before Emery's color value. Also, Blake's profession value comes before Hayden's profession value.",
+      "new_constraints": [
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Emery",
+            "color"
+          ],
+          "nl": "Hayden's color value comes before Emery's color value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Blake",
+            "Hayden",
+            "profession"
+          ],
+          "nl": "Blake's profession value comes before Hayden's profession value"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Emery",
+            "color"
+          ],
+          "nl": "Hayden's color value comes before Emery's color value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Blake",
+            "Hayden",
+            "profession"
+          ],
+          "nl": "Blake's profession value comes before Hayden's profession value"
+        }
+      ],
+      "gold_solution": {
+        "Drew": {
+          "color": "Red",
+          "pet": "Dog",
+          "profession": "Doctor"
+        },
+        "Blake": {
+          "color": "Yellow",
+          "pet": "Cat",
+          "profession": "Artist"
+        },
+        "Emery": {
+          "color": "Green",
+          "pet": "Fish",
+          "profession": "Chef"
+        },
+        "Hayden": {
+          "color": "Blue",
+          "pet": "Bird",
+          "profession": "Teacher"
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Emery's pet value comes before Drew's pet value.",
+      "new_constraints": [
+        {
+          "type": "ordered",
+          "args": [
+            "Emery",
+            "Drew",
+            "pet"
+          ],
+          "nl": "Emery's pet value comes before Drew's pet value"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Emery",
+            "color"
+          ],
+          "nl": "Hayden's color value comes before Emery's color value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Blake",
+            "Hayden",
+            "profession"
+          ],
+          "nl": "Blake's profession value comes before Hayden's profession value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Emery",
+            "Drew",
+            "pet"
+          ],
+          "nl": "Emery's pet value comes before Drew's pet value"
+        }
+      ],
+      "gold_solution": {
+        "Drew": {
+          "color": "Red",
+          "pet": "Fish",
+          "profession": "Doctor"
+        },
+        "Blake": {
+          "color": "Green",
+          "pet": "Cat",
+          "profession": "Artist"
+        },
+        "Emery": {
+          "color": "Yellow",
+          "pet": "Bird",
+          "profession": "Teacher"
+        },
+        "Hayden": {
+          "color": "Blue",
+          "pet": "Dog",
+          "profession": "Chef"
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Blake is not assigned Yellow in category color. Also, Drew is assigned Chef in category profession. Also, Blake is assigned Doctor in category profession.",
+      "new_constraints": [
+        {
+          "type": "not_assign",
+          "args": [
+            "Blake",
+            "color",
+            "Yellow"
+          ],
+          "nl": "Blake is not assigned Yellow in category color"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Drew",
+            "profession",
+            "Chef"
+          ],
+          "nl": "Drew is assigned Chef in category profession"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Blake",
+            "profession",
+            "Doctor"
+          ],
+          "nl": "Blake is assigned Doctor in category profession"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Emery",
+            "color"
+          ],
+          "nl": "Hayden's color value comes before Emery's color value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Blake",
+            "Hayden",
+            "profession"
+          ],
+          "nl": "Blake's profession value comes before Hayden's profession value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Emery",
+            "Drew",
+            "pet"
+          ],
+          "nl": "Emery's pet value comes before Drew's pet value"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Blake",
+            "color",
+            "Yellow"
+          ],
+          "nl": "Blake is not assigned Yellow in category color"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Drew",
+            "profession",
+            "Chef"
+          ],
+          "nl": "Drew is assigned Chef in category profession"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Blake",
+            "profession",
+            "Doctor"
+          ],
+          "nl": "Blake is assigned Doctor in category profession"
+        }
+      ],
+      "gold_solution": {
+        "Drew": {
+          "color": "Yellow",
+          "pet": "Bird",
+          "profession": "Chef"
+        },
+        "Blake": {
+          "color": "Green",
+          "pet": "Fish",
+          "profession": "Doctor"
+        },
+        "Emery": {
+          "color": "Blue",
+          "pet": "Dog",
+          "profession": "Artist"
+        },
+        "Hayden": {
+          "color": "Red",
+          "pet": "Cat",
+          "profession": "Teacher"
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Emery's profession value comes before Drew's profession value. Also, Emery has a different color than Hayden.",
+      "new_constraints": [
+        {
+          "type": "ordered",
+          "args": [
+            "Emery",
+            "Drew",
+            "profession"
+          ],
+          "nl": "Emery's profession value comes before Drew's profession value"
+        },
+        {
+          "type": "different",
+          "args": [
+            "Emery",
+            "Hayden",
+            "color"
+          ],
+          "nl": "Emery has a different color than Hayden"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "ordered",
+          "args": [
+            "Hayden",
+            "Emery",
+            "color"
+          ],
+          "nl": "Hayden's color value comes before Emery's color value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Blake",
+            "Hayden",
+            "profession"
+          ],
+          "nl": "Blake's profession value comes before Hayden's profession value"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Emery",
+            "Drew",
+            "pet"
+          ],
+          "nl": "Emery's pet value comes before Drew's pet value"
+        },
+        {
+          "type": "not_assign",
+          "args": [
+            "Blake",
+            "color",
+            "Yellow"
+          ],
+          "nl": "Blake is not assigned Yellow in category color"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Drew",
+            "profession",
+            "Chef"
+          ],
+          "nl": "Drew is assigned Chef in category profession"
+        },
+        {
+          "type": "assign",
+          "args": [
+            "Blake",
+            "profession",
+            "Doctor"
+          ],
+          "nl": "Blake is assigned Doctor in category profession"
+        },
+        {
+          "type": "ordered",
+          "args": [
+            "Emery",
+            "Drew",
+            "profession"
+          ],
+          "nl": "Emery's profession value comes before Drew's profession value"
+        },
+        {
+          "type": "different",
+          "args": [
+            "Emery",
+            "Hayden",
+            "color"
+          ],
+          "nl": "Emery has a different color than Hayden"
+        }
+      ],
+      "gold_solution": {
+        "Drew": {
+          "color": "Red",
+          "pet": "Bird",
+          "profession": "Chef"
+        },
+        "Blake": {
+          "color": "Blue",
+          "pet": "Cat",
+          "profession": "Doctor"
+        },
+        "Emery": {
+          "color": "Yellow",
+          "pet": "Dog",
+          "profession": "Teacher"
+        },
+        "Hayden": {
+          "color": "Green",
+          "pet": "Fish",
+          "profession": "Artist"
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "categories": {
+    "color": [
+      "Red",
+      "Blue",
+      "Green",
+      "Yellow"
+    ],
+    "pet": [
+      "Cat",
+      "Dog",
+      "Bird",
+      "Fish"
+    ],
+    "profession": [
+      "Doctor",
+      "Artist",
+      "Teacher",
+      "Chef"
+    ]
+  },
+  "split": "test"
+}

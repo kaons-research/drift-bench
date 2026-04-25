@@ -1,0 +1,723 @@
+{
+  "problem_id": "seating_206",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Grace",
+    "Olivia",
+    "Karen",
+    "Tina",
+    "Diana",
+    "Quinn",
+    "Mia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Grace and Diana must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 5,
+        "Olivia": 6,
+        "Karen": 3,
+        "Tina": 2,
+        "Diana": 1,
+        "Quinn": 4,
+        "Mia": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Olivia sits immediately left of Grace. Also, Mia sits immediately left of Tina.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia sits immediately left of Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia sits immediately left of Tina"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 6,
+        "Olivia": 7,
+        "Karen": 1,
+        "Tina": 4,
+        "Diana": 2,
+        "Quinn": 3,
+        "Mia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Karen must sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen must sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia sits immediately left of Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen must sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 3,
+        "Olivia": 4,
+        "Karen": 2,
+        "Tina": 7,
+        "Diana": 5,
+        "Quinn": 6,
+        "Mia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Diana must sit at position 4. Also, Grace must sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace must sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia sits immediately left of Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen must sit next to Mia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace must sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Olivia": 3,
+        "Karen": 7,
+        "Tina": 5,
+        "Diana": 4,
+        "Quinn": 1,
+        "Mia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Olivia must sit next to Grace. Also, Karen must sit at position 7. Also, Mia and Diana must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            7
+          ],
+          "nl": "Karen must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Diana",
+            1
+          ],
+          "nl": "Mia and Diana must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia sits immediately left of Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen must sit next to Mia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace must sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            7
+          ],
+          "nl": "Karen must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Diana",
+            1
+          ],
+          "nl": "Mia and Diana must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Olivia": 3,
+        "Karen": 7,
+        "Tina": 5,
+        "Diana": 4,
+        "Quinn": 1,
+        "Mia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Quinn cannot sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn cannot sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia sits immediately left of Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen must sit next to Mia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace must sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            7
+          ],
+          "nl": "Karen must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Diana",
+            1
+          ],
+          "nl": "Mia and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn cannot sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Olivia": 3,
+        "Karen": 7,
+        "Tina": 5,
+        "Diana": 4,
+        "Quinn": 1,
+        "Mia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Quinn and Tina must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Tina",
+            2
+          ],
+          "nl": "Quinn and Tina must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia sits immediately left of Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen must sit next to Mia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace must sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            7
+          ],
+          "nl": "Karen must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Diana",
+            1
+          ],
+          "nl": "Mia and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Tina",
+            2
+          ],
+          "nl": "Quinn and Tina must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Olivia": 3,
+        "Karen": 7,
+        "Tina": 5,
+        "Diana": 4,
+        "Quinn": 1,
+        "Mia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Quinn must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            1
+          ],
+          "nl": "Quinn must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Diana",
+            1
+          ],
+          "nl": "Grace and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia sits immediately left of Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen must sit next to Mia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            4
+          ],
+          "nl": "Diana must sit at position 4"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace must sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Grace"
+          ],
+          "nl": "Olivia must sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            7
+          ],
+          "nl": "Karen must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Diana",
+            1
+          ],
+          "nl": "Mia and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn cannot sit next to Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Tina",
+            2
+          ],
+          "nl": "Quinn and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            1
+          ],
+          "nl": "Quinn must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Olivia": 3,
+        "Karen": 7,
+        "Tina": 5,
+        "Diana": 4,
+        "Quinn": 1,
+        "Mia": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

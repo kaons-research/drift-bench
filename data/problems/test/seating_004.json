@@ -1,0 +1,634 @@
+{
+  "problem_id": "seating_004",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Noah",
+    "Alice",
+    "Frank",
+    "Karen",
+    "Tina",
+    "Mia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Alice must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Alice": 6,
+        "Frank": 3,
+        "Karen": 1,
+        "Tina": 2,
+        "Mia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah sits immediately left of Karen.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 5,
+        "Alice": 6,
+        "Frank": 1,
+        "Karen": 4,
+        "Tina": 3,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Karen cannot sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen cannot sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen cannot sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 5,
+        "Alice": 6,
+        "Frank": 2,
+        "Karen": 4,
+        "Tina": 1,
+        "Mia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Alice cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen cannot sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Alice": 6,
+        "Frank": 1,
+        "Karen": 3,
+        "Tina": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Frank must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen cannot sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Alice": 6,
+        "Frank": 1,
+        "Karen": 3,
+        "Tina": 2,
+        "Mia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Tina sits immediately left of Alice.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Alice"
+          ],
+          "nl": "Tina sits immediately left of Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen cannot sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Alice"
+          ],
+          "nl": "Tina sits immediately left of Alice"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 3,
+        "Alice": 6,
+        "Frank": 5,
+        "Karen": 2,
+        "Tina": 1,
+        "Mia": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Mia must sit next to Karen. Also, Tina must sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia must sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen cannot sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Alice"
+          ],
+          "nl": "Tina sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia must sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Alice": 6,
+        "Frank": 5,
+        "Karen": 3,
+        "Tina": 1,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Karen cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen cannot sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Alice"
+          ],
+          "nl": "Tina sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia must sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Alice": 6,
+        "Frank": 5,
+        "Karen": 3,
+        "Tina": 1,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Karen sits immediately left of Mia.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen sits immediately left of Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah sits immediately left of Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen cannot sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Alice"
+          ],
+          "nl": "Tina sits immediately left of Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia must sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen cannot sit next to Tina"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen sits immediately left of Mia"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Alice": 6,
+        "Frank": 5,
+        "Karen": 3,
+        "Tina": 1,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

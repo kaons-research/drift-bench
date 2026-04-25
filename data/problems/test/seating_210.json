@@ -1,0 +1,253 @@
+{
+  "problem_id": "seating_210",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Peter",
+    "Bob",
+    "Diana",
+    "Tina",
+    "Liam",
+    "Alice"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob must sit next to Diana. Also, Liam must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 1,
+        "Bob": 3,
+        "Diana": 2,
+        "Tina": 6,
+        "Liam": 4,
+        "Alice": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Alice cannot sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Liam"
+          ],
+          "nl": "Alice cannot sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Liam"
+          ],
+          "nl": "Alice cannot sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 1,
+        "Bob": 2,
+        "Diana": 3,
+        "Tina": 5,
+        "Liam": 4,
+        "Alice": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Peter must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Alice"
+          ],
+          "nl": "Peter must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Liam"
+          ],
+          "nl": "Alice cannot sit next to Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Alice"
+          ],
+          "nl": "Peter must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Bob": 6,
+        "Diana": 1,
+        "Tina": 5,
+        "Liam": 4,
+        "Alice": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Tina cannot sit next to Liam. Also, Alice must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Liam"
+          ],
+          "nl": "Alice cannot sit next to Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Alice"
+          ],
+          "nl": "Peter must sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            6
+          ],
+          "nl": "Alice must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 5,
+        "Bob": 2,
+        "Diana": 3,
+        "Tina": 1,
+        "Liam": 4,
+        "Alice": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,925 @@
+{
+  "problem_id": "scheduling_159",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Design",
+    "Testing",
+    "Planning",
+    "Sync",
+    "Docs",
+    "Meeting"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Docs has duration 3. Also, There must be at least 0 slots between Testing and Meeting.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Testing has duration 3. Also, Planning and Meeting cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 1 slots between Meeting and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Docs and Testing cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Testing must start at time slot 1. Also, Sync has duration 2. Also, There must be at least 2 slots between Meeting and Planning.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Planning"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 1 slots between Sync and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Meeting has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Design must start between time slots 8 and 9. Also, Docs must happen before Sync. Also, Testing must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            8,
+            9
+          ],
+          "nl": "Design must start between time slots 8 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            3
+          ],
+          "nl": "Docs has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            3
+          ],
+          "nl": "Testing has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Meeting"
+          ],
+          "nl": "Planning and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            8,
+            9
+          ],
+          "nl": "Design must start between time slots 8 and 9"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 9,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 3
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

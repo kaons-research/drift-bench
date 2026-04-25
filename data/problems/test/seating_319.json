@@ -1,0 +1,762 @@
+{
+  "problem_id": "seating_319",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Eve",
+    "Tina",
+    "Grace",
+    "Frank",
+    "Noah",
+    "Karen"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Eve must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 1,
+        "Grace": 3,
+        "Frank": 5,
+        "Noah": 2,
+        "Karen": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Grace must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 2,
+        "Grace": 3,
+        "Frank": 4,
+        "Noah": 1,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Grace cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 4,
+        "Grace": 3,
+        "Frank": 2,
+        "Noah": 1,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Grace cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 5,
+        "Grace": 3,
+        "Frank": 4,
+        "Noah": 1,
+        "Karen": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Tina cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Karen"
+          ],
+          "nl": "Tina cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Karen"
+          ],
+          "nl": "Tina cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 5,
+        "Grace": 3,
+        "Frank": 4,
+        "Noah": 1,
+        "Karen": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Karen and Tina must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Karen"
+          ],
+          "nl": "Tina cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 1,
+        "Grace": 3,
+        "Frank": 2,
+        "Noah": 5,
+        "Karen": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Grace cannot sit next to Eve. Also, Frank and Noah must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Eve"
+          ],
+          "nl": "Grace cannot sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Noah",
+            1
+          ],
+          "nl": "Frank and Noah must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Karen"
+          ],
+          "nl": "Tina cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Eve"
+          ],
+          "nl": "Grace cannot sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Noah",
+            1
+          ],
+          "nl": "Frank and Noah must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 5,
+        "Grace": 3,
+        "Frank": 4,
+        "Noah": 1,
+        "Karen": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Eve and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Frank",
+            1
+          ],
+          "nl": "Eve and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Karen"
+          ],
+          "nl": "Tina cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Eve"
+          ],
+          "nl": "Grace cannot sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Noah",
+            1
+          ],
+          "nl": "Frank and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Frank",
+            1
+          ],
+          "nl": "Eve and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 5,
+        "Grace": 3,
+        "Frank": 4,
+        "Noah": 1,
+        "Karen": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Eve sits immediately left of Tina.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Tina"
+          ],
+          "nl": "Eve sits immediately left of Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Karen"
+          ],
+          "nl": "Tina cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Eve"
+          ],
+          "nl": "Grace cannot sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Noah",
+            1
+          ],
+          "nl": "Frank and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Frank",
+            1
+          ],
+          "nl": "Eve and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Tina"
+          ],
+          "nl": "Eve sits immediately left of Tina"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 5,
+        "Grace": 3,
+        "Frank": 4,
+        "Noah": 1,
+        "Karen": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Noah cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            3
+          ],
+          "nl": "Grace must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Karen"
+          ],
+          "nl": "Tina cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Eve"
+          ],
+          "nl": "Grace cannot sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Noah",
+            1
+          ],
+          "nl": "Frank and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Frank",
+            1
+          ],
+          "nl": "Eve and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Tina"
+          ],
+          "nl": "Eve sits immediately left of Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Tina": 5,
+        "Grace": 3,
+        "Frank": 4,
+        "Noah": 1,
+        "Karen": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

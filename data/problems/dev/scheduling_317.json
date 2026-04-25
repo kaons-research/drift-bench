@@ -1,0 +1,1406 @@
+{
+  "problem_id": "scheduling_317",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "QA",
+    "Sync",
+    "Review",
+    "Design",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Design has duration 1. Also, There must be at least 0 slots between Review and Sync.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review has duration 2. Also, Testing and Review cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sync must happen before Testing. Also, Review must start between time slots 4 and 4. Also, Review and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Sync must happen before QA. Also, Review and Design cannot be simultaneous. Also, Design must start at time slot 8.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Sync must start between time slots 2 and 4. Also, There must be at least 1 slots between Design and QA. Also, Testing must start at time slot 5.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            4
+          ],
+          "nl": "Sync must start between time slots 2 and 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            5
+          ],
+          "nl": "Testing must start at time slot 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            4
+          ],
+          "nl": "Sync must start between time slots 2 and 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            5
+          ],
+          "nl": "Testing must start at time slot 5"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 2
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Testing must happen before Design. Also, Review must start between time slots 2 and 5.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            4
+          ],
+          "nl": "Sync must start between time slots 2 and 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            5
+          ],
+          "nl": "Testing must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 2
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Design must start between time slots 4 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            4
+          ],
+          "nl": "Sync must start between time slots 2 and 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            5
+          ],
+          "nl": "Testing must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 2
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "There must be at least 2 slots between QA and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            4
+          ],
+          "nl": "Review must start between time slots 4 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "QA"
+          ],
+          "nl": "Sync must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            4
+          ],
+          "nl": "Sync must start between time slots 2 and 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            5
+          ],
+          "nl": "Testing must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Sync"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 2
+        },
+        "Review": {
+          "start": 4,
+          "duration": 2
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "dev"
+}

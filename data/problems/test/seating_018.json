@@ -1,0 +1,277 @@
+{
+  "problem_id": "seating_018",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Henry",
+    "Quinn",
+    "Noah",
+    "Liam",
+    "Olivia",
+    "Sam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam cannot sit next to Liam. Also, Olivia must sit next to Sam. Also, Liam must sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Liam"
+          ],
+          "nl": "Sam cannot sit next to Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam must sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Liam"
+          ],
+          "nl": "Sam cannot sit next to Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam must sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 1,
+        "Quinn": 4,
+        "Noah": 6,
+        "Liam": 5,
+        "Olivia": 3,
+        "Sam": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            3
+          ],
+          "nl": "Noah must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Liam"
+          ],
+          "nl": "Sam cannot sit next to Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam must sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            3
+          ],
+          "nl": "Noah must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Quinn": 6,
+        "Noah": 3,
+        "Liam": 1,
+        "Olivia": 5,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Quinn must sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn must sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Liam"
+          ],
+          "nl": "Sam cannot sit next to Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam must sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            3
+          ],
+          "nl": "Noah must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn must sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Quinn": 6,
+        "Noah": 3,
+        "Liam": 5,
+        "Olivia": 2,
+        "Sam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sam and Noah must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Sam",
+            "Noah"
+          ],
+          "nl": "Sam and Noah must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Liam"
+          ],
+          "nl": "Sam cannot sit next to Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam must sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            3
+          ],
+          "nl": "Noah must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn must sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Sam",
+            "Noah"
+          ],
+          "nl": "Sam and Noah must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 4,
+        "Quinn": 1,
+        "Noah": 3,
+        "Liam": 2,
+        "Olivia": 5,
+        "Sam": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

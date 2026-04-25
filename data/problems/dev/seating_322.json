@@ -1,0 +1,928 @@
+{
+  "problem_id": "seating_322",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Henry",
+    "Noah",
+    "Bob",
+    "Diana",
+    "Alice",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Alice and Noah must have at least 1 seats between them. Also, Henry and Bob must have at least 1 seats between them. Also, Alice must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 1,
+        "Noah": 6,
+        "Bob": 5,
+        "Diana": 2,
+        "Alice": 3,
+        "Olivia": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah and Bob must have at least 2 seats between them. Also, Bob cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 3,
+        "Noah": 2,
+        "Bob": 5,
+        "Diana": 4,
+        "Alice": 6,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 3,
+        "Noah": 2,
+        "Bob": 5,
+        "Diana": 4,
+        "Alice": 6,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Diana cannot sit next to Noah. Also, Olivia and Diana must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Noah"
+          ],
+          "nl": "Diana cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Diana",
+            2
+          ],
+          "nl": "Olivia and Diana must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Noah"
+          ],
+          "nl": "Diana cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Diana",
+            2
+          ],
+          "nl": "Olivia and Diana must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 1,
+        "Noah": 6,
+        "Bob": 3,
+        "Diana": 2,
+        "Alice": 4,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Alice cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Noah"
+          ],
+          "nl": "Diana cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Diana",
+            2
+          ],
+          "nl": "Olivia and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 5,
+        "Noah": 4,
+        "Bob": 1,
+        "Diana": 6,
+        "Alice": 2,
+        "Olivia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Bob must sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Noah"
+          ],
+          "nl": "Diana cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Diana",
+            2
+          ],
+          "nl": "Olivia and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 5,
+        "Noah": 4,
+        "Bob": 1,
+        "Diana": 6,
+        "Alice": 2,
+        "Olivia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Alice cannot sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice cannot sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Noah"
+          ],
+          "nl": "Diana cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Diana",
+            2
+          ],
+          "nl": "Olivia and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice cannot sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 1,
+        "Noah": 2,
+        "Bob": 5,
+        "Diana": 6,
+        "Alice": 4,
+        "Olivia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Alice must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            5
+          ],
+          "nl": "Alice must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Noah"
+          ],
+          "nl": "Diana cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Diana",
+            2
+          ],
+          "nl": "Olivia and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            5
+          ],
+          "nl": "Alice must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Noah": 1,
+        "Bob": 4,
+        "Diana": 3,
+        "Alice": 5,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Henry and Olivia must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Olivia",
+            1
+          ],
+          "nl": "Henry and Olivia must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Noah",
+            1
+          ],
+          "nl": "Alice and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            1
+          ],
+          "nl": "Henry and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Olivia"
+          ],
+          "nl": "Alice must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Bob",
+            2
+          ],
+          "nl": "Noah and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Noah"
+          ],
+          "nl": "Diana cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Diana",
+            2
+          ],
+          "nl": "Olivia and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Noah"
+          ],
+          "nl": "Alice cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Diana"
+          ],
+          "nl": "Bob must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            5
+          ],
+          "nl": "Alice must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Olivia",
+            1
+          ],
+          "nl": "Henry and Olivia must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Noah": 3,
+        "Bob": 6,
+        "Diana": 1,
+        "Alice": 5,
+        "Olivia": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

@@ -1,0 +1,463 @@
+{
+  "problem_id": "seating_041",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Jack",
+    "Henry",
+    "Charlie",
+    "Alice",
+    "Peter",
+    "Karen",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Eve sits immediately left of Peter. Also, Jack and Alice must have at least 2 seats between them. Also, Eve cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Karen"
+          ],
+          "nl": "Eve cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Karen"
+          ],
+          "nl": "Eve cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 1,
+        "Henry": 7,
+        "Charlie": 4,
+        "Alice": 5,
+        "Peter": 2,
+        "Karen": 6,
+        "Eve": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Alice must sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice must sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Karen"
+          ],
+          "nl": "Eve cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice must sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Henry": 6,
+        "Charlie": 2,
+        "Alice": 7,
+        "Peter": 4,
+        "Karen": 1,
+        "Eve": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Jack and Charlie must have at least 2 seats between them. Also, Karen must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Karen"
+          ],
+          "nl": "Eve cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 7,
+        "Henry": 6,
+        "Charlie": 3,
+        "Alice": 4,
+        "Peter": 1,
+        "Karen": 5,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve and Henry must have at least 1 seats between them. Also, Charlie and Karen must have at least 1 seats between them. Also, Karen and Charlie must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Henry",
+            1
+          ],
+          "nl": "Eve and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Karen",
+            1
+          ],
+          "nl": "Charlie and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Charlie",
+            1
+          ],
+          "nl": "Karen and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Karen"
+          ],
+          "nl": "Eve cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Henry",
+            1
+          ],
+          "nl": "Eve and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Karen",
+            1
+          ],
+          "nl": "Charlie and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Charlie",
+            1
+          ],
+          "nl": "Karen and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Henry": 4,
+        "Charlie": 7,
+        "Alice": 6,
+        "Peter": 1,
+        "Karen": 5,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Charlie sits immediately left of Alice.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Karen"
+          ],
+          "nl": "Eve cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Henry",
+            1
+          ],
+          "nl": "Eve and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Karen",
+            1
+          ],
+          "nl": "Charlie and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Charlie",
+            1
+          ],
+          "nl": "Karen and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Alice"
+          ],
+          "nl": "Charlie sits immediately left of Alice"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Henry": 4,
+        "Charlie": 7,
+        "Alice": 6,
+        "Peter": 1,
+        "Karen": 5,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

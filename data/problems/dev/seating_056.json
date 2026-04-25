@@ -1,0 +1,270 @@
+{
+  "problem_id": "seating_056",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Jack",
+    "Charlie",
+    "Frank",
+    "Diana",
+    "Ruby",
+    "Alice",
+    "Noah",
+    "Liam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Charlie cannot sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie cannot sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie cannot sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 6,
+        "Charlie": 2,
+        "Frank": 8,
+        "Diana": 5,
+        "Ruby": 1,
+        "Alice": 3,
+        "Noah": 7,
+        "Liam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Diana cannot sit next to Frank. Also, Charlie and Diana must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Diana",
+            1
+          ],
+          "nl": "Charlie and Diana must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie cannot sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Diana",
+            1
+          ],
+          "nl": "Charlie and Diana must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Charlie": 6,
+        "Frank": 3,
+        "Diana": 1,
+        "Ruby": 5,
+        "Alice": 8,
+        "Noah": 2,
+        "Liam": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Jack and Charlie must have at least 2 seats between them. Also, Noah sits immediately left of Charlie.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah sits immediately left of Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie cannot sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Diana",
+            1
+          ],
+          "nl": "Charlie and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah sits immediately left of Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 1,
+        "Charlie": 4,
+        "Frank": 8,
+        "Diana": 6,
+        "Ruby": 2,
+        "Alice": 3,
+        "Noah": 5,
+        "Liam": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah cannot sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Diana"
+          ],
+          "nl": "Noah cannot sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie cannot sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Diana",
+            1
+          ],
+          "nl": "Charlie and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah sits immediately left of Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Diana"
+          ],
+          "nl": "Noah cannot sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 1,
+        "Charlie": 4,
+        "Frank": 8,
+        "Diana": 2,
+        "Ruby": 7,
+        "Alice": 3,
+        "Noah": 5,
+        "Liam": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

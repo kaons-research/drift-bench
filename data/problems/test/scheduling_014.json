@@ -1,0 +1,559 @@
+{
+  "problem_id": "scheduling_014",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Meeting",
+    "Planning",
+    "Deploy",
+    "Docs",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Docs must start between time slots 7 and 8. Also, There must be at least 1 slots between Planning and Review.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            8
+          ],
+          "nl": "Docs must start between time slots 7 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            8
+          ],
+          "nl": "Docs must start between time slots 7 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Review"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Docs must start between time slots 2 and 8. Also, Docs and Meeting cannot be simultaneous. Also, Deploy and Review cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            8
+          ],
+          "nl": "Docs must start between time slots 2 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            8
+          ],
+          "nl": "Docs must start between time slots 7 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            8
+          ],
+          "nl": "Docs must start between time slots 2 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Deploy must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            8
+          ],
+          "nl": "Docs must start between time slots 7 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            8
+          ],
+          "nl": "Docs must start between time slots 2 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy must happen before Docs. Also, Planning and Deploy cannot be simultaneous. Also, Review and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            8
+          ],
+          "nl": "Docs must start between time slots 7 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            8
+          ],
+          "nl": "Docs must start between time slots 2 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 2 slots between Planning and Deploy. Also, Docs has duration 1. Also, Meeting must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            8
+          ],
+          "nl": "Docs must start between time slots 7 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            8
+          ],
+          "nl": "Docs must start between time slots 2 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

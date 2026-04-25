@@ -1,0 +1,417 @@
+{
+  "problem_id": "scheduling_276",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Sync",
+    "Docs",
+    "Planning",
+    "Review",
+    "Deploy"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Review must start at time slot 6. Also, Planning and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            6
+          ],
+          "nl": "Review must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            6
+          ],
+          "nl": "Review must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review must happen before Sync. Also, Docs must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            6
+          ],
+          "nl": "Review must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Review must start between time slots 3 and 7. Also, Docs must start between time slots 4 and 5. Also, Sync and Review cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            3,
+            7
+          ],
+          "nl": "Review must start between time slots 3 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            4,
+            5
+          ],
+          "nl": "Docs must start between time slots 4 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync and Review cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            6
+          ],
+          "nl": "Review must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            3,
+            7
+          ],
+          "nl": "Review must start between time slots 3 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            4,
+            5
+          ],
+          "nl": "Docs must start between time slots 4 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync and Review cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 2 slots between Sync and Planning. Also, There must be at least 1 slots between Sync and Review. Also, There must be at least 0 slots between Deploy and Review.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            6
+          ],
+          "nl": "Review must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            3,
+            7
+          ],
+          "nl": "Review must start between time slots 3 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            4,
+            5
+          ],
+          "nl": "Docs must start between time slots 4 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Review"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

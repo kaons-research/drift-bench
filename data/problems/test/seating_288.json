@@ -1,0 +1,883 @@
+{
+  "problem_id": "seating_288",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Bob",
+    "Liam",
+    "Mia",
+    "Noah",
+    "Quinn",
+    "Karen",
+    "Jack",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Noah and Quinn must sit on opposite sides of the table. Also, Noah and Karen must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 7,
+        "Liam": 5,
+        "Mia": 3,
+        "Noah": 8,
+        "Quinn": 4,
+        "Karen": 6,
+        "Jack": 1,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Quinn must sit at position 3. Also, Quinn and Noah must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Noah",
+            1
+          ],
+          "nl": "Quinn and Noah must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Noah",
+            1
+          ],
+          "nl": "Quinn and Noah must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Liam": 1,
+        "Mia": 4,
+        "Noah": 8,
+        "Quinn": 3,
+        "Karen": 5,
+        "Jack": 6,
+        "Eve": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Bob cannot sit next to Jack. Also, Mia and Jack must sit on the same side of the table. Also, Eve sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob cannot sit next to Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Noah",
+            1
+          ],
+          "nl": "Quinn and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob cannot sit next to Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Liam": 7,
+        "Mia": 2,
+        "Noah": 6,
+        "Quinn": 3,
+        "Karen": 8,
+        "Jack": 4,
+        "Eve": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam and Noah must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam and Noah must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Noah",
+            1
+          ],
+          "nl": "Quinn and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob cannot sit next to Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam and Noah must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Liam": 8,
+        "Mia": 1,
+        "Noah": 6,
+        "Quinn": 3,
+        "Karen": 7,
+        "Jack": 4,
+        "Eve": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Liam cannot sit next to Noah. Also, Karen cannot sit next to Bob. Also, Karen and Mia must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen and Mia must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Noah",
+            1
+          ],
+          "nl": "Quinn and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob cannot sit next to Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen and Mia must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Liam": 8,
+        "Mia": 1,
+        "Noah": 6,
+        "Quinn": 3,
+        "Karen": 7,
+        "Jack": 4,
+        "Eve": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Jack cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Noah",
+            1
+          ],
+          "nl": "Quinn and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob cannot sit next to Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen and Mia must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 5,
+        "Liam": 8,
+        "Mia": 4,
+        "Noah": 6,
+        "Quinn": 3,
+        "Karen": 7,
+        "Jack": 1,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Jack cannot sit next to Quinn. Also, Eve and Jack must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Quinn"
+          ],
+          "nl": "Jack cannot sit next to Quinn"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Noah",
+            1
+          ],
+          "nl": "Quinn and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob cannot sit next to Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen and Mia must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Quinn"
+          ],
+          "nl": "Jack cannot sit next to Quinn"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 7,
+        "Liam": 8,
+        "Mia": 4,
+        "Noah": 6,
+        "Quinn": 3,
+        "Karen": 5,
+        "Jack": 1,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Quinn and Bob must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Quinn",
+            "Bob"
+          ],
+          "nl": "Quinn and Bob must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Quinn"
+          ],
+          "nl": "Noah and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Karen"
+          ],
+          "nl": "Noah and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Noah",
+            1
+          ],
+          "nl": "Quinn and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob cannot sit next to Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Mia",
+            "Jack"
+          ],
+          "nl": "Mia and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam and Noah must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Bob"
+          ],
+          "nl": "Karen cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Mia"
+          ],
+          "nl": "Karen and Mia must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Quinn"
+          ],
+          "nl": "Jack cannot sit next to Quinn"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Quinn",
+            "Bob"
+          ],
+          "nl": "Quinn and Bob must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 6,
+        "Liam": 5,
+        "Mia": 4,
+        "Noah": 7,
+        "Quinn": 3,
+        "Karen": 8,
+        "Jack": 1,
+        "Eve": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

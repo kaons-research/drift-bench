@@ -1,0 +1,779 @@
+{
+  "problem_id": "seating_107",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Jack",
+    "Liam",
+    "Eve",
+    "Mia",
+    "Noah",
+    "Olivia",
+    "Tina",
+    "Ruby"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Noah sits immediately left of Olivia.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Liam": 2,
+        "Eve": 1,
+        "Mia": 8,
+        "Noah": 4,
+        "Olivia": 3,
+        "Tina": 6,
+        "Ruby": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Liam and Olivia must have at least 1 seats between them. Also, Jack cannot sit next to Liam. Also, Jack cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Olivia",
+            1
+          ],
+          "nl": "Liam and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Olivia",
+            1
+          ],
+          "nl": "Liam and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Liam": 4,
+        "Eve": 5,
+        "Mia": 3,
+        "Noah": 1,
+        "Olivia": 8,
+        "Tina": 6,
+        "Ruby": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Eve sits immediately left of Liam.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Olivia",
+            1
+          ],
+          "nl": "Liam and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Liam": 7,
+        "Eve": 8,
+        "Mia": 4,
+        "Noah": 3,
+        "Olivia": 2,
+        "Tina": 1,
+        "Ruby": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Tina must sit next to Jack. Also, Mia must sit at position 8. Also, Eve cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Olivia",
+            1
+          ],
+          "nl": "Liam and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 1,
+        "Liam": 6,
+        "Eve": 7,
+        "Mia": 8,
+        "Noah": 5,
+        "Olivia": 4,
+        "Tina": 2,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Mia cannot sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Olivia",
+            1
+          ],
+          "nl": "Liam and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 1,
+        "Liam": 3,
+        "Eve": 4,
+        "Mia": 8,
+        "Noah": 7,
+        "Olivia": 6,
+        "Tina": 2,
+        "Ruby": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Jack must sit at position 7.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            7
+          ],
+          "nl": "Jack must sit at position 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Olivia",
+            1
+          ],
+          "nl": "Liam and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            7
+          ],
+          "nl": "Jack must sit at position 7"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 7,
+        "Liam": 1,
+        "Eve": 2,
+        "Mia": 8,
+        "Noah": 5,
+        "Olivia": 4,
+        "Tina": 6,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Ruby must sit next to Eve. Also, Noah cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Eve"
+          ],
+          "nl": "Ruby must sit next to Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Olivia",
+            1
+          ],
+          "nl": "Liam and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            7
+          ],
+          "nl": "Jack must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Eve"
+          ],
+          "nl": "Ruby must sit next to Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 7,
+        "Liam": 3,
+        "Eve": 4,
+        "Mia": 8,
+        "Noah": 2,
+        "Olivia": 1,
+        "Tina": 6,
+        "Ruby": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Mia must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Olivia",
+            1
+          ],
+          "nl": "Liam and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            7
+          ],
+          "nl": "Jack must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Eve"
+          ],
+          "nl": "Ruby must sit next to Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 7,
+        "Liam": 3,
+        "Eve": 4,
+        "Mia": 8,
+        "Noah": 2,
+        "Olivia": 1,
+        "Tina": 6,
+        "Ruby": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

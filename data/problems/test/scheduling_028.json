@@ -1,0 +1,1492 @@
+{
+  "problem_id": "scheduling_028",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Deploy",
+    "QA",
+    "Meeting",
+    "Docs",
+    "Refactor",
+    "Testing",
+    "Sync"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Deploy and Docs cannot be simultaneous. Also, Sync and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Deploy must start at time slot 2.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Docs and Testing cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Meeting has duration 2. Also, QA must happen before Docs. Also, There must be at least 0 slots between Sync and QA.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and QA"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Docs must happen before Testing. Also, There must be at least 2 slots between Testing and Deploy. Also, Sync must start at time slot 7.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Docs must happen before Meeting. Also, Deploy must start between time slots 1 and 4. Also, Testing must start between time slots 4 and 10.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            10
+          ],
+          "nl": "Testing must start between time slots 4 and 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            10
+          ],
+          "nl": "Testing must start between time slots 4 and 10"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Deploy must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            10
+          ],
+          "nl": "Testing must start between time slots 4 and 10"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Sync and Meeting cannot be simultaneous. Also, There must be at least 2 slots between Sync and Docs. Also, Docs must start between time slots 2 and 5.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            5
+          ],
+          "nl": "Docs must start between time slots 2 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            10
+          ],
+          "nl": "Testing must start between time slots 4 and 10"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            5
+          ],
+          "nl": "Docs must start between time slots 2 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Sync and Deploy cannot be simultaneous. Also, QA has duration 1.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            10
+          ],
+          "nl": "Testing must start between time slots 4 and 10"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            5
+          ],
+          "nl": "Docs must start between time slots 2 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "QA must start at time slot 3. Also, QA and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Testing"
+          ],
+          "nl": "Docs must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            10
+          ],
+          "nl": "Testing must start between time slots 4 and 10"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            5
+          ],
+          "nl": "Docs must start between time slots 2 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Deploy"
+          ],
+          "nl": "Sync and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Sync"
+          ],
+          "nl": "QA and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 11,
+  "max_duration": 3,
+  "split": "test"
+}

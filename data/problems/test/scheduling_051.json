@@ -1,0 +1,824 @@
+{
+  "problem_id": "scheduling_051",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Deploy",
+    "Sync",
+    "Review",
+    "Meeting",
+    "Refactor"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Deploy and Sync cannot be simultaneous. Also, Meeting must happen before Sync.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sync must start at time slot 5.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 2 slots between Sync and Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy must start at time slot 3. Also, Review and Sync cannot be simultaneous. Also, Deploy must start between time slots 3 and 6.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            3,
+            6
+          ],
+          "nl": "Deploy must start between time slots 3 and 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            3,
+            6
+          ],
+          "nl": "Deploy must start between time slots 3 and 6"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Review and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            3,
+            6
+          ],
+          "nl": "Deploy must start between time slots 3 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Meeting must start at time slot 2.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            3,
+            6
+          ],
+          "nl": "Deploy must start between time slots 3 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Review and Meeting cannot be simultaneous. Also, Deploy has duration 1.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Meeting"
+          ],
+          "nl": "Review and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            3,
+            6
+          ],
+          "nl": "Deploy must start between time slots 3 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Meeting"
+          ],
+          "nl": "Review and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "There must be at least 0 slots between Meeting and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Sync"
+          ],
+          "nl": "Meeting must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            5
+          ],
+          "nl": "Sync must start at time slot 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            3,
+            6
+          ],
+          "nl": "Deploy must start between time slots 3 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Meeting"
+          ],
+          "nl": "Review and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

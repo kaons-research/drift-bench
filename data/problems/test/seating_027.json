@@ -1,0 +1,263 @@
+{
+  "problem_id": "seating_027",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Mia",
+    "Tina",
+    "Grace",
+    "Quinn",
+    "Alice",
+    "Liam",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Grace and Liam must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Liam",
+            2
+          ],
+          "nl": "Grace and Liam must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Liam",
+            2
+          ],
+          "nl": "Grace and Liam must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 3,
+        "Tina": 7,
+        "Grace": 1,
+        "Quinn": 6,
+        "Alice": 4,
+        "Liam": 5,
+        "Olivia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Tina must sit at position 5. Also, Quinn cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Liam",
+            2
+          ],
+          "nl": "Grace and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 1,
+        "Tina": 5,
+        "Grace": 3,
+        "Quinn": 4,
+        "Alice": 7,
+        "Liam": 6,
+        "Olivia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Olivia must sit next to Alice. Also, Alice must sit at position 7.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Liam",
+            2
+          ],
+          "nl": "Grace and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 3,
+        "Tina": 5,
+        "Grace": 2,
+        "Quinn": 4,
+        "Alice": 7,
+        "Liam": 6,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam sits immediately left of Tina.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam sits immediately left of Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Liam",
+            2
+          ],
+          "nl": "Grace and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam sits immediately left of Tina"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 3,
+        "Tina": 5,
+        "Grace": 2,
+        "Quinn": 4,
+        "Alice": 7,
+        "Liam": 6,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,370 @@
+{
+  "problem_id": "seating_096",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Quinn",
+    "Grace",
+    "Peter",
+    "Sam",
+    "Ruby",
+    "Jack",
+    "Liam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Jack must sit at position 6. Also, Liam and Quinn must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Quinn",
+            2
+          ],
+          "nl": "Liam and Quinn must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Quinn",
+            2
+          ],
+          "nl": "Liam and Quinn must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 7,
+        "Grace": 4,
+        "Peter": 1,
+        "Sam": 5,
+        "Ruby": 2,
+        "Jack": 6,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Quinn and Liam must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Liam",
+            1
+          ],
+          "nl": "Quinn and Liam must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Quinn",
+            2
+          ],
+          "nl": "Liam and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Liam",
+            1
+          ],
+          "nl": "Quinn and Liam must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 5,
+        "Grace": 7,
+        "Peter": 3,
+        "Sam": 4,
+        "Ruby": 2,
+        "Jack": 6,
+        "Liam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Grace must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            5
+          ],
+          "nl": "Grace must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Quinn",
+            2
+          ],
+          "nl": "Liam and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Liam",
+            1
+          ],
+          "nl": "Quinn and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            5
+          ],
+          "nl": "Grace must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 7,
+        "Grace": 5,
+        "Peter": 1,
+        "Sam": 4,
+        "Ruby": 2,
+        "Jack": 6,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sam and Ruby must have at least 2 seats between them. Also, Sam cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Ruby",
+            2
+          ],
+          "nl": "Sam and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Peter"
+          ],
+          "nl": "Sam cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Quinn",
+            2
+          ],
+          "nl": "Liam and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Liam",
+            1
+          ],
+          "nl": "Quinn and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            5
+          ],
+          "nl": "Grace must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Ruby",
+            2
+          ],
+          "nl": "Sam and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Peter"
+          ],
+          "nl": "Sam cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 3,
+        "Grace": 5,
+        "Peter": 2,
+        "Sam": 4,
+        "Ruby": 1,
+        "Jack": 6,
+        "Liam": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Quinn sits immediately left of Jack. Also, Peter must sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter must sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            6
+          ],
+          "nl": "Jack must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Quinn",
+            2
+          ],
+          "nl": "Liam and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Liam",
+            1
+          ],
+          "nl": "Quinn and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            5
+          ],
+          "nl": "Grace must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Ruby",
+            2
+          ],
+          "nl": "Sam and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Peter"
+          ],
+          "nl": "Sam cannot sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter must sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 7,
+        "Grace": 5,
+        "Peter": 2,
+        "Sam": 4,
+        "Ruby": 1,
+        "Jack": 6,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

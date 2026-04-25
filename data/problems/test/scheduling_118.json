@@ -1,0 +1,431 @@
+{
+  "problem_id": "scheduling_118",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Design",
+    "Review",
+    "Deploy",
+    "QA",
+    "Planning",
+    "Sync"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "QA must start at time slot 6. Also, Review has duration 2.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sync must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 1 slots between Design and Sync. Also, Deploy must start between time slots 5 and 7.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Sync"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            5,
+            7
+          ],
+          "nl": "Deploy must start between time slots 5 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Sync"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            5,
+            7
+          ],
+          "nl": "Deploy must start between time slots 5 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Review must start at time slot 2.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review must start at time slot 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Sync"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            5,
+            7
+          ],
+          "nl": "Deploy must start between time slots 5 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review must start at time slot 2"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

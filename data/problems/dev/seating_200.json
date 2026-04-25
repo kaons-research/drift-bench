@@ -1,0 +1,941 @@
+{
+  "problem_id": "seating_200",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Liam",
+    "Noah",
+    "Karen",
+    "Grace",
+    "Henry",
+    "Mia",
+    "Peter",
+    "Tina"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Grace must sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 6,
+        "Noah": 3,
+        "Karen": 4,
+        "Grace": 7,
+        "Henry": 2,
+        "Mia": 8,
+        "Peter": 1,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Tina sits immediately left of Liam. Also, Karen and Peter must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 8,
+        "Noah": 2,
+        "Karen": 6,
+        "Grace": 7,
+        "Henry": 5,
+        "Mia": 4,
+        "Peter": 3,
+        "Tina": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry must sit at position 8.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Noah": 2,
+        "Karen": 6,
+        "Grace": 3,
+        "Henry": 8,
+        "Mia": 7,
+        "Peter": 1,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam cannot sit next to Peter. Also, Karen must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Noah": 1,
+        "Karen": 6,
+        "Grace": 3,
+        "Henry": 8,
+        "Mia": 7,
+        "Peter": 2,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Grace cannot sit next to Peter. Also, Liam must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Noah": 7,
+        "Karen": 6,
+        "Grace": 3,
+        "Henry": 8,
+        "Mia": 2,
+        "Peter": 1,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Henry cannot sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Liam"
+          ],
+          "nl": "Henry cannot sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Liam"
+          ],
+          "nl": "Henry cannot sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Noah": 7,
+        "Karen": 6,
+        "Grace": 3,
+        "Henry": 8,
+        "Mia": 2,
+        "Peter": 1,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Liam must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            5
+          ],
+          "nl": "Liam must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Liam"
+          ],
+          "nl": "Henry cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            5
+          ],
+          "nl": "Liam must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 5,
+        "Noah": 1,
+        "Karen": 7,
+        "Grace": 4,
+        "Henry": 8,
+        "Mia": 3,
+        "Peter": 2,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Tina cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Liam"
+          ],
+          "nl": "Henry cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            5
+          ],
+          "nl": "Liam must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 5,
+        "Noah": 1,
+        "Karen": 7,
+        "Grace": 4,
+        "Henry": 8,
+        "Mia": 3,
+        "Peter": 2,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Henry must sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry must sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Liam"
+          ],
+          "nl": "Henry cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            5
+          ],
+          "nl": "Liam must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry must sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 5,
+        "Noah": 3,
+        "Karen": 7,
+        "Grace": 4,
+        "Henry": 8,
+        "Mia": 1,
+        "Peter": 2,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Liam and Mia must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            1
+          ],
+          "nl": "Liam and Mia must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Liam"
+          ],
+          "nl": "Grace must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Liam"
+          ],
+          "nl": "Tina sits immediately left of Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Peter",
+            2
+          ],
+          "nl": "Karen and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Peter"
+          ],
+          "nl": "Grace cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam must sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Liam"
+          ],
+          "nl": "Henry cannot sit next to Liam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            5
+          ],
+          "nl": "Liam must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Noah"
+          ],
+          "nl": "Tina cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            1
+          ],
+          "nl": "Liam and Mia must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 5,
+        "Noah": 1,
+        "Karen": 7,
+        "Grace": 4,
+        "Henry": 8,
+        "Mia": 3,
+        "Peter": 2,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

@@ -1,0 +1,323 @@
+{
+  "problem_id": "seating_069",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Alice",
+    "Quinn",
+    "Sam",
+    "Eve",
+    "Grace",
+    "Noah",
+    "Frank",
+    "Bob"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Eve cannot sit next to Alice. Also, Grace cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve cannot sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve cannot sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Quinn": 4,
+        "Sam": 8,
+        "Eve": 7,
+        "Grace": 2,
+        "Noah": 5,
+        "Frank": 3,
+        "Bob": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Quinn cannot sit next to Sam. Also, Grace and Eve must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Eve",
+            3
+          ],
+          "nl": "Grace and Eve must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve cannot sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Eve",
+            3
+          ],
+          "nl": "Grace and Eve must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 6,
+        "Quinn": 2,
+        "Sam": 5,
+        "Eve": 3,
+        "Grace": 7,
+        "Noah": 8,
+        "Frank": 4,
+        "Bob": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Frank sits immediately left of Quinn. Also, Sam must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank sits immediately left of Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            4
+          ],
+          "nl": "Sam must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve cannot sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Eve",
+            3
+          ],
+          "nl": "Grace and Eve must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank sits immediately left of Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            4
+          ],
+          "nl": "Sam must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 3,
+        "Quinn": 7,
+        "Sam": 4,
+        "Eve": 6,
+        "Grace": 2,
+        "Noah": 5,
+        "Frank": 8,
+        "Bob": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah cannot sit next to Sam. Also, Bob must sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob must sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve cannot sit next to Alice"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Eve",
+            3
+          ],
+          "nl": "Grace and Eve must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank sits immediately left of Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            4
+          ],
+          "nl": "Sam must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob must sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 3,
+        "Quinn": 7,
+        "Sam": 4,
+        "Eve": 5,
+        "Grace": 1,
+        "Noah": 2,
+        "Frank": 8,
+        "Bob": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,718 @@
+{
+  "problem_id": "scheduling_313",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Review",
+    "Refactor",
+    "Planning",
+    "Testing",
+    "Sync"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Planning must start at time slot 1.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sync has duration 3. Also, Testing must start between time slots 3 and 8.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 1 slots between Refactor and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 0 slots between Review and Testing. Also, There must be at least 0 slots between Planning and Refactor.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync must happen before Refactor. Also, Testing must happen before Refactor. Also, Testing must start at time slot 6.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 2 slots between Planning and Refactor.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "There must be at least 2 slots between Testing and Review. Also, Review and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            8
+          ],
+          "nl": "Testing must start between time slots 3 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

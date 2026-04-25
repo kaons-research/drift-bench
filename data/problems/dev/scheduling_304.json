@@ -1,0 +1,1194 @@
+{
+  "problem_id": "scheduling_304",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Testing",
+    "Review",
+    "Planning",
+    "Sync",
+    "Meeting"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Review must happen before Testing.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Planning must start between time slots 7 and 8. Also, Sync must start between time slots 2 and 6.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 1 slots between Meeting and Sync. Also, There must be at least 2 slots between Review and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Planning and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync must start between time slots 1 and 5. Also, Meeting and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            1,
+            5
+          ],
+          "nl": "Sync must start between time slots 1 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            1,
+            5
+          ],
+          "nl": "Sync must start between time slots 1 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Meeting must start between time slots 3 and 6.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            6
+          ],
+          "nl": "Meeting must start between time slots 3 and 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            1,
+            5
+          ],
+          "nl": "Sync must start between time slots 1 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            6
+          ],
+          "nl": "Meeting must start between time slots 3 and 6"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "There must be at least 0 slots between Meeting and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            1,
+            5
+          ],
+          "nl": "Sync must start between time slots 1 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            6
+          ],
+          "nl": "Meeting must start between time slots 3 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "There must be at least 1 slots between Planning and Sync. Also, Meeting must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            1,
+            5
+          ],
+          "nl": "Sync must start between time slots 1 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            6
+          ],
+          "nl": "Meeting must start between time slots 3 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "There must be at least 2 slots between Meeting and Testing. Also, Sync and Meeting cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync and Meeting cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            1,
+            5
+          ],
+          "nl": "Sync must start between time slots 1 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            6
+          ],
+          "nl": "Meeting must start between time slots 3 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync and Meeting cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "There must be at least 2 slots between Testing and Review. Also, Meeting must start between time slots 3 and 7.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            7
+          ],
+          "nl": "Meeting must start between time slots 3 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review must happen before Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            7,
+            8
+          ],
+          "nl": "Planning must start between time slots 7 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            2,
+            6
+          ],
+          "nl": "Sync must start between time slots 2 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            1,
+            5
+          ],
+          "nl": "Sync must start between time slots 1 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Planning"
+          ],
+          "nl": "Meeting and Planning cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            6
+          ],
+          "nl": "Meeting must start between time slots 3 and 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Meeting"
+          ],
+          "nl": "Sync and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            3,
+            7
+          ],
+          "nl": "Meeting must start between time slots 3 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "dev"
+}

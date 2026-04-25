@@ -1,0 +1,1314 @@
+{
+  "problem_id": "scheduling_188",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Testing",
+    "Planning",
+    "Docs",
+    "Sync",
+    "Meeting",
+    "Refactor"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Planning must happen before Sync. Also, Testing must start at time slot 6. Also, Meeting must start at time slot 5.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sync must happen before Testing. Also, Docs must happen before Sync.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Refactor must happen before Planning. Also, Docs must happen before Meeting. Also, Meeting and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 0 slots between Planning and Docs.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Docs"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 2 slots between Planning and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 0 slots between Refactor and Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "There must be at least 1 slots between Refactor and Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Refactor must happen before Testing.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Testing"
+          ],
+          "nl": "Refactor must happen before Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Testing"
+          ],
+          "nl": "Refactor must happen before Testing"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Docs must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Testing"
+          ],
+          "nl": "Refactor must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Refactor has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Sync"
+          ],
+          "nl": "Planning must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            6
+          ],
+          "nl": "Testing must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            5
+          ],
+          "nl": "Meeting must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Sync"
+          ],
+          "nl": "Docs must happen before Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Meeting"
+          ],
+          "nl": "Docs must happen before Meeting"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Docs",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and Docs"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Testing"
+          ],
+          "nl": "Refactor must happen before Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

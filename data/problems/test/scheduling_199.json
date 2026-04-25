@@ -1,0 +1,441 @@
+{
+  "problem_id": "scheduling_199",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Design",
+    "QA",
+    "Refactor",
+    "Docs",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Docs has duration 2. Also, QA must start between time slots 3 and 5.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            5
+          ],
+          "nl": "QA must start between time slots 3 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            5
+          ],
+          "nl": "QA must start between time slots 3 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Refactor has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            5
+          ],
+          "nl": "QA must start between time slots 3 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing and Design cannot be simultaneous. Also, There must be at least 1 slots between Refactor and Docs.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Docs",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            5
+          ],
+          "nl": "QA must start between time slots 3 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Docs",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Docs"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Design must start between time slots 4 and 5.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            5
+          ],
+          "nl": "Design must start between time slots 4 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            5
+          ],
+          "nl": "QA must start between time slots 3 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Docs",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            5
+          ],
+          "nl": "Design must start between time slots 4 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Testing must happen before Docs. Also, QA has duration 3.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            5
+          ],
+          "nl": "QA must start between time slots 3 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Docs",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            5
+          ],
+          "nl": "Design must start between time slots 4 and 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing must happen before Docs"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 3
+        },
+        "Refactor": {
+          "start": 5,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 2
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

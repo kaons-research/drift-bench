@@ -1,0 +1,572 @@
+{
+  "problem_id": "seating_042",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Bob",
+    "Liam",
+    "Sam",
+    "Frank",
+    "Charlie",
+    "Ivy",
+    "Ruby",
+    "Mia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Liam and Ivy must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Ivy",
+            2
+          ],
+          "nl": "Liam and Ivy must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Ivy",
+            2
+          ],
+          "nl": "Liam and Ivy must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Liam": 7,
+        "Sam": 6,
+        "Frank": 8,
+        "Charlie": 3,
+        "Ivy": 2,
+        "Ruby": 4,
+        "Mia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank and Ruby must sit on opposite sides of the table. Also, Frank and Sam must sit on the same side of the table. Also, Charlie must sit at position 7.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            7
+          ],
+          "nl": "Charlie must sit at position 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Ivy",
+            2
+          ],
+          "nl": "Liam and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            7
+          ],
+          "nl": "Charlie must sit at position 7"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 5,
+        "Liam": 8,
+        "Sam": 1,
+        "Frank": 4,
+        "Charlie": 7,
+        "Ivy": 3,
+        "Ruby": 6,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Liam must sit next to Sam. Also, Mia must sit at position 8.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Ivy",
+            2
+          ],
+          "nl": "Liam and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            7
+          ],
+          "nl": "Charlie must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Liam": 5,
+        "Sam": 4,
+        "Frank": 3,
+        "Charlie": 7,
+        "Ivy": 2,
+        "Ruby": 6,
+        "Mia": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam must sit next to Frank. Also, Charlie cannot sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Frank"
+          ],
+          "nl": "Liam must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie cannot sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Ivy",
+            2
+          ],
+          "nl": "Liam and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            7
+          ],
+          "nl": "Charlie must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Frank"
+          ],
+          "nl": "Liam must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie cannot sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 4,
+        "Liam": 2,
+        "Sam": 1,
+        "Frank": 3,
+        "Charlie": 7,
+        "Ivy": 5,
+        "Ruby": 6,
+        "Mia": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Mia cannot sit next to Liam. Also, Frank and Charlie must sit on opposite sides of the table. Also, Bob and Sam must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Liam"
+          ],
+          "nl": "Mia cannot sit next to Liam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Charlie"
+          ],
+          "nl": "Frank and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob and Sam must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Ivy",
+            2
+          ],
+          "nl": "Liam and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            7
+          ],
+          "nl": "Charlie must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Frank"
+          ],
+          "nl": "Liam must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Liam"
+          ],
+          "nl": "Mia cannot sit next to Liam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Charlie"
+          ],
+          "nl": "Frank and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob and Sam must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Liam": 3,
+        "Sam": 2,
+        "Frank": 4,
+        "Charlie": 7,
+        "Ivy": 6,
+        "Ruby": 5,
+        "Mia": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Liam cannot sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Bob"
+          ],
+          "nl": "Liam cannot sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Ivy",
+            2
+          ],
+          "nl": "Liam and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank and Ruby must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            7
+          ],
+          "nl": "Charlie must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam must sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            8
+          ],
+          "nl": "Mia must sit at position 8"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Frank"
+          ],
+          "nl": "Liam must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Liam"
+          ],
+          "nl": "Mia cannot sit next to Liam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Charlie"
+          ],
+          "nl": "Frank and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Bob"
+          ],
+          "nl": "Liam cannot sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 4,
+        "Liam": 2,
+        "Sam": 3,
+        "Frank": 1,
+        "Charlie": 7,
+        "Ivy": 5,
+        "Ruby": 6,
+        "Mia": 8
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

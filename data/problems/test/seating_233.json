@@ -1,0 +1,270 @@
+{
+  "problem_id": "seating_233",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Henry",
+    "Mia",
+    "Peter",
+    "Bob",
+    "Eve",
+    "Tina"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Peter must sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Bob"
+          ],
+          "nl": "Peter must sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Bob"
+          ],
+          "nl": "Peter must sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Mia": 5,
+        "Peter": 3,
+        "Bob": 4,
+        "Eve": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Henry and Bob must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            2
+          ],
+          "nl": "Henry and Bob must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Bob"
+          ],
+          "nl": "Peter must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            2
+          ],
+          "nl": "Henry and Bob must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 3,
+        "Mia": 1,
+        "Peter": 5,
+        "Bob": 6,
+        "Eve": 2,
+        "Tina": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia and Tina must have at least 1 seats between them. Also, Mia must sit at position 5. Also, Tina cannot sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            1
+          ],
+          "nl": "Mia and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            5
+          ],
+          "nl": "Mia must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina cannot sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Bob"
+          ],
+          "nl": "Peter must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            2
+          ],
+          "nl": "Henry and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            1
+          ],
+          "nl": "Mia and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            5
+          ],
+          "nl": "Mia must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina cannot sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 3,
+        "Mia": 5,
+        "Peter": 1,
+        "Bob": 6,
+        "Eve": 4,
+        "Tina": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Tina and Peter must have at least 1 seats between them. Also, Peter sits immediately left of Bob.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Peter",
+            1
+          ],
+          "nl": "Tina and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Bob"
+          ],
+          "nl": "Peter sits immediately left of Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Bob"
+          ],
+          "nl": "Peter must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Bob",
+            2
+          ],
+          "nl": "Henry and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            1
+          ],
+          "nl": "Mia and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            5
+          ],
+          "nl": "Mia must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina cannot sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Peter",
+            1
+          ],
+          "nl": "Tina and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Bob"
+          ],
+          "nl": "Peter sits immediately left of Bob"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 6,
+        "Mia": 5,
+        "Peter": 4,
+        "Bob": 3,
+        "Eve": 2,
+        "Tina": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

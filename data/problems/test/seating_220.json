@@ -1,0 +1,318 @@
+{
+  "problem_id": "seating_220",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Diana",
+    "Karen",
+    "Quinn",
+    "Henry",
+    "Grace",
+    "Tina",
+    "Frank"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Frank must sit next to Diana. Also, Grace cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 1,
+        "Karen": 7,
+        "Quinn": 4,
+        "Henry": 3,
+        "Grace": 6,
+        "Tina": 5,
+        "Frank": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank cannot sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 3,
+        "Karen": 5,
+        "Quinn": 7,
+        "Henry": 1,
+        "Grace": 4,
+        "Tina": 6,
+        "Frank": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Frank cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 1,
+        "Karen": 7,
+        "Quinn": 4,
+        "Henry": 3,
+        "Grace": 6,
+        "Tina": 5,
+        "Frank": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Tina sits immediately left of Frank.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Frank"
+          ],
+          "nl": "Tina sits immediately left of Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Frank"
+          ],
+          "nl": "Tina sits immediately left of Frank"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 7,
+        "Karen": 6,
+        "Quinn": 5,
+        "Henry": 4,
+        "Grace": 3,
+        "Tina": 2,
+        "Frank": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Quinn and Grace must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Grace",
+            1
+          ],
+          "nl": "Quinn and Grace must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank must sit next to Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Frank"
+          ],
+          "nl": "Tina sits immediately left of Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Grace",
+            1
+          ],
+          "nl": "Quinn and Grace must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 1,
+        "Karen": 4,
+        "Quinn": 5,
+        "Henry": 6,
+        "Grace": 7,
+        "Tina": 3,
+        "Frank": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

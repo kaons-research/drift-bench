@@ -1,0 +1,319 @@
+{
+  "problem_id": "scheduling_336",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Docs",
+    "Deploy",
+    "Design",
+    "Meeting",
+    "Sync",
+    "Review",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Review and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review must start at time slot 5. Also, Review must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            5
+          ],
+          "nl": "Review must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            5
+          ],
+          "nl": "Review must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Design and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Sync"
+          ],
+          "nl": "Design and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            5
+          ],
+          "nl": "Review must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Sync"
+          ],
+          "nl": "Design and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            5
+          ],
+          "nl": "Review must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Sync"
+          ],
+          "nl": "Design and Sync cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 11,
+  "max_duration": 3,
+  "split": "dev"
+}

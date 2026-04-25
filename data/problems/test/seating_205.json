@@ -1,0 +1,527 @@
+{
+  "problem_id": "seating_205",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Ivy",
+    "Charlie",
+    "Noah",
+    "Frank",
+    "Peter",
+    "Jack",
+    "Liam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Noah sits immediately left of Ivy.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah sits immediately left of Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah sits immediately left of Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 7,
+        "Charlie": 6,
+        "Noah": 1,
+        "Frank": 3,
+        "Peter": 2,
+        "Jack": 5,
+        "Liam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack and Liam must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Liam",
+            2
+          ],
+          "nl": "Jack and Liam must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah sits immediately left of Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Liam",
+            2
+          ],
+          "nl": "Jack and Liam must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Charlie": 7,
+        "Noah": 4,
+        "Frank": 5,
+        "Peter": 1,
+        "Jack": 6,
+        "Liam": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Ivy must sit at position 6. Also, Ivy must sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            6
+          ],
+          "nl": "Ivy must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy must sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah sits immediately left of Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Liam",
+            2
+          ],
+          "nl": "Jack and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            6
+          ],
+          "nl": "Ivy must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy must sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 6,
+        "Charlie": 4,
+        "Noah": 7,
+        "Frank": 3,
+        "Peter": 2,
+        "Jack": 5,
+        "Liam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Peter must sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Ivy"
+          ],
+          "nl": "Peter must sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah sits immediately left of Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Liam",
+            2
+          ],
+          "nl": "Jack and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            6
+          ],
+          "nl": "Ivy must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Ivy"
+          ],
+          "nl": "Peter must sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 6,
+        "Charlie": 3,
+        "Noah": 7,
+        "Frank": 2,
+        "Peter": 5,
+        "Jack": 1,
+        "Liam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Frank must sit next to Charlie. Also, Charlie cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Charlie"
+          ],
+          "nl": "Frank must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah sits immediately left of Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Liam",
+            2
+          ],
+          "nl": "Jack and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            6
+          ],
+          "nl": "Ivy must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Ivy"
+          ],
+          "nl": "Peter must sit next to Ivy"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Charlie"
+          ],
+          "nl": "Frank must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 6,
+        "Charlie": 3,
+        "Noah": 7,
+        "Frank": 2,
+        "Peter": 5,
+        "Jack": 4,
+        "Liam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Jack cannot sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah sits immediately left of Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Liam",
+            2
+          ],
+          "nl": "Jack and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            6
+          ],
+          "nl": "Ivy must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Ivy"
+          ],
+          "nl": "Peter must sit next to Ivy"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Charlie"
+          ],
+          "nl": "Frank must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 6,
+        "Charlie": 2,
+        "Noah": 7,
+        "Frank": 3,
+        "Peter": 5,
+        "Jack": 4,
+        "Liam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Ivy cannot sit next to Jack. Also, Jack cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ivy"
+          ],
+          "nl": "Noah sits immediately left of Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Liam",
+            2
+          ],
+          "nl": "Jack and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ivy",
+            6
+          ],
+          "nl": "Ivy must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Ivy"
+          ],
+          "nl": "Peter must sit next to Ivy"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Charlie"
+          ],
+          "nl": "Frank must sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Noah"
+          ],
+          "nl": "Jack cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 6,
+        "Charlie": 3,
+        "Noah": 7,
+        "Frank": 2,
+        "Peter": 5,
+        "Jack": 4,
+        "Liam": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

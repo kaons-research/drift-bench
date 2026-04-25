@@ -1,0 +1,568 @@
+{
+  "problem_id": "seating_135",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Diana",
+    "Bob",
+    "Jack",
+    "Karen",
+    "Sam",
+    "Olivia",
+    "Charlie",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 6,
+        "Bob": 3,
+        "Jack": 2,
+        "Karen": 7,
+        "Sam": 5,
+        "Olivia": 8,
+        "Charlie": 4,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Charlie must sit at position 4. Also, Olivia cannot sit next to Bob. Also, Diana and Olivia must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana and Olivia must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana and Olivia must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 7,
+        "Bob": 1,
+        "Jack": 8,
+        "Karen": 5,
+        "Sam": 2,
+        "Olivia": 3,
+        "Charlie": 4,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Olivia and Sam must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia and Sam must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia and Sam must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 2,
+        "Bob": 1,
+        "Jack": 8,
+        "Karen": 7,
+        "Sam": 5,
+        "Olivia": 6,
+        "Charlie": 4,
+        "Eve": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Olivia must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            2
+          ],
+          "nl": "Olivia must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            2
+          ],
+          "nl": "Olivia must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Bob": 8,
+        "Jack": 7,
+        "Karen": 3,
+        "Sam": 1,
+        "Olivia": 2,
+        "Charlie": 4,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sam sits immediately left of Bob.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Bob"
+          ],
+          "nl": "Sam sits immediately left of Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            2
+          ],
+          "nl": "Olivia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Bob"
+          ],
+          "nl": "Sam sits immediately left of Bob"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 6,
+        "Bob": 8,
+        "Jack": 7,
+        "Karen": 3,
+        "Sam": 1,
+        "Olivia": 2,
+        "Charlie": 4,
+        "Eve": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Eve cannot sit next to Diana. Also, Jack and Sam must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve cannot sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack and Sam must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            2
+          ],
+          "nl": "Olivia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Bob"
+          ],
+          "nl": "Sam sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve cannot sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack and Sam must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 6,
+        "Bob": 8,
+        "Jack": 7,
+        "Karen": 5,
+        "Sam": 1,
+        "Olivia": 2,
+        "Charlie": 4,
+        "Eve": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Charlie must sit next to Diana.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie must sit next to Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Bob"
+          ],
+          "nl": "Olivia cannot sit next to Bob"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Sam"
+          ],
+          "nl": "Olivia and Sam must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            2
+          ],
+          "nl": "Olivia must sit at position 2"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Bob"
+          ],
+          "nl": "Sam sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Diana"
+          ],
+          "nl": "Eve cannot sit next to Diana"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie must sit next to Diana"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Bob": 8,
+        "Jack": 7,
+        "Karen": 6,
+        "Sam": 1,
+        "Olivia": 2,
+        "Charlie": 4,
+        "Eve": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

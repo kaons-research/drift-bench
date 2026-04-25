@@ -1,0 +1,947 @@
+{
+  "problem_id": "seating_244",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Sam",
+    "Grace",
+    "Bob",
+    "Ruby",
+    "Liam",
+    "Noah",
+    "Charlie",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob must sit at position 7. Also, Olivia and Noah must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Grace": 6,
+        "Bob": 7,
+        "Ruby": 8,
+        "Liam": 4,
+        "Noah": 2,
+        "Charlie": 3,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah and Charlie must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 4,
+        "Grace": 3,
+        "Bob": 7,
+        "Ruby": 6,
+        "Liam": 8,
+        "Noah": 1,
+        "Charlie": 2,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Liam and Noah must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Grace": 6,
+        "Bob": 7,
+        "Ruby": 8,
+        "Liam": 4,
+        "Noah": 2,
+        "Charlie": 3,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Charlie and Sam must sit on opposite sides of the table. Also, Charlie must sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 5,
+        "Grace": 1,
+        "Bob": 7,
+        "Ruby": 3,
+        "Liam": 8,
+        "Noah": 2,
+        "Charlie": 4,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Noah and Bob must sit on opposite sides of the table. Also, Olivia cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Bob"
+          ],
+          "nl": "Noah and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Bob"
+          ],
+          "nl": "Noah and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 8,
+        "Grace": 3,
+        "Bob": 7,
+        "Ruby": 6,
+        "Liam": 2,
+        "Noah": 4,
+        "Charlie": 1,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Bob and Ruby must have at least 3 seats between them. Also, Noah cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Ruby",
+            3
+          ],
+          "nl": "Bob and Ruby must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Bob"
+          ],
+          "nl": "Noah and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Ruby",
+            3
+          ],
+          "nl": "Bob and Ruby must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 5,
+        "Grace": 1,
+        "Bob": 7,
+        "Ruby": 3,
+        "Liam": 8,
+        "Noah": 2,
+        "Charlie": 4,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Liam must sit next to Charlie. Also, Liam and Sam must have at least 1 seats between them. Also, Ruby and Grace must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Charlie"
+          ],
+          "nl": "Liam must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Sam",
+            1
+          ],
+          "nl": "Liam and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Ruby",
+            "Grace"
+          ],
+          "nl": "Ruby and Grace must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Bob"
+          ],
+          "nl": "Noah and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Ruby",
+            3
+          ],
+          "nl": "Bob and Ruby must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Charlie"
+          ],
+          "nl": "Liam must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Sam",
+            1
+          ],
+          "nl": "Liam and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Ruby",
+            "Grace"
+          ],
+          "nl": "Ruby and Grace must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 8,
+        "Grace": 6,
+        "Bob": 7,
+        "Ruby": 3,
+        "Liam": 2,
+        "Noah": 4,
+        "Charlie": 1,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Noah must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            4
+          ],
+          "nl": "Noah must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Bob"
+          ],
+          "nl": "Noah and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Ruby",
+            3
+          ],
+          "nl": "Bob and Ruby must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Charlie"
+          ],
+          "nl": "Liam must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Sam",
+            1
+          ],
+          "nl": "Liam and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Ruby",
+            "Grace"
+          ],
+          "nl": "Ruby and Grace must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            4
+          ],
+          "nl": "Noah must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 8,
+        "Grace": 5,
+        "Bob": 7,
+        "Ruby": 3,
+        "Liam": 2,
+        "Noah": 4,
+        "Charlie": 1,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Bob and Ruby must have at least 2 seats between them. Also, Charlie and Grace must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Ruby",
+            2
+          ],
+          "nl": "Bob and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Grace",
+            3
+          ],
+          "nl": "Charlie and Grace must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            7
+          ],
+          "nl": "Bob must sit at position 7"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie must sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Bob"
+          ],
+          "nl": "Noah and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Ruby",
+            3
+          ],
+          "nl": "Bob and Ruby must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Charlie"
+          ],
+          "nl": "Liam must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Sam",
+            1
+          ],
+          "nl": "Liam and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Ruby",
+            "Grace"
+          ],
+          "nl": "Ruby and Grace must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            4
+          ],
+          "nl": "Noah must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Ruby",
+            2
+          ],
+          "nl": "Bob and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Grace",
+            3
+          ],
+          "nl": "Charlie and Grace must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 8,
+        "Grace": 5,
+        "Bob": 7,
+        "Ruby": 3,
+        "Liam": 2,
+        "Noah": 4,
+        "Charlie": 1,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

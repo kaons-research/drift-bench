@@ -1,0 +1,463 @@
+{
+  "problem_id": "seating_339",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Jack",
+    "Sam",
+    "Diana",
+    "Ivy",
+    "Frank",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Jack and Frank must sit on the same side of the table. Also, Ivy sits immediately left of Olivia.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy sits immediately left of Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy sits immediately left of Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Sam": 6,
+        "Diana": 1,
+        "Ivy": 5,
+        "Frank": 2,
+        "Olivia": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sam must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Sam": 5,
+        "Diana": 6,
+        "Ivy": 4,
+        "Frank": 1,
+        "Olivia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana sits immediately left of Jack. Also, Jack must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Sam": 5,
+        "Diana": 4,
+        "Ivy": 1,
+        "Frank": 2,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Ivy and Jack must sit on the same side of the table. Also, Diana cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Sam": 5,
+        "Diana": 4,
+        "Ivy": 1,
+        "Frank": 2,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Ivy must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Sam": 5,
+        "Diana": 4,
+        "Ivy": 1,
+        "Frank": 2,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Diana and Jack must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            5
+          ],
+          "nl": "Sam must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Jack"
+          ],
+          "nl": "Ivy and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Jack"
+          ],
+          "nl": "Diana and Jack must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Sam": 5,
+        "Diana": 4,
+        "Ivy": 1,
+        "Frank": 2,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "dev"
+}

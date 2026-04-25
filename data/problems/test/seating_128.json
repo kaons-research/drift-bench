@@ -1,0 +1,428 @@
+{
+  "problem_id": "seating_128",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Peter",
+    "Bob",
+    "Tina",
+    "Karen",
+    "Jack",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 1,
+        "Bob": 4,
+        "Tina": 3,
+        "Karen": 2,
+        "Jack": 5,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Tina must sit at position 4. Also, Bob and Olivia must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Olivia",
+            1
+          ],
+          "nl": "Bob and Olivia must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Olivia",
+            1
+          ],
+          "nl": "Bob and Olivia must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 1,
+        "Bob": 3,
+        "Tina": 4,
+        "Karen": 2,
+        "Jack": 5,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Peter must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Olivia",
+            1
+          ],
+          "nl": "Bob and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Bob": 2,
+        "Tina": 4,
+        "Karen": 1,
+        "Jack": 5,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Karen and Tina must have at least 2 seats between them. Also, Bob must sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Olivia",
+            1
+          ],
+          "nl": "Bob and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 5,
+        "Bob": 3,
+        "Tina": 4,
+        "Karen": 1,
+        "Jack": 2,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Jack and Tina must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Tina",
+            1
+          ],
+          "nl": "Jack and Tina must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Olivia",
+            1
+          ],
+          "nl": "Bob and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Tina",
+            1
+          ],
+          "nl": "Jack and Tina must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 5,
+        "Bob": 3,
+        "Tina": 4,
+        "Karen": 1,
+        "Jack": 2,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Tina sits immediately left of Bob.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Bob"
+          ],
+          "nl": "Tina sits immediately left of Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            4
+          ],
+          "nl": "Tina must sit at position 4"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Olivia",
+            1
+          ],
+          "nl": "Bob and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Tina"
+          ],
+          "nl": "Peter must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Tina",
+            2
+          ],
+          "nl": "Karen and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Jack"
+          ],
+          "nl": "Bob must sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Tina",
+            1
+          ],
+          "nl": "Jack and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Bob"
+          ],
+          "nl": "Tina sits immediately left of Bob"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 5,
+        "Bob": 3,
+        "Tina": 4,
+        "Karen": 1,
+        "Jack": 2,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

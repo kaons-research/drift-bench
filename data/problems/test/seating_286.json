@@ -1,0 +1,535 @@
+{
+  "problem_id": "seating_286",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Charlie",
+    "Olivia",
+    "Alice",
+    "Grace",
+    "Peter",
+    "Jack",
+    "Karen",
+    "Noah"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Alice and Charlie must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice and Charlie must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice and Charlie must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 6,
+        "Olivia": 3,
+        "Alice": 1,
+        "Grace": 7,
+        "Peter": 8,
+        "Jack": 2,
+        "Karen": 4,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 5,
+        "Olivia": 4,
+        "Alice": 1,
+        "Grace": 8,
+        "Peter": 7,
+        "Jack": 3,
+        "Karen": 2,
+        "Noah": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Alice sits immediately left of Karen.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice sits immediately left of Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice sits immediately left of Karen"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 6,
+        "Olivia": 4,
+        "Alice": 2,
+        "Grace": 7,
+        "Peter": 8,
+        "Jack": 3,
+        "Karen": 1,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Peter sits immediately left of Olivia. Also, Karen must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 4,
+        "Olivia": 1,
+        "Alice": 6,
+        "Grace": 8,
+        "Peter": 2,
+        "Jack": 3,
+        "Karen": 5,
+        "Noah": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Olivia and Noah must have at least 1 seats between them. Also, Noah and Olivia must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Noah",
+            1
+          ],
+          "nl": "Olivia and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah and Olivia must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Noah",
+            1
+          ],
+          "nl": "Olivia and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah and Olivia must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 4,
+        "Olivia": 7,
+        "Alice": 6,
+        "Grace": 2,
+        "Peter": 8,
+        "Jack": 3,
+        "Karen": 5,
+        "Noah": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Peter and Charlie must sit on opposite sides of the table. Also, Alice and Charlie must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Charlie"
+          ],
+          "nl": "Peter and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Charlie",
+            1
+          ],
+          "nl": "Alice and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Noah",
+            1
+          ],
+          "nl": "Olivia and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Charlie"
+          ],
+          "nl": "Peter and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Charlie",
+            1
+          ],
+          "nl": "Alice and Charlie must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 2,
+        "Olivia": 7,
+        "Alice": 6,
+        "Grace": 1,
+        "Peter": 8,
+        "Jack": 3,
+        "Karen": 5,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Peter must sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Charlie"
+          ],
+          "nl": "Peter must sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Charlie"
+          ],
+          "nl": "Alice and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Karen"
+          ],
+          "nl": "Alice sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Olivia"
+          ],
+          "nl": "Peter sits immediately left of Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Noah",
+            1
+          ],
+          "nl": "Olivia and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Charlie"
+          ],
+          "nl": "Peter and Charlie must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Charlie",
+            1
+          ],
+          "nl": "Alice and Charlie must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Charlie"
+          ],
+          "nl": "Peter must sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 1,
+        "Olivia": 7,
+        "Alice": 6,
+        "Grace": 2,
+        "Peter": 8,
+        "Jack": 3,
+        "Karen": 5,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

@@ -1,0 +1,602 @@
+{
+  "problem_id": "scheduling_030",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Deploy",
+    "Design",
+    "Refactor",
+    "QA",
+    "Testing",
+    "Review",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 2 slots between Testing and Review. Also, QA must start at time slot 2. Also, Deploy has duration 3.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Docs has duration 1. Also, Testing has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Review must start at time slot 9. Also, Design has duration 1.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Docs must happen before QA. Also, Refactor must start between time slots 2 and 8. Also, Design must start between time slots 2 and 4.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            8
+          ],
+          "nl": "Refactor must start between time slots 2 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            2,
+            4
+          ],
+          "nl": "Design must start between time slots 2 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            8
+          ],
+          "nl": "Refactor must start between time slots 2 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            2,
+            4
+          ],
+          "nl": "Design must start between time slots 2 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Refactor must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "QA"
+          ],
+          "nl": "Docs must happen before QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            8
+          ],
+          "nl": "Refactor must start between time slots 2 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            2,
+            4
+          ],
+          "nl": "Design must start between time slots 2 and 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 11,
+  "max_duration": 3,
+  "split": "test"
+}

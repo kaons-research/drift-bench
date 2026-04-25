@@ -1,0 +1,410 @@
+{
+  "problem_id": "seating_331",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Charlie",
+    "Jack",
+    "Noah",
+    "Sam",
+    "Quinn",
+    "Tina"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam and Quinn must sit on the same side of the table. Also, Tina and Charlie must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina and Charlie must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina and Charlie must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 1,
+        "Jack": 3,
+        "Noah": 5,
+        "Sam": 6,
+        "Quinn": 4,
+        "Tina": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Tina must sit at position 5. Also, Tina cannot sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina cannot sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina cannot sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 4,
+        "Jack": 2,
+        "Noah": 6,
+        "Sam": 3,
+        "Quinn": 1,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sam sits immediately left of Quinn. Also, Tina and Quinn must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Quinn",
+            2
+          ],
+          "nl": "Tina and Quinn must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Quinn",
+            2
+          ],
+          "nl": "Tina and Quinn must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 6,
+        "Jack": 1,
+        "Noah": 4,
+        "Sam": 3,
+        "Quinn": 2,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah cannot sit next to Sam. Also, Noah and Charlie must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Quinn",
+            2
+          ],
+          "nl": "Tina and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 4,
+        "Jack": 1,
+        "Noah": 6,
+        "Sam": 3,
+        "Quinn": 2,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Noah cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam and Quinn must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Tina",
+            "Charlie"
+          ],
+          "nl": "Tina and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina cannot sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Quinn",
+            2
+          ],
+          "nl": "Tina and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Sam"
+          ],
+          "nl": "Noah cannot sit next to Sam"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 4,
+        "Jack": 1,
+        "Noah": 6,
+        "Sam": 3,
+        "Quinn": 2,
+        "Tina": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

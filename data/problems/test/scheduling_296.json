@@ -1,0 +1,868 @@
+{
+  "problem_id": "scheduling_296",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Sync",
+    "Refactor",
+    "Planning",
+    "Review",
+    "Design",
+    "Deploy",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sync has duration 1. Also, Deploy must happen before Review. Also, Review and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review must happen before Planning. Also, Sync must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review and Planning cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sync must happen before Review. Also, Deploy has duration 2. Also, Deploy and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review and Planning cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review and Planning cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning must start at time slot 8.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            8
+          ],
+          "nl": "Planning must start at time slot 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review and Planning cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            8
+          ],
+          "nl": "Planning must start at time slot 8"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Refactor and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Design"
+          ],
+          "nl": "Refactor and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review and Planning cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            8
+          ],
+          "nl": "Planning must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Design"
+          ],
+          "nl": "Refactor and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Planning has duration 1. Also, Refactor must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy must happen before Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review and Planning cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Planning"
+          ],
+          "nl": "Review must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Review"
+          ],
+          "nl": "Sync must happen before Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            8
+          ],
+          "nl": "Planning must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Design"
+          ],
+          "nl": "Refactor and Design cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

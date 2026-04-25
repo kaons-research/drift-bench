@@ -1,0 +1,588 @@
+{
+  "problem_id": "scheduling_328",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Refactor",
+    "Deploy",
+    "Planning",
+    "QA",
+    "Meeting"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Meeting has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 2 slots between Meeting and Deploy. Also, Refactor must happen before Planning. Also, Deploy has duration 3.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "QA must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 2 slots between Meeting and QA. Also, Planning must start between time slots 1 and 7.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            1,
+            7
+          ],
+          "nl": "Planning must start between time slots 1 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            1,
+            7
+          ],
+          "nl": "Planning must start between time slots 1 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Refactor must happen before Meeting. Also, Planning must start between time slots 6 and 7.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            7
+          ],
+          "nl": "Planning must start between time slots 6 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            1,
+            7
+          ],
+          "nl": "Planning must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            7
+          ],
+          "nl": "Planning must start between time slots 6 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Deploy must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Planning"
+          ],
+          "nl": "Refactor must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            3
+          ],
+          "nl": "QA must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Meeting and QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            1,
+            7
+          ],
+          "nl": "Planning must start between time slots 1 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            7
+          ],
+          "nl": "Planning must start between time slots 6 and 7"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

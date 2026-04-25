@@ -1,0 +1,444 @@
+{
+  "problem_id": "scheduling_198",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Design",
+    "Planning",
+    "Refactor",
+    "Deploy",
+    "Review",
+    "Sync",
+    "Meeting"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 1 slots between Deploy and Design. Also, There must be at least 0 slots between Meeting and Review.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Review"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Meeting has duration 2. Also, Review must start between time slots 1 and 3. Also, There must be at least 2 slots between Review and Sync.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            3
+          ],
+          "nl": "Review must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            3
+          ],
+          "nl": "Review must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 2 slots between Deploy and Design.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            3
+          ],
+          "nl": "Review must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Design has duration 2. Also, Refactor must start at time slot 3. Also, Deploy must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Review"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            3
+          ],
+          "nl": "Review must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            3
+          ],
+          "nl": "Refactor must start at time slot 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 5,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 11,
+  "max_duration": 3,
+  "split": "test"
+}

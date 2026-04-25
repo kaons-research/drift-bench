@@ -1,0 +1,356 @@
+{
+  "problem_id": "seating_325",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Karen",
+    "Grace",
+    "Tina",
+    "Peter",
+    "Mia",
+    "Liam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Peter and Grace must sit on opposite sides of the table. Also, Peter cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter and Grace must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter and Grace must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 1,
+        "Grace": 2,
+        "Tina": 4,
+        "Peter": 5,
+        "Mia": 6,
+        "Liam": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Tina cannot sit next to Peter. Also, Karen must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter and Grace must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter cannot sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 3,
+        "Grace": 2,
+        "Tina": 4,
+        "Peter": 6,
+        "Mia": 5,
+        "Liam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Tina and Peter must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Peter",
+            2
+          ],
+          "nl": "Tina and Peter must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter and Grace must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter cannot sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Peter",
+            2
+          ],
+          "nl": "Tina and Peter must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 3,
+        "Grace": 1,
+        "Tina": 2,
+        "Peter": 5,
+        "Mia": 4,
+        "Liam": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam sits immediately left of Tina.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam sits immediately left of Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter and Grace must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter cannot sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Peter",
+            2
+          ],
+          "nl": "Tina and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam sits immediately left of Tina"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 3,
+        "Grace": 6,
+        "Tina": 4,
+        "Peter": 1,
+        "Mia": 2,
+        "Liam": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Peter and Tina must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Tina",
+            1
+          ],
+          "nl": "Peter and Tina must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter and Grace must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter cannot sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Peter"
+          ],
+          "nl": "Tina cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Peter",
+            2
+          ],
+          "nl": "Tina and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Tina"
+          ],
+          "nl": "Liam sits immediately left of Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Tina",
+            1
+          ],
+          "nl": "Peter and Tina must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 3,
+        "Grace": 6,
+        "Tina": 4,
+        "Peter": 1,
+        "Mia": 2,
+        "Liam": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

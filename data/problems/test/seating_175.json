@@ -1,0 +1,670 @@
+{
+  "problem_id": "seating_175",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Henry",
+    "Olivia",
+    "Bob",
+    "Noah",
+    "Eve",
+    "Tina",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Noah sits immediately left of Olivia.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Olivia": 7,
+        "Bob": 3,
+        "Noah": 1,
+        "Eve": 4,
+        "Tina": 5,
+        "Charlie": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Bob sits immediately left of Noah.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Noah"
+          ],
+          "nl": "Bob sits immediately left of Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Noah"
+          ],
+          "nl": "Bob sits immediately left of Noah"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 6,
+        "Olivia": 2,
+        "Bob": 4,
+        "Noah": 3,
+        "Eve": 5,
+        "Tina": 7,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie cannot sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Noah"
+          ],
+          "nl": "Bob sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 3,
+        "Olivia": 7,
+        "Bob": 2,
+        "Noah": 1,
+        "Eve": 4,
+        "Tina": 5,
+        "Charlie": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Charlie must sit at position 4. Also, Noah must sit at position 6. Also, Charlie cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Noah"
+          ],
+          "nl": "Bob sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Olivia": 5,
+        "Bob": 7,
+        "Noah": 6,
+        "Eve": 1,
+        "Tina": 3,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Olivia must sit next to Noah. Also, Eve must sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Noah"
+          ],
+          "nl": "Bob sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Olivia": 5,
+        "Bob": 7,
+        "Noah": 6,
+        "Eve": 1,
+        "Tina": 3,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Charlie and Noah must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            1
+          ],
+          "nl": "Charlie and Noah must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Noah"
+          ],
+          "nl": "Bob sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            1
+          ],
+          "nl": "Charlie and Noah must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Olivia": 5,
+        "Bob": 7,
+        "Noah": 6,
+        "Eve": 1,
+        "Tina": 3,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Eve cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Charlie"
+          ],
+          "nl": "Eve cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Noah"
+          ],
+          "nl": "Bob sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            1
+          ],
+          "nl": "Charlie and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Charlie"
+          ],
+          "nl": "Eve cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Olivia": 5,
+        "Bob": 7,
+        "Noah": 6,
+        "Eve": 1,
+        "Tina": 3,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Tina cannot sit next to Eve. Also, Tina must sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Eve"
+          ],
+          "nl": "Tina cannot sit next to Eve"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina must sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Olivia"
+          ],
+          "nl": "Noah sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Noah"
+          ],
+          "nl": "Bob sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Henry"
+          ],
+          "nl": "Charlie cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            6
+          ],
+          "nl": "Noah must sit at position 6"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia must sit next to Noah"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Bob"
+          ],
+          "nl": "Eve must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            1
+          ],
+          "nl": "Charlie and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Charlie"
+          ],
+          "nl": "Eve cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Eve"
+          ],
+          "nl": "Tina cannot sit next to Eve"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina must sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Olivia": 5,
+        "Bob": 7,
+        "Noah": 6,
+        "Eve": 1,
+        "Tina": 3,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

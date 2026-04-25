@@ -1,0 +1,411 @@
+{
+  "problem_id": "scheduling_079",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "QA",
+    "Docs",
+    "Sync",
+    "Design",
+    "Refactor",
+    "Meeting"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "QA has duration 1. Also, Design has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 2 slots between Sync and Design. Also, Refactor must start at time slot 4. Also, There must be at least 2 slots between Docs and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            4
+          ],
+          "nl": "Refactor must start at time slot 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            4
+          ],
+          "nl": "Refactor must start at time slot 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Sync"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "QA must start at time slot 6. Also, There must be at least 2 slots between Sync and Meeting.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            4
+          ],
+          "nl": "Refactor must start at time slot 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 2 slots between Docs and QA.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            4
+          ],
+          "nl": "Refactor must start at time slot 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Sync and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and QA"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

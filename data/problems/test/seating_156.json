@@ -1,0 +1,385 @@
+{
+  "problem_id": "seating_156",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Karen",
+    "Mia",
+    "Diana",
+    "Alice",
+    "Bob",
+    "Henry",
+    "Olivia",
+    "Noah"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Henry sits immediately left of Karen.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry sits immediately left of Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry sits immediately left of Karen"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Mia": 6,
+        "Diana": 2,
+        "Alice": 3,
+        "Bob": 8,
+        "Henry": 5,
+        "Olivia": 1,
+        "Noah": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Mia sits immediately left of Olivia.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia sits immediately left of Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia sits immediately left of Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Mia": 4,
+        "Diana": 6,
+        "Alice": 2,
+        "Bob": 5,
+        "Henry": 1,
+        "Olivia": 3,
+        "Noah": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana and Karen must sit on opposite sides of the table. Also, Henry cannot sit next to Olivia. Also, Mia and Bob must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana and Karen must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Bob",
+            1
+          ],
+          "nl": "Mia and Bob must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia sits immediately left of Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana and Karen must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Bob",
+            1
+          ],
+          "nl": "Mia and Bob must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 5,
+        "Mia": 3,
+        "Diana": 1,
+        "Alice": 4,
+        "Bob": 8,
+        "Henry": 6,
+        "Olivia": 2,
+        "Noah": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah must sit at position 5. Also, Karen and Olivia must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            5
+          ],
+          "nl": "Noah must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Olivia",
+            2
+          ],
+          "nl": "Karen and Olivia must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia sits immediately left of Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana and Karen must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Bob",
+            1
+          ],
+          "nl": "Mia and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            5
+          ],
+          "nl": "Noah must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Olivia",
+            2
+          ],
+          "nl": "Karen and Olivia must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 8,
+        "Mia": 4,
+        "Diana": 2,
+        "Alice": 6,
+        "Bob": 7,
+        "Henry": 1,
+        "Olivia": 3,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Karen sits immediately left of Alice. Also, Olivia and Noah must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Alice"
+          ],
+          "nl": "Karen sits immediately left of Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Karen"
+          ],
+          "nl": "Henry sits immediately left of Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Olivia"
+          ],
+          "nl": "Mia sits immediately left of Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana and Karen must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Bob",
+            1
+          ],
+          "nl": "Mia and Bob must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Noah",
+            5
+          ],
+          "nl": "Noah must sit at position 5"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Olivia",
+            2
+          ],
+          "nl": "Karen and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Alice"
+          ],
+          "nl": "Karen sits immediately left of Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 3,
+        "Mia": 1,
+        "Diana": 7,
+        "Alice": 2,
+        "Bob": 6,
+        "Henry": 4,
+        "Olivia": 8,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

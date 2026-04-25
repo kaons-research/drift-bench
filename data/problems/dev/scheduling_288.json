@@ -1,0 +1,1802 @@
+{
+  "problem_id": "scheduling_288",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Refactor",
+    "Deploy",
+    "Design",
+    "Sync",
+    "Review",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing and Sync cannot be simultaneous. Also, Testing must happen before Review. Also, There must be at least 2 slots between Design and Refactor.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Refactor and Deploy cannot be simultaneous. Also, Sync must happen before Design. Also, Design and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing must happen before Refactor. Also, Design must start at time slot 3. Also, There must be at least 1 slots between Refactor and Design.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Review must happen before Deploy. Also, Testing has duration 1. Also, There must be at least 0 slots between Deploy and Sync.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Deploy must happen before Refactor. Also, Review must start between time slots 4 and 8. Also, Testing must happen before Sync.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            8
+          ],
+          "nl": "Review must start between time slots 4 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing must happen before Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            8
+          ],
+          "nl": "Review must start between time slots 4 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing must happen before Sync"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Review has duration 3. Also, There must be at least 0 slots between Refactor and Deploy.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            8
+          ],
+          "nl": "Review must start between time slots 4 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing must happen before Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "There must be at least 0 slots between Design and Sync. Also, There must be at least 1 slots between Refactor and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            8
+          ],
+          "nl": "Review must start between time slots 4 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing must happen before Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Refactor must start between time slots 8 and 8. Also, Refactor has duration 1.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            8,
+            8
+          ],
+          "nl": "Refactor must start between time slots 8 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            8
+          ],
+          "nl": "Review must start between time slots 4 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing must happen before Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            8,
+            8
+          ],
+          "nl": "Refactor must start between time slots 8 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "There must be at least 2 slots between Deploy and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            8
+          ],
+          "nl": "Review must start between time slots 4 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing must happen before Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            8,
+            8
+          ],
+          "nl": "Refactor must start between time slots 8 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Sync must happen before Refactor. Also, Design has duration 2.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Review"
+          ],
+          "nl": "Testing must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Sync"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            4,
+            8
+          ],
+          "nl": "Review must start between time slots 4 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing must happen before Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            8,
+            8
+          ],
+          "nl": "Refactor must start between time slots 8 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 2
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "dev"
+}

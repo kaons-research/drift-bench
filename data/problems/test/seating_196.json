@@ -1,0 +1,541 @@
+{
+  "problem_id": "seating_196",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Noah",
+    "Bob",
+    "Alice",
+    "Sam",
+    "Jack",
+    "Ruby",
+    "Peter",
+    "Quinn"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Quinn cannot sit next to Sam. Also, Jack cannot sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 8,
+        "Bob": 3,
+        "Alice": 2,
+        "Sam": 7,
+        "Jack": 5,
+        "Ruby": 6,
+        "Peter": 1,
+        "Quinn": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Alice sits immediately left of Bob. Also, Jack must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Bob": 6,
+        "Alice": 7,
+        "Sam": 2,
+        "Jack": 3,
+        "Ruby": 1,
+        "Peter": 5,
+        "Quinn": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Peter cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Bob": 8,
+        "Alice": 1,
+        "Sam": 5,
+        "Jack": 3,
+        "Ruby": 2,
+        "Peter": 4,
+        "Quinn": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah cannot sit next to Jack. Also, Jack must sit next to Peter. Also, Bob must sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah cannot sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Peter"
+          ],
+          "nl": "Jack must sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob must sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah cannot sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Peter"
+          ],
+          "nl": "Jack must sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob must sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Bob": 8,
+        "Alice": 1,
+        "Sam": 5,
+        "Jack": 3,
+        "Ruby": 7,
+        "Peter": 4,
+        "Quinn": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Alice cannot sit next to Sam. Also, Bob must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            5
+          ],
+          "nl": "Bob must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah cannot sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Peter"
+          ],
+          "nl": "Jack must sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob must sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            5
+          ],
+          "nl": "Bob must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 8,
+        "Bob": 5,
+        "Alice": 6,
+        "Sam": 1,
+        "Jack": 3,
+        "Ruby": 4,
+        "Peter": 2,
+        "Quinn": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Sam must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            1
+          ],
+          "nl": "Sam must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Sam"
+          ],
+          "nl": "Quinn cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            3
+          ],
+          "nl": "Jack must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah cannot sit next to Jack"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Peter"
+          ],
+          "nl": "Jack must sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob must sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Sam"
+          ],
+          "nl": "Alice cannot sit next to Sam"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            5
+          ],
+          "nl": "Bob must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            1
+          ],
+          "nl": "Sam must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 8,
+        "Bob": 5,
+        "Alice": 6,
+        "Sam": 1,
+        "Jack": 3,
+        "Ruby": 4,
+        "Peter": 2,
+        "Quinn": 7
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

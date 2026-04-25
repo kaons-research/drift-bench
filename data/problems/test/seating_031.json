@@ -1,0 +1,305 @@
+{
+  "problem_id": "seating_031",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Henry",
+    "Charlie",
+    "Olivia",
+    "Jack",
+    "Liam",
+    "Grace",
+    "Eve",
+    "Sam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Grace cannot sit next to Olivia. Also, Henry sits immediately left of Grace. Also, Sam sits immediately left of Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Olivia"
+          ],
+          "nl": "Sam sits immediately left of Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Olivia"
+          ],
+          "nl": "Sam sits immediately left of Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 6,
+        "Charlie": 2,
+        "Olivia": 8,
+        "Jack": 7,
+        "Liam": 4,
+        "Grace": 5,
+        "Eve": 3,
+        "Sam": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Liam sits immediately left of Sam.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam sits immediately left of Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Olivia"
+          ],
+          "nl": "Sam sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam sits immediately left of Sam"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 1,
+        "Charlie": 3,
+        "Olivia": 4,
+        "Jack": 7,
+        "Liam": 6,
+        "Grace": 8,
+        "Eve": 2,
+        "Sam": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Grace must sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Charlie"
+          ],
+          "nl": "Grace must sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Olivia"
+          ],
+          "nl": "Sam sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam sits immediately left of Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Charlie"
+          ],
+          "nl": "Grace must sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 8,
+        "Charlie": 6,
+        "Olivia": 3,
+        "Jack": 2,
+        "Liam": 5,
+        "Grace": 7,
+        "Eve": 1,
+        "Sam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve and Jack must have at least 1 seats between them. Also, Eve cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Jack",
+            1
+          ],
+          "nl": "Eve and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry sits immediately left of Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Olivia"
+          ],
+          "nl": "Sam sits immediately left of Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Sam"
+          ],
+          "nl": "Liam sits immediately left of Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Charlie"
+          ],
+          "nl": "Grace must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Jack",
+            1
+          ],
+          "nl": "Eve and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 2,
+        "Charlie": 8,
+        "Olivia": 4,
+        "Jack": 3,
+        "Liam": 6,
+        "Grace": 1,
+        "Eve": 7,
+        "Sam": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

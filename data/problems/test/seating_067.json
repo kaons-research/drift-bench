@@ -1,0 +1,586 @@
+{
+  "problem_id": "seating_067",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Noah",
+    "Eve",
+    "Frank",
+    "Peter",
+    "Sam",
+    "Liam",
+    "Ivy",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Olivia must sit at position 1. Also, Eve must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            1
+          ],
+          "nl": "Olivia must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            1
+          ],
+          "nl": "Olivia must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Eve": 3,
+        "Frank": 5,
+        "Peter": 4,
+        "Sam": 8,
+        "Liam": 2,
+        "Ivy": 7,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank must sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            1
+          ],
+          "nl": "Olivia must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 8,
+        "Eve": 3,
+        "Frank": 5,
+        "Peter": 4,
+        "Sam": 6,
+        "Liam": 2,
+        "Ivy": 7,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Ivy must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            1
+          ],
+          "nl": "Olivia must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Eve": 3,
+        "Frank": 7,
+        "Peter": 5,
+        "Sam": 8,
+        "Liam": 4,
+        "Ivy": 2,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah sits immediately left of Eve.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Eve"
+          ],
+          "nl": "Noah sits immediately left of Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            1
+          ],
+          "nl": "Olivia must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Eve"
+          ],
+          "nl": "Noah sits immediately left of Eve"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Eve": 3,
+        "Frank": 5,
+        "Peter": 7,
+        "Sam": 6,
+        "Liam": 8,
+        "Ivy": 2,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Eve and Sam must have at least 1 seats between them. Also, Ivy must sit next to Peter. Also, Noah and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Sam",
+            1
+          ],
+          "nl": "Eve and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            1
+          ],
+          "nl": "Noah and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            1
+          ],
+          "nl": "Olivia must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Eve"
+          ],
+          "nl": "Noah sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Sam",
+            1
+          ],
+          "nl": "Eve and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            1
+          ],
+          "nl": "Noah and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Eve": 3,
+        "Frank": 6,
+        "Peter": 7,
+        "Sam": 5,
+        "Liam": 2,
+        "Ivy": 8,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Eve sits immediately left of Liam.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            1
+          ],
+          "nl": "Olivia must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Eve"
+          ],
+          "nl": "Noah sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Sam",
+            1
+          ],
+          "nl": "Eve and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            1
+          ],
+          "nl": "Noah and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Eve": 3,
+        "Frank": 6,
+        "Peter": 7,
+        "Sam": 5,
+        "Liam": 2,
+        "Ivy": 8,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Eve cannot sit next to Frank. Also, Liam and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Frank",
+            1
+          ],
+          "nl": "Liam and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            1
+          ],
+          "nl": "Olivia must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            3
+          ],
+          "nl": "Eve must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Olivia"
+          ],
+          "nl": "Ivy must sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Eve"
+          ],
+          "nl": "Noah sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Sam",
+            1
+          ],
+          "nl": "Eve and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Peter"
+          ],
+          "nl": "Ivy must sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            1
+          ],
+          "nl": "Noah and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve sits immediately left of Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Frank",
+            1
+          ],
+          "nl": "Liam and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 4,
+        "Eve": 3,
+        "Frank": 6,
+        "Peter": 7,
+        "Sam": 5,
+        "Liam": 2,
+        "Ivy": 8,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

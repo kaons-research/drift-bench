@@ -1,0 +1,929 @@
+{
+  "problem_id": "scheduling_099",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Sync",
+    "Review",
+    "Testing",
+    "Refactor",
+    "QA",
+    "Design",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 2 slots between Review and Sync. Also, There must be at least 0 slots between Refactor and QA. Also, Docs must start at time slot 10.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 4,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 1 slots between Review and Testing. Also, Refactor has duration 1. Also, Design must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "QA must start at time slot 2. Also, Sync has duration 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 4,
+          "duration": 3
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 1 slots between Testing and Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 3
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "QA has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 8,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 1 slots between Sync and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 5,
+          "duration": 3
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Review must start between time slots 2 and 8. Also, There must be at least 0 slots between Docs and Refactor. Also, There must be at least 0 slots between Refactor and Design.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            8
+          ],
+          "nl": "Review must start between time slots 2 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and QA"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design must happen before Refactor"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Testing"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            8
+          ],
+          "nl": "Review must start between time slots 2 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Design"
+        }
+      ],
+      "gold_solution": {
+        "Sync": {
+          "start": 1,
+          "duration": 3
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 8,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "dev"
+}

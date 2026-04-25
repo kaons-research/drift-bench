@@ -1,0 +1,856 @@
+{
+  "problem_id": "scheduling_209",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Planning",
+    "Meeting",
+    "Refactor",
+    "Design",
+    "Deploy",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 2 slots between Testing and Design. Also, Planning must start at time slot 1.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Meeting must happen before Testing. Also, Design must start at time slot 8.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Deploy must start at time slot 8. Also, Testing must start between time slots 1 and 5.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            8
+          ],
+          "nl": "Deploy must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            5
+          ],
+          "nl": "Testing must start between time slots 1 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            8
+          ],
+          "nl": "Deploy must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            5
+          ],
+          "nl": "Testing must start between time slots 1 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Meeting must start at time slot 4. Also, Deploy and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            8
+          ],
+          "nl": "Deploy must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            5
+          ],
+          "nl": "Testing must start between time slots 1 and 5"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Refactor has duration 1. Also, Refactor must happen before Meeting. Also, Planning must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            8
+          ],
+          "nl": "Deploy must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            5
+          ],
+          "nl": "Testing must start between time slots 1 and 5"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Testing has duration 1. Also, Testing must start between time slots 1 and 8.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            8
+          ],
+          "nl": "Testing must start between time slots 1 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            8
+          ],
+          "nl": "Deploy must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            5
+          ],
+          "nl": "Testing must start between time slots 1 and 5"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            8
+          ],
+          "nl": "Testing must start between time slots 1 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Refactor and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Design"
+          ],
+          "nl": "Refactor and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Testing and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Testing"
+          ],
+          "nl": "Meeting must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            8
+          ],
+          "nl": "Design must start at time slot 8"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            8
+          ],
+          "nl": "Deploy must start at time slot 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            5
+          ],
+          "nl": "Testing must start between time slots 1 and 5"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            1
+          ],
+          "nl": "Refactor has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Deploy"
+          ],
+          "nl": "Planning must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            8
+          ],
+          "nl": "Testing must start between time slots 1 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Design"
+          ],
+          "nl": "Refactor and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

@@ -1,0 +1,457 @@
+{
+  "problem_id": "scheduling_297",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Deploy",
+    "Planning",
+    "Meeting",
+    "Design",
+    "QA",
+    "Refactor"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Deploy must happen before QA. Also, Refactor and QA cannot be simultaneous. Also, There must be at least 0 slots between Design and Meeting.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Planning has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Meeting has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Planning must happen before QA.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 2 slots between Planning and Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Planning and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

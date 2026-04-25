@@ -1,0 +1,684 @@
+{
+  "problem_id": "seating_176",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Quinn",
+    "Peter",
+    "Henry",
+    "Eve",
+    "Frank",
+    "Bob",
+    "Jack",
+    "Ivy"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob and Eve must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 6,
+        "Peter": 5,
+        "Henry": 2,
+        "Eve": 4,
+        "Frank": 7,
+        "Bob": 8,
+        "Jack": 3,
+        "Ivy": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Ivy and Eve must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy and Eve must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy and Eve must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 1,
+        "Peter": 3,
+        "Henry": 8,
+        "Eve": 7,
+        "Frank": 4,
+        "Bob": 2,
+        "Jack": 5,
+        "Ivy": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Quinn must sit next to Henry. Also, Ivy cannot sit next to Eve.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 8,
+        "Peter": 5,
+        "Henry": 1,
+        "Eve": 4,
+        "Frank": 6,
+        "Bob": 7,
+        "Jack": 3,
+        "Ivy": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Frank sits immediately left of Henry.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank sits immediately left of Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank sits immediately left of Henry"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 7,
+        "Peter": 6,
+        "Henry": 8,
+        "Eve": 4,
+        "Frank": 1,
+        "Bob": 5,
+        "Jack": 3,
+        "Ivy": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Jack and Bob must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack and Bob must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank sits immediately left of Henry"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack and Bob must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 2,
+        "Peter": 6,
+        "Henry": 3,
+        "Eve": 7,
+        "Frank": 4,
+        "Bob": 1,
+        "Jack": 8,
+        "Ivy": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Ivy cannot sit next to Frank. Also, Quinn and Peter must have at least 3 seats between them. Also, Bob must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Peter",
+            3
+          ],
+          "nl": "Quinn and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank sits immediately left of Henry"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Peter",
+            3
+          ],
+          "nl": "Quinn and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 2,
+        "Peter": 6,
+        "Henry": 3,
+        "Eve": 5,
+        "Frank": 4,
+        "Bob": 1,
+        "Jack": 8,
+        "Ivy": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Bob and Frank must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Frank",
+            2
+          ],
+          "nl": "Bob and Frank must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank sits immediately left of Henry"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Peter",
+            3
+          ],
+          "nl": "Quinn and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Frank",
+            2
+          ],
+          "nl": "Bob and Frank must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 2,
+        "Peter": 6,
+        "Henry": 3,
+        "Eve": 5,
+        "Frank": 4,
+        "Bob": 1,
+        "Jack": 8,
+        "Ivy": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Peter and Quinn must have at least 1 seats between them. Also, Henry cannot sit next to Eve. Also, Peter cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Quinn",
+            1
+          ],
+          "nl": "Peter and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry cannot sit next to Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Bob",
+            "Eve"
+          ],
+          "nl": "Bob and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy and Eve must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn must sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Henry"
+          ],
+          "nl": "Frank sits immediately left of Henry"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack and Bob must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Peter",
+            3
+          ],
+          "nl": "Quinn and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Frank",
+            2
+          ],
+          "nl": "Bob and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Quinn",
+            1
+          ],
+          "nl": "Peter and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry cannot sit next to Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 2,
+        "Peter": 6,
+        "Henry": 3,
+        "Eve": 5,
+        "Frank": 4,
+        "Bob": 1,
+        "Jack": 7,
+        "Ivy": 8
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

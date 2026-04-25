@@ -1,0 +1,569 @@
+{
+  "problem_id": "scheduling_086",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Deploy",
+    "Design",
+    "Meeting",
+    "QA",
+    "Planning",
+    "Docs",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 2 slots between Docs and Design. Also, Testing must start at time slot 7. Also, Meeting must start at time slot 4.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 0 slots between Testing and Deploy. Also, There must be at least 0 slots between Testing and Planning.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Planning"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Planning and Docs cannot be simultaneous. Also, Design must happen before Planning. Also, There must be at least 0 slots between Testing and Design.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Planning"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Design"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Design must start between time slots 4 and 9.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            9
+          ],
+          "nl": "Design must start between time slots 4 and 9"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Docs and Design"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            4
+          ],
+          "nl": "Meeting must start at time slot 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Planning"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            9
+          ],
+          "nl": "Design must start between time slots 4 and 9"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 8,
+          "duration": 1
+        },
+        "Design": {
+          "start": 8,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

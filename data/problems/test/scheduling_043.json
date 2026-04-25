@@ -1,0 +1,1251 @@
+{
+  "problem_id": "scheduling_043",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Testing",
+    "Deploy",
+    "Refactor",
+    "QA",
+    "Meeting"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Refactor must start between time slots 4 and 5. Also, QA must start between time slots 5 and 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 0 slots between Refactor and Testing.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 2 slots between Refactor and Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 5,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Testing and Meeting cannot be simultaneous. Also, Refactor and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 5,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 1 slots between Refactor and Testing. Also, Meeting has duration 1. Also, Testing and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "QA must start between time slots 1 and 5. Also, There must be at least 1 slots between Meeting and Refactor.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            1,
+            5
+          ],
+          "nl": "QA must start between time slots 1 and 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            1,
+            5
+          ],
+          "nl": "QA must start between time slots 1 and 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 6,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Testing must start between time slots 1 and 1.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            1
+          ],
+          "nl": "Testing must start between time slots 1 and 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            1,
+            5
+          ],
+          "nl": "QA must start between time slots 1 and 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            1
+          ],
+          "nl": "Testing must start between time slots 1 and 1"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "QA and Deploy cannot be simultaneous. Also, QA must start between time slots 4 and 5.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            5
+          ],
+          "nl": "QA must start between time slots 4 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            1,
+            5
+          ],
+          "nl": "QA must start between time slots 1 and 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            1
+          ],
+          "nl": "Testing must start between time slots 1 and 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            5
+          ],
+          "nl": "QA must start between time slots 4 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Refactor and Meeting cannot be simultaneous. Also, There must be at least 2 slots between Refactor and Deploy. Also, There must be at least 1 slots between QA and Deploy.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            4,
+            5
+          ],
+          "nl": "Refactor must start between time slots 4 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            5,
+            7
+          ],
+          "nl": "QA must start between time slots 5 and 7"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Meeting",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Meeting"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            2
+          ],
+          "nl": "Testing has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Deploy"
+          ],
+          "nl": "Refactor and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            1,
+            5
+          ],
+          "nl": "QA must start between time slots 1 and 5"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            1
+          ],
+          "nl": "Testing must start between time slots 1 and 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            5
+          ],
+          "nl": "QA must start between time slots 4 and 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Deploy",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 2
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

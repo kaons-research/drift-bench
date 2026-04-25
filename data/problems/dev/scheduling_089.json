@@ -1,0 +1,945 @@
+{
+  "problem_id": "scheduling_089",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Planning",
+    "Testing",
+    "Refactor",
+    "QA",
+    "Design"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "QA has duration 1. Also, Design and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA must start at time slot 2. Also, Testing and Design cannot be simultaneous. Also, Refactor must happen before QA.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor must happen before QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor must happen before QA"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing has duration 1. Also, Design must happen before Testing. Also, Testing and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 0 slots between Design and Refactor.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 1 slots between Refactor and Design.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Planning and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "There must be at least 1 slots between Testing and Design.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Design"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Planning must start between time slots 3 and 4.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            4
+          ],
+          "nl": "Planning must start between time slots 3 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Refactor"
+          ],
+          "nl": "Design and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            2
+          ],
+          "nl": "QA must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing and Design cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "QA"
+          ],
+          "nl": "Refactor must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Design"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            4
+          ],
+          "nl": "Planning must start between time slots 3 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "dev"
+}

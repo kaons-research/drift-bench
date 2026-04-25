@@ -1,0 +1,477 @@
+{
+  "problem_id": "seating_246",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Henry",
+    "Sam",
+    "Olivia",
+    "Karen",
+    "Grace",
+    "Tina",
+    "Ruby",
+    "Alice"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Karen and Ruby must have at least 1 seats between them. Also, Grace sits immediately left of Olivia.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 6,
+        "Sam": 4,
+        "Olivia": 8,
+        "Karen": 2,
+        "Grace": 1,
+        "Tina": 5,
+        "Ruby": 7,
+        "Alice": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Olivia and Alice must sit on the same side of the table. Also, Alice cannot sit next to Grace. Also, Grace must sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Grace"
+          ],
+          "nl": "Alice cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace must sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Grace"
+          ],
+          "nl": "Alice cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace must sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 5,
+        "Sam": 6,
+        "Olivia": 1,
+        "Karen": 3,
+        "Grace": 2,
+        "Tina": 7,
+        "Ruby": 8,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry must sit at position 8.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Grace"
+          ],
+          "nl": "Alice cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace must sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 8,
+        "Sam": 7,
+        "Olivia": 2,
+        "Karen": 4,
+        "Grace": 3,
+        "Tina": 5,
+        "Ruby": 6,
+        "Alice": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Olivia and Ruby must have at least 1 seats between them. Also, Karen and Tina must sit on opposite sides of the table. Also, Olivia and Karen must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ruby",
+            1
+          ],
+          "nl": "Olivia and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Grace"
+          ],
+          "nl": "Alice cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace must sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ruby",
+            1
+          ],
+          "nl": "Olivia and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 8,
+        "Sam": 5,
+        "Olivia": 2,
+        "Karen": 4,
+        "Grace": 3,
+        "Tina": 7,
+        "Ruby": 6,
+        "Alice": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Tina sits immediately left of Ruby. Also, Sam and Olivia must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina sits immediately left of Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            1
+          ],
+          "nl": "Sam and Olivia must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Alice"
+          ],
+          "nl": "Olivia and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Grace"
+          ],
+          "nl": "Alice cannot sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Karen"
+          ],
+          "nl": "Grace must sit next to Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Ruby",
+            1
+          ],
+          "nl": "Olivia and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Tina"
+          ],
+          "nl": "Karen and Tina must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Olivia",
+            "Karen"
+          ],
+          "nl": "Olivia and Karen must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Ruby"
+          ],
+          "nl": "Tina sits immediately left of Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Olivia",
+            1
+          ],
+          "nl": "Sam and Olivia must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Henry": 8,
+        "Sam": 7,
+        "Olivia": 1,
+        "Karen": 3,
+        "Grace": 2,
+        "Tina": 6,
+        "Ruby": 5,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "dev"
+}

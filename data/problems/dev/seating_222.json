@@ -1,0 +1,898 @@
+{
+  "problem_id": "seating_222",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Olivia",
+    "Tina",
+    "Noah",
+    "Frank",
+    "Karen",
+    "Ruby",
+    "Diana"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Noah and Frank must have at least 2 seats between them. Also, Karen sits immediately left of Olivia. Also, Diana and Noah must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Tina": 6,
+        "Noah": 7,
+        "Frank": 3,
+        "Karen": 5,
+        "Ruby": 1,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Karen cannot sit next to Ruby. Also, Olivia sits immediately left of Frank.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 3,
+        "Tina": 5,
+        "Noah": 6,
+        "Frank": 2,
+        "Karen": 4,
+        "Ruby": 7,
+        "Diana": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana must sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana must sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana must sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 5,
+        "Tina": 2,
+        "Noah": 7,
+        "Frank": 4,
+        "Karen": 6,
+        "Ruby": 1,
+        "Diana": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Karen must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana must sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Tina": 7,
+        "Noah": 6,
+        "Frank": 3,
+        "Karen": 5,
+        "Ruby": 1,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Olivia cannot sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia cannot sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana must sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia cannot sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Tina": 1,
+        "Noah": 6,
+        "Frank": 3,
+        "Karen": 5,
+        "Ruby": 7,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Noah cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana must sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Tina": 1,
+        "Noah": 6,
+        "Frank": 3,
+        "Karen": 5,
+        "Ruby": 7,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Diana must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            2
+          ],
+          "nl": "Diana must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana must sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            2
+          ],
+          "nl": "Diana must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Tina": 1,
+        "Noah": 6,
+        "Frank": 3,
+        "Karen": 5,
+        "Ruby": 7,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Diana cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana must sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            2
+          ],
+          "nl": "Diana must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Tina": 1,
+        "Noah": 6,
+        "Frank": 3,
+        "Karen": 5,
+        "Ruby": 7,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Tina cannot sit next to Olivia. Also, Frank cannot sit next to Karen. Also, Diana and Ruby must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Frank",
+            2
+          ],
+          "nl": "Noah and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen sits immediately left of Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Noah",
+            1
+          ],
+          "nl": "Diana and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia sits immediately left of Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana must sit next to Frank"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            5
+          ],
+          "nl": "Karen must sit at position 5"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ruby"
+          ],
+          "nl": "Olivia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Tina"
+          ],
+          "nl": "Noah cannot sit next to Tina"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Diana",
+            2
+          ],
+          "nl": "Diana must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Tina": 1,
+        "Noah": 6,
+        "Frank": 3,
+        "Karen": 5,
+        "Ruby": 7,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

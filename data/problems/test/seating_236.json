@@ -1,0 +1,645 @@
+{
+  "problem_id": "seating_236",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Sam",
+    "Olivia",
+    "Jack",
+    "Quinn",
+    "Frank",
+    "Peter"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Quinn must sit next to Peter. Also, Jack and Frank must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn must sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn must sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 6,
+        "Olivia": 1,
+        "Jack": 3,
+        "Quinn": 4,
+        "Frank": 2,
+        "Peter": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Quinn and Olivia must sit on the same side of the table. Also, Frank must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn must sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 3,
+        "Olivia": 4,
+        "Jack": 2,
+        "Quinn": 5,
+        "Frank": 1,
+        "Peter": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Peter and Jack must sit on the same side of the table. Also, Frank cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Jack"
+          ],
+          "nl": "Peter and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Olivia"
+          ],
+          "nl": "Frank cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn must sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Jack"
+          ],
+          "nl": "Peter and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Olivia"
+          ],
+          "nl": "Frank cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 6,
+        "Olivia": 5,
+        "Jack": 2,
+        "Quinn": 4,
+        "Frank": 1,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Frank must sit next to Sam. Also, Quinn and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Frank",
+            1
+          ],
+          "nl": "Quinn and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn must sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Jack"
+          ],
+          "nl": "Peter and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Olivia"
+          ],
+          "nl": "Frank cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Frank",
+            1
+          ],
+          "nl": "Quinn and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 6,
+        "Olivia": 5,
+        "Jack": 2,
+        "Quinn": 4,
+        "Frank": 1,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Peter cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn must sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Jack"
+          ],
+          "nl": "Peter and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Olivia"
+          ],
+          "nl": "Frank cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Frank",
+            1
+          ],
+          "nl": "Quinn and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 6,
+        "Olivia": 5,
+        "Jack": 2,
+        "Quinn": 4,
+        "Frank": 1,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Frank and Quinn must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank and Quinn must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn must sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Jack"
+          ],
+          "nl": "Peter and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Olivia"
+          ],
+          "nl": "Frank cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Frank",
+            1
+          ],
+          "nl": "Quinn and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter cannot sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank and Quinn must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 6,
+        "Olivia": 5,
+        "Jack": 2,
+        "Quinn": 4,
+        "Frank": 1,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Olivia cannot sit next to Jack. Also, Jack and Olivia must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia cannot sit next to Jack"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack and Olivia must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn must sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Peter",
+            "Jack"
+          ],
+          "nl": "Peter and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Olivia"
+          ],
+          "nl": "Frank cannot sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Sam"
+          ],
+          "nl": "Frank must sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Frank",
+            1
+          ],
+          "nl": "Quinn and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Sam"
+          ],
+          "nl": "Peter cannot sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Jack"
+          ],
+          "nl": "Olivia cannot sit next to Jack"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack and Olivia must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 6,
+        "Olivia": 5,
+        "Jack": 2,
+        "Quinn": 4,
+        "Frank": 1,
+        "Peter": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

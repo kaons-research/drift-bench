@@ -1,0 +1,545 @@
+{
+  "problem_id": "scheduling_238",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Deploy",
+    "Testing",
+    "Design",
+    "Sync",
+    "Meeting"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sync must start at time slot 1. Also, Deploy must happen before Meeting.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 0 slots between Deploy and Testing. Also, Sync must happen before Testing. Also, Meeting has duration 3.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Deploy must happen before Testing. Also, Deploy must start at time slot 2. Also, Testing and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Testing"
+          ],
+          "nl": "Deploy must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Testing"
+          ],
+          "nl": "Deploy must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sync has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Testing"
+          ],
+          "nl": "Deploy must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Deploy has duration 3. Also, Deploy and Meeting cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy and Meeting cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync must start at time slot 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            3
+          ],
+          "nl": "Meeting has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Testing"
+          ],
+          "nl": "Deploy must happen before Testing"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy must start at time slot 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Sync"
+          ],
+          "nl": "Testing and Sync cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            1
+          ],
+          "nl": "Sync has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy and Meeting cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 3
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 3
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

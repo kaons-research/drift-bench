@@ -1,0 +1,505 @@
+{
+  "problem_id": "scheduling_315",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Docs",
+    "QA",
+    "Design",
+    "Planning",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Design must start at time slot 7. Also, Docs must start between time slots 8 and 9.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            7
+          ],
+          "nl": "Design must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            8,
+            9
+          ],
+          "nl": "Docs must start between time slots 8 and 9"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            7
+          ],
+          "nl": "Design must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            8,
+            9
+          ],
+          "nl": "Docs must start between time slots 8 and 9"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 9,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Testing must start between time slots 9 and 9.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            9,
+            9
+          ],
+          "nl": "Testing must start between time slots 9 and 9"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            7
+          ],
+          "nl": "Design must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            8,
+            9
+          ],
+          "nl": "Docs must start between time slots 8 and 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            9,
+            9
+          ],
+          "nl": "Testing must start between time slots 9 and 9"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 9,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Docs has duration 2. Also, There must be at least 1 slots between QA and Planning. Also, Testing must start between time slots 8 and 9.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            8,
+            9
+          ],
+          "nl": "Testing must start between time slots 8 and 9"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            7
+          ],
+          "nl": "Design must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            8,
+            9
+          ],
+          "nl": "Docs must start between time slots 8 and 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            9,
+            9
+          ],
+          "nl": "Testing must start between time slots 9 and 9"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            8,
+            9
+          ],
+          "nl": "Testing must start between time slots 8 and 9"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 8,
+          "duration": 2
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Planning and Docs cannot be simultaneous. Also, Planning must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            7
+          ],
+          "nl": "Design must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            8,
+            9
+          ],
+          "nl": "Docs must start between time slots 8 and 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            9,
+            9
+          ],
+          "nl": "Testing must start between time slots 9 and 9"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            8,
+            9
+          ],
+          "nl": "Testing must start between time slots 8 and 9"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 8,
+          "duration": 2
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Design has duration 3. Also, Docs must start between time slots 2 and 8.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            8
+          ],
+          "nl": "Docs must start between time slots 2 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            7
+          ],
+          "nl": "Design must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            8,
+            9
+          ],
+          "nl": "Docs must start between time slots 8 and 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            9,
+            9
+          ],
+          "nl": "Testing must start between time slots 9 and 9"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            8,
+            9
+          ],
+          "nl": "Testing must start between time slots 8 and 9"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Design"
+          ],
+          "nl": "Planning must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            8
+          ],
+          "nl": "Docs must start between time slots 2 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 8,
+          "duration": 2
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 3
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "dev"
+}

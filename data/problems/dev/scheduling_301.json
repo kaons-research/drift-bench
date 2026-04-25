@@ -1,0 +1,712 @@
+{
+  "problem_id": "scheduling_301",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Review",
+    "Sync",
+    "Design",
+    "Planning",
+    "Docs",
+    "Refactor",
+    "Testing"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "There must be at least 1 slots between Sync and Refactor. Also, Refactor and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review must happen before Design. Also, Review must happen before Sync.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sync must start at time slot 7. Also, Docs must start at time slot 7. Also, Review and Testing cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sync has duration 2. Also, Refactor must start between time slots 1 and 4.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            1,
+            4
+          ],
+          "nl": "Refactor must start between time slots 1 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            1,
+            4
+          ],
+          "nl": "Refactor must start between time slots 1 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 2
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Review must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            1,
+            4
+          ],
+          "nl": "Refactor must start between time slots 1 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 2
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Design and Review cannot be simultaneous. Also, Testing and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Sync"
+          ],
+          "nl": "Refactor and Sync cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review must happen before Sync"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            7
+          ],
+          "nl": "Sync must start at time slot 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            7
+          ],
+          "nl": "Docs must start at time slot 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            1,
+            4
+          ],
+          "nl": "Refactor must start between time slots 1 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 2
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "dev"
+}

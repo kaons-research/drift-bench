@@ -1,0 +1,1045 @@
+{
+  "problem_id": "scheduling_306",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Refactor",
+    "Docs",
+    "Review",
+    "Design",
+    "Deploy",
+    "Meeting"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Meeting has duration 2. Also, Deploy must start at time slot 5.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Deploy must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Review must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Review must start at time slot 1.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Design must start between time slots 7 and 8. Also, Design has duration 3. Also, Deploy must happen before Meeting.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Meeting must start at time slot 6. Also, Docs must start at time slot 10.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Refactor and Review cannot be simultaneous. Also, Refactor and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Design and Deploy cannot be simultaneous. Also, Deploy has duration 1.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Docs must start between time slots 1 and 10.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            10
+          ],
+          "nl": "Docs must start between time slots 1 and 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            5
+          ],
+          "nl": "Deploy must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review must happen before Docs"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            7,
+            8
+          ],
+          "nl": "Design must start between time slots 7 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            6
+          ],
+          "nl": "Meeting must start at time slot 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            10
+          ],
+          "nl": "Docs must start at time slot 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Review"
+          ],
+          "nl": "Refactor and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Deploy"
+          ],
+          "nl": "Design and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            10
+          ],
+          "nl": "Docs must start between time slots 1 and 10"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 10,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

@@ -1,0 +1,955 @@
+{
+  "problem_id": "scheduling_015",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Review",
+    "Meeting",
+    "Docs",
+    "Refactor",
+    "Deploy"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Meeting and Review cannot be simultaneous. Also, Docs must happen before Deploy. Also, Docs must start at time slot 1.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 2 slots between Refactor and Review.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy must start between time slots 1 and 5. Also, Meeting has duration 2. Also, Docs has duration 2.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            5
+          ],
+          "nl": "Deploy must start between time slots 1 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            5
+          ],
+          "nl": "Deploy must start between time slots 1 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 1 slots between Meeting and Refactor. Also, Docs and Refactor cannot be simultaneous. Also, Deploy and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            5
+          ],
+          "nl": "Deploy must start between time slots 1 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Meeting and Refactor cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            5
+          ],
+          "nl": "Deploy must start between time slots 1 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 7,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Review has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            5
+          ],
+          "nl": "Deploy must start between time slots 1 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 2,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Deploy must happen before Meeting.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Review"
+          ],
+          "nl": "Meeting and Review cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs must start at time slot 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Docs"
+          ],
+          "nl": "Review and Docs cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Refactor and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            5
+          ],
+          "nl": "Deploy must start between time slots 1 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            2
+          ],
+          "nl": "Docs has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Refactor",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Meeting and Refactor"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Refactor"
+          ],
+          "nl": "Deploy and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Refactor"
+          ],
+          "nl": "Meeting and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 3,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

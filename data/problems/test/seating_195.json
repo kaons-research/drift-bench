@@ -1,0 +1,882 @@
+{
+  "problem_id": "seating_195",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Alice",
+    "Diana",
+    "Liam",
+    "Frank",
+    "Mia",
+    "Karen",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Liam must sit at position 2. Also, Diana must sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 7,
+        "Diana": 4,
+        "Liam": 2,
+        "Frank": 6,
+        "Mia": 1,
+        "Karen": 3,
+        "Olivia": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank cannot sit next to Mia. Also, Frank must sit next to Alice. Also, Olivia must sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Liam"
+          ],
+          "nl": "Olivia must sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Liam"
+          ],
+          "nl": "Olivia must sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Diana": 5,
+        "Liam": 2,
+        "Frank": 7,
+        "Mia": 4,
+        "Karen": 6,
+        "Olivia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia sits immediately left of Diana. Also, Diana cannot sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Liam"
+          ],
+          "nl": "Olivia must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 5,
+        "Diana": 7,
+        "Liam": 2,
+        "Frank": 4,
+        "Mia": 1,
+        "Karen": 6,
+        "Olivia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam must sit next to Karen. Also, Liam and Mia must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Karen"
+          ],
+          "nl": "Liam must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            1
+          ],
+          "nl": "Liam and Mia must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Liam"
+          ],
+          "nl": "Olivia must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Karen"
+          ],
+          "nl": "Liam must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            1
+          ],
+          "nl": "Liam and Mia must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 6,
+        "Diana": 4,
+        "Liam": 2,
+        "Frank": 7,
+        "Mia": 5,
+        "Karen": 3,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Mia must sit next to Diana. Also, Alice must sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Mia"
+          ],
+          "nl": "Alice must sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Liam"
+          ],
+          "nl": "Olivia must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Karen"
+          ],
+          "nl": "Liam must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            1
+          ],
+          "nl": "Liam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Mia"
+          ],
+          "nl": "Alice must sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 6,
+        "Diana": 4,
+        "Liam": 2,
+        "Frank": 7,
+        "Mia": 5,
+        "Karen": 3,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Olivia cannot sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia cannot sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Liam"
+          ],
+          "nl": "Olivia must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Karen"
+          ],
+          "nl": "Liam must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            1
+          ],
+          "nl": "Liam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Mia"
+          ],
+          "nl": "Alice must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia cannot sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 6,
+        "Diana": 4,
+        "Liam": 2,
+        "Frank": 7,
+        "Mia": 5,
+        "Karen": 3,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Liam cannot sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Mia"
+          ],
+          "nl": "Liam cannot sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Liam"
+          ],
+          "nl": "Olivia must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Karen"
+          ],
+          "nl": "Liam must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            1
+          ],
+          "nl": "Liam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Mia"
+          ],
+          "nl": "Alice must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia cannot sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Mia"
+          ],
+          "nl": "Liam cannot sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 6,
+        "Diana": 4,
+        "Liam": 2,
+        "Frank": 7,
+        "Mia": 5,
+        "Karen": 3,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Karen and Alice must have at least 2 seats between them. Also, Liam cannot sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Alice",
+            2
+          ],
+          "nl": "Karen and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Frank"
+          ],
+          "nl": "Liam cannot sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            2
+          ],
+          "nl": "Liam must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana must sit next to Karen"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Mia"
+          ],
+          "nl": "Frank cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Liam"
+          ],
+          "nl": "Olivia must sit next to Liam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Frank"
+          ],
+          "nl": "Diana cannot sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Karen"
+          ],
+          "nl": "Liam must sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Mia",
+            1
+          ],
+          "nl": "Liam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Diana"
+          ],
+          "nl": "Mia must sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Mia"
+          ],
+          "nl": "Alice must sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Mia"
+          ],
+          "nl": "Olivia cannot sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Mia"
+          ],
+          "nl": "Liam cannot sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Alice",
+            2
+          ],
+          "nl": "Karen and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Frank"
+          ],
+          "nl": "Liam cannot sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 6,
+        "Diana": 4,
+        "Liam": 2,
+        "Frank": 7,
+        "Mia": 5,
+        "Karen": 3,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,997 @@
+{
+  "problem_id": "seating_338",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Jack",
+    "Alice",
+    "Mia",
+    "Olivia",
+    "Eve",
+    "Tina",
+    "Grace",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Alice must sit at position 7.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Alice": 7,
+        "Mia": 8,
+        "Olivia": 2,
+        "Eve": 6,
+        "Tina": 4,
+        "Grace": 1,
+        "Henry": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Olivia and Jack must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Alice": 7,
+        "Mia": 5,
+        "Olivia": 6,
+        "Eve": 1,
+        "Tina": 3,
+        "Grace": 4,
+        "Henry": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry sits immediately left of Eve.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 6,
+        "Alice": 7,
+        "Mia": 4,
+        "Olivia": 2,
+        "Eve": 8,
+        "Tina": 5,
+        "Grace": 3,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Tina sits immediately left of Henry. Also, Grace and Tina must have at least 2 seats between them. Also, Eve sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina sits immediately left of Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Tina",
+            2
+          ],
+          "nl": "Grace and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina sits immediately left of Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Tina",
+            2
+          ],
+          "nl": "Grace and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Alice": 7,
+        "Mia": 1,
+        "Olivia": 6,
+        "Eve": 3,
+        "Tina": 5,
+        "Grace": 8,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Mia and Tina must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            2
+          ],
+          "nl": "Mia and Tina must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina sits immediately left of Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Tina",
+            2
+          ],
+          "nl": "Grace and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            2
+          ],
+          "nl": "Mia and Tina must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Alice": 7,
+        "Mia": 1,
+        "Olivia": 6,
+        "Eve": 3,
+        "Tina": 5,
+        "Grace": 8,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Tina must sit next to Olivia. Also, Grace cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina sits immediately left of Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Tina",
+            2
+          ],
+          "nl": "Grace and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            2
+          ],
+          "nl": "Mia and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Alice": 7,
+        "Mia": 8,
+        "Olivia": 6,
+        "Eve": 3,
+        "Tina": 5,
+        "Grace": 1,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Grace cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina sits immediately left of Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Tina",
+            2
+          ],
+          "nl": "Grace and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            2
+          ],
+          "nl": "Mia and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Alice": 7,
+        "Mia": 8,
+        "Olivia": 6,
+        "Eve": 3,
+        "Tina": 5,
+        "Grace": 1,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Tina cannot sit next to Eve. Also, Mia sits immediately left of Alice.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Eve"
+          ],
+          "nl": "Tina cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia sits immediately left of Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina sits immediately left of Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Tina",
+            2
+          ],
+          "nl": "Grace and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            2
+          ],
+          "nl": "Mia and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Eve"
+          ],
+          "nl": "Tina cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia sits immediately left of Alice"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Alice": 7,
+        "Mia": 8,
+        "Olivia": 6,
+        "Eve": 3,
+        "Tina": 5,
+        "Grace": 1,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Eve and Mia must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Mia",
+            1
+          ],
+          "nl": "Eve and Mia must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina sits immediately left of Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Tina",
+            2
+          ],
+          "nl": "Grace and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            2
+          ],
+          "nl": "Mia and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Eve"
+          ],
+          "nl": "Tina cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia sits immediately left of Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Mia",
+            1
+          ],
+          "nl": "Eve and Mia must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Alice": 7,
+        "Mia": 8,
+        "Olivia": 6,
+        "Eve": 3,
+        "Tina": 5,
+        "Grace": 1,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Tina must sit at position 5. Also, Henry must sit next to Eve. Also, Eve cannot sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry must sit next to Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve cannot sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Alice",
+            7
+          ],
+          "nl": "Alice must sit at position 7"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            3
+          ],
+          "nl": "Olivia and Jack must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Tina",
+            "Henry"
+          ],
+          "nl": "Tina sits immediately left of Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Tina",
+            2
+          ],
+          "nl": "Grace and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            2
+          ],
+          "nl": "Mia and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Olivia"
+          ],
+          "nl": "Tina must sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Tina"
+          ],
+          "nl": "Grace cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace cannot sit next to Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Tina",
+            "Eve"
+          ],
+          "nl": "Tina cannot sit next to Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia sits immediately left of Alice"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Mia",
+            1
+          ],
+          "nl": "Eve and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            5
+          ],
+          "nl": "Tina must sit at position 5"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry must sit next to Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve cannot sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Alice": 7,
+        "Mia": 8,
+        "Olivia": 6,
+        "Eve": 3,
+        "Tina": 5,
+        "Grace": 1,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

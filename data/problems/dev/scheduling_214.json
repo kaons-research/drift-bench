@@ -1,0 +1,489 @@
+{
+  "problem_id": "scheduling_214",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Deploy",
+    "Design",
+    "QA",
+    "Planning",
+    "Docs",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Design must start between time slots 6 and 7. Also, Review must start at time slot 10. Also, Docs must start at time slot 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            10
+          ],
+          "nl": "Review must start at time slot 10"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            8
+          ],
+          "nl": "Docs must start at time slot 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            10
+          ],
+          "nl": "Review must start at time slot 10"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            8
+          ],
+          "nl": "Docs must start at time slot 8"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            10
+          ],
+          "nl": "Review must start at time slot 10"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            8
+          ],
+          "nl": "Docs must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "There must be at least 1 slots between Review and QA.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            10
+          ],
+          "nl": "Review must start at time slot 10"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            8
+          ],
+          "nl": "Docs must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and QA"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Review must start between time slots 8 and 10. Also, There must be at least 1 slots between Deploy and Planning.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            8,
+            10
+          ],
+          "nl": "Review must start between time slots 8 and 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            10
+          ],
+          "nl": "Review must start at time slot 10"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            8
+          ],
+          "nl": "Docs must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            8,
+            10
+          ],
+          "nl": "Review must start between time slots 8 and 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning must start at time slot 10.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            10
+          ],
+          "nl": "Planning must start at time slot 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            10
+          ],
+          "nl": "Review must start at time slot 10"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            8
+          ],
+          "nl": "Docs must start at time slot 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            8,
+            10
+          ],
+          "nl": "Review must start between time slots 8 and 10"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Deploy and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            10
+          ],
+          "nl": "Planning must start at time slot 10"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 10,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 1
+        },
+        "Review": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "dev"
+}

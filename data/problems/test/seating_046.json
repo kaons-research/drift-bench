@@ -1,0 +1,631 @@
+{
+  "problem_id": "seating_046",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Bob",
+    "Charlie",
+    "Peter",
+    "Alice",
+    "Frank",
+    "Grace",
+    "Jack",
+    "Karen"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Charlie and Jack must have at least 1 seats between them. Also, Karen and Jack must have at least 2 seats between them. Also, Frank cannot sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Jack",
+            2
+          ],
+          "nl": "Karen and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Jack",
+            2
+          ],
+          "nl": "Karen and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Charlie": 6,
+        "Peter": 5,
+        "Alice": 7,
+        "Frank": 4,
+        "Grace": 2,
+        "Jack": 8,
+        "Karen": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank sits immediately left of Karen. Also, Bob must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank sits immediately left of Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Jack",
+            2
+          ],
+          "nl": "Karen and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank sits immediately left of Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Charlie": 4,
+        "Peter": 8,
+        "Alice": 6,
+        "Frank": 3,
+        "Grace": 5,
+        "Jack": 7,
+        "Karen": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Jack must sit next to Alice. Also, Jack must sit at position 8.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            8
+          ],
+          "nl": "Jack must sit at position 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Jack",
+            2
+          ],
+          "nl": "Karen and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank sits immediately left of Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            8
+          ],
+          "nl": "Jack must sit at position 8"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Charlie": 3,
+        "Peter": 6,
+        "Alice": 7,
+        "Frank": 5,
+        "Grace": 2,
+        "Jack": 8,
+        "Karen": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Bob must sit next to Charlie. Also, Frank and Grace must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Charlie"
+          ],
+          "nl": "Bob must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Grace",
+            1
+          ],
+          "nl": "Frank and Grace must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Jack",
+            2
+          ],
+          "nl": "Karen and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank sits immediately left of Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            8
+          ],
+          "nl": "Jack must sit at position 8"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Charlie"
+          ],
+          "nl": "Bob must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Grace",
+            1
+          ],
+          "nl": "Frank and Grace must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Charlie": 2,
+        "Peter": 3,
+        "Alice": 7,
+        "Frank": 6,
+        "Grace": 4,
+        "Jack": 8,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Charlie must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            2
+          ],
+          "nl": "Charlie must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Jack",
+            2
+          ],
+          "nl": "Karen and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank sits immediately left of Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            8
+          ],
+          "nl": "Jack must sit at position 8"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Charlie"
+          ],
+          "nl": "Bob must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Grace",
+            1
+          ],
+          "nl": "Frank and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            2
+          ],
+          "nl": "Charlie must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Charlie": 2,
+        "Peter": 6,
+        "Alice": 7,
+        "Frank": 5,
+        "Grace": 3,
+        "Jack": 8,
+        "Karen": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Frank cannot sit next to Peter. Also, Frank must sit next to Karen. Also, Alice sits immediately left of Frank.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank must sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice sits immediately left of Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Jack",
+            1
+          ],
+          "nl": "Charlie and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Jack",
+            2
+          ],
+          "nl": "Karen and Jack must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank cannot sit next to Grace"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank sits immediately left of Karen"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            1
+          ],
+          "nl": "Bob must sit at position 1"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            8
+          ],
+          "nl": "Jack must sit at position 8"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Charlie"
+          ],
+          "nl": "Bob must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Grace",
+            1
+          ],
+          "nl": "Frank and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            2
+          ],
+          "nl": "Charlie must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Peter"
+          ],
+          "nl": "Frank cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank must sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice sits immediately left of Frank"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Charlie": 2,
+        "Peter": 3,
+        "Alice": 7,
+        "Frank": 6,
+        "Grace": 4,
+        "Jack": 8,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,545 @@
+{
+  "problem_id": "seating_088",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Diana",
+    "Mia",
+    "Jack",
+    "Tina",
+    "Henry",
+    "Quinn",
+    "Eve",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Henry sits immediately left of Eve. Also, Quinn cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 6,
+        "Mia": 8,
+        "Jack": 7,
+        "Tina": 2,
+        "Henry": 4,
+        "Quinn": 5,
+        "Eve": 3,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Diana cannot sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Mia"
+          ],
+          "nl": "Diana cannot sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Mia"
+          ],
+          "nl": "Diana cannot sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 1,
+        "Mia": 5,
+        "Jack": 4,
+        "Tina": 2,
+        "Henry": 7,
+        "Quinn": 8,
+        "Eve": 6,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Tina must sit next to Mia. Also, Quinn sits immediately left of Diana. Also, Charlie and Tina must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn sits immediately left of Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Tina",
+            2
+          ],
+          "nl": "Charlie and Tina must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Mia"
+          ],
+          "nl": "Diana cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn sits immediately left of Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Tina",
+            2
+          ],
+          "nl": "Charlie and Tina must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 4,
+        "Mia": 6,
+        "Jack": 3,
+        "Tina": 7,
+        "Henry": 1,
+        "Quinn": 5,
+        "Eve": 8,
+        "Charlie": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve and Tina must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Tina",
+            1
+          ],
+          "nl": "Eve and Tina must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Mia"
+          ],
+          "nl": "Diana cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn sits immediately left of Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Tina",
+            2
+          ],
+          "nl": "Charlie and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Tina",
+            1
+          ],
+          "nl": "Eve and Tina must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 2,
+        "Mia": 8,
+        "Jack": 4,
+        "Tina": 1,
+        "Henry": 7,
+        "Quinn": 3,
+        "Eve": 6,
+        "Charlie": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Henry must sit at position 2. Also, Eve must sit at position 1. Also, Jack and Diana must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Diana",
+            1
+          ],
+          "nl": "Jack and Diana must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Mia"
+          ],
+          "nl": "Diana cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn sits immediately left of Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Tina",
+            2
+          ],
+          "nl": "Charlie and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Tina",
+            1
+          ],
+          "nl": "Eve and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Diana",
+            1
+          ],
+          "nl": "Jack and Diana must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 5,
+        "Mia": 3,
+        "Jack": 8,
+        "Tina": 4,
+        "Henry": 2,
+        "Quinn": 6,
+        "Eve": 1,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Eve cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Charlie"
+          ],
+          "nl": "Eve cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Eve"
+          ],
+          "nl": "Henry sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Tina"
+          ],
+          "nl": "Quinn cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Mia"
+          ],
+          "nl": "Diana cannot sit next to Mia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Mia"
+          ],
+          "nl": "Tina must sit next to Mia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Diana"
+          ],
+          "nl": "Quinn sits immediately left of Diana"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Tina",
+            2
+          ],
+          "nl": "Charlie and Tina must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Tina",
+            1
+          ],
+          "nl": "Eve and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            2
+          ],
+          "nl": "Henry must sit at position 2"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            1
+          ],
+          "nl": "Eve must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Diana",
+            1
+          ],
+          "nl": "Jack and Diana must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Charlie"
+          ],
+          "nl": "Eve cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Diana": 4,
+        "Mia": 6,
+        "Jack": 8,
+        "Tina": 7,
+        "Henry": 2,
+        "Quinn": 5,
+        "Eve": 1,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

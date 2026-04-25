@@ -1,0 +1,431 @@
+{
+  "problem_id": "scheduling_140",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Meeting",
+    "Refactor",
+    "Planning",
+    "Testing",
+    "Deploy",
+    "Sync"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing must start between time slots 4 and 6. Also, Meeting must start at time slot 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            6
+          ],
+          "nl": "Testing must start between time slots 4 and 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            6
+          ],
+          "nl": "Testing must start between time slots 4 and 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Refactor has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            6
+          ],
+          "nl": "Testing must start between time slots 4 and 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Deploy must start at time slot 10.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            10
+          ],
+          "nl": "Deploy must start at time slot 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            6
+          ],
+          "nl": "Testing must start between time slots 4 and 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            10
+          ],
+          "nl": "Deploy must start at time slot 10"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Meeting and Deploy cannot be simultaneous. Also, Sync must start at time slot 10.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            10
+          ],
+          "nl": "Sync must start at time slot 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            6
+          ],
+          "nl": "Testing must start between time slots 4 and 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            10
+          ],
+          "nl": "Deploy must start at time slot 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            10
+          ],
+          "nl": "Sync must start at time slot 10"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Deploy and Testing cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Testing"
+          ],
+          "nl": "Deploy and Testing cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            4,
+            6
+          ],
+          "nl": "Testing must start between time slots 4 and 6"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Meeting",
+            7
+          ],
+          "nl": "Meeting must start at time slot 7"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            10
+          ],
+          "nl": "Deploy must start at time slot 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            10
+          ],
+          "nl": "Sync must start at time slot 10"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Testing"
+          ],
+          "nl": "Deploy and Testing cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 7,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 10,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 10,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "dev"
+}

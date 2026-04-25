@@ -1,0 +1,1059 @@
+{
+  "problem_id": "seating_040",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Karen",
+    "Charlie",
+    "Eve",
+    "Ruby",
+    "Peter",
+    "Mia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Mia cannot sit next to Ruby. Also, Charlie cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 2,
+        "Charlie": 1,
+        "Eve": 5,
+        "Ruby": 4,
+        "Peter": 3,
+        "Mia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Ruby must sit at position 6. Also, Charlie and Ruby must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 5,
+        "Charlie": 3,
+        "Eve": 4,
+        "Ruby": 6,
+        "Peter": 1,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia sits immediately left of Eve. Also, Mia and Karen must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Charlie": 3,
+        "Eve": 1,
+        "Ruby": 6,
+        "Peter": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Mia must sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Charlie"
+          ],
+          "nl": "Mia must sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Charlie"
+          ],
+          "nl": "Mia must sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Charlie": 3,
+        "Eve": 1,
+        "Ruby": 6,
+        "Peter": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Eve and Karen must have at least 2 seats between them. Also, Mia must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Karen",
+            2
+          ],
+          "nl": "Eve and Karen must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Charlie"
+          ],
+          "nl": "Mia must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Karen",
+            2
+          ],
+          "nl": "Eve and Karen must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Charlie": 3,
+        "Eve": 1,
+        "Ruby": 6,
+        "Peter": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Karen and Ruby must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Charlie"
+          ],
+          "nl": "Mia must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Karen",
+            2
+          ],
+          "nl": "Eve and Karen must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Charlie": 3,
+        "Eve": 1,
+        "Ruby": 6,
+        "Peter": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Peter must sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter must sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Charlie"
+          ],
+          "nl": "Mia must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Karen",
+            2
+          ],
+          "nl": "Eve and Karen must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter must sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Charlie": 3,
+        "Eve": 1,
+        "Ruby": 6,
+        "Peter": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Ruby must sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Peter"
+          ],
+          "nl": "Ruby must sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Charlie"
+          ],
+          "nl": "Mia must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Karen",
+            2
+          ],
+          "nl": "Eve and Karen must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter must sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Peter"
+          ],
+          "nl": "Ruby must sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Charlie": 3,
+        "Eve": 1,
+        "Ruby": 6,
+        "Peter": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Mia cannot sit next to Peter. Also, Karen cannot sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Charlie"
+          ],
+          "nl": "Mia must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Karen",
+            2
+          ],
+          "nl": "Eve and Karen must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter must sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Peter"
+          ],
+          "nl": "Ruby must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Charlie": 3,
+        "Eve": 1,
+        "Ruby": 6,
+        "Peter": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Charlie sits immediately left of Mia.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Mia"
+          ],
+          "nl": "Charlie sits immediately left of Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Ruby"
+          ],
+          "nl": "Mia cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie cannot sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            6
+          ],
+          "nl": "Ruby must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Ruby",
+            2
+          ],
+          "nl": "Charlie and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Eve"
+          ],
+          "nl": "Mia sits immediately left of Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Karen",
+            1
+          ],
+          "nl": "Mia and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Charlie"
+          ],
+          "nl": "Mia must sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Karen",
+            2
+          ],
+          "nl": "Eve and Karen must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Mia",
+            2
+          ],
+          "nl": "Mia must sit at position 2"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Ruby",
+            1
+          ],
+          "nl": "Karen and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Peter",
+            "Karen"
+          ],
+          "nl": "Peter must sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Peter"
+          ],
+          "nl": "Ruby must sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Peter"
+          ],
+          "nl": "Mia cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen cannot sit next to Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Mia"
+          ],
+          "nl": "Charlie sits immediately left of Mia"
+        }
+      ],
+      "gold_solution": {
+        "Karen": 4,
+        "Charlie": 3,
+        "Eve": 1,
+        "Ruby": 6,
+        "Peter": 5,
+        "Mia": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

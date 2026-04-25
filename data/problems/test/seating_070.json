@@ -1,0 +1,331 @@
+{
+  "problem_id": "seating_070",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Quinn",
+    "Ivy",
+    "Noah",
+    "Jack",
+    "Liam",
+    "Grace"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Ivy sits immediately left of Noah. Also, Quinn cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 2,
+        "Ivy": 6,
+        "Noah": 5,
+        "Jack": 1,
+        "Liam": 4,
+        "Grace": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Ivy and Quinn must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Quinn",
+            2
+          ],
+          "nl": "Ivy and Quinn must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn cannot sit next to Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Quinn",
+            2
+          ],
+          "nl": "Ivy and Quinn must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 3,
+        "Ivy": 6,
+        "Noah": 5,
+        "Jack": 1,
+        "Liam": 2,
+        "Grace": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Jack must sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Grace"
+          ],
+          "nl": "Jack must sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn cannot sit next to Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Quinn",
+            2
+          ],
+          "nl": "Ivy and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Grace"
+          ],
+          "nl": "Jack must sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 1,
+        "Ivy": 4,
+        "Noah": 3,
+        "Jack": 6,
+        "Liam": 2,
+        "Grace": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Jack must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn cannot sit next to Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Quinn",
+            2
+          ],
+          "nl": "Ivy and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Grace"
+          ],
+          "nl": "Jack must sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 2,
+        "Ivy": 5,
+        "Noah": 4,
+        "Jack": 1,
+        "Liam": 3,
+        "Grace": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Liam must sit next to Noah. Also, Liam sits immediately left of Quinn.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam must sit next to Noah"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam sits immediately left of Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Noah"
+          ],
+          "nl": "Ivy sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn cannot sit next to Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Quinn",
+            2
+          ],
+          "nl": "Ivy and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Grace"
+          ],
+          "nl": "Jack must sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam must sit next to Noah"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam sits immediately left of Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 2,
+        "Ivy": 5,
+        "Noah": 4,
+        "Jack": 1,
+        "Liam": 3,
+        "Grace": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

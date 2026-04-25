@@ -1,0 +1,382 @@
+{
+  "problem_id": "scheduling_187",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Refactor",
+    "Deploy",
+    "Docs",
+    "Design",
+    "Sync",
+    "Testing",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Docs must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Docs and Refactor cannot be simultaneous. Also, Docs must start at time slot 6. Also, There must be at least 1 slots between Sync and Review.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            6
+          ],
+          "nl": "Docs must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            6
+          ],
+          "nl": "Docs must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Review"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Refactor must start at time slot 4. Also, There must be at least 0 slots between Refactor and Deploy.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            4
+          ],
+          "nl": "Refactor must start at time slot 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            6
+          ],
+          "nl": "Docs must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            4
+          ],
+          "nl": "Refactor must start at time slot 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Deploy"
+          ],
+          "nl": "Docs must happen before Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Docs",
+            "Refactor"
+          ],
+          "nl": "Docs and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Docs",
+            6
+          ],
+          "nl": "Docs must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Sync and Review"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            4
+          ],
+          "nl": "Refactor must start at time slot 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Refactor and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Refactor": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

@@ -1,0 +1,969 @@
+{
+  "problem_id": "scheduling_045",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Docs",
+    "Review",
+    "QA",
+    "Testing",
+    "Design",
+    "Refactor"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Review must start between time slots 5 and 5. Also, Design must start between time slots 4 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 2 slots between Review and Refactor.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing must happen before Refactor. Also, Design must happen before Testing. Also, Review has duration 1.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 5,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Design has duration 2. Also, There must be at least 2 slots between Design and QA.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and QA"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Review must happen before QA.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review must happen before QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review must happen before QA"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 1 slots between Refactor and Testing. Also, Testing and QA cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing and QA cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing and QA cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Review must start between time slots 3 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            3,
+            8
+          ],
+          "nl": "Review must start between time slots 3 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing and QA cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            3,
+            8
+          ],
+          "nl": "Review must start between time slots 3 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Review and QA cannot be simultaneous. Also, Docs must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            5,
+            5
+          ],
+          "nl": "Review must start between time slots 5 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            4,
+            8
+          ],
+          "nl": "Design must start between time slots 4 and 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Refactor",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Testing"
+          ],
+          "nl": "Design must happen before Testing"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            1
+          ],
+          "nl": "Review has duration 1"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            2
+          ],
+          "nl": "Design has duration 2"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Design and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Testing",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Testing"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing and QA cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            3,
+            8
+          ],
+          "nl": "Review must start between time slots 3 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Design"
+          ],
+          "nl": "Docs must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 8,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 2
+        },
+        "Refactor": {
+          "start": 8,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "dev"
+}

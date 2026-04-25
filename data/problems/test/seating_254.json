@@ -1,0 +1,341 @@
+{
+  "problem_id": "seating_254",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Bob",
+    "Sam",
+    "Jack",
+    "Charlie",
+    "Peter",
+    "Karen"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Jack must sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack must sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack must sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Sam": 5,
+        "Jack": 2,
+        "Charlie": 3,
+        "Peter": 6,
+        "Karen": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack and Charlie must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 5,
+        "Sam": 1,
+        "Jack": 6,
+        "Charlie": 3,
+        "Peter": 2,
+        "Karen": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sam must sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam must sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam must sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 1,
+        "Sam": 4,
+        "Jack": 6,
+        "Charlie": 3,
+        "Peter": 2,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sam sits immediately left of Charlie.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam sits immediately left of Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam must sit next to Charlie"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam sits immediately left of Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Sam": 5,
+        "Jack": 1,
+        "Charlie": 4,
+        "Peter": 3,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sam must sit next to Bob.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Bob"
+          ],
+          "nl": "Sam must sit next to Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam must sit next to Charlie"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam sits immediately left of Charlie"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Bob"
+          ],
+          "nl": "Sam must sit next to Bob"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 4,
+        "Sam": 3,
+        "Jack": 5,
+        "Charlie": 2,
+        "Peter": 6,
+        "Karen": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Bob must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            4
+          ],
+          "nl": "Bob must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack must sit next to Bob"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Charlie",
+            2
+          ],
+          "nl": "Jack and Charlie must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam must sit next to Charlie"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Charlie"
+          ],
+          "nl": "Sam sits immediately left of Charlie"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Bob"
+          ],
+          "nl": "Sam must sit next to Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            4
+          ],
+          "nl": "Bob must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 4,
+        "Sam": 3,
+        "Jack": 5,
+        "Charlie": 2,
+        "Peter": 6,
+        "Karen": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

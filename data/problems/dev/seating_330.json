@@ -1,0 +1,541 @@
+{
+  "problem_id": "seating_330",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Charlie",
+    "Liam",
+    "Olivia",
+    "Quinn",
+    "Tina",
+    "Frank",
+    "Ruby",
+    "Noah"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Frank must sit at position 3. Also, Ruby and Olivia must have at least 1 seats between them. Also, Frank and Liam must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Olivia",
+            1
+          ],
+          "nl": "Ruby and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Olivia",
+            1
+          ],
+          "nl": "Ruby and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 8,
+        "Liam": 2,
+        "Olivia": 4,
+        "Quinn": 5,
+        "Tina": 1,
+        "Frank": 3,
+        "Ruby": 6,
+        "Noah": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah must sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah must sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Olivia",
+            1
+          ],
+          "nl": "Ruby and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah must sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 6,
+        "Liam": 4,
+        "Olivia": 2,
+        "Quinn": 7,
+        "Tina": 1,
+        "Frank": 3,
+        "Ruby": 8,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Tina and Liam must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Liam",
+            2
+          ],
+          "nl": "Tina and Liam must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Olivia",
+            1
+          ],
+          "nl": "Ruby and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah must sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Liam",
+            2
+          ],
+          "nl": "Tina and Liam must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 6,
+        "Liam": 2,
+        "Olivia": 8,
+        "Quinn": 5,
+        "Tina": 7,
+        "Frank": 3,
+        "Ruby": 4,
+        "Noah": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Olivia sits immediately left of Tina. Also, Charlie and Frank must have at least 1 seats between them. Also, Olivia must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia sits immediately left of Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Frank",
+            1
+          ],
+          "nl": "Charlie and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Olivia",
+            1
+          ],
+          "nl": "Ruby and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah must sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Liam",
+            2
+          ],
+          "nl": "Tina and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia sits immediately left of Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Frank",
+            1
+          ],
+          "nl": "Charlie and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 5,
+        "Liam": 1,
+        "Olivia": 7,
+        "Quinn": 4,
+        "Tina": 6,
+        "Frank": 3,
+        "Ruby": 2,
+        "Noah": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Noah and Liam must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah and Liam must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Olivia",
+            1
+          ],
+          "nl": "Ruby and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah must sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Liam",
+            2
+          ],
+          "nl": "Tina and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia sits immediately left of Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Frank",
+            1
+          ],
+          "nl": "Charlie and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah and Liam must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 5,
+        "Liam": 1,
+        "Olivia": 7,
+        "Quinn": 8,
+        "Tina": 6,
+        "Frank": 3,
+        "Ruby": 4,
+        "Noah": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Liam must sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Charlie"
+          ],
+          "nl": "Liam must sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Olivia",
+            1
+          ],
+          "nl": "Ruby and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah must sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Tina",
+            "Liam",
+            2
+          ],
+          "nl": "Tina and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia sits immediately left of Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Frank",
+            1
+          ],
+          "nl": "Charlie and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah and Liam must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Charlie"
+          ],
+          "nl": "Liam must sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 8,
+        "Liam": 1,
+        "Olivia": 7,
+        "Quinn": 5,
+        "Tina": 6,
+        "Frank": 3,
+        "Ruby": 4,
+        "Noah": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "dev"
+}

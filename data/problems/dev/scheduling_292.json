@@ -1,0 +1,868 @@
+{
+  "problem_id": "scheduling_292",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "QA",
+    "Planning",
+    "Design",
+    "Docs",
+    "Deploy"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Design must happen before QA. Also, Planning has duration 1.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 0 slots between Docs and Planning. Also, Planning must start at time slot 6. Also, Deploy must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Design"
+          ],
+          "nl": "Deploy must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Design"
+          ],
+          "nl": "Deploy must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Docs has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Design"
+          ],
+          "nl": "Deploy must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Design must start at time slot 5.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            5
+          ],
+          "nl": "Design must start at time slot 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Design"
+          ],
+          "nl": "Deploy must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            5
+          ],
+          "nl": "Design must start at time slot 5"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Design has duration 1. Also, Design and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Docs"
+          ],
+          "nl": "Design and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Design"
+          ],
+          "nl": "Deploy must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            5
+          ],
+          "nl": "Design must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Docs"
+          ],
+          "nl": "Design and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "QA must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Design"
+          ],
+          "nl": "Deploy must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            5
+          ],
+          "nl": "Design must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Docs"
+          ],
+          "nl": "Design and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Design must start between time slots 1 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            8
+          ],
+          "nl": "Design must start between time slots 1 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Design"
+          ],
+          "nl": "Deploy must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            5
+          ],
+          "nl": "Design must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Docs"
+          ],
+          "nl": "Design and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            8
+          ],
+          "nl": "Design must start between time slots 1 and 8"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Planning and QA cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning and QA cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design must happen before QA"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Docs",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Docs and Planning"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            6
+          ],
+          "nl": "Planning must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Design"
+          ],
+          "nl": "Deploy must happen before Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Docs",
+            1
+          ],
+          "nl": "Docs has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            5
+          ],
+          "nl": "Design must start at time slot 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Docs"
+          ],
+          "nl": "Design and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            8
+          ],
+          "nl": "Design must start between time slots 1 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning and QA cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "dev"
+}

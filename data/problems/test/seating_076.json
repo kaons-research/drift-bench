@@ -1,0 +1,323 @@
+{
+  "problem_id": "seating_076",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Tina",
+    "Henry",
+    "Jack",
+    "Eve",
+    "Mia",
+    "Sam",
+    "Karen"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Tina must sit next to Jack. Also, Henry and Eve must have at least 2 seats between them. Also, Eve cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Eve",
+            2
+          ],
+          "nl": "Henry and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Eve",
+            2
+          ],
+          "nl": "Henry and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 7,
+        "Henry": 2,
+        "Jack": 1,
+        "Eve": 6,
+        "Mia": 4,
+        "Sam": 3,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack and Karen must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Karen",
+            1
+          ],
+          "nl": "Jack and Karen must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Eve",
+            2
+          ],
+          "nl": "Henry and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Karen",
+            1
+          ],
+          "nl": "Jack and Karen must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 4,
+        "Henry": 2,
+        "Jack": 5,
+        "Eve": 6,
+        "Mia": 7,
+        "Sam": 3,
+        "Karen": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Eve must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Eve",
+            2
+          ],
+          "nl": "Henry and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Karen",
+            1
+          ],
+          "nl": "Jack and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 1,
+        "Henry": 2,
+        "Jack": 7,
+        "Eve": 6,
+        "Mia": 5,
+        "Sam": 4,
+        "Karen": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Jack sits immediately left of Tina. Also, Henry cannot sit next to Mia. Also, Jack cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack sits immediately left of Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Mia"
+          ],
+          "nl": "Henry cannot sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Eve",
+            2
+          ],
+          "nl": "Henry and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Karen",
+            1
+          ],
+          "nl": "Jack and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Eve",
+            6
+          ],
+          "nl": "Eve must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Tina"
+          ],
+          "nl": "Jack sits immediately left of Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Mia"
+          ],
+          "nl": "Henry cannot sit next to Mia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Tina": 4,
+        "Henry": 2,
+        "Jack": 5,
+        "Eve": 6,
+        "Mia": 7,
+        "Sam": 3,
+        "Karen": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

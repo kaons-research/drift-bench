@@ -1,0 +1,467 @@
+{
+  "problem_id": "scheduling_220",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Planning",
+    "Docs",
+    "Design",
+    "Review",
+    "Testing",
+    "QA"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing must start at time slot 7. Also, Docs must start between time slots 3 and 8.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            8
+          ],
+          "nl": "Docs must start between time slots 3 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            8
+          ],
+          "nl": "Docs must start between time slots 3 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA has duration 1.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            8
+          ],
+          "nl": "Docs must start between time slots 3 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Docs must start between time slots 7 and 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            7
+          ],
+          "nl": "Docs must start between time slots 7 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            8
+          ],
+          "nl": "Docs must start between time slots 3 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            7
+          ],
+          "nl": "Docs must start between time slots 7 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Review and QA cannot be simultaneous. Also, Docs must start between time slots 1 and 10. Also, QA must start between time slots 1 and 8.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            10
+          ],
+          "nl": "Docs must start between time slots 1 and 10"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            1,
+            8
+          ],
+          "nl": "QA must start between time slots 1 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            8
+          ],
+          "nl": "Docs must start between time slots 3 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            7
+          ],
+          "nl": "Docs must start between time slots 7 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            10
+          ],
+          "nl": "Docs must start between time slots 1 and 10"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            1,
+            8
+          ],
+          "nl": "QA must start between time slots 1 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "QA must start between time slots 3 and 8.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            8
+          ],
+          "nl": "QA must start between time slots 3 and 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Testing",
+            7
+          ],
+          "nl": "Testing must start at time slot 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            8
+          ],
+          "nl": "Docs must start between time slots 3 and 8"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            7,
+            7
+          ],
+          "nl": "Docs must start between time slots 7 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            1,
+            10
+          ],
+          "nl": "Docs must start between time slots 1 and 10"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            1,
+            8
+          ],
+          "nl": "QA must start between time slots 1 and 8"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            3,
+            8
+          ],
+          "nl": "QA must start between time slots 3 and 8"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 4,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

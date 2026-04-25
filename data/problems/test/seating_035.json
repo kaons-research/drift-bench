@@ -1,0 +1,337 @@
+{
+  "problem_id": "seating_035",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Charlie",
+    "Karen",
+    "Peter",
+    "Frank",
+    "Ruby",
+    "Noah",
+    "Liam",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Frank must sit next to Noah. Also, Charlie and Noah must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            3
+          ],
+          "nl": "Charlie and Noah must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            3
+          ],
+          "nl": "Charlie and Noah must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 5,
+        "Karen": 7,
+        "Peter": 2,
+        "Frank": 8,
+        "Ruby": 4,
+        "Noah": 1,
+        "Liam": 3,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Ruby must sit next to Olivia. Also, Noah must sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby must sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            3
+          ],
+          "nl": "Charlie and Noah must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby must sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 5,
+        "Karen": 6,
+        "Peter": 4,
+        "Frank": 8,
+        "Ruby": 2,
+        "Noah": 1,
+        "Liam": 7,
+        "Olivia": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Karen and Olivia must have at least 2 seats between them. Also, Liam must sit at position 3. Also, Noah cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Olivia",
+            2
+          ],
+          "nl": "Karen and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            3
+          ],
+          "nl": "Liam must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            3
+          ],
+          "nl": "Charlie and Noah must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby must sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Olivia",
+            2
+          ],
+          "nl": "Karen and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            3
+          ],
+          "nl": "Liam must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 5,
+        "Karen": 4,
+        "Peter": 6,
+        "Frank": 2,
+        "Ruby": 8,
+        "Noah": 1,
+        "Liam": 3,
+        "Olivia": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Peter and Frank must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Frank",
+            2
+          ],
+          "nl": "Peter and Frank must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Noah"
+          ],
+          "nl": "Frank must sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Noah",
+            3
+          ],
+          "nl": "Charlie and Noah must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby must sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Olivia",
+            2
+          ],
+          "nl": "Karen and Olivia must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            3
+          ],
+          "nl": "Liam must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Charlie"
+          ],
+          "nl": "Noah cannot sit next to Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Peter",
+            "Frank",
+            2
+          ],
+          "nl": "Peter and Frank must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Charlie": 4,
+        "Karen": 2,
+        "Peter": 5,
+        "Frank": 1,
+        "Ruby": 7,
+        "Noah": 8,
+        "Liam": 3,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

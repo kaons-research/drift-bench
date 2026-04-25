@@ -1,0 +1,1211 @@
+{
+  "problem_id": "scheduling_167",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Testing",
+    "Design",
+    "Planning",
+    "Sync",
+    "Refactor"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Refactor must start between time slots 6 and 9. Also, There must be at least 1 slots between Planning and Design.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Planning must start between time slots 6 and 9. Also, Refactor must start at time slot 6. Also, Sync and Design cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Design must start at time slot 4. Also, Testing must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            4
+          ],
+          "nl": "Design must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            4
+          ],
+          "nl": "Design must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Testing must happen before Refactor. Also, Design must happen before Planning.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            4
+          ],
+          "nl": "Design must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync must happen before Testing.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            4
+          ],
+          "nl": "Design must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 6,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 0 slots between Design and Refactor. Also, There must be at least 1 slots between Refactor and Planning.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Planning"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            4
+          ],
+          "nl": "Design must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Planning"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Testing must start between time slots 1 and 8. Also, Refactor and Testing cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            8
+          ],
+          "nl": "Testing must start between time slots 1 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Testing"
+          ],
+          "nl": "Refactor and Testing cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            4
+          ],
+          "nl": "Design must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            8
+          ],
+          "nl": "Testing must start between time slots 1 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Testing"
+          ],
+          "nl": "Refactor and Testing cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 8,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Testing must happen before Planning. Also, Refactor has duration 2.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            4
+          ],
+          "nl": "Design must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            8
+          ],
+          "nl": "Testing must start between time slots 1 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Testing"
+          ],
+          "nl": "Refactor and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Sync must happen before Refactor.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            6,
+            9
+          ],
+          "nl": "Refactor must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "Design",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Planning and Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            6,
+            9
+          ],
+          "nl": "Planning must start between time slots 6 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync and Design cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            4
+          ],
+          "nl": "Design must start at time slot 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Design"
+          ],
+          "nl": "Testing must happen before Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Refactor"
+          ],
+          "nl": "Testing must happen before Refactor"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Planning"
+          ],
+          "nl": "Design must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Testing"
+          ],
+          "nl": "Sync must happen before Testing"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Refactor",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Refactor"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Refactor",
+            "Planning",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Refactor and Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            8
+          ],
+          "nl": "Testing must start between time slots 1 and 8"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Testing"
+          ],
+          "nl": "Refactor and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Planning"
+          ],
+          "nl": "Testing must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Refactor",
+            2
+          ],
+          "nl": "Refactor has duration 2"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Refactor"
+          ],
+          "nl": "Sync must happen before Refactor"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 2
+        },
+        "Planning": {
+          "start": 9,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 2
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

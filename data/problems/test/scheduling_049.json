@@ -1,0 +1,547 @@
+{
+  "problem_id": "scheduling_049",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "QA",
+    "Deploy",
+    "Sync",
+    "Review",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Planning must start between time slots 4 and 6. Also, Sync has duration 2.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            6
+          ],
+          "nl": "Planning must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            6
+          ],
+          "nl": "Planning must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Deploy has duration 1. Also, QA and Review cannot be simultaneous. Also, Review and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            6
+          ],
+          "nl": "Planning must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 2
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sync must start between time slots 6 and 7. Also, QA and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            7
+          ],
+          "nl": "Sync must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            6
+          ],
+          "nl": "Planning must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            7
+          ],
+          "nl": "Sync must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 2
+        },
+        "Review": {
+          "start": 8,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Review must start between time slots 6 and 8. Also, Deploy must happen before QA.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            6,
+            8
+          ],
+          "nl": "Review must start between time slots 6 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            6
+          ],
+          "nl": "Planning must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            7
+          ],
+          "nl": "Sync must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            6,
+            8
+          ],
+          "nl": "Review must start between time slots 6 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 7,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 2
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning must start between time slots 3 and 4. Also, Deploy and Sync cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            4
+          ],
+          "nl": "Planning must start between time slots 3 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            4,
+            6
+          ],
+          "nl": "Planning must start between time slots 4 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            2
+          ],
+          "nl": "Sync has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Sync"
+          ],
+          "nl": "Review and Sync cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            7
+          ],
+          "nl": "Sync must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            6,
+            8
+          ],
+          "nl": "Review must start between time slots 6 and 8"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            3,
+            4
+          ],
+          "nl": "Planning must start between time slots 3 and 4"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy and Sync cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "QA": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 7,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 2
+        },
+        "Review": {
+          "start": 7,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

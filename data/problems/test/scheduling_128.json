@@ -1,0 +1,1025 @@
+{
+  "problem_id": "scheduling_128",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Planning",
+    "Design",
+    "Sync",
+    "Deploy",
+    "QA",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "QA and Review cannot be simultaneous. Also, There must be at least 0 slots between Design and Deploy. Also, Planning has duration 1.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sync must start at time slot 8. Also, There must be at least 0 slots between Sync and Design. Also, QA has duration 1.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            8
+          ],
+          "nl": "Sync must start at time slot 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            8
+          ],
+          "nl": "Sync must start at time slot 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Deploy and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            8
+          ],
+          "nl": "Sync must start at time slot 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "QA must start at time slot 6.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            8
+          ],
+          "nl": "Sync must start at time slot 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 2 slots between Review and QA. Also, There must be at least 0 slots between Review and Deploy.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            8
+          ],
+          "nl": "Sync must start at time slot 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Deploy has duration 2.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            8
+          ],
+          "nl": "Sync must start at time slot 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Sync and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            8
+          ],
+          "nl": "Sync must start at time slot 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 2
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "There must be at least 2 slots between Deploy and Sync. Also, There must be at least 0 slots between Sync and Planning. Also, Design must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA and Review cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Planning",
+            1
+          ],
+          "nl": "Planning has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Sync",
+            8
+          ],
+          "nl": "Sync must start at time slot 8"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Design",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Design"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Planning"
+          ],
+          "nl": "Deploy and Planning cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            6
+          ],
+          "nl": "QA must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Review and QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Sync",
+            "Planning"
+          ],
+          "nl": "Sync and Planning cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Sync",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Sync"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Sync",
+            "Planning",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Sync and Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 2
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

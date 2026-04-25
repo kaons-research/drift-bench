@@ -1,0 +1,1513 @@
+{
+  "problem_id": "scheduling_147",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Deploy",
+    "Docs",
+    "Testing",
+    "Meeting",
+    "QA"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing must happen before Deploy. Also, QA has duration 1. Also, QA must start at time slot 5.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "QA must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing must happen before QA. Also, There must be at least 2 slots between Deploy and Docs.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Deploy must start between time slots 2 and 4. Also, Testing has duration 1. Also, Meeting must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            4
+          ],
+          "nl": "Deploy must start between time slots 2 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            4
+          ],
+          "nl": "Deploy must start between time slots 2 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 7,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Docs must start between time slots 3 and 7. Also, Deploy and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            7
+          ],
+          "nl": "Docs must start between time slots 3 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            4
+          ],
+          "nl": "Deploy must start between time slots 2 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            7
+          ],
+          "nl": "Docs must start between time slots 3 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Docs must start between time slots 5 and 6. Also, Testing and Meeting cannot be simultaneous. Also, QA must start between time slots 2 and 6.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            6
+          ],
+          "nl": "Docs must start between time slots 5 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            6
+          ],
+          "nl": "QA must start between time slots 2 and 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            4
+          ],
+          "nl": "Deploy must start between time slots 2 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            7
+          ],
+          "nl": "Docs must start between time slots 3 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            6
+          ],
+          "nl": "Docs must start between time slots 5 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            6
+          ],
+          "nl": "QA must start between time slots 2 and 6"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Deploy must start between time slots 2 and 6.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            6
+          ],
+          "nl": "Deploy must start between time slots 2 and 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            4
+          ],
+          "nl": "Deploy must start between time slots 2 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            7
+          ],
+          "nl": "Docs must start between time slots 3 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            6
+          ],
+          "nl": "Docs must start between time slots 5 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            6
+          ],
+          "nl": "QA must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            6
+          ],
+          "nl": "Deploy must start between time slots 2 and 6"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 2
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Meeting has duration 1. Also, There must be at least 1 slots between Testing and Meeting.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            4
+          ],
+          "nl": "Deploy must start between time slots 2 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            7
+          ],
+          "nl": "Docs must start between time slots 3 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            6
+          ],
+          "nl": "Docs must start between time slots 5 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            6
+          ],
+          "nl": "QA must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            6
+          ],
+          "nl": "Deploy must start between time slots 2 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 2
+        },
+        "Testing": {
+          "start": 2,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "There must be at least 0 slots between Meeting and Deploy. Also, Deploy has duration 2.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            4
+          ],
+          "nl": "Deploy must start between time slots 2 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            7
+          ],
+          "nl": "Docs must start between time slots 3 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            6
+          ],
+          "nl": "Docs must start between time slots 5 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            6
+          ],
+          "nl": "QA must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            6
+          ],
+          "nl": "Deploy must start between time slots 2 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Testing and Docs cannot be simultaneous. Also, Deploy must happen before QA. Also, There must be at least 0 slots between QA and Testing.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Testing"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "QA",
+            1
+          ],
+          "nl": "QA has duration 1"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "QA",
+            5
+          ],
+          "nl": "QA must start at time slot 5"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Docs"
+          ],
+          "nl": "QA must happen before Docs"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Docs",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            4
+          ],
+          "nl": "Deploy must start between time slots 2 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Testing",
+            1
+          ],
+          "nl": "Testing has duration 1"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Docs"
+          ],
+          "nl": "Meeting must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            3,
+            7
+          ],
+          "nl": "Docs must start between time slots 3 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Docs"
+          ],
+          "nl": "Deploy and Docs cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            5,
+            6
+          ],
+          "nl": "Docs must start between time slots 5 and 6"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Meeting"
+          ],
+          "nl": "Testing and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            2,
+            6
+          ],
+          "nl": "QA must start between time slots 2 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            2,
+            6
+          ],
+          "nl": "Deploy must start between time slots 2 and 6"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            1
+          ],
+          "nl": "Meeting has duration 1"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Meeting"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Deploy"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            2
+          ],
+          "nl": "Deploy has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Docs"
+          ],
+          "nl": "Testing and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "QA"
+          ],
+          "nl": "Deploy must happen before QA"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between QA and Testing"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 2
+        },
+        "Docs": {
+          "start": 6,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 4,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 7,
+  "max_duration": 3,
+  "split": "test"
+}

@@ -1,0 +1,1375 @@
+{
+  "problem_id": "scheduling_331",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Testing",
+    "Design",
+    "Sync",
+    "Deploy",
+    "Meeting",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Deploy must start at time slot 4.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Review must start at time slot 9. Also, Testing must start between time slots 3 and 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Review and Testing cannot be simultaneous. Also, Meeting must happen before Deploy.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 0 slots between Review and Sync. Also, Meeting has duration 2. Also, Deploy and Review cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sync has duration 3. Also, Sync must start between time slots 6 and 9. Also, There must be at least 0 slots between Testing and Deploy.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            9
+          ],
+          "nl": "Sync must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            9
+          ],
+          "nl": "Sync must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Design must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            9
+          ],
+          "nl": "Sync must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "There must be at least 0 slots between Design and Review.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            9
+          ],
+          "nl": "Sync must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "There must be at least 1 slots between Design and Meeting. Also, Testing must start between time slots 1 and 4.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            4
+          ],
+          "nl": "Testing must start between time slots 1 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            9
+          ],
+          "nl": "Sync must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            4
+          ],
+          "nl": "Testing must start between time slots 1 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Design has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            9
+          ],
+          "nl": "Sync must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            4
+          ],
+          "nl": "Testing must start between time slots 1 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 5,
+          "duration": 3
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "There must be at least 0 slots between Design and Testing. Also, Deploy must happen before Sync.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy must happen before Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            4
+          ],
+          "nl": "Deploy must start at time slot 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            9
+          ],
+          "nl": "Review must start at time slot 9"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            3,
+            3
+          ],
+          "nl": "Testing must start between time slots 3 and 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Testing"
+          ],
+          "nl": "Review and Testing cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Meeting",
+            "Deploy"
+          ],
+          "nl": "Meeting must happen before Deploy"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "Sync",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Review and Sync"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Meeting",
+            2
+          ],
+          "nl": "Meeting has duration 2"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Review"
+          ],
+          "nl": "Deploy and Review cannot be simultaneous"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Sync",
+            3
+          ],
+          "nl": "Sync has duration 3"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Sync",
+            6,
+            9
+          ],
+          "nl": "Sync must start between time slots 6 and 9"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Deploy",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Design",
+            "Review"
+          ],
+          "nl": "Design must happen before Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Review"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Meeting",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Design and Meeting"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Testing",
+            1,
+            4
+          ],
+          "nl": "Testing must start between time slots 1 and 4"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Design",
+            "Testing",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Design and Testing"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Sync"
+          ],
+          "nl": "Deploy must happen before Sync"
+        }
+      ],
+      "gold_solution": {
+        "Testing": {
+          "start": 3,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 3
+        },
+        "Sync": {
+          "start": 6,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 2
+        },
+        "Review": {
+          "start": 9,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

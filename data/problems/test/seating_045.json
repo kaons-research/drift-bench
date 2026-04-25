@@ -1,0 +1,250 @@
+{
+  "problem_id": "seating_045",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Liam",
+    "Frank",
+    "Alice",
+    "Peter",
+    "Diana",
+    "Grace",
+    "Henry",
+    "Ivy"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Henry cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 5,
+        "Frank": 2,
+        "Alice": 6,
+        "Peter": 1,
+        "Diana": 8,
+        "Grace": 4,
+        "Henry": 3,
+        "Ivy": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Henry cannot sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry cannot sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry cannot sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 7,
+        "Frank": 8,
+        "Alice": 4,
+        "Peter": 5,
+        "Diana": 3,
+        "Grace": 6,
+        "Henry": 2,
+        "Ivy": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana and Frank must have at least 2 seats between them. Also, Frank must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Frank",
+            2
+          ],
+          "nl": "Diana and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry cannot sit next to Grace"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Frank",
+            2
+          ],
+          "nl": "Diana and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 6,
+        "Frank": 3,
+        "Alice": 2,
+        "Peter": 5,
+        "Diana": 8,
+        "Grace": 4,
+        "Henry": 1,
+        "Ivy": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Peter sits immediately left of Grace. Also, Liam cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter sits immediately left of Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry cannot sit next to Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Grace"
+          ],
+          "nl": "Henry cannot sit next to Grace"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Frank",
+            2
+          ],
+          "nl": "Diana and Frank must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Alice"
+          ],
+          "nl": "Frank must sit next to Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Grace"
+          ],
+          "nl": "Peter sits immediately left of Grace"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Ivy"
+          ],
+          "nl": "Liam cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 3,
+        "Frank": 1,
+        "Alice": 2,
+        "Peter": 8,
+        "Diana": 6,
+        "Grace": 7,
+        "Henry": 4,
+        "Ivy": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

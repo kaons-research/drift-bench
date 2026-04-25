@@ -1,0 +1,687 @@
+{
+  "problem_id": "seating_234",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Olivia",
+    "Sam",
+    "Jack",
+    "Grace",
+    "Eve",
+    "Noah"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam must sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 1,
+        "Sam": 4,
+        "Jack": 3,
+        "Grace": 5,
+        "Eve": 6,
+        "Noah": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 3,
+        "Sam": 5,
+        "Jack": 6,
+        "Grace": 2,
+        "Eve": 4,
+        "Noah": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Eve and Jack must sit on the same side of the table. Also, Noah and Jack must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah and Jack must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah and Jack must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 1,
+        "Sam": 3,
+        "Jack": 4,
+        "Grace": 2,
+        "Eve": 6,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve and Jack must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Jack",
+            1
+          ],
+          "nl": "Eve and Jack must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Jack",
+            1
+          ],
+          "nl": "Eve and Jack must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 2,
+        "Sam": 3,
+        "Jack": 4,
+        "Grace": 1,
+        "Eve": 6,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Jack and Sam must sit on opposite sides of the table. Also, Grace sits immediately left of Olivia.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Jack",
+            1
+          ],
+          "nl": "Eve and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Sam": 6,
+        "Jack": 1,
+        "Grace": 5,
+        "Eve": 3,
+        "Noah": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Eve cannot sit next to Sam. Also, Sam and Eve must sit on opposite sides of the table. Also, Grace and Olivia must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace and Olivia must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Jack",
+            1
+          ],
+          "nl": "Eve and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace and Olivia must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Sam": 6,
+        "Jack": 1,
+        "Grace": 5,
+        "Eve": 3,
+        "Noah": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Eve and Olivia must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Jack",
+            1
+          ],
+          "nl": "Eve and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 1,
+        "Sam": 3,
+        "Jack": 4,
+        "Grace": 2,
+        "Eve": 6,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Grace and Noah must sit on opposite sides of the table. Also, Olivia and Noah must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam must sit next to Jack"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah sits immediately left of Jack"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Noah",
+            "Jack"
+          ],
+          "nl": "Noah and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Jack",
+            1
+          ],
+          "nl": "Eve and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack and Sam must sit on opposite sides of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace sits immediately left of Olivia"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Eve",
+            "Sam"
+          ],
+          "nl": "Eve cannot sit next to Sam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam and Eve must sit on opposite sides of the table"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace and Olivia must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve and Olivia must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace and Noah must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Noah"
+          ],
+          "nl": "Olivia and Noah must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Sam": 6,
+        "Jack": 1,
+        "Grace": 5,
+        "Eve": 3,
+        "Noah": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

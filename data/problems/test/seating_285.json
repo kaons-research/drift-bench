@@ -1,0 +1,292 @@
+{
+  "problem_id": "seating_285",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Peter",
+    "Bob",
+    "Mia",
+    "Grace",
+    "Henry",
+    "Sam",
+    "Olivia",
+    "Jack"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob sits immediately left of Peter. Also, Sam and Mia must have at least 3 seats between them. Also, Peter cannot sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            3
+          ],
+          "nl": "Sam and Mia must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            3
+          ],
+          "nl": "Sam and Mia must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 2,
+        "Bob": 3,
+        "Mia": 5,
+        "Grace": 7,
+        "Henry": 8,
+        "Sam": 1,
+        "Olivia": 4,
+        "Jack": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Grace sits immediately left of Sam.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace sits immediately left of Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            3
+          ],
+          "nl": "Sam and Mia must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace sits immediately left of Sam"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 8,
+        "Bob": 1,
+        "Mia": 7,
+        "Grace": 4,
+        "Henry": 2,
+        "Sam": 3,
+        "Olivia": 5,
+        "Jack": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            3
+          ],
+          "nl": "Sam and Mia must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace sits immediately left of Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 2,
+        "Bob": 3,
+        "Mia": 1,
+        "Grace": 6,
+        "Henry": 8,
+        "Sam": 5,
+        "Olivia": 4,
+        "Jack": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Jack cannot sit next to Grace.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Grace"
+          ],
+          "nl": "Jack cannot sit next to Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob sits immediately left of Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            3
+          ],
+          "nl": "Sam and Mia must have at least 3 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Sam"
+          ],
+          "nl": "Grace sits immediately left of Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Sam"
+          ],
+          "nl": "Henry cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Grace"
+          ],
+          "nl": "Jack cannot sit next to Grace"
+        }
+      ],
+      "gold_solution": {
+        "Peter": 3,
+        "Bob": 4,
+        "Mia": 2,
+        "Grace": 7,
+        "Henry": 8,
+        "Sam": 6,
+        "Olivia": 1,
+        "Jack": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

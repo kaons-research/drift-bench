@@ -1,0 +1,954 @@
+{
+  "problem_id": "seating_207",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Alice",
+    "Peter",
+    "Quinn",
+    "Grace",
+    "Mia",
+    "Jack",
+    "Charlie",
+    "Noah"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Jack and Quinn must have at least 1 seats between them. Also, Grace cannot sit next to Noah. Also, Jack and Peter must have at least 3 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 8,
+        "Peter": 6,
+        "Quinn": 7,
+        "Grace": 5,
+        "Mia": 1,
+        "Jack": 2,
+        "Charlie": 4,
+        "Noah": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Alice and Jack must sit on the same side of the table. Also, Grace cannot sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 3,
+        "Peter": 5,
+        "Quinn": 7,
+        "Grace": 6,
+        "Mia": 2,
+        "Jack": 1,
+        "Charlie": 4,
+        "Noah": 8
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie and Quinn must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Quinn"
+          ],
+          "nl": "Charlie and Quinn must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Quinn"
+          ],
+          "nl": "Charlie and Quinn must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 4,
+        "Peter": 5,
+        "Quinn": 3,
+        "Grace": 7,
+        "Mia": 8,
+        "Jack": 1,
+        "Charlie": 6,
+        "Noah": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Noah cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Quinn"
+          ],
+          "nl": "Charlie and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Peter": 8,
+        "Quinn": 7,
+        "Grace": 3,
+        "Mia": 5,
+        "Jack": 4,
+        "Charlie": 2,
+        "Noah": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Jack and Charlie must sit on the same side of the table. Also, Mia must sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Noah"
+          ],
+          "nl": "Mia must sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Quinn"
+          ],
+          "nl": "Charlie and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Noah"
+          ],
+          "nl": "Mia must sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 4,
+        "Peter": 7,
+        "Quinn": 5,
+        "Grace": 6,
+        "Mia": 8,
+        "Jack": 3,
+        "Charlie": 2,
+        "Noah": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Grace cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Quinn"
+          ],
+          "nl": "Charlie and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Noah"
+          ],
+          "nl": "Mia must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 5,
+        "Peter": 2,
+        "Quinn": 1,
+        "Grace": 7,
+        "Mia": 3,
+        "Jack": 6,
+        "Charlie": 8,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Peter sits immediately left of Quinn. Also, Jack sits immediately left of Alice.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter sits immediately left of Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack sits immediately left of Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Quinn"
+          ],
+          "nl": "Charlie and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Noah"
+          ],
+          "nl": "Mia must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter sits immediately left of Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack sits immediately left of Alice"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 5,
+        "Peter": 2,
+        "Quinn": 1,
+        "Grace": 7,
+        "Mia": 3,
+        "Jack": 6,
+        "Charlie": 8,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Quinn and Grace must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Grace"
+          ],
+          "nl": "Quinn and Grace must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Quinn"
+          ],
+          "nl": "Charlie and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Noah"
+          ],
+          "nl": "Mia must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter sits immediately left of Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack sits immediately left of Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Grace"
+          ],
+          "nl": "Quinn and Grace must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Peter": 7,
+        "Quinn": 6,
+        "Grace": 8,
+        "Mia": 5,
+        "Jack": 3,
+        "Charlie": 1,
+        "Noah": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Quinn cannot sit next to Mia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn cannot sit next to Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Quinn",
+            1
+          ],
+          "nl": "Jack and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Noah"
+          ],
+          "nl": "Grace cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Peter",
+            3
+          ],
+          "nl": "Jack and Peter must have at least 3 seats between them"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Alice",
+            "Jack"
+          ],
+          "nl": "Alice and Jack must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Alice"
+          ],
+          "nl": "Grace cannot sit next to Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Charlie",
+            "Quinn"
+          ],
+          "nl": "Charlie and Quinn must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack and Charlie must sit on the same side of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Noah"
+          ],
+          "nl": "Mia must sit next to Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Quinn"
+          ],
+          "nl": "Peter sits immediately left of Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Alice"
+          ],
+          "nl": "Jack sits immediately left of Alice"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Quinn",
+            "Grace"
+          ],
+          "nl": "Quinn and Grace must sit on the same side of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn cannot sit next to Mia"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Peter": 7,
+        "Quinn": 6,
+        "Grace": 8,
+        "Mia": 4,
+        "Jack": 3,
+        "Charlie": 1,
+        "Noah": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "test"
+}

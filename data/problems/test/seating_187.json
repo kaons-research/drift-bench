@@ -1,0 +1,386 @@
+{
+  "problem_id": "seating_187",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Ivy",
+    "Olivia",
+    "Sam",
+    "Henry",
+    "Jack",
+    "Peter",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Eve must sit next to Peter. Also, Peter must sit at position 5. Also, Olivia sits immediately left of Eve.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve must sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            5
+          ],
+          "nl": "Peter must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Eve"
+          ],
+          "nl": "Olivia sits immediately left of Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve must sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            5
+          ],
+          "nl": "Peter must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Eve"
+          ],
+          "nl": "Olivia sits immediately left of Eve"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 1,
+        "Olivia": 7,
+        "Sam": 3,
+        "Henry": 2,
+        "Jack": 4,
+        "Peter": 5,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Sam cannot sit next to Eve.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve must sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            5
+          ],
+          "nl": "Peter must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Eve"
+          ],
+          "nl": "Olivia sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Olivia": 7,
+        "Sam": 1,
+        "Henry": 4,
+        "Jack": 2,
+        "Peter": 5,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Eve and Sam must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Sam",
+            2
+          ],
+          "nl": "Eve and Sam must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve must sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            5
+          ],
+          "nl": "Peter must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Eve"
+          ],
+          "nl": "Olivia sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Sam",
+            2
+          ],
+          "nl": "Eve and Sam must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 1,
+        "Olivia": 7,
+        "Sam": 2,
+        "Henry": 4,
+        "Jack": 3,
+        "Peter": 5,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Henry must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve must sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            5
+          ],
+          "nl": "Peter must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Eve"
+          ],
+          "nl": "Olivia sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Sam",
+            2
+          ],
+          "nl": "Eve and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 3,
+        "Olivia": 7,
+        "Sam": 2,
+        "Henry": 1,
+        "Jack": 4,
+        "Peter": 5,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Sam cannot sit next to Ivy. Also, Sam and Peter must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Ivy"
+          ],
+          "nl": "Sam cannot sit next to Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Peter",
+            2
+          ],
+          "nl": "Sam and Peter must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Peter"
+          ],
+          "nl": "Eve must sit next to Peter"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            5
+          ],
+          "nl": "Peter must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Eve"
+          ],
+          "nl": "Olivia sits immediately left of Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Eve"
+          ],
+          "nl": "Sam cannot sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Sam",
+            2
+          ],
+          "nl": "Eve and Sam must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Ivy"
+          ],
+          "nl": "Sam cannot sit next to Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Peter",
+            2
+          ],
+          "nl": "Sam and Peter must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Ivy": 4,
+        "Olivia": 7,
+        "Sam": 2,
+        "Henry": 1,
+        "Jack": 3,
+        "Peter": 5,
+        "Eve": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

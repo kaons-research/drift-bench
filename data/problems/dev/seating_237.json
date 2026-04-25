@@ -1,0 +1,592 @@
+{
+  "problem_id": "seating_237",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Frank",
+    "Bob",
+    "Eve",
+    "Ivy",
+    "Peter",
+    "Ruby",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob must sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 2,
+        "Bob": 1,
+        "Eve": 3,
+        "Ivy": 5,
+        "Peter": 7,
+        "Ruby": 4,
+        "Henry": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Peter sits immediately left of Ruby.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter sits immediately left of Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter sits immediately left of Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 7,
+        "Bob": 4,
+        "Eve": 6,
+        "Ivy": 5,
+        "Peter": 3,
+        "Ruby": 2,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Ruby sits immediately left of Ivy.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby sits immediately left of Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter sits immediately left of Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby sits immediately left of Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 1,
+        "Bob": 6,
+        "Eve": 7,
+        "Ivy": 3,
+        "Peter": 5,
+        "Ruby": 4,
+        "Henry": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Henry must sit at position 7. Also, Eve must sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            7
+          ],
+          "nl": "Henry must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Henry"
+          ],
+          "nl": "Eve must sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter sits immediately left of Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            7
+          ],
+          "nl": "Henry must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Henry"
+          ],
+          "nl": "Eve must sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Bob": 5,
+        "Eve": 1,
+        "Ivy": 2,
+        "Peter": 4,
+        "Ruby": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Frank and Ivy must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Ivy",
+            2
+          ],
+          "nl": "Frank and Ivy must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter sits immediately left of Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            7
+          ],
+          "nl": "Henry must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Henry"
+          ],
+          "nl": "Eve must sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Ivy",
+            2
+          ],
+          "nl": "Frank and Ivy must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Bob": 4,
+        "Eve": 6,
+        "Ivy": 1,
+        "Peter": 3,
+        "Ruby": 2,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Ruby and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Frank",
+            1
+          ],
+          "nl": "Ruby and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter sits immediately left of Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            7
+          ],
+          "nl": "Henry must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Henry"
+          ],
+          "nl": "Eve must sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Ivy",
+            2
+          ],
+          "nl": "Frank and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Frank",
+            1
+          ],
+          "nl": "Ruby and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 5,
+        "Bob": 4,
+        "Eve": 6,
+        "Ivy": 1,
+        "Peter": 3,
+        "Ruby": 2,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Eve and Peter must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            1
+          ],
+          "nl": "Eve and Peter must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter sits immediately left of Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            7
+          ],
+          "nl": "Henry must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Henry"
+          ],
+          "nl": "Eve must sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Ivy",
+            2
+          ],
+          "nl": "Frank and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Frank",
+            1
+          ],
+          "nl": "Ruby and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            1
+          ],
+          "nl": "Eve and Peter must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Bob": 5,
+        "Eve": 1,
+        "Ivy": 2,
+        "Peter": 4,
+        "Ruby": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Henry cannot sit next to Ruby. Also, Bob and Eve must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Ruby"
+          ],
+          "nl": "Henry cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Eve",
+            2
+          ],
+          "nl": "Bob and Eve must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Peter"
+          ],
+          "nl": "Bob must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Peter",
+            "Ruby"
+          ],
+          "nl": "Peter sits immediately left of Ruby"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Ivy"
+          ],
+          "nl": "Ruby sits immediately left of Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            7
+          ],
+          "nl": "Henry must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Henry"
+          ],
+          "nl": "Eve must sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Ivy",
+            2
+          ],
+          "nl": "Frank and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Frank",
+            1
+          ],
+          "nl": "Ruby and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            1
+          ],
+          "nl": "Eve and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Ruby"
+          ],
+          "nl": "Henry cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Eve",
+            2
+          ],
+          "nl": "Bob and Eve must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 6,
+        "Bob": 5,
+        "Eve": 1,
+        "Ivy": 2,
+        "Peter": 4,
+        "Ruby": 3,
+        "Henry": 7
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

@@ -1,0 +1,647 @@
+{
+  "problem_id": "scheduling_216",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Design",
+    "Planning",
+    "Meeting",
+    "Docs",
+    "Refactor",
+    "QA"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Refactor must start between time slots 2 and 5. Also, Design must start between time slots 6 and 7. Also, Refactor and Docs cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            5
+          ],
+          "nl": "Refactor must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            5
+          ],
+          "nl": "Refactor must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 7,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Docs must happen before Planning. Also, Design has duration 1. Also, Refactor must start between time slots 2 and 9.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            9
+          ],
+          "nl": "Refactor must start between time slots 2 and 9"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            5
+          ],
+          "nl": "Refactor must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            9
+          ],
+          "nl": "Refactor must start between time slots 2 and 9"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 4,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Planning must start at time slot 5. Also, Planning and QA cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            5
+          ],
+          "nl": "Planning must start at time slot 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning and QA cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            5
+          ],
+          "nl": "Refactor must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            9
+          ],
+          "nl": "Refactor must start between time slots 2 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            5
+          ],
+          "nl": "Planning must start at time slot 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning and QA cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "There must be at least 0 slots between Planning and QA. Also, QA must happen before Planning. Also, Refactor must happen before Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            5
+          ],
+          "nl": "Refactor must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            9
+          ],
+          "nl": "Refactor must start between time slots 2 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            5
+          ],
+          "nl": "Planning must start at time slot 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 3,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Design must start at time slot 6. Also, Meeting must start between time slots 6 and 10.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            6
+          ],
+          "nl": "Design must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            6,
+            10
+          ],
+          "nl": "Meeting must start between time slots 6 and 10"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            5
+          ],
+          "nl": "Refactor must start between time slots 2 and 5"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            6,
+            7
+          ],
+          "nl": "Design must start between time slots 6 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Refactor",
+            "Docs"
+          ],
+          "nl": "Refactor and Docs cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Docs",
+            "Planning"
+          ],
+          "nl": "Docs must happen before Planning"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            1
+          ],
+          "nl": "Design has duration 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Refactor",
+            2,
+            9
+          ],
+          "nl": "Refactor must start between time slots 2 and 9"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Planning",
+            5
+          ],
+          "nl": "Planning must start at time slot 5"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "QA"
+          ],
+          "nl": "Planning and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Planning",
+            "QA",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Planning and QA"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Refactor",
+            "Meeting"
+          ],
+          "nl": "Refactor must happen before Meeting"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            6
+          ],
+          "nl": "Design must start at time slot 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            6,
+            10
+          ],
+          "nl": "Meeting must start between time slots 6 and 10"
+        }
+      ],
+      "gold_solution": {
+        "Design": {
+          "start": 6,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 10,
+  "max_duration": 3,
+  "split": "test"
+}

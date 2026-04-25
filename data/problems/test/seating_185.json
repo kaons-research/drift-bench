@@ -1,0 +1,940 @@
+{
+  "problem_id": "seating_185",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Alice",
+    "Noah",
+    "Liam",
+    "Jack",
+    "Peter",
+    "Eve",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Liam and Alice must have at least 1 seats between them. Also, Henry must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 3,
+        "Noah": 2,
+        "Liam": 7,
+        "Jack": 5,
+        "Peter": 4,
+        "Eve": 6,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Liam sits immediately left of Eve.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Noah": 4,
+        "Liam": 7,
+        "Jack": 3,
+        "Peter": 5,
+        "Eve": 6,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Henry sits immediately left of Noah. Also, Peter cannot sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Noah": 7,
+        "Liam": 6,
+        "Jack": 3,
+        "Peter": 4,
+        "Eve": 5,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Alice must sit next to Eve.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 4,
+        "Noah": 7,
+        "Liam": 6,
+        "Jack": 2,
+        "Peter": 3,
+        "Eve": 5,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Jack and Alice must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Noah": 7,
+        "Liam": 4,
+        "Jack": 6,
+        "Peter": 5,
+        "Eve": 3,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Noah and Liam must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Liam",
+            1
+          ],
+          "nl": "Noah and Liam must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Liam",
+            1
+          ],
+          "nl": "Noah and Liam must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Noah": 7,
+        "Liam": 4,
+        "Jack": 6,
+        "Peter": 5,
+        "Eve": 3,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Noah and Eve must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Eve",
+            1
+          ],
+          "nl": "Noah and Eve must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Liam",
+            1
+          ],
+          "nl": "Noah and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Eve",
+            1
+          ],
+          "nl": "Noah and Eve must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Noah": 7,
+        "Liam": 4,
+        "Jack": 6,
+        "Peter": 5,
+        "Eve": 3,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Eve and Peter must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            2
+          ],
+          "nl": "Eve and Peter must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Liam",
+            1
+          ],
+          "nl": "Noah and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Eve",
+            1
+          ],
+          "nl": "Noah and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            2
+          ],
+          "nl": "Eve and Peter must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Noah": 7,
+        "Liam": 4,
+        "Jack": 5,
+        "Peter": 6,
+        "Eve": 3,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Jack and Eve must have at least 1 seats between them. Also, Liam cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Eve",
+            1
+          ],
+          "nl": "Jack and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Liam",
+            1
+          ],
+          "nl": "Noah and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Eve",
+            1
+          ],
+          "nl": "Noah and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            2
+          ],
+          "nl": "Eve and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Eve",
+            1
+          ],
+          "nl": "Jack and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Noah": 7,
+        "Liam": 4,
+        "Jack": 5,
+        "Peter": 6,
+        "Eve": 3,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Liam and Peter must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Alice",
+            1
+          ],
+          "nl": "Liam and Alice must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            1
+          ],
+          "nl": "Henry must sit at position 1"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Eve"
+          ],
+          "nl": "Liam sits immediately left of Eve"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Noah"
+          ],
+          "nl": "Henry sits immediately left of Noah"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Henry"
+          ],
+          "nl": "Peter cannot sit next to Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Alice",
+            2
+          ],
+          "nl": "Jack and Alice must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Liam",
+            1
+          ],
+          "nl": "Noah and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Noah",
+            "Eve",
+            1
+          ],
+          "nl": "Noah and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            2
+          ],
+          "nl": "Eve and Peter must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Eve",
+            1
+          ],
+          "nl": "Jack and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Noah"
+          ],
+          "nl": "Liam cannot sit next to Noah"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Peter",
+            1
+          ],
+          "nl": "Liam and Peter must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 2,
+        "Noah": 7,
+        "Liam": 4,
+        "Jack": 5,
+        "Peter": 6,
+        "Eve": 3,
+        "Henry": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

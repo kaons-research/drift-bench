@@ -1,0 +1,1020 @@
+{
+  "problem_id": "seating_127",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Olivia",
+    "Henry",
+    "Grace",
+    "Quinn",
+    "Frank",
+    "Alice"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Grace cannot sit next to Henry. Also, Henry cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 5,
+        "Henry": 4,
+        "Grace": 1,
+        "Quinn": 6,
+        "Frank": 2,
+        "Alice": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank must sit next to Grace. Also, Quinn must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 1,
+        "Henry": 4,
+        "Grace": 6,
+        "Quinn": 2,
+        "Frank": 5,
+        "Alice": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Frank must sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 2,
+        "Henry": 3,
+        "Grace": 1,
+        "Quinn": 5,
+        "Frank": 6,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Quinn cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 2,
+        "Henry": 3,
+        "Grace": 1,
+        "Quinn": 5,
+        "Frank": 6,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Henry and Frank must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 4,
+        "Henry": 5,
+        "Grace": 3,
+        "Quinn": 1,
+        "Frank": 2,
+        "Alice": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Henry must sit at position 5. Also, Olivia must sit at position 6. Also, Grace and Henry must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            5
+          ],
+          "nl": "Henry must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Henry",
+            1
+          ],
+          "nl": "Grace and Henry must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            5
+          ],
+          "nl": "Henry must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Henry",
+            1
+          ],
+          "nl": "Grace and Henry must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 6,
+        "Henry": 5,
+        "Grace": 1,
+        "Quinn": 3,
+        "Frank": 2,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Alice sits immediately left of Quinn.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            5
+          ],
+          "nl": "Henry must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Henry",
+            1
+          ],
+          "nl": "Grace and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 6,
+        "Henry": 5,
+        "Grace": 1,
+        "Quinn": 3,
+        "Frank": 2,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Olivia cannot sit next to Frank. Also, Alice and Grace must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Grace",
+            1
+          ],
+          "nl": "Alice and Grace must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            5
+          ],
+          "nl": "Henry must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Henry",
+            1
+          ],
+          "nl": "Grace and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Grace",
+            1
+          ],
+          "nl": "Alice and Grace must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 6,
+        "Henry": 5,
+        "Grace": 1,
+        "Quinn": 3,
+        "Frank": 2,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Henry must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            5
+          ],
+          "nl": "Henry must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Henry",
+            1
+          ],
+          "nl": "Grace and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Grace",
+            1
+          ],
+          "nl": "Alice and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 6,
+        "Henry": 5,
+        "Grace": 1,
+        "Quinn": 3,
+        "Frank": 2,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Alice must sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice must sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Henry"
+          ],
+          "nl": "Grace cannot sit next to Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry cannot sit next to Quinn"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Grace"
+          ],
+          "nl": "Frank must sit next to Grace"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Alice"
+          ],
+          "nl": "Quinn must sit next to Alice"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Frank",
+            "Quinn"
+          ],
+          "nl": "Frank must sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Olivia"
+          ],
+          "nl": "Quinn cannot sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Henry",
+            "Frank",
+            1
+          ],
+          "nl": "Henry and Frank must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            5
+          ],
+          "nl": "Henry must sit at position 5"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Olivia",
+            6
+          ],
+          "nl": "Olivia must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Henry",
+            1
+          ],
+          "nl": "Grace and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia cannot sit next to Frank"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Grace",
+            1
+          ],
+          "nl": "Alice and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Olivia"
+          ],
+          "nl": "Henry must sit next to Olivia"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice must sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Olivia": 6,
+        "Henry": 5,
+        "Grace": 1,
+        "Quinn": 3,
+        "Frank": 2,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

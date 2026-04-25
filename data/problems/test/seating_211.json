@@ -1,0 +1,1076 @@
+{
+  "problem_id": "seating_211",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Bob",
+    "Jack",
+    "Charlie",
+    "Mia",
+    "Sam",
+    "Tina"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Charlie sits immediately left of Bob.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 4,
+        "Jack": 3,
+        "Charlie": 5,
+        "Mia": 2,
+        "Sam": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Bob must sit at position 2. Also, Mia cannot sit next to Sam. Also, Mia cannot sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Jack": 5,
+        "Charlie": 3,
+        "Mia": 4,
+        "Sam": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Sam and Mia must have at least 1 seats between them. Also, Charlie cannot sit next to Tina. Also, Charlie cannot sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            1
+          ],
+          "nl": "Sam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            1
+          ],
+          "nl": "Sam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Jack": 5,
+        "Charlie": 3,
+        "Mia": 4,
+        "Sam": 6,
+        "Tina": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Jack cannot sit next to Bob. Also, Charlie cannot sit next to Sam. Also, Bob sits immediately left of Sam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            1
+          ],
+          "nl": "Sam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Jack": 5,
+        "Charlie": 3,
+        "Mia": 4,
+        "Sam": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Bob cannot sit next to Mia. Also, Bob and Tina must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Mia"
+          ],
+          "nl": "Bob cannot sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Tina",
+            1
+          ],
+          "nl": "Bob and Tina must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            1
+          ],
+          "nl": "Sam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Mia"
+          ],
+          "nl": "Bob cannot sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Tina",
+            1
+          ],
+          "nl": "Bob and Tina must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Jack": 5,
+        "Charlie": 3,
+        "Mia": 4,
+        "Sam": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Jack sits immediately left of Mia.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Mia"
+          ],
+          "nl": "Jack sits immediately left of Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            1
+          ],
+          "nl": "Sam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Mia"
+          ],
+          "nl": "Bob cannot sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Tina",
+            1
+          ],
+          "nl": "Bob and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Mia"
+          ],
+          "nl": "Jack sits immediately left of Mia"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Jack": 5,
+        "Charlie": 3,
+        "Mia": 4,
+        "Sam": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Mia and Tina must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            1
+          ],
+          "nl": "Mia and Tina must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            1
+          ],
+          "nl": "Sam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Mia"
+          ],
+          "nl": "Bob cannot sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Tina",
+            1
+          ],
+          "nl": "Bob and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Mia"
+          ],
+          "nl": "Jack sits immediately left of Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            1
+          ],
+          "nl": "Mia and Tina must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Jack": 5,
+        "Charlie": 3,
+        "Mia": 4,
+        "Sam": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Tina must sit next to Jack. Also, Charlie must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            1
+          ],
+          "nl": "Sam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Mia"
+          ],
+          "nl": "Bob cannot sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Tina",
+            1
+          ],
+          "nl": "Bob and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Mia"
+          ],
+          "nl": "Jack sits immediately left of Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            1
+          ],
+          "nl": "Mia and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Jack": 5,
+        "Charlie": 3,
+        "Mia": 4,
+        "Sam": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Sam sits immediately left of Tina.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Tina"
+          ],
+          "nl": "Sam sits immediately left of Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Bob"
+          ],
+          "nl": "Charlie sits immediately left of Bob"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Bob",
+            2
+          ],
+          "nl": "Bob must sit at position 2"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Sam"
+          ],
+          "nl": "Mia cannot sit next to Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Tina"
+          ],
+          "nl": "Mia cannot sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Mia",
+            1
+          ],
+          "nl": "Sam and Mia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Tina"
+          ],
+          "nl": "Charlie cannot sit next to Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack cannot sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Bob",
+            "Sam"
+          ],
+          "nl": "Bob sits immediately left of Sam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Mia"
+          ],
+          "nl": "Bob cannot sit next to Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Tina",
+            1
+          ],
+          "nl": "Bob and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Mia"
+          ],
+          "nl": "Jack sits immediately left of Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Tina",
+            1
+          ],
+          "nl": "Mia and Tina must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Tina",
+            "Jack"
+          ],
+          "nl": "Tina must sit next to Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            3
+          ],
+          "nl": "Charlie must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Tina"
+          ],
+          "nl": "Sam sits immediately left of Tina"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Jack": 5,
+        "Charlie": 3,
+        "Mia": 4,
+        "Sam": 1,
+        "Tina": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

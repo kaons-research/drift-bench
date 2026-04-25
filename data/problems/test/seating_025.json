@@ -1,0 +1,718 @@
+{
+  "problem_id": "seating_025",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Grace",
+    "Ivy",
+    "Frank",
+    "Jack",
+    "Sam",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Sam cannot sit next to Grace. Also, Jack must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 4,
+        "Ivy": 2,
+        "Frank": 3,
+        "Jack": 1,
+        "Sam": 6,
+        "Charlie": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack and Ivy must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Ivy": 4,
+        "Frank": 3,
+        "Jack": 1,
+        "Sam": 5,
+        "Charlie": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie cannot sit next to Sam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Ivy": 4,
+        "Frank": 5,
+        "Jack": 1,
+        "Sam": 6,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Grace sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Jack"
+          ],
+          "nl": "Grace sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Jack"
+          ],
+          "nl": "Grace sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Ivy": 4,
+        "Frank": 6,
+        "Jack": 1,
+        "Sam": 5,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Grace and Sam must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Sam",
+            1
+          ],
+          "nl": "Grace and Sam must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Jack"
+          ],
+          "nl": "Grace sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Sam",
+            1
+          ],
+          "nl": "Grace and Sam must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Ivy": 4,
+        "Frank": 6,
+        "Jack": 1,
+        "Sam": 5,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Ivy must sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy must sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Jack"
+          ],
+          "nl": "Grace sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Sam",
+            1
+          ],
+          "nl": "Grace and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy must sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Ivy": 4,
+        "Frank": 5,
+        "Jack": 1,
+        "Sam": 6,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Charlie cannot sit next to Jack.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Jack"
+          ],
+          "nl": "Grace sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Sam",
+            1
+          ],
+          "nl": "Grace and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Ivy": 4,
+        "Frank": 5,
+        "Jack": 1,
+        "Sam": 6,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Ivy and Grace must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Grace",
+            1
+          ],
+          "nl": "Ivy and Grace must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Jack"
+          ],
+          "nl": "Grace sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Sam",
+            1
+          ],
+          "nl": "Grace and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Grace",
+            1
+          ],
+          "nl": "Ivy and Grace must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Ivy": 4,
+        "Frank": 5,
+        "Jack": 1,
+        "Sam": 6,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Sam and Grace must have at least 1 seats between them. Also, Charlie sits immediately left of Grace.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Grace",
+            1
+          ],
+          "nl": "Sam and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Grace"
+          ],
+          "nl": "Charlie sits immediately left of Grace"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Grace"
+          ],
+          "nl": "Sam cannot sit next to Grace"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            1
+          ],
+          "nl": "Jack must sit at position 1"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Ivy",
+            2
+          ],
+          "nl": "Jack and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Sam"
+          ],
+          "nl": "Charlie cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Jack"
+          ],
+          "nl": "Grace sits immediately left of Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Sam",
+            1
+          ],
+          "nl": "Grace and Sam must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Frank"
+          ],
+          "nl": "Ivy must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Jack"
+          ],
+          "nl": "Charlie cannot sit next to Jack"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Grace",
+            1
+          ],
+          "nl": "Ivy and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Grace",
+            1
+          ],
+          "nl": "Sam and Grace must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Grace"
+          ],
+          "nl": "Charlie sits immediately left of Grace"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Ivy": 4,
+        "Frank": 5,
+        "Jack": 1,
+        "Sam": 6,
+        "Charlie": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,977 @@
+{
+  "problem_id": "seating_010",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Jack",
+    "Diana",
+    "Quinn",
+    "Ruby",
+    "Bob",
+    "Karen"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob cannot sit next to Ruby. Also, Diana cannot sit next to Karen. Also, Diana and Ruby must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 3,
+        "Diana": 2,
+        "Quinn": 1,
+        "Ruby": 6,
+        "Bob": 4,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Karen must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 5,
+        "Diana": 2,
+        "Quinn": 3,
+        "Ruby": 4,
+        "Bob": 1,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Diana sits immediately left of Bob. Also, Quinn cannot sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 2,
+        "Diana": 4,
+        "Quinn": 5,
+        "Ruby": 1,
+        "Bob": 3,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Diana and Quinn must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Quinn",
+            1
+          ],
+          "nl": "Diana and Quinn must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Quinn",
+            1
+          ],
+          "nl": "Diana and Quinn must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Diana": 3,
+        "Quinn": 1,
+        "Ruby": 5,
+        "Bob": 2,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Ruby must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            5
+          ],
+          "nl": "Ruby must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Quinn",
+            1
+          ],
+          "nl": "Diana and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            5
+          ],
+          "nl": "Ruby must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Diana": 3,
+        "Quinn": 1,
+        "Ruby": 5,
+        "Bob": 2,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Jack sits immediately left of Diana.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Diana"
+          ],
+          "nl": "Jack sits immediately left of Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Quinn",
+            1
+          ],
+          "nl": "Diana and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            5
+          ],
+          "nl": "Ruby must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Diana"
+          ],
+          "nl": "Jack sits immediately left of Diana"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Diana": 3,
+        "Quinn": 1,
+        "Ruby": 5,
+        "Bob": 2,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Bob cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Karen"
+          ],
+          "nl": "Bob cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Quinn",
+            1
+          ],
+          "nl": "Diana and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            5
+          ],
+          "nl": "Ruby must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Diana"
+          ],
+          "nl": "Jack sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Karen"
+          ],
+          "nl": "Bob cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Diana": 3,
+        "Quinn": 1,
+        "Ruby": 5,
+        "Bob": 2,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Bob must sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob must sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Quinn",
+            1
+          ],
+          "nl": "Diana and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            5
+          ],
+          "nl": "Ruby must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Diana"
+          ],
+          "nl": "Jack sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Karen"
+          ],
+          "nl": "Bob cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob must sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Diana": 3,
+        "Quinn": 1,
+        "Ruby": 5,
+        "Bob": 2,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Bob and Karen must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Karen",
+            1
+          ],
+          "nl": "Bob and Karen must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Quinn",
+            1
+          ],
+          "nl": "Diana and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            5
+          ],
+          "nl": "Ruby must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Diana"
+          ],
+          "nl": "Jack sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Karen"
+          ],
+          "nl": "Bob cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob must sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Karen",
+            1
+          ],
+          "nl": "Bob and Karen must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Diana": 3,
+        "Quinn": 1,
+        "Ruby": 5,
+        "Bob": 2,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 10,
+      "user_message": "Karen must sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen must sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Ruby"
+          ],
+          "nl": "Bob cannot sit next to Ruby"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Karen"
+          ],
+          "nl": "Diana cannot sit next to Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Ruby",
+            1
+          ],
+          "nl": "Diana and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            6
+          ],
+          "nl": "Karen must sit at position 6"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Diana",
+            "Bob"
+          ],
+          "nl": "Diana sits immediately left of Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Ruby"
+          ],
+          "nl": "Quinn cannot sit next to Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Diana",
+            "Quinn",
+            1
+          ],
+          "nl": "Diana and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            5
+          ],
+          "nl": "Ruby must sit at position 5"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Diana"
+          ],
+          "nl": "Jack sits immediately left of Diana"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Karen"
+          ],
+          "nl": "Bob cannot sit next to Karen"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob must sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Bob",
+            "Karen",
+            1
+          ],
+          "nl": "Bob and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Ruby"
+          ],
+          "nl": "Karen must sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Jack": 4,
+        "Diana": 3,
+        "Quinn": 1,
+        "Ruby": 5,
+        "Bob": 2,
+        "Karen": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

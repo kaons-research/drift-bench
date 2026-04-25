@@ -1,0 +1,426 @@
+{
+  "problem_id": "seating_238",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Grace",
+    "Quinn",
+    "Jack",
+    "Sam",
+    "Charlie",
+    "Bob",
+    "Olivia"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Jack sits immediately left of Bob.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack sits immediately left of Bob"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack sits immediately left of Bob"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Quinn": 3,
+        "Jack": 5,
+        "Sam": 6,
+        "Charlie": 1,
+        "Bob": 4,
+        "Olivia": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Quinn sits immediately left of Jack.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack sits immediately left of Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 7,
+        "Quinn": 5,
+        "Jack": 4,
+        "Sam": 6,
+        "Charlie": 2,
+        "Bob": 3,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Jack must sit at position 4. Also, Grace cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack sits immediately left of Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 7,
+        "Quinn": 5,
+        "Jack": 4,
+        "Sam": 6,
+        "Charlie": 1,
+        "Bob": 3,
+        "Olivia": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Jack and Grace must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Grace",
+            2
+          ],
+          "nl": "Jack and Grace must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack sits immediately left of Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Grace",
+            2
+          ],
+          "nl": "Jack and Grace must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 7,
+        "Quinn": 5,
+        "Jack": 4,
+        "Sam": 1,
+        "Charlie": 2,
+        "Bob": 3,
+        "Olivia": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Jack cannot sit next to Sam. Also, Grace sits immediately left of Charlie.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Charlie"
+          ],
+          "nl": "Grace sits immediately left of Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack sits immediately left of Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Grace",
+            2
+          ],
+          "nl": "Jack and Grace must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Charlie"
+          ],
+          "nl": "Grace sits immediately left of Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 7,
+        "Quinn": 5,
+        "Jack": 4,
+        "Sam": 2,
+        "Charlie": 6,
+        "Bob": 3,
+        "Olivia": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Sam must sit at position 6. Also, Bob must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Bob"
+          ],
+          "nl": "Jack sits immediately left of Bob"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Jack"
+          ],
+          "nl": "Quinn sits immediately left of Jack"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Grace",
+            "Quinn"
+          ],
+          "nl": "Grace cannot sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Jack",
+            "Grace",
+            2
+          ],
+          "nl": "Jack and Grace must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Sam"
+          ],
+          "nl": "Jack cannot sit next to Sam"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Charlie"
+          ],
+          "nl": "Grace sits immediately left of Charlie"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Sam",
+            6
+          ],
+          "nl": "Sam must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Bob",
+            "Olivia"
+          ],
+          "nl": "Bob must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 1,
+        "Quinn": 5,
+        "Jack": 4,
+        "Sam": 6,
+        "Charlie": 7,
+        "Bob": 3,
+        "Olivia": 2
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,409 @@
+{
+  "problem_id": "seating_024",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Sam",
+    "Quinn",
+    "Eve",
+    "Peter",
+    "Alice",
+    "Ivy",
+    "Liam"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Liam sits immediately left of Alice. Also, Alice sits immediately left of Quinn. Also, Quinn and Ivy must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam sits immediately left of Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Ivy",
+            1
+          ],
+          "nl": "Quinn and Ivy must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam sits immediately left of Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Ivy",
+            1
+          ],
+          "nl": "Quinn and Ivy must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 5,
+        "Quinn": 2,
+        "Eve": 1,
+        "Peter": 7,
+        "Alice": 3,
+        "Ivy": 6,
+        "Liam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Peter must sit at position 7. Also, Quinn cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            7
+          ],
+          "nl": "Peter must sit at position 7"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam sits immediately left of Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Ivy",
+            1
+          ],
+          "nl": "Quinn and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            7
+          ],
+          "nl": "Peter must sit at position 7"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 5,
+        "Quinn": 2,
+        "Eve": 1,
+        "Peter": 7,
+        "Alice": 3,
+        "Ivy": 6,
+        "Liam": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Eve and Ivy must have at least 2 seats between them. Also, Ivy and Quinn must have at least 1 seats between them. Also, Alice cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Ivy",
+            2
+          ],
+          "nl": "Eve and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Quinn",
+            1
+          ],
+          "nl": "Ivy and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Ivy"
+          ],
+          "nl": "Alice cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam sits immediately left of Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Ivy",
+            1
+          ],
+          "nl": "Quinn and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            7
+          ],
+          "nl": "Peter must sit at position 7"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn cannot sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Ivy",
+            2
+          ],
+          "nl": "Eve and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Quinn",
+            1
+          ],
+          "nl": "Ivy and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Ivy"
+          ],
+          "nl": "Alice cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Quinn": 3,
+        "Eve": 2,
+        "Peter": 7,
+        "Alice": 4,
+        "Ivy": 6,
+        "Liam": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve and Peter must have at least 1 seats between them. Also, Sam and Liam must have at least 2 seats between them. Also, Sam cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            1
+          ],
+          "nl": "Eve and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Liam",
+            2
+          ],
+          "nl": "Sam and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Ivy"
+          ],
+          "nl": "Sam cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam sits immediately left of Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice sits immediately left of Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Ivy",
+            1
+          ],
+          "nl": "Quinn and Ivy must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            7
+          ],
+          "nl": "Peter must sit at position 7"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Peter"
+          ],
+          "nl": "Quinn cannot sit next to Peter"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Ivy",
+            2
+          ],
+          "nl": "Eve and Ivy must have at least 2 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ivy",
+            "Quinn",
+            1
+          ],
+          "nl": "Ivy and Quinn must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Ivy"
+          ],
+          "nl": "Alice cannot sit next to Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Eve",
+            "Peter",
+            1
+          ],
+          "nl": "Eve and Peter must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Sam",
+            "Liam",
+            2
+          ],
+          "nl": "Sam and Liam must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Ivy"
+          ],
+          "nl": "Sam cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Sam": 1,
+        "Quinn": 3,
+        "Eve": 2,
+        "Peter": 7,
+        "Alice": 4,
+        "Ivy": 6,
+        "Liam": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

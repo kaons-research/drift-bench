@@ -1,0 +1,1047 @@
+{
+  "problem_id": "scheduling_150",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Meeting",
+    "Design",
+    "Deploy",
+    "Review",
+    "Docs"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Review has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 2 slots between Deploy and Review. Also, Design must start between time slots 3 and 4.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 4,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Deploy must start at time slot 3. Also, Design has duration 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Design must start at time slot 3.",
+      "new_constraints": [
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "There must be at least 0 slots between Deploy and Review. Also, Review and Design cannot be simultaneous. Also, Deploy must start between time slots 1 and 6.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            6
+          ],
+          "nl": "Deploy must start between time slots 1 and 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            6
+          ],
+          "nl": "Deploy must start between time slots 1 and 6"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Docs must start between time slots 2 and 4.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            4
+          ],
+          "nl": "Docs must start between time slots 2 and 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            6
+          ],
+          "nl": "Deploy must start between time slots 1 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            4
+          ],
+          "nl": "Docs must start between time slots 2 and 4"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Meeting must start between time slots 1 and 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            1,
+            7
+          ],
+          "nl": "Meeting must start between time slots 1 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            6
+          ],
+          "nl": "Deploy must start between time slots 1 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            4
+          ],
+          "nl": "Docs must start between time slots 2 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            1,
+            7
+          ],
+          "nl": "Meeting must start between time slots 1 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Deploy must start between time slots 1 and 4. Also, There must be at least 0 slots between Meeting and Review.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            6
+          ],
+          "nl": "Deploy must start between time slots 1 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            4
+          ],
+          "nl": "Docs must start between time slots 2 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            1,
+            7
+          ],
+          "nl": "Meeting must start between time slots 1 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Review"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Review must start between time slots 1 and 7. Also, Design and Meeting cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            7
+          ],
+          "nl": "Review must start between time slots 1 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Meeting"
+          ],
+          "nl": "Design and Meeting cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            3
+          ],
+          "nl": "Review has duration 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            2
+          ],
+          "nl": "There must be at least 2 slots between Deploy and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            4
+          ],
+          "nl": "Design must start between time slots 3 and 4"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy must start at time slot 3"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design has duration 3"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Design",
+            3
+          ],
+          "nl": "Design must start at time slot 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Deploy",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Deploy and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            6
+          ],
+          "nl": "Deploy must start between time slots 1 and 6"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Docs",
+            2,
+            4
+          ],
+          "nl": "Docs must start between time slots 2 and 4"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Meeting",
+            1,
+            7
+          ],
+          "nl": "Meeting must start between time slots 1 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Deploy",
+            1,
+            4
+          ],
+          "nl": "Deploy must start between time slots 1 and 4"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Meeting",
+            "Review",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Meeting and Review"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            1,
+            7
+          ],
+          "nl": "Review must start between time slots 1 and 7"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "Meeting"
+          ],
+          "nl": "Design and Meeting cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 3
+        },
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 3
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "dev"
+}

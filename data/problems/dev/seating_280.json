@@ -1,0 +1,375 @@
+{
+  "problem_id": "seating_280",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Liam",
+    "Tina",
+    "Charlie",
+    "Peter",
+    "Noah",
+    "Diana"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Diana cannot sit next to Liam.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 2,
+        "Tina": 6,
+        "Charlie": 3,
+        "Peter": 5,
+        "Noah": 1,
+        "Diana": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Noah cannot sit next to Peter.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Tina": 1,
+        "Charlie": 5,
+        "Peter": 3,
+        "Noah": 6,
+        "Diana": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Liam must sit next to Peter. Also, Charlie sits immediately left of Peter.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie sits immediately left of Peter"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie sits immediately left of Peter"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 5,
+        "Tina": 4,
+        "Charlie": 1,
+        "Peter": 6,
+        "Noah": 2,
+        "Diana": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Charlie cannot sit next to Noah.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie sits immediately left of Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 1,
+        "Tina": 5,
+        "Charlie": 3,
+        "Peter": 2,
+        "Noah": 6,
+        "Diana": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Liam must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            1
+          ],
+          "nl": "Liam must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie sits immediately left of Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            1
+          ],
+          "nl": "Liam must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 1,
+        "Tina": 4,
+        "Charlie": 3,
+        "Peter": 2,
+        "Noah": 6,
+        "Diana": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Tina must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            6
+          ],
+          "nl": "Tina must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Liam"
+          ],
+          "nl": "Diana cannot sit next to Liam"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Peter"
+          ],
+          "nl": "Noah cannot sit next to Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Peter"
+          ],
+          "nl": "Liam must sit next to Peter"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Peter"
+          ],
+          "nl": "Charlie sits immediately left of Peter"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Charlie",
+            "Noah"
+          ],
+          "nl": "Charlie cannot sit next to Noah"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            1
+          ],
+          "nl": "Liam must sit at position 1"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Tina",
+            6
+          ],
+          "nl": "Tina must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 1,
+        "Tina": 6,
+        "Charlie": 3,
+        "Peter": 2,
+        "Noah": 5,
+        "Diana": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}

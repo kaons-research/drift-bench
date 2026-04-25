@@ -1,0 +1,972 @@
+{
+  "problem_id": "scheduling_275",
+  "domain": "scheduling",
+  "num_entities": 7,
+  "entities": [
+    "Planning",
+    "Testing",
+    "Deploy",
+    "Review",
+    "Meeting",
+    "QA",
+    "Design"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Review and QA cannot be simultaneous. Also, Deploy must start at time slot 1. Also, QA must start between time slots 4 and 9.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            9
+          ],
+          "nl": "QA must start between time slots 4 and 9"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            9
+          ],
+          "nl": "QA must start between time slots 4 and 9"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Meeting and QA cannot be simultaneous. Also, QA and Deploy cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            9
+          ],
+          "nl": "QA must start between time slots 4 and 9"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Review and Deploy cannot be simultaneous. Also, QA must happen before Planning. Also, Review must start between time slots 2 and 5.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            9
+          ],
+          "nl": "QA must start between time slots 4 and 9"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 1
+        },
+        "Review": {
+          "start": 5,
+          "duration": 1
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Review has duration 2. Also, Deploy has duration 3.",
+      "new_constraints": [
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            9
+          ],
+          "nl": "QA must start between time slots 4 and 9"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Review": {
+          "start": 5,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "QA and Planning cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA and Planning cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            9
+          ],
+          "nl": "QA must start between time slots 4 and 9"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA and Planning cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Review": {
+          "start": 5,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Planning and Review cannot be simultaneous. Also, Review and Design cannot be simultaneous. Also, Deploy and Meeting cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy and Meeting cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            9
+          ],
+          "nl": "QA must start between time slots 4 and 9"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA and Planning cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy and Meeting cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Review": {
+          "start": 2,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "There must be at least 0 slots between Testing and Meeting. Also, Deploy must happen before Meeting.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "QA"
+          ],
+          "nl": "Review and QA cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Deploy",
+            1
+          ],
+          "nl": "Deploy must start at time slot 1"
+        },
+        {
+          "type": "within",
+          "args": [
+            "QA",
+            4,
+            9
+          ],
+          "nl": "QA must start between time slots 4 and 9"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Meeting",
+            "QA"
+          ],
+          "nl": "Meeting and QA cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Deploy"
+          ],
+          "nl": "Review and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA must happen before Planning"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Review",
+            2,
+            5
+          ],
+          "nl": "Review must start between time slots 2 and 5"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Review",
+            2
+          ],
+          "nl": "Review has duration 2"
+        },
+        {
+          "type": "duration",
+          "args": [
+            "Deploy",
+            3
+          ],
+          "nl": "Deploy has duration 3"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Planning"
+          ],
+          "nl": "QA and Planning cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Planning",
+            "Review"
+          ],
+          "nl": "Planning and Review cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review and Design cannot be simultaneous"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy and Meeting cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Meeting",
+            0
+          ],
+          "nl": "There must be at least 0 slots between Testing and Meeting"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Deploy",
+            "Meeting"
+          ],
+          "nl": "Deploy must happen before Meeting"
+        }
+      ],
+      "gold_solution": {
+        "Planning": {
+          "start": 5,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "Deploy": {
+          "start": 1,
+          "duration": 3
+        },
+        "Review": {
+          "start": 2,
+          "duration": 2
+        },
+        "Meeting": {
+          "start": 5,
+          "duration": 1
+        },
+        "QA": {
+          "start": 4,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

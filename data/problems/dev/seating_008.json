@@ -1,0 +1,926 @@
+{
+  "problem_id": "seating_008",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Liam",
+    "Henry",
+    "Karen",
+    "Alice",
+    "Frank",
+    "Eve"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Liam and Eve must have at least 2 seats between them. Also, Karen sits immediately left of Frank.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 6,
+        "Henry": 5,
+        "Karen": 2,
+        "Alice": 4,
+        "Frank": 1,
+        "Eve": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Liam and Alice must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Henry": 6,
+        "Karen": 3,
+        "Alice": 5,
+        "Frank": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Frank must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            2
+          ],
+          "nl": "Frank must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            2
+          ],
+          "nl": "Frank must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Henry": 5,
+        "Karen": 3,
+        "Alice": 6,
+        "Frank": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Eve must sit next to Frank. Also, Henry and Alice must sit on the same side of the table. Also, Henry sits immediately left of Alice.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve must sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry sits immediately left of Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            2
+          ],
+          "nl": "Frank must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve must sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry sits immediately left of Alice"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Henry": 6,
+        "Karen": 3,
+        "Alice": 5,
+        "Frank": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Eve and Alice must sit on opposite sides of the table. Also, Eve and Liam must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve and Alice must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve and Liam must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            2
+          ],
+          "nl": "Frank must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve must sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry sits immediately left of Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve and Alice must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve and Liam must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Henry": 6,
+        "Karen": 3,
+        "Alice": 5,
+        "Frank": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Karen and Eve must have at least 1 seats between them. Also, Frank and Henry must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Eve",
+            1
+          ],
+          "nl": "Karen and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            1
+          ],
+          "nl": "Frank and Henry must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            2
+          ],
+          "nl": "Frank must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve must sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry sits immediately left of Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve and Alice must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve and Liam must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Eve",
+            1
+          ],
+          "nl": "Karen and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            1
+          ],
+          "nl": "Frank and Henry must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Henry": 6,
+        "Karen": 3,
+        "Alice": 5,
+        "Frank": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Alice and Frank must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            2
+          ],
+          "nl": "Frank must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve must sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry sits immediately left of Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve and Alice must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve and Liam must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Eve",
+            1
+          ],
+          "nl": "Karen and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            1
+          ],
+          "nl": "Frank and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Henry": 6,
+        "Karen": 3,
+        "Alice": 5,
+        "Frank": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Karen cannot sit next to Eve. Also, Karen and Frank must sit on the same side of the table.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Eve"
+          ],
+          "nl": "Karen cannot sit next to Eve"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen and Frank must sit on the same side of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            2
+          ],
+          "nl": "Frank must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve must sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry sits immediately left of Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve and Alice must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve and Liam must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Eve",
+            1
+          ],
+          "nl": "Karen and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            1
+          ],
+          "nl": "Frank and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Eve"
+          ],
+          "nl": "Karen cannot sit next to Eve"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen and Frank must sit on the same side of the table"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Henry": 6,
+        "Karen": 3,
+        "Alice": 5,
+        "Frank": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Frank and Liam must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            2
+          ],
+          "nl": "Liam and Eve must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen sits immediately left of Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            2
+          ],
+          "nl": "Frank must sit at position 2"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Frank"
+          ],
+          "nl": "Eve must sit next to Frank"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry and Alice must sit on the same side of the table"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry sits immediately left of Alice"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Alice"
+          ],
+          "nl": "Eve and Alice must sit on opposite sides of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Liam"
+          ],
+          "nl": "Eve and Liam must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Karen",
+            "Eve",
+            1
+          ],
+          "nl": "Karen and Eve must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Henry",
+            1
+          ],
+          "nl": "Frank and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Alice",
+            "Frank"
+          ],
+          "nl": "Alice and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Karen",
+            "Eve"
+          ],
+          "nl": "Karen cannot sit next to Eve"
+        },
+        {
+          "type": "same_side",
+          "args": [
+            "Karen",
+            "Frank"
+          ],
+          "nl": "Karen and Frank must sit on the same side of the table"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Frank",
+            "Liam"
+          ],
+          "nl": "Frank and Liam must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Liam": 4,
+        "Henry": 6,
+        "Karen": 3,
+        "Alice": 5,
+        "Frank": 2,
+        "Eve": 1
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "dev"
+}

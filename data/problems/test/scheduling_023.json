@@ -1,0 +1,622 @@
+{
+  "problem_id": "scheduling_023",
+  "domain": "scheduling",
+  "num_entities": 6,
+  "entities": [
+    "Review",
+    "Design",
+    "Sync",
+    "QA",
+    "Docs",
+    "Planning"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Review must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Design must start between time slots 1 and 3. Also, There must be at least 1 slots between QA and Sync.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            3
+          ],
+          "nl": "Design must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Sync"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            3
+          ],
+          "nl": "Design must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Sync"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 3,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 1,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Design and QA cannot be simultaneous. Also, There must be at least 2 slots between QA and Design. Also, Planning must happen before Docs.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            3
+          ],
+          "nl": "Design must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 2,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 7,
+          "duration": 1
+        },
+        "QA": {
+          "start": 5,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Design must start between time slots 3 and 7.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            7
+          ],
+          "nl": "Design must start between time slots 3 and 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            3
+          ],
+          "nl": "Design must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            7
+          ],
+          "nl": "Design must start between time slots 3 and 7"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 8,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 2,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Planning must start between time slots 2 and 4. Also, Sync must happen before Design.",
+      "new_constraints": [
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            4
+          ],
+          "nl": "Planning must start between time slots 2 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            3
+          ],
+          "nl": "Design must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            7
+          ],
+          "nl": "Design must start between time slots 3 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            4
+          ],
+          "nl": "Planning must start between time slots 2 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 1,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "There must be at least 1 slots between Review and QA.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and QA"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Review",
+            "Design"
+          ],
+          "nl": "Review must happen before Design"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            1,
+            3
+          ],
+          "nl": "Design must start between time slots 1 and 3"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Sync",
+            1
+          ],
+          "nl": "There must be at least 1 slots between QA and Sync"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Design",
+            "QA"
+          ],
+          "nl": "Design and QA cannot be simultaneous"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "QA",
+            "Design",
+            2
+          ],
+          "nl": "There must be at least 2 slots between QA and Design"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Planning",
+            "Docs"
+          ],
+          "nl": "Planning must happen before Docs"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Design",
+            3,
+            7
+          ],
+          "nl": "Design must start between time slots 3 and 7"
+        },
+        {
+          "type": "within",
+          "args": [
+            "Planning",
+            2,
+            4
+          ],
+          "nl": "Planning must start between time slots 2 and 4"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Sync",
+            "Design"
+          ],
+          "nl": "Sync must happen before Design"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Review",
+            "QA",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Review and QA"
+        }
+      ],
+      "gold_solution": {
+        "Review": {
+          "start": 2,
+          "duration": 1
+        },
+        "Design": {
+          "start": 3,
+          "duration": 1
+        },
+        "Sync": {
+          "start": 2,
+          "duration": 1
+        },
+        "QA": {
+          "start": 6,
+          "duration": 1
+        },
+        "Docs": {
+          "start": 3,
+          "duration": 1
+        },
+        "Planning": {
+          "start": 2,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 9,
+  "max_duration": 3,
+  "split": "test"
+}

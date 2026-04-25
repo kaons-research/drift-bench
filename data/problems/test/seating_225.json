@@ -1,0 +1,769 @@
+{
+  "problem_id": "seating_225",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Noah",
+    "Liam",
+    "Mia",
+    "Alice",
+    "Quinn",
+    "Karen",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Liam cannot sit next to Quinn. Also, Noah cannot sit next to Liam. Also, Liam and Noah must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Liam": 2,
+        "Mia": 3,
+        "Alice": 7,
+        "Quinn": 4,
+        "Karen": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Henry sits immediately left of Quinn. Also, Alice cannot sit next to Quinn. Also, Henry must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 6,
+        "Liam": 1,
+        "Mia": 2,
+        "Alice": 7,
+        "Quinn": 3,
+        "Karen": 5,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia sits immediately left of Karen.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia sits immediately left of Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia sits immediately left of Karen"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 2,
+        "Liam": 6,
+        "Mia": 1,
+        "Alice": 5,
+        "Quinn": 3,
+        "Karen": 7,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam and Henry must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Henry",
+            1
+          ],
+          "nl": "Liam and Henry must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia sits immediately left of Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Henry",
+            1
+          ],
+          "nl": "Liam and Henry must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 5,
+        "Liam": 7,
+        "Mia": 2,
+        "Alice": 6,
+        "Quinn": 3,
+        "Karen": 1,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Alice must sit next to Henry. Also, Noah sits immediately left of Mia. Also, Mia and Liam must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah sits immediately left of Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Liam",
+            1
+          ],
+          "nl": "Mia and Liam must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia sits immediately left of Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Henry",
+            1
+          ],
+          "nl": "Liam and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah sits immediately left of Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Liam",
+            1
+          ],
+          "nl": "Mia and Liam must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 2,
+        "Liam": 6,
+        "Mia": 1,
+        "Alice": 5,
+        "Quinn": 3,
+        "Karen": 7,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Quinn must sit at position 3. Also, Karen must sit at position 7.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            7
+          ],
+          "nl": "Karen must sit at position 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia sits immediately left of Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Henry",
+            1
+          ],
+          "nl": "Liam and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah sits immediately left of Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Liam",
+            1
+          ],
+          "nl": "Mia and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            7
+          ],
+          "nl": "Karen must sit at position 7"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 2,
+        "Liam": 6,
+        "Mia": 1,
+        "Alice": 5,
+        "Quinn": 3,
+        "Karen": 7,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Liam must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Liam",
+            "Quinn"
+          ],
+          "nl": "Liam cannot sit next to Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Noah",
+            "Liam"
+          ],
+          "nl": "Noah cannot sit next to Liam"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Noah",
+            1
+          ],
+          "nl": "Liam and Noah must have at least 1 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Quinn"
+          ],
+          "nl": "Henry sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            4
+          ],
+          "nl": "Henry must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Karen"
+          ],
+          "nl": "Mia sits immediately left of Karen"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Henry",
+            1
+          ],
+          "nl": "Liam and Henry must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice must sit next to Henry"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Mia"
+          ],
+          "nl": "Noah sits immediately left of Mia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Liam",
+            1
+          ],
+          "nl": "Mia and Liam must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            7
+          ],
+          "nl": "Karen must sit at position 7"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Liam",
+            "Alice"
+          ],
+          "nl": "Liam must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Noah": 2,
+        "Liam": 6,
+        "Mia": 1,
+        "Alice": 5,
+        "Quinn": 3,
+        "Karen": 7,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

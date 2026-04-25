@@ -1,0 +1,750 @@
+{
+  "problem_id": "seating_126",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Eve",
+    "Jack",
+    "Olivia",
+    "Frank",
+    "Liam",
+    "Karen"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Jack cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 3,
+        "Jack": 6,
+        "Olivia": 4,
+        "Frank": 2,
+        "Liam": 1,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Eve and Jack must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Jack": 1,
+        "Olivia": 3,
+        "Frank": 5,
+        "Liam": 4,
+        "Karen": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Karen must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 3,
+        "Jack": 6,
+        "Olivia": 4,
+        "Frank": 2,
+        "Liam": 1,
+        "Karen": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Frank and Karen must have at least 1 seats between them. Also, Karen must sit at position 3. Also, Frank must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 1,
+        "Jack": 5,
+        "Olivia": 2,
+        "Frank": 6,
+        "Liam": 4,
+        "Karen": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Liam must sit at position 4. Also, Olivia and Frank must sit on opposite sides of the table.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia and Frank must sit on opposite sides of the table"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia and Frank must sit on opposite sides of the table"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 1,
+        "Jack": 5,
+        "Olivia": 2,
+        "Frank": 6,
+        "Liam": 4,
+        "Karen": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Olivia and Jack must have at least 1 seats between them. Also, Eve must sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            1
+          ],
+          "nl": "Olivia and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve must sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            1
+          ],
+          "nl": "Olivia and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve must sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 1,
+        "Jack": 5,
+        "Olivia": 2,
+        "Frank": 6,
+        "Liam": 4,
+        "Karen": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Frank and Olivia must have at least 1 seats between them. Also, Frank cannot sit next to Karen. Also, Jack sits immediately left of Liam.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Olivia",
+            1
+          ],
+          "nl": "Frank and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack sits immediately left of Liam"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            1
+          ],
+          "nl": "Olivia and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Olivia",
+            1
+          ],
+          "nl": "Frank and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack sits immediately left of Liam"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 1,
+        "Jack": 5,
+        "Olivia": 2,
+        "Frank": 6,
+        "Liam": 4,
+        "Karen": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Karen and Jack must sit on opposite sides of the table. Also, Jack cannot sit next to Karen.",
+      "new_constraints": [
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Jack"
+          ],
+          "nl": "Karen and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Olivia"
+          ],
+          "nl": "Jack cannot sit next to Olivia"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Eve",
+            "Jack"
+          ],
+          "nl": "Eve and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Karen",
+            "Olivia"
+          ],
+          "nl": "Karen must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Karen",
+            3
+          ],
+          "nl": "Karen must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            6
+          ],
+          "nl": "Frank must sit at position 6"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Liam",
+            4
+          ],
+          "nl": "Liam must sit at position 4"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Olivia",
+            "Frank"
+          ],
+          "nl": "Olivia and Frank must sit on opposite sides of the table"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Olivia",
+            "Jack",
+            1
+          ],
+          "nl": "Olivia and Jack must have at least 1 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Eve",
+            "Olivia"
+          ],
+          "nl": "Eve must sit next to Olivia"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Olivia",
+            1
+          ],
+          "nl": "Frank and Olivia must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Karen"
+          ],
+          "nl": "Frank cannot sit next to Karen"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Jack",
+            "Liam"
+          ],
+          "nl": "Jack sits immediately left of Liam"
+        },
+        {
+          "type": "opposite_side",
+          "args": [
+            "Karen",
+            "Jack"
+          ],
+          "nl": "Karen and Jack must sit on opposite sides of the table"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Karen"
+          ],
+          "nl": "Jack cannot sit next to Karen"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 1,
+        "Jack": 5,
+        "Olivia": 2,
+        "Frank": 6,
+        "Liam": 4,
+        "Karen": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "rectangular",
+  "split": "dev"
+}

@@ -1,0 +1,1168 @@
+{
+  "problem_id": "seating_013",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Alice",
+    "Peter",
+    "Ivy",
+    "Henry",
+    "Bob",
+    "Jack",
+    "Quinn",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Ivy sits immediately left of Quinn. Also, Alice cannot sit next to Bob. Also, Henry must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 4,
+        "Peter": 3,
+        "Ivy": 1,
+        "Henry": 5,
+        "Bob": 2,
+        "Jack": 7,
+        "Quinn": 8,
+        "Charlie": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Quinn must sit at position 3. Also, Henry sits immediately left of Charlie.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 7,
+        "Peter": 8,
+        "Ivy": 4,
+        "Henry": 6,
+        "Bob": 2,
+        "Jack": 1,
+        "Quinn": 3,
+        "Charlie": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie and Quinn must have at least 3 seats between them. Also, Ivy must sit next to Bob. Also, Jack cannot sit next to Charlie.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack cannot sit next to Charlie"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack cannot sit next to Charlie"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Peter": 6,
+        "Ivy": 4,
+        "Henry": 8,
+        "Bob": 5,
+        "Jack": 2,
+        "Quinn": 3,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Bob cannot sit next to Quinn. Also, Henry must sit at position 8.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Peter": 6,
+        "Ivy": 4,
+        "Henry": 8,
+        "Bob": 5,
+        "Jack": 2,
+        "Quinn": 3,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Quinn and Henry must have at least 2 seats between them. Also, Peter must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Henry",
+            2
+          ],
+          "nl": "Quinn and Henry must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            6
+          ],
+          "nl": "Peter must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Henry",
+            2
+          ],
+          "nl": "Quinn and Henry must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            6
+          ],
+          "nl": "Peter must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Peter": 6,
+        "Ivy": 4,
+        "Henry": 8,
+        "Bob": 5,
+        "Jack": 2,
+        "Quinn": 3,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Quinn must sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn must sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Henry",
+            2
+          ],
+          "nl": "Quinn and Henry must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            6
+          ],
+          "nl": "Peter must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn must sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Peter": 6,
+        "Ivy": 4,
+        "Henry": 8,
+        "Bob": 5,
+        "Jack": 2,
+        "Quinn": 3,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 7,
+      "user_message": "Alice sits immediately left of Henry. Also, Quinn cannot sit next to Henry. Also, Alice and Bob must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice sits immediately left of Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn cannot sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Bob",
+            2
+          ],
+          "nl": "Alice and Bob must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Henry",
+            2
+          ],
+          "nl": "Quinn and Henry must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            6
+          ],
+          "nl": "Peter must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn must sit next to Ivy"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice sits immediately left of Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn cannot sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Bob",
+            2
+          ],
+          "nl": "Alice and Bob must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Peter": 6,
+        "Ivy": 4,
+        "Henry": 8,
+        "Bob": 5,
+        "Jack": 2,
+        "Quinn": 3,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 8,
+      "user_message": "Alice cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Henry",
+            2
+          ],
+          "nl": "Quinn and Henry must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            6
+          ],
+          "nl": "Peter must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn must sit next to Ivy"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice sits immediately left of Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn cannot sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Bob",
+            2
+          ],
+          "nl": "Alice and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Peter": 6,
+        "Ivy": 4,
+        "Henry": 8,
+        "Bob": 5,
+        "Jack": 2,
+        "Quinn": 3,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 9,
+      "user_message": "Charlie must sit at position 7.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            7
+          ],
+          "nl": "Charlie must sit at position 7"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Ivy",
+            "Quinn"
+          ],
+          "nl": "Ivy sits immediately left of Quinn"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Bob"
+          ],
+          "nl": "Alice cannot sit next to Bob"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Henry",
+            "Alice"
+          ],
+          "nl": "Henry must sit next to Alice"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            3
+          ],
+          "nl": "Quinn must sit at position 3"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Charlie"
+          ],
+          "nl": "Henry sits immediately left of Charlie"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Charlie",
+            "Quinn",
+            3
+          ],
+          "nl": "Charlie and Quinn must have at least 3 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ivy",
+            "Bob"
+          ],
+          "nl": "Ivy must sit next to Bob"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Jack",
+            "Charlie"
+          ],
+          "nl": "Jack cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Quinn"
+          ],
+          "nl": "Bob cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Henry",
+            8
+          ],
+          "nl": "Henry must sit at position 8"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Quinn",
+            "Henry",
+            2
+          ],
+          "nl": "Quinn and Henry must have at least 2 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            6
+          ],
+          "nl": "Peter must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Quinn",
+            "Ivy"
+          ],
+          "nl": "Quinn must sit next to Ivy"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Alice",
+            "Henry"
+          ],
+          "nl": "Alice sits immediately left of Henry"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Quinn",
+            "Henry"
+          ],
+          "nl": "Quinn cannot sit next to Henry"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Bob",
+            2
+          ],
+          "nl": "Alice and Bob must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            7
+          ],
+          "nl": "Charlie must sit at position 7"
+        }
+      ],
+      "gold_solution": {
+        "Alice": 1,
+        "Peter": 6,
+        "Ivy": 4,
+        "Henry": 8,
+        "Bob": 5,
+        "Jack": 2,
+        "Quinn": 3,
+        "Charlie": 7
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

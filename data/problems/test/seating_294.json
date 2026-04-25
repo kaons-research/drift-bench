@@ -1,0 +1,366 @@
+{
+  "problem_id": "seating_294",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Quinn",
+    "Noah",
+    "Sam",
+    "Grace",
+    "Ruby",
+    "Ivy",
+    "Alice"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Noah sits immediately left of Ruby.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah sits immediately left of Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah sits immediately left of Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 6,
+        "Noah": 3,
+        "Sam": 7,
+        "Grace": 4,
+        "Ruby": 2,
+        "Ivy": 5,
+        "Alice": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Alice and Ruby must have at least 1 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah sits immediately left of Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 1,
+        "Noah": 4,
+        "Sam": 2,
+        "Grace": 5,
+        "Ruby": 3,
+        "Ivy": 6,
+        "Alice": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Alice cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah sits immediately left of Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 4,
+        "Noah": 3,
+        "Sam": 7,
+        "Grace": 1,
+        "Ruby": 2,
+        "Ivy": 5,
+        "Alice": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Sam sits immediately left of Quinn.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam sits immediately left of Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah sits immediately left of Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam sits immediately left of Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 3,
+        "Noah": 2,
+        "Sam": 4,
+        "Grace": 7,
+        "Ruby": 1,
+        "Ivy": 5,
+        "Alice": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Quinn must sit at position 6.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            6
+          ],
+          "nl": "Quinn must sit at position 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah sits immediately left of Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam sits immediately left of Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            6
+          ],
+          "nl": "Quinn must sit at position 6"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 6,
+        "Noah": 5,
+        "Sam": 7,
+        "Grace": 1,
+        "Ruby": 4,
+        "Ivy": 3,
+        "Alice": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 6,
+      "user_message": "Grace and Ruby must have at least 1 seats between them. Also, Ruby must sit at position 2.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Ruby",
+            1
+          ],
+          "nl": "Grace and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            2
+          ],
+          "nl": "Ruby must sit at position 2"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah sits immediately left of Ruby"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Alice",
+            "Ruby",
+            1
+          ],
+          "nl": "Alice and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Alice",
+            "Quinn"
+          ],
+          "nl": "Alice cannot sit next to Quinn"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Sam",
+            "Quinn"
+          ],
+          "nl": "Sam sits immediately left of Quinn"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            6
+          ],
+          "nl": "Quinn must sit at position 6"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Grace",
+            "Ruby",
+            1
+          ],
+          "nl": "Grace and Ruby must have at least 1 seats between them"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            2
+          ],
+          "nl": "Ruby must sit at position 2"
+        }
+      ],
+      "gold_solution": {
+        "Quinn": 6,
+        "Noah": 3,
+        "Sam": 7,
+        "Grace": 5,
+        "Ruby": 2,
+        "Ivy": 1,
+        "Alice": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

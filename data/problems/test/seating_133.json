@@ -1,0 +1,444 @@
+{
+  "problem_id": "seating_133",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Mia",
+    "Jack",
+    "Ruby",
+    "Sam",
+    "Karen",
+    "Frank",
+    "Quinn"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Jack must sit next to Ruby. Also, Frank must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Ruby"
+          ],
+          "nl": "Jack must sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Ruby"
+          ],
+          "nl": "Jack must sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 6,
+        "Jack": 2,
+        "Ruby": 1,
+        "Sam": 5,
+        "Karen": 7,
+        "Frank": 3,
+        "Quinn": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack must sit next to Frank.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack must sit next to Frank"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Ruby"
+          ],
+          "nl": "Jack must sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack must sit next to Frank"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 1,
+        "Jack": 4,
+        "Ruby": 5,
+        "Sam": 7,
+        "Karen": 6,
+        "Frank": 3,
+        "Quinn": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia must sit next to Frank. Also, Sam cannot sit next to Jack. Also, Mia cannot sit next to Quinn.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Quinn"
+          ],
+          "nl": "Mia cannot sit next to Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Ruby"
+          ],
+          "nl": "Jack must sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack must sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Quinn"
+          ],
+          "nl": "Mia cannot sit next to Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 2,
+        "Jack": 4,
+        "Ruby": 5,
+        "Sam": 7,
+        "Karen": 1,
+        "Frank": 3,
+        "Quinn": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Frank and Karen must have at least 1 seats between them. Also, Ruby and Karen must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Karen",
+            2
+          ],
+          "nl": "Ruby and Karen must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Ruby"
+          ],
+          "nl": "Jack must sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack must sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Quinn"
+          ],
+          "nl": "Mia cannot sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Karen",
+            2
+          ],
+          "nl": "Ruby and Karen must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 2,
+        "Jack": 4,
+        "Ruby": 5,
+        "Sam": 6,
+        "Karen": 1,
+        "Frank": 3,
+        "Quinn": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Ruby must sit next to Quinn. Also, Mia and Ruby must have at least 2 seats between them. Also, Ruby sits immediately left of Quinn.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Quinn"
+          ],
+          "nl": "Ruby must sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ruby",
+            2
+          ],
+          "nl": "Mia and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Quinn"
+          ],
+          "nl": "Ruby sits immediately left of Quinn"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Ruby"
+          ],
+          "nl": "Jack must sit next to Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            3
+          ],
+          "nl": "Frank must sit at position 3"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Jack",
+            "Frank"
+          ],
+          "nl": "Jack must sit next to Frank"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Frank"
+          ],
+          "nl": "Mia must sit next to Frank"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Sam",
+            "Jack"
+          ],
+          "nl": "Sam cannot sit next to Jack"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Mia",
+            "Quinn"
+          ],
+          "nl": "Mia cannot sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Karen",
+            1
+          ],
+          "nl": "Frank and Karen must have at least 1 seats between them"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Ruby",
+            "Karen",
+            2
+          ],
+          "nl": "Ruby and Karen must have at least 2 seats between them"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Ruby",
+            "Quinn"
+          ],
+          "nl": "Ruby must sit next to Quinn"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Mia",
+            "Ruby",
+            2
+          ],
+          "nl": "Mia and Ruby must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Ruby",
+            "Quinn"
+          ],
+          "nl": "Ruby sits immediately left of Quinn"
+        }
+      ],
+      "gold_solution": {
+        "Mia": 4,
+        "Jack": 2,
+        "Ruby": 1,
+        "Sam": 6,
+        "Karen": 5,
+        "Frank": 3,
+        "Quinn": 7
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

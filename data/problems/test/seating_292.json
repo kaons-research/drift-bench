@@ -1,0 +1,270 @@
+{
+  "problem_id": "seating_292",
+  "domain": "seating",
+  "num_entities": 8,
+  "entities": [
+    "Eve",
+    "Frank",
+    "Karen",
+    "Ivy",
+    "Liam",
+    "Alice",
+    "Mia",
+    "Quinn"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Liam and Eve must have at least 3 seats between them. Also, Quinn sits immediately left of Mia.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            3
+          ],
+          "nl": "Liam and Eve must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn sits immediately left of Mia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            3
+          ],
+          "nl": "Liam and Eve must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn sits immediately left of Mia"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 7,
+        "Frank": 2,
+        "Karen": 8,
+        "Ivy": 1,
+        "Liam": 3,
+        "Alice": 4,
+        "Mia": 5,
+        "Quinn": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank must sit at position 1.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            3
+          ],
+          "nl": "Liam and Eve must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn sits immediately left of Mia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 7,
+        "Frank": 1,
+        "Karen": 2,
+        "Ivy": 8,
+        "Liam": 3,
+        "Alice": 4,
+        "Mia": 5,
+        "Quinn": 6
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia must sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia must sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            3
+          ],
+          "nl": "Liam and Eve must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn sits immediately left of Mia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia must sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 6,
+        "Frank": 1,
+        "Karen": 8,
+        "Ivy": 3,
+        "Liam": 2,
+        "Alice": 7,
+        "Mia": 4,
+        "Quinn": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Liam and Quinn must have at least 2 seats between them. Also, Ivy cannot sit next to Eve.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Quinn",
+            2
+          ],
+          "nl": "Liam and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Eve",
+            3
+          ],
+          "nl": "Liam and Eve must have at least 3 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Quinn",
+            "Mia"
+          ],
+          "nl": "Quinn sits immediately left of Mia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Frank",
+            1
+          ],
+          "nl": "Frank must sit at position 1"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Ivy"
+          ],
+          "nl": "Mia must sit next to Ivy"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Liam",
+            "Quinn",
+            2
+          ],
+          "nl": "Liam and Quinn must have at least 2 seats between them"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ivy",
+            "Eve"
+          ],
+          "nl": "Ivy cannot sit next to Eve"
+        }
+      ],
+      "gold_solution": {
+        "Eve": 7,
+        "Frank": 1,
+        "Karen": 2,
+        "Ivy": 4,
+        "Liam": 3,
+        "Alice": 8,
+        "Mia": 5,
+        "Quinn": 6
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

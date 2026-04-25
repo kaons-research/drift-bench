@@ -1,0 +1,234 @@
+{
+  "problem_id": "seating_150",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Grace",
+    "Quinn",
+    "Mia",
+    "Ivy",
+    "Olivia",
+    "Jack",
+    "Ruby"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Ruby must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Quinn": 4,
+        "Mia": 1,
+        "Ivy": 5,
+        "Olivia": 6,
+        "Jack": 7,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Jack must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 7,
+        "Quinn": 5,
+        "Mia": 1,
+        "Ivy": 2,
+        "Olivia": 6,
+        "Jack": 4,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Olivia cannot sit next to Ivy.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 1,
+        "Quinn": 6,
+        "Mia": 2,
+        "Ivy": 5,
+        "Olivia": 7,
+        "Jack": 4,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Grace must sit at position 6. Also, Grace must sit next to Olivia. Also, Quinn must sit at position 5.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            6
+          ],
+          "nl": "Grace must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace must sit next to Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            5
+          ],
+          "nl": "Quinn must sit at position 5"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Jack",
+            4
+          ],
+          "nl": "Jack must sit at position 4"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Ivy"
+          ],
+          "nl": "Olivia cannot sit next to Ivy"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Grace",
+            6
+          ],
+          "nl": "Grace must sit at position 6"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Grace",
+            "Olivia"
+          ],
+          "nl": "Grace must sit next to Olivia"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Quinn",
+            5
+          ],
+          "nl": "Quinn must sit at position 5"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 6,
+        "Quinn": 5,
+        "Mia": 1,
+        "Ivy": 2,
+        "Olivia": 7,
+        "Jack": 4,
+        "Ruby": 3
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

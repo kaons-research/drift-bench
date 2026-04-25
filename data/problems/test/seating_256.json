@@ -1,0 +1,375 @@
+{
+  "problem_id": "seating_256",
+  "domain": "seating",
+  "num_entities": 7,
+  "entities": [
+    "Frank",
+    "Quinn",
+    "Ruby",
+    "Noah",
+    "Tina",
+    "Olivia",
+    "Diana"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Frank sits immediately left of Ruby. Also, Ruby must sit at position 3.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank sits immediately left of Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank sits immediately left of Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 4,
+        "Quinn": 7,
+        "Ruby": 3,
+        "Noah": 2,
+        "Tina": 5,
+        "Olivia": 6,
+        "Diana": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Frank cannot sit next to Diana. Also, Noah must sit next to Ruby.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank sits immediately left of Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 4,
+        "Quinn": 6,
+        "Ruby": 3,
+        "Noah": 2,
+        "Tina": 5,
+        "Olivia": 1,
+        "Diana": 7
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Olivia must sit next to Tina.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank sits immediately left of Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 4,
+        "Quinn": 7,
+        "Ruby": 3,
+        "Noah": 2,
+        "Tina": 5,
+        "Olivia": 6,
+        "Diana": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Frank and Diana must have at least 2 seats between them.",
+      "new_constraints": [
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Diana",
+            2
+          ],
+          "nl": "Frank and Diana must have at least 2 seats between them"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank sits immediately left of Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Diana",
+            2
+          ],
+          "nl": "Frank and Diana must have at least 2 seats between them"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 4,
+        "Quinn": 5,
+        "Ruby": 3,
+        "Noah": 2,
+        "Tina": 6,
+        "Olivia": 7,
+        "Diana": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Olivia sits immediately left of Tina. Also, Ruby cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia sits immediately left of Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Frank",
+            "Ruby"
+          ],
+          "nl": "Frank sits immediately left of Ruby"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Ruby",
+            3
+          ],
+          "nl": "Ruby must sit at position 3"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Frank",
+            "Diana"
+          ],
+          "nl": "Frank cannot sit next to Diana"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Noah",
+            "Ruby"
+          ],
+          "nl": "Noah must sit next to Ruby"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia must sit next to Tina"
+        },
+        {
+          "type": "separated_by",
+          "args": [
+            "Frank",
+            "Diana",
+            2
+          ],
+          "nl": "Frank and Diana must have at least 2 seats between them"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Olivia",
+            "Tina"
+          ],
+          "nl": "Olivia sits immediately left of Tina"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Ruby",
+            "Olivia"
+          ],
+          "nl": "Ruby cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Frank": 4,
+        "Quinn": 1,
+        "Ruby": 3,
+        "Noah": 2,
+        "Tina": 5,
+        "Olivia": 6,
+        "Diana": 7
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

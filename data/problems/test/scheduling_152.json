@@ -1,0 +1,393 @@
+{
+  "problem_id": "scheduling_152",
+  "domain": "scheduling",
+  "num_entities": 5,
+  "entities": [
+    "Deploy",
+    "Testing",
+    "QA",
+    "Refactor",
+    "Review"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Testing and Deploy cannot be simultaneous. Also, Refactor must start at time slot 6.",
+      "new_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 1,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 1,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "There must be at least 1 slots between Testing and Review. Also, Testing and QA cannot be simultaneous.",
+      "new_constraints": [
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing and QA cannot be simultaneous"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing and QA cannot be simultaneous"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 3,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Testing must happen before Deploy. Also, QA and Refactor cannot be simultaneous. Also, Review must start at time slot 6.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            6
+          ],
+          "nl": "Review must start at time slot 6"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            6
+          ],
+          "nl": "Review must start at time slot 6"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 2,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "QA must happen before Deploy. Also, QA must happen before Review.",
+      "new_constraints": [
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA must happen before Review"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing and Deploy cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Refactor",
+            6
+          ],
+          "nl": "Refactor must start at time slot 6"
+        },
+        {
+          "type": "gap",
+          "args": [
+            "Testing",
+            "Review",
+            1
+          ],
+          "nl": "There must be at least 1 slots between Testing and Review"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "Testing",
+            "QA"
+          ],
+          "nl": "Testing and QA cannot be simultaneous"
+        },
+        {
+          "type": "before",
+          "args": [
+            "Testing",
+            "Deploy"
+          ],
+          "nl": "Testing must happen before Deploy"
+        },
+        {
+          "type": "not_simultaneous",
+          "args": [
+            "QA",
+            "Refactor"
+          ],
+          "nl": "QA and Refactor cannot be simultaneous"
+        },
+        {
+          "type": "at_time",
+          "args": [
+            "Review",
+            6
+          ],
+          "nl": "Review must start at time slot 6"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Deploy"
+          ],
+          "nl": "QA must happen before Deploy"
+        },
+        {
+          "type": "before",
+          "args": [
+            "QA",
+            "Review"
+          ],
+          "nl": "QA must happen before Review"
+        }
+      ],
+      "gold_solution": {
+        "Deploy": {
+          "start": 3,
+          "duration": 1
+        },
+        "Testing": {
+          "start": 1,
+          "duration": 1
+        },
+        "QA": {
+          "start": 2,
+          "duration": 1
+        },
+        "Refactor": {
+          "start": 6,
+          "duration": 1
+        },
+        "Review": {
+          "start": 6,
+          "duration": 1
+        }
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "num_slots": 8,
+  "max_duration": 3,
+  "split": "test"
+}

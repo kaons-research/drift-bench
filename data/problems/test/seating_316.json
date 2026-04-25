@@ -1,0 +1,229 @@
+{
+  "problem_id": "seating_316",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Grace",
+    "Diana",
+    "Olivia",
+    "Ivy",
+    "Bob",
+    "Charlie"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Grace sits immediately left of Ivy.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Ivy"
+          ],
+          "nl": "Grace sits immediately left of Ivy"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Ivy"
+          ],
+          "nl": "Grace sits immediately left of Ivy"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 5,
+        "Diana": 2,
+        "Olivia": 6,
+        "Ivy": 4,
+        "Bob": 3,
+        "Charlie": 1
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Olivia cannot sit next to Charlie. Also, Diana cannot sit next to Olivia.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Ivy"
+          ],
+          "nl": "Grace sits immediately left of Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 6,
+        "Diana": 3,
+        "Olivia": 1,
+        "Ivy": 5,
+        "Bob": 2,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Charlie sits immediately left of Diana.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie sits immediately left of Diana"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Ivy"
+          ],
+          "nl": "Grace sits immediately left of Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie sits immediately left of Diana"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 4,
+        "Diana": 1,
+        "Olivia": 5,
+        "Ivy": 3,
+        "Bob": 6,
+        "Charlie": 2
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Charlie must sit at position 4.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Grace",
+            "Ivy"
+          ],
+          "nl": "Grace sits immediately left of Ivy"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Olivia",
+            "Charlie"
+          ],
+          "nl": "Olivia cannot sit next to Charlie"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Diana",
+            "Olivia"
+          ],
+          "nl": "Diana cannot sit next to Olivia"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Charlie",
+            "Diana"
+          ],
+          "nl": "Charlie sits immediately left of Diana"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Charlie",
+            4
+          ],
+          "nl": "Charlie must sit at position 4"
+        }
+      ],
+      "gold_solution": {
+        "Grace": 2,
+        "Diana": 3,
+        "Olivia": 6,
+        "Ivy": 1,
+        "Bob": 5,
+        "Charlie": 4
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "test"
+}

@@ -1,0 +1,342 @@
+{
+  "problem_id": "seating_137",
+  "domain": "seating",
+  "num_entities": 6,
+  "entities": [
+    "Bob",
+    "Peter",
+    "Alice",
+    "Eve",
+    "Mia",
+    "Henry"
+  ],
+  "turns": [
+    {
+      "turn_number": 1,
+      "user_message": "Bob cannot sit next to Henry.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Henry"
+          ],
+          "nl": "Bob cannot sit next to Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Henry"
+          ],
+          "nl": "Bob cannot sit next to Henry"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Peter": 1,
+        "Alice": 5,
+        "Eve": 3,
+        "Mia": 6,
+        "Henry": 4
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 2,
+      "user_message": "Peter must sit at position 4. Also, Henry sits immediately left of Peter. Also, Mia must sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry sits immediately left of Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia must sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Henry"
+          ],
+          "nl": "Bob cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry sits immediately left of Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia must sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 2,
+        "Peter": 4,
+        "Alice": 6,
+        "Eve": 3,
+        "Mia": 1,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 3,
+      "user_message": "Mia sits immediately left of Henry.",
+      "new_constraints": [
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Henry"
+          ],
+          "nl": "Mia sits immediately left of Henry"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Henry"
+          ],
+          "nl": "Bob cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry sits immediately left of Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia must sit next to Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Henry"
+          ],
+          "nl": "Mia sits immediately left of Henry"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 3,
+        "Peter": 4,
+        "Alice": 1,
+        "Eve": 2,
+        "Mia": 6,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 4,
+      "user_message": "Alice must sit next to Eve.",
+      "new_constraints": [
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Henry"
+          ],
+          "nl": "Bob cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry sits immediately left of Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia must sit next to Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Henry"
+          ],
+          "nl": "Mia sits immediately left of Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 3,
+        "Peter": 4,
+        "Alice": 1,
+        "Eve": 2,
+        "Mia": 6,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    },
+    {
+      "turn_number": 5,
+      "user_message": "Peter cannot sit next to Alice.",
+      "new_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Alice"
+          ],
+          "nl": "Peter cannot sit next to Alice"
+        }
+      ],
+      "cumulative_constraints": [
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Bob",
+            "Henry"
+          ],
+          "nl": "Bob cannot sit next to Henry"
+        },
+        {
+          "type": "at_position",
+          "args": [
+            "Peter",
+            4
+          ],
+          "nl": "Peter must sit at position 4"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Henry",
+            "Peter"
+          ],
+          "nl": "Henry sits immediately left of Peter"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Mia",
+            "Alice"
+          ],
+          "nl": "Mia must sit next to Alice"
+        },
+        {
+          "type": "left_of",
+          "args": [
+            "Mia",
+            "Henry"
+          ],
+          "nl": "Mia sits immediately left of Henry"
+        },
+        {
+          "type": "adjacent",
+          "args": [
+            "Alice",
+            "Eve"
+          ],
+          "nl": "Alice must sit next to Eve"
+        },
+        {
+          "type": "not_adjacent",
+          "args": [
+            "Peter",
+            "Alice"
+          ],
+          "nl": "Peter cannot sit next to Alice"
+        }
+      ],
+      "gold_solution": {
+        "Bob": 3,
+        "Peter": 4,
+        "Alice": 1,
+        "Eve": 2,
+        "Mia": 6,
+        "Henry": 5
+      },
+      "is_satisfiable": true
+    }
+  ],
+  "table_shape": "round",
+  "split": "dev"
+}
